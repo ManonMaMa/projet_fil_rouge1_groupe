@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Connexion from "./pages/Connexion"
+import Inscription from "./pages/Inscription"
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
       </Routes>
     </BrowserRouter>
   )
