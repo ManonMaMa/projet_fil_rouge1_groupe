@@ -3,13 +3,17 @@ import "./Connexion.css"
 function Connexion() {
   return (
     <div className="connexion-page">
-        
+
       <div className="Partie-gauche">
-        <h1></h1>
+        <div className="Contenu">
+            <h1>Bonjour,</h1>
+            <h1>Content de vous revoir</h1>
+        </div>
+
       </div>
 
       <div className="Partie-droite">
-        <h2></h2>
+
       </div>
     </div>
   )
