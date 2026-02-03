@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.connexion-page {
+    display: flex;
+    /* Pleine hauteur */
+    height: 100vh; 
+
+}
+
+.Partie-gauche, .Partie-droite {
+    flex: 1;                        /* chaque colonne prend 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;         /* centrer verticalement */
+    align-items: center;             /* centrer horizontalement */
+    padding: 40px;
+}
+
+/* Colonne gauche */
+.Partie-gauche {
+    background-color: white;
+}
+
+/* Colonne droite */
+.Partie-droite {
+    background-color: #8f8f8f; 
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
