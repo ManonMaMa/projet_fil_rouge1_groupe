@@ -4,31 +4,53 @@ function Connexion() {
   return (
     <div className="connexion-page">
 
+        {/* ------------------------- Partie gauche ------------------------- */}
         <div className="Partie-gauche">
+
+            {/* ------------------------- Contenu centrale ------------------------- */}
             <div className="Contenu">
-                <h2>Logo</h2>
 
-                <h1>Bonjour,</h1>
-                <h1>Content de vous revoir</h1>
+                {/* Logo */}
+                <div className="logo">
+                    <span>Oximo</span>
+                </div>
 
-                <input
-                type="email"
-                placeholder="email"
-                className="input-field"
-                />
+                {/* Texte */}
+                <div className="header-text">
+                    <h1>Bonjour,<br />Content de vous revoir</h1>
+                    <p className="sous-titre">S'il vous plaît, entrez vos informations</p>
+                </div>
 
-                <input
-                type="password"
-                placeholder="Mot de passe"
-                className="input-field"
-                />
+                {/* Formulaire */}
+                <form className="connexion-form">
 
-                <button>Connexion</button>
+                    <div className="input-group">
+                        <label>Email</label>
+                        <input type="email" />
+                    </div>
 
+                    <div className="input-group">
+                        <label>Mot de passe</label>
+                        <input type="password" />
+                    </div>
+                </form>
+
+                {/* Lien */}
+                <div className="actions">
+                    <button type="submit">Connexion</button>
+                    <p className="link">Mot de passe oublié</p>
+                </div>
+
+                <p className="signup">
+                Vous n’avez pas de compte ? <span>Créer un compte</span>
+                </p>
 
             </div>
+
         </div>
 
+
+        {/* ------------------------- Partie droite ------------------------- */}
         <div className="Partie-droite">
 
         </div>
