@@ -122,6 +122,7 @@
 /* Bouton des onglets - actif */
 .onglets-button.active {
   color: #141414;
+  font-weight: 600;
 }
 
 /* Indicateur barre des onglets */
@@ -163,8 +164,8 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   padding-left: 8px;
   padding-right: 8px;
   margin: 1%;
