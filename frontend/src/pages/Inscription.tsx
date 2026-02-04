@@ -1,43 +1,74 @@
 import "./Inscription.css"
+import "./Connexion.css"
+
+import googleIcone from "../icone-svg/google.svg";
+import appleIcone from "../icone-svg/apple.svg";
 
 function Inscription() {
   return (
     <div className="inscription-page">
 
+        {/* ------------------------- Partie gauche ------------------------- */}
         <div className="Partie-gauche">
+
+            {/* ------------------------- Contenu central ------------------------- */}
             <div className="Contenu">
-                <h2>Logo</h2>
 
-                <h1>Bienvenue sur Oximo</h1>
-                <h3>Créer votre compte en quelques secondes</h3>
+                {/* Logo */}
+                <div className="logo">
+                    <span>Oximo</span>
+                </div>
 
-                <form>
-                    <input
-                    type="email"
-                    placeholder="email"
-                    className="input-field"
-                    />
+                {/* Texte */}
+                <div className="header-text">
+                    <h1>Bienvenue sur Oximo</h1>
+                    <p className="sous-titre">Créer votre compte en quelques secondes</p>
+                </div>
 
-                    <h3>______________________________</h3>
+                {/* Formulaire */}
+                <form className="connexion-form">
+                  
+                    <div className="input-group">
+                        <label>Email</label>
+                        <input type="email" />
+                    </div>
 
-                    <input
-                    type="password"
-                    placeholder="Mot de passe"
-                    className="input-field"
-                    />
-
-                    <h3>______________________________</h3>
+                    <div className="input-group">
+                        <label>Mot de passe</label>
+                        <input type="password" />
+                    </div>
 
                     <button type="submit">Continuer</button>
 
                 </form>
 
-                <h3>_____________  ou  ____________</h3>
+                <div className="actions">
+                    <div className="connexion-autre">
+                        <div className="ligne"></div>
+                        <p className="ou">ou</p>
+                        <div className="ligne"></div>
+                    </div>
 
+                    <div className="button-co-autre">
+                        <button className="co-autre">
+                            <img src={googleIcone} alt="Google" className="icone"></img>
+                            <p>Google</p>
+                        </button>
+                        <button className="co-autre">
+                            <img src={appleIcone} alt="Apple" className="icone"></img>
+                            <p>Apple</p>
+                        </button>
+                    </div>
+                </div>
+
+                <p className="signup">
+                Vous avez déjà un compte ? <span>Connexion</span>
+                </p>
 
             </div>
         </div>
 
+        {/* ------------------------- Partie droite ------------------------- */}
         <div className="Partie-droite">
 
         </div>
