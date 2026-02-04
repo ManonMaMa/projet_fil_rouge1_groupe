@@ -38,7 +38,7 @@ function Inscription() {
                         <input type="password" />
                     </div>
 
-                    <button type="submit">Continuer</button>
+                    <button type="submit" className="button-connexion">Continuer</button>
 
                 </form>
 
@@ -50,11 +50,11 @@ function Inscription() {
                     </div>
 
                     <div className="button-co-autre">
-                        <button className="co-autre">
+                        <button className="button-connexion co-autre">
                             <img src={googleIcone} alt="Google" className="icone"></img>
                             <p>Google</p>
                         </button>
-                        <button className="co-autre">
+                        <button className="button-connexion co-autre">
                             <img src={appleIcone} alt="Apple" className="icone"></img>
                             <p>Apple</p>
                         </button>

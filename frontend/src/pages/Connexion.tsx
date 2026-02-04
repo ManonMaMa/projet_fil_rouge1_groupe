@@ -37,7 +37,7 @@ function Connexion() {
 
                 {/* Lien */}
                 <div className="actions">
-                    <button type="submit">Connexion</button>
+                    <button type="submit" className="button-connexion">Connexion</button>
                     <p className="link">Mot de passe oublié</p>
                 </div>
 
