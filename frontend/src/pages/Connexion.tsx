@@ -1,6 +1,22 @@
 import "./Connexion.css"
+import { useNavigate } from "react-router-dom"
 
 function Connexion() {
+    const navigate = useNavigate()
+    
+    // Route vers la page Factures
+    const handleConnexion = () => {
+        navigate("/factures")
+    }
+
+    // Route vers la page Inscription
+    const handleInscription = () => {
+        navigate("/Inscription")
+    }
+
+
+
+
   return (
     <div className="connexion-page">
 
@@ -37,12 +53,12 @@ function Connexion() {
 
                 {/* Lien */}
                 <div className="actions">
-                    <button type="submit">Connexion</button>
+                    <button type="submit" onClick={handleConnexion}>Connexion</button>
                     <p className="link">Mot de passe oublié</p>
                 </div>
 
                 <p className="signup">
-                Vous n’avez pas de compte ? <span>Créer un compte</span>
+                Vous n’avez pas de compte ? <span onClick={handleInscription}>Créer un compte</span>
                 </p>
 
             </div>
