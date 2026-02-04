@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Orbitron:wght@400..900&family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+div{
+    font-family: 'Inter', sans-serif;
+}
+
+.inscription-page {
+    /* Pleine hauteur */
+    height: 100vh; 
+    display: flex;
+}
+
+.connexion-autre {
+    display: flex;
+    align-items: center;      /* centre verticalement */
+    gap: 3vh;                /* espace entre les éléments */
+    padding-top: 3vh;
+}
+
+.ligne {
+    flex: 1;                  /* prend tout l’espace disponible */
+    height: 0.1vh;
+    background-color: #9d9d9d;   /* couleur du trait */
+}
+
+.ou {
+    margin: 0;
+    font-size: 1.7vh;
+    color: #9d9d9d;
+}
+
+.button-co-autre {
+    display: flex;
+    gap: 3vh;
+}
+
+.co-autre {
+    background-color: #F5F5F5;
+    border: 0.1vh solid #9d9d9d;
+    color: #9d9d9d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8vh;
+}
+
+.co-autre:hover {
+    border-color: #141414;
+    color: #141414;
+}
+
+.icone {
+    height: 2vh;
+}
