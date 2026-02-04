@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Orbitron:wght@400..900&family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+div{
+    font-family: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.connexion-page {
+    /* Pleine hauteur */
+    height: 100vh; 
+    display: flex;
+}
+
+.Partie-gauche, .Partie-droite {
+    flex: 1;                        /* chaque colonne prend 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;         /* centrer verticalement */
+    align-items: center;             /* centrer horizontalement */
+    padding: 5.4vh;
+}
+
+/* Partie gauche */
+.Partie-gauche {
+    background-color: white;
+}
+
+.Contenu {
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Logo */
+.logo {
+    margin-bottom: 5.5vh;
+    font-weight: regular;
+    font-size: 3vh;
+}
+
+.header-text h1 {
+    margin-bottom: 2vh;
+    font-family: 'Orelega One', sans-serif;
+    font-size: 4.4vh;
+    font-weight: 400; /* regular */
+}
+
+.header-texte .sous-titre {
+    margin-top: 0;
+    font-family: 'Orelega One', sans-serif;
+    font-size: 2.2vh;
+    font-weight: 400; /* regular */
+}
+
+
+
+/* Sous titre */
+.sous-titre {
+    margin-top: 0;
+    font-size: 2.2vh;
+    color: #9d9d9d;
+    margin-bottom: 3.5vh;
+}
+
+
+/* Inputs */
+.input-group {
+    margin-bottom: 3.4vh;
+}
+
+.input-group label {
+    font-size: 2vh;
+    color: #9d9d9d;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 0.1vh solid #9d9d9d;
+    padding: 1vh 0;
+    font-size: 1.8vh;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-bottom: 0.1vh solid black;
+}
+
+
+
+/* ----------- Actions ------------ */
+.actions {
+    margin-top: 0px;
+}
+
+
+/* Bouton */
+button {
+    width: 100%;
+    height: 6.1vh; 
+    margin-top: 2.8vh;
+    padding: 1.6vh;
+    background: #141414;
+    color: white;
+    border: none;
+    border-radius: 0.8vh;
+    cursor: pointer;
+}
+
+.actions .link {
+    margin-top: 2.8vh;
+}
+
+/* Mot de passe oublié */
+.link {
+    text-align: center;
+    font-size: 1.8vh;
+    margin-top: 0px;
+    color: #333;
+    cursor: pointer;
+}
+/* -------------------------------- */
+
+/* Signup */
+.signup {
+    text-align: center;
+    font-size: 1.7vh;
+    margin-top: 4vh;
+    color: #333;
+}
+
+/* Signup bouton */
+.signup span {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Partie droite */
+.Partie-droite {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #c4c4c4; 
+    border-top-left-radius: 2.8vh;
+    border-bottom-left-radius: 2.8vh;
+}
