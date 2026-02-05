@@ -6,7 +6,11 @@
     --couleur-hover: #934AC3; 
     --couleur-text-secondaire : #717171;
 
+    /* Typographie */
+    --font: 'Inter', system-ui, sans-serif;
 
+    --font-size-base: 2vh;
+    --font-size-h1: 4vh;      
 }
 
 * {
