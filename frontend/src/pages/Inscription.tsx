@@ -1,15 +1,38 @@
 import "./Inscription.css"
 import "./Connexion.css"
 import { useNavigate } from "react-router-dom" // pour la navigation
+import { useState } from "react"
+
 
 
 import googleIcone from "../icone-svg/google.svg";
 import appleIcone from "../icone-svg/apple.svg";
 
 function Inscription() {
-    const navigate = useNavigate() // pour la navigation
+
+        const [email, setEmail] = useState("")       // email ce que l'utilisateur tape
+        const [password, setPassword] = useState("") // setPassword comment on le met à jour
+        
+        // Envoyer vers le fastAPI pour simuler un connexion à la  base de donnée !!! A CHANGER VERS LA BDD !!!
+        const handleInscription = async () => {
+            const response = await fetch("http://localhost:8000/inscription", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+        })
+    
+        const data = await response.json()
+        console.log("Réponse du serveur :", data)
+        }
+    
 
     // Route vers la page Inscription
+    const navigate = useNavigate() // pour la navigation
     const handleConnexion = () => {
         navigate("/Connexion")
     }
@@ -42,15 +65,15 @@ function Inscription() {
                   
                     <div className="input-group">
                         <label>Email</label>
-                        <input type="email" />
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="input-group">
                         <label>Mot de passe</label>
-                        <input type="password" />
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
 
-                    <button type="submit" className="button-connexion">Continuer</button>
+                    <button type="button" className="button-connexion" onClick={handleInscription}>Continuer</button>
 
                 </form>
 
