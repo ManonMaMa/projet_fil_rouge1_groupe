@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 function Connexion() {
     const navigate = useNavigate()
     
-    // Route vers la page Factures
+    // Route vers la page Factures --> "Changer par la suite vers la page Dashboard"
     const handleConnexion = () => {
         navigate("/factures")
     }

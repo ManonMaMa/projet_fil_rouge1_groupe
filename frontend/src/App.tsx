@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Connexion />} />
         <Route path="/Inscription" element={<Inscription />} />
+        <Route path="/Connexion" element={<Connexion />} />
         <Route path="/Factures" element={<Factures />} />
       </Routes>
     </BrowserRouter>
