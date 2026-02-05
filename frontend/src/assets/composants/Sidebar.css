@@ -1,0 +1,84 @@
+.sidebar-page {
+  height: 100vh;
+  width: 15vw;
+
+  border-right: 1px solid var(--couleur-text-secondaire);
+
+  color: var(--couleur-text-secondaire);
+  font-family: var(--font);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+}
+
+.sidebar-page h1{
+    font-size: var(--font-size-h1);
+}
+
+.sidebar-page p{
+    font-size: var(--font-size-base);
+}
+
+.onglet{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 1vh 20px;
+
+  cursor: pointer;
+  position: relative;
+
+  color: var(--couleur-text-secondaire);
+}
+
+.onglet svg {
+  flex-shrink: 0;
+  padding: 8px;
+}
+
+.onglet p {
+  margin: 0;
+  font-size: var(--font-size-base);
+}
+
+.onglet::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 2px;
+
+  background-color: var(--couleur-principal);
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.onglet:hover {
+  color: var(--couleur-principal);
+}
+
+.onglet:hover::before {
+  opacity: 1;
+}
+
+.onglet.active {
+  color: var(--couleur-principal);
+}
+
+.onglet.active svg{
+    color: var(--couleur-fond);
+    background-color: var(--couleur-principal);
+    border-radius: 15px;
+    box-shadow: 0px 3px 8px var(--couleur-principal);
+
+}
+
+.onglet.active::before {
+  opacity: 1;
+}

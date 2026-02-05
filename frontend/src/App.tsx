@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import './assets/composants/Style.css'
 import Connexion from "./pages/Connexion"
 import Inscription from "./pages/Inscription"
 
 import Factures from "./pages/Factures"
 import Devis from "./pages/Devis"
-
-
 
 
 function App() {

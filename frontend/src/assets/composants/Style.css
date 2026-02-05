@@ -1,0 +1,22 @@
+:root {
+    /* Couleurs */
+    --couleur-principal: #141414;
+    --couleur-secondaire: #B5B5B5;
+    --couleur-fond: #E3EDFF;
+    --couleur-hover: #934AC3; 
+    --couleur-text-secondaire : #717171;
+
+    /* Typographie */
+    --font: 'Inter', system-ui, sans-serif;
+
+    --font-size-base: 2vh;
+    --font-size-h1: 4vh;      
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../assets/composants/headerDevis';
+import Sidebar from "../assets/composants/Sidebar"
 import './Devis.css'; // CSS de la page devis
 
 
@@ -31,7 +32,7 @@ const Devis: React.FC = () => {
   return (
     <div className="page-conteneur">
       {/* [Importation de la SideBar ici] */}
-      <h1>Import de la navbar ici</h1>
+      <Sidebar/>
       
       
       <div className="page-contenu">
