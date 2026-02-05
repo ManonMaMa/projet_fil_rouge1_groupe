@@ -3,6 +3,8 @@ import Connexion from "./pages/Connexion"
 import Inscription from "./pages/Inscription"
 
 import Factures from "./pages/Factures"
+import Devis from "./pages/Devis"
+
 
 
 
@@ -14,6 +16,8 @@ function App() {
         <Route path="/Inscription" element={<Inscription />} />
         <Route path="/Connexion" element={<Connexion />} />
         <Route path="/Factures" element={<Factures />} />
+        <Route path="/Devis" element={<Devis />} />
+
       </Routes>
     </BrowserRouter>
   )

@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from '../assets/composants/headerFactures';
-import './Factures.css'; // CSS de la page facture
+import Header from '../assets/composants/headerDevis';
+import './Devis.css'; // CSS de la page devis
 
 
 
-// Composant principal des Factures
-const Factures: React.FC = () => {
+// Composant principal des Devis
+const Devis: React.FC = () => {
 
   // Définition des onglets de navigations pour le header
   const Onglets = [
-    { id: 'tous', etiquette: 'Tous', compteur: 48 },
+    { id: 'tous', etiquette: 'Tous', compteur: 45 },
     { id: 'recents', etiquette: 'Récents', compteur: 5 },
     { id: 'favoris', etiquette: 'Favoris', compteur: 3 }
   ];
@@ -17,13 +17,13 @@ const Factures: React.FC = () => {
   // Fonction appelée lorsqu'un onglet est sélectionné
   const changementOnglet = (tabId: string) => {
     console.log('Onglet remplacé par :', tabId);
-    // [Ajouter la logique pour filtrer les factures selon l'onglet]
+    // [Ajouter la logique pour filtrer les devis selon l'onglet]
   };
 
-  // Fonction déclanchée pour créer une nouvelle facture
+  // Fonction déclanchée pour créer un nouveau devis
   const NouvelleFacture = () => {
-    console.log('créer une nouvelle facture');
-    // [Ajouter la logique pour créer une facture --> envoie vers page de création de facture]
+    console.log('créer un nouveau devis');
+    // [Ajouter la logique pour créer un nouveau devis --> envoie vers page de création de devis]
   };
 
 
@@ -37,13 +37,13 @@ const Factures: React.FC = () => {
       <div className="page-contenu">
         {/* Header */}
         <Header
-          titre="Factures"                            // changer le titre de la page
+          titre="Devis"                               // changer le titre de la page
           onglets={Onglets}                           // Onglets à afficher
           ongletActif="tous"                          // ID de l'onglet actif par défaut
           surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
           afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
           nouvelElement={NouvelleFacture}             // callback pour créer une nouvelle facture
-          texteBoutonNouvelElement="Nouvelle Facture" // Texte du bouton
+          texteBoutonNouvelElement="Nouveau Devis" // Texte du bouton
         />
         
 
@@ -54,27 +54,27 @@ const Factures: React.FC = () => {
             {/* Section de la première année */}
             <div className="section-annee">
                 <h2 className="titre-annee">2026</h2>
-                {/* liste des factures ici */}
-                <p>Facture 1</p>
-                <p>Facture 2</p>
-                <p>Facture 3</p>
-                <p>Facture 4</p>
-                <p>Facture 5</p>
-                <p>Facture 6</p>
-                <p>Facture 7</p>
+                {/* liste des devis ici */}
+                <p>Devis 1</p>
+                <p>Devis 2</p>
+                <p>Devis 3</p>
+                <p>Devis 4</p>
+                <p>Devis 5</p>
+                <p>Devis 6</p>
+                <p>Devis 7</p>
             </div>
           
             {/* Section de la duexième année */}
             <div className="section-annee">
                 <h2 className="titre-annee">2025</h2>
-                {/* Liste des factures ici */}
-                <p>Facture 1</p>
-                <p>Facture 2</p>
-                <p>Facture 3</p>
-                <p>Facture 4</p>
-                <p>Facture 5</p>
-                <p>Facture 6</p>
-                <p>Facture 7</p>
+                {/* Liste des devis ici */}
+                <p>Devis 1</p>
+                <p>Devis 2</p>
+                <p>Devis 3</p>
+                <p>Devis 4</p>
+                <p>Devis 5</p>
+                <p>Devis 6</p>
+                <p>Devis 7</p>
             </div>
         </div>
       </div>
@@ -82,4 +82,4 @@ const Factures: React.FC = () => {
   );
 };
 
-export default Factures;
+export default Devis;

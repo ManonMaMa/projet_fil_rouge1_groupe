@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './headerFactures.css'; // Import CSS du header
+import './headerDevis.css'; // Import CSS du header
 
 
 
@@ -83,7 +83,7 @@ const Header: React.FC<ProprieteHeader> = ({
             </button>
           )}
           
-          {/* Bouton création nouvelle facture */}
+          {/* Bouton création nouveau devis */}
           {nouvelElement && (
             <button className="nouvelle-action-btn" onClick={nouvelElement}>
               <span className="plus-icon">+</span>
