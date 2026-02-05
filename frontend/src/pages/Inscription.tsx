@@ -1,10 +1,22 @@
 import "./Inscription.css"
 import "./Connexion.css"
+import { useNavigate } from "react-router-dom" // pour la navigation
+
 
 import googleIcone from "../icone-svg/google.svg";
 import appleIcone from "../icone-svg/apple.svg";
 
 function Inscription() {
+    const navigate = useNavigate() // pour la navigation
+
+    // Route vers la page Inscription
+    const handleConnexion = () => {
+        navigate("/Connexion")
+    }
+
+
+
+
   return (
     <div className="inscription-page">
 
@@ -62,7 +74,7 @@ function Inscription() {
                 </div>
 
                 <p className="signup">
-                Vous avez déjà un compte ? <span>Connexion</span>
+                Vous avez déjà un compte ? <span onClick={handleConnexion}>Connexion</span>
                 </p>
 
             </div>
