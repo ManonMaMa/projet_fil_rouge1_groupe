@@ -19,3 +19,6 @@ To prepare the Workspace for the app, do the following:
   $ `which python`
 * Install dependencies of Python project
   $ `pip install -r ./requirements.txt`
+* Launch FastAPI server
+  $ `fastapi dev main.py`
+* Server started loccally on http://127.0.0.1:8000/
