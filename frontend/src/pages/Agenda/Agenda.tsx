@@ -6,7 +6,7 @@ import './Agenda.css'; // CSS de la page agenda
 
 
 // Composant principal des Agenda
-const Devis: React.FC = () => {
+const Agenda: React.FC = () => {
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -83,4 +83,4 @@ const Devis: React.FC = () => {
     );
 };
 
-export default Devis;
+export default Agenda;

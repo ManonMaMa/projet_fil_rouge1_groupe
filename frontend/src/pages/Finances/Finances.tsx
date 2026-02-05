@@ -6,7 +6,7 @@ import './Finances.css'; // CSS de la page finances
 
 
 // Composant principal des Finances
-const Devis: React.FC = () => {
+const Finances: React.FC = () => {
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -71,4 +71,4 @@ const Devis: React.FC = () => {
     );
 };
 
-export default Devis;
+export default Finances;

@@ -6,7 +6,7 @@ import './Documents.css'; // CSS de la page documents
 
 
 // Composant principal des Documents
-const Devis: React.FC = () => {
+const Documents: React.FC = () => {
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -83,4 +83,4 @@ const Devis: React.FC = () => {
     );
 };
 
-export default Devis;
+export default Documents;

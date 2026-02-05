@@ -6,7 +6,7 @@ import './Clients.css'; // CSS de la page client
 
 
 // Composant principal des Clients
-const Devis: React.FC = () => {
+const Clients: React.FC = () => {
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -83,4 +83,4 @@ const Devis: React.FC = () => {
     );
 };
 
-export default Devis;
+export default Clients;
