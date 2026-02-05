@@ -22,22 +22,44 @@
     font-size: var(--font-size-base);
 }
 
+/* Conteneurs pour les sections */
+.milieu-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.bas-page {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+
+
+
+
 .onglet{
   display: flex;
   align-items: center;
   gap: 12px;
-
   padding: 1vh 20px;
-
   cursor: pointer;
   position: relative;
-
   color: var(--couleur-text-secondaire);
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  transition: color 0.2s ease;
 }
 
 .onglet svg {
   flex-shrink: 0;
   padding: 8px;
+  margin: 5px;
+  transition: all 0.2s ease;
 }
 
 .onglet p {
@@ -72,11 +94,10 @@
 }
 
 .onglet.active svg{
-    color: var(--couleur-fond);
-    background-color: var(--couleur-principal);
-    border-radius: 15px;
-    box-shadow: 0px 3px 8px var(--couleur-principal);
-
+  color: var(--couleur-fond);
+  background-color: var(--couleur-principal);
+  border-radius: 15px;
+  box-shadow: 0px 3px 8px var(--couleur-principal);
 }
 
 .onglet.active::before {
