@@ -12,6 +12,9 @@ CREATE TABLE IF NOT EXISTS public.utilisateur
     tel_user character varying(50) COLLATE pg_catalog."default",
     entreprise_user character varying(50) COLLATE pg_catalog."default",
     adresse_postale_user text COLLATE pg_catalog."default",
+    code_postal_user character varying(10) COLLATE pg_catalog."default",
+    ville_user character varying(50) COLLATE pg_catalog."default",
+    pays_user character varying(50) COLLATE pg_catalog."default",
     CONSTRAINT user_pkey PRIMARY KEY (id_user)
 )
 
@@ -34,6 +37,9 @@ CREATE TABLE IF NOT EXISTS public.client
     tel_client character varying(50) COLLATE pg_catalog."default",
     entreprise_client character varying(50) COLLATE pg_catalog."default",
     adresse_postale_client text COLLATE pg_catalog."default",
+    code_postal_client character varying(10) COLLATE pg_catalog."default",
+    ville_client character varying(50) COLLATE pg_catalog."default",
+    pays_client character varying(50) COLLATE pg_catalog."default",
     id_user_fk character varying(300) COLLATE pg_catalog."default",
     CONSTRAINT client_pkey PRIMARY KEY (id_client),
     CONSTRAINT client_user FOREIGN KEY (id_user_fk)
