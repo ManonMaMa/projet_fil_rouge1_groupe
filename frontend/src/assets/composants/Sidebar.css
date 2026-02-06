@@ -1,6 +1,6 @@
 .sidebar-page {
   height: 100vh;
-  width: 15vw;
+  width: 14vw;
 
   border-right: 1px solid var(--couleur-text-secondaire);
 
@@ -11,7 +11,6 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 1rem;
-
 }
 
 .sidebar-page h1{
@@ -53,6 +52,8 @@
   text-align: left;
   font-family: inherit;
   transition: color 0.2s ease;
+  padding-left: 17%; /* Raproché les onglets vers le centre de la navbar */
+
 }
 
 .onglet svg {
@@ -65,6 +66,8 @@
 .onglet p {
   margin: 0;
   font-size: var(--font-size-base);
+  font-size: 14px;
+
 }
 
 .onglet::before {
@@ -93,7 +96,7 @@
   color: var(--couleur-principal);
 }
 
-.onglet.active svg{
+.onglet.active svg:not(.chevron){
   color: var(--couleur-fond);
   background-color: var(--couleur-principal);
   border-radius: 15px;
@@ -103,3 +106,116 @@
 .onglet.active::before {
   opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Chevron animation */
+.chevron {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+
+  /* Réinitialiser les styles qui pourraient être hérités */
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Sous-menu */
+.sous-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 20px;
+}
+
+.sous-menu.open {
+  max-height: 200px;
+}
+
+.sous-menu .onglet {
+  padding: 0.8vh 20px;
+  padding-left: 64px; /* Aligné avec le texte parent */
+}
+
+.sous-menu .onglet p {
+  font-size: calc(var(--font-size-base) * 0.9);
+  font-size: 14px;
+
+}
+
+.sous-menu .onglet::before {
+  width: 1px; /* Barre plus fine pour les sous-éléments */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1400px) {
+
+  /* Sidebar compacte */
+  .sidebar-page {
+    width: 72px;
+    transition: width 0.3s ease;
+  }
+
+  /* Onglets centrés */
+  .onglet {
+    justify-content: center;
+    padding: 12px 0;
+    gap: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Centrage des icônes */
+  .onglet svg {
+    margin: 0;
+    padding: 8px;
+  }
+
+  /* animation */
+  .onglet p {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.2s ease, width 0.3s ease;
+  }
+
+  /* Chevron */
+  .chevron {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, width 0.3s ease;
+  }
+
+}
+

@@ -9,7 +9,6 @@ import './assets/composants/Style.css'
 import Connexion from "./pages/Connexion/Connexion"
 import Inscription from "./pages/Inscription/Inscription"
 
-
 import Dashboard from './pages/Dashboard/Dashboard'
 import Agenda from './pages/Agenda/Agenda'
 import Planification from './pages/Planification/Planification'
@@ -37,6 +36,11 @@ function App() {
             <Route path="/planification" element={<Planification />} />
             <Route path="/finances" element={<Finances />} />
             <Route path="/documents" element={<Documents />} />
+
+            <Route path="/facturation/factures" element={<Factures />} />
+            <Route path="/facturation/devis" element={<Devis />} />
+
+
             <Route path="/clients" element={<Clients />} />
             <Route path="/parametres" element={<Parametres />} />
           </Routes>

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom" // Pour la navigation
+import { useState, useEffect } from "react"
 import "./Sidebar.css"
 
 
@@ -8,6 +9,24 @@ function Sidebar() {
     const isActive = (path: string) => {
         return location.pathname === path ? "onglet active" : "onglet"
     }
+
+    const isFacturationActive = () => {
+        return location.pathname === "/facturation/factures" ||
+                location.pathname === "/facturation/devis"
+    }
+
+    const [isFacturationOpen, setIsFacturationOpen] = useState(isFacturationActive())
+
+
+    // Ouvrir automatiquement le sous-menu si on est sur une page de facturation
+    useEffect(() => {
+        if (isFacturationActive()) {
+            setIsFacturationOpen(true)
+        }
+    }, [location.pathname])
+    
+
+
 
     return (
         <div className="sidebar-page">
@@ -59,14 +78,39 @@ function Sidebar() {
                 </Link>
                 
 
-                {/* Facturation */}
-                <Link to="/facturation" className={isActive("/facturation")}>
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
-                        <path d="m19.94 7.68-.03-.09a.8.8 0 0 0-.2-.29l-5-5c-.09-.09-.19-.15-.29-.2l-.09-.03a.8.8 0 0 0-.26-.05c-.02 0-.04-.01-.06-.01H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-12s-.01-.04-.01-.06c0-.09-.02-.17-.05-.26ZM6 20V4h7v4c0 .55.45 1 1 1h4v11z"></path><path d="M8 11h8v2H8zm0 4h8v2H8zm0-8h3v2H8z"></path>
-                    </svg>
-                    <p>Facturation</p>
-                </Link>
-                
+                {/* Facturation avec sous-menu */}
+                <div>
+                    <button 
+                        className={`onglet ${isFacturationActive() ? 'active' : ''}`}
+                        onClick={() => setIsFacturationOpen(!isFacturationOpen)}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="m19.94 7.68-.03-.09a.8.8 0 0 0-.2-.29l-5-5c-.09-.09-.19-.15-.29-.2l-.09-.03a.8.8 0 0 0-.26-.05c-.02 0-.04-.01-.06-.01H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-12s-.01-.04-.01-.06c0-.09-.02-.17-.05-.26ZM6 20V4h7v4c0 .55.45 1 1 1h4v11z"></path><path d="M8 11h8v2H8zm0 4h8v2H8zm0-8h3v2H8z"></path>
+                        </svg>
+                        <p>Facturation</p>
+                        <svg 
+                            className={`chevron ${isFacturationOpen ? 'open' : ''}`}
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="25" 
+                            height="25"  
+                            fill="currentColor" 
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"></path>
+                        </svg>
+                    </button>
+
+                    {/* Sous-menu */}
+                    <div className={`sous-menu ${isFacturationOpen ? 'open' : ''}`}>
+                        <Link to="/facturation/factures" className={isActive("/facturation/factures")}>
+                            <p>Factures</p>
+                        </Link>
+                        <Link to="/facturation/devis" className={isActive("/facturation/devis")}>
+                            <p>Devis</p>
+                        </Link>
+                    </div>
+                </div>
+
 
                 {/* Clients */}
                 <Link to="/clients" className={isActive("/clients")}>
@@ -77,6 +121,7 @@ function Sidebar() {
                 </Link>
                 
             </div>
+
 
 
             {/* DEUXIÈME PARTIE D'ONGLETS */}
