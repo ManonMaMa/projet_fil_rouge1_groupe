@@ -1,0 +1,37 @@
+[33mefa2eeb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfrontend[m[33m, [m[1;31morigin/frontend[m[33m)[m HEAD@{0}: pull --tags origin frontend: Fast-forward
+[33m3d4f734[m HEAD@{1}: reset: moving to HEAD~1
+[33mefa2eeb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfrontend[m[33m, [m[1;31morigin/frontend[m[33m)[m HEAD@{2}: commit: transformation majuscules en minuscules pour les noms de fichiers / dossiers
+[33m3d4f734[m HEAD@{3}: pull --tags origin frontend: Fast-forward
+[33m34cbfb8[m HEAD@{4}: checkout: moving from main to frontend
+[33m4d3875c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{5}: checkout: moving from main to main
+[33m4d3875c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{6}: checkout: moving from frontend to main
+[33m34cbfb8[m HEAD@{7}: commit: correctifs inscription p2
+[33m78fbffd[m HEAD@{8}: commit: inscription partie deux
+[33m53b0f6c[m HEAD@{9}: pull --tags origin frontend: Fast-forward
+[33m089c05e[m HEAD@{10}: checkout: moving from back_end to frontend
+[33m30d4001[m[33m ([m[1;32mback_end[m[33m)[m HEAD@{11}: commit: separation de l'adresse postale dans les données
+[33mfcbf981[m HEAD@{12}: pull --tags origin back_end: Fast-forward
+[33mab27e51[m HEAD@{13}: commit: correctif des donnees de statut
+[33mbd3ae0c[m HEAD@{14}: commit: ajout de fichiers sql pour creer la base de donnees
+[33m942b867[m[33m ([m[1;31morigin/inscription[m[33m)[m HEAD@{15}: pull: Fast-forward
+[33ma74a178[m HEAD@{16}: checkout: moving from frontend to back_end
+[33m089c05e[m HEAD@{17}: pull --tags origin frontend: Fast-forward
+[33m5adc51a[m HEAD@{18}: commit: rectif css des boutons
+[33m7c4268b[m HEAD@{19}: checkout: moving from main to frontend
+[33m4d3875c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{20}: commit (merge): Merge branch 'frontend'
+[33m10848be[m HEAD@{21}: checkout: moving from frontend to main
+[33m7c4268b[m HEAD@{22}: commit: petit correctif de taille de titre
+[33mcdcc5ef[m HEAD@{23}: pull --tags origin frontend: Merge made by the 'ort' strategy.
+[33m7e01ad0[m HEAD@{24}: commit: page connexion front quasiment terminée
+[33mc5a478a[m HEAD@{25}: pull --tags origin frontend: Fast-forward
+[33m73fee5f[m HEAD@{26}: pull --tags origin frontend: Fast-forward
+[33m0d21ff4[m HEAD@{27}: commit: page inscription minimale
+[33mb1d2211[m HEAD@{28}: pull --tags origin frontend: Fast-forward
+[33m387dc3d[m HEAD@{29}: pull --tags origin frontend: Fast-forward
+[33m9cf7eb6[m HEAD@{30}: checkout: moving from main to frontend
+[33m10848be[m HEAD@{31}: checkout: moving from back_end to main
+[33ma74a178[m HEAD@{32}: checkout: moving from main to back_end
+[33m10848be[m HEAD@{33}: checkout: moving from frontend to main
+[33m9cf7eb6[m HEAD@{34}: checkout: moving from main to frontend
+[33m10848be[m HEAD@{35}: commit: ajout packages manon
+[33ma9cc23e[m HEAD@{36}: clone: from github.com:ManonMaMa/projet_fil_rouge1_groupe.git
