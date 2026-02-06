@@ -2,10 +2,6 @@ import "./Inscription_p2.css"
 import "../Connexion/Connexion"
 import { useNavigate } from "react-router-dom" // pour la navigation
 
-
-import googleIcone from "../../icone-svg/google.svg";
-import appleIcone from "../../icone-svg/apple.svg";
-
 function Inscription() {
     const navigate = useNavigate() // pour la navigation
 
@@ -13,8 +9,6 @@ function Inscription() {
     const handleConnexion = () => {
         navigate("/Connexion")
     }
-
-
 
 
   return (
@@ -87,7 +81,7 @@ function Inscription() {
                     </div>
 
                     <div className="champs-ligne">
-                        <button className="button-connexion button-passer">Passer</button>
+                        <button className="button-connexion button-passer" ><span onClick={handleConnexion}>Passer</span></button>
                         <button type="submit" className="button-connexion">Valider les informations</button>
                     </div>
 
