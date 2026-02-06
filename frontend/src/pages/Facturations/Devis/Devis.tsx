@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../../assets/composants/headerDevis';
-import Sidebar from "../../../assets/composants/sidebar"
-import './devis.css'; // CSS de la page devis
+import Sidebar from "../../../assets/composants/Sidebar"
+import './Devis.css'; // CSS de la page devis
 
 
 

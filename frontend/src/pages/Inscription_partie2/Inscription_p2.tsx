@@ -1,5 +1,5 @@
-import "./inscription_p2.css"
-import "../connexion/connexion"
+import "./Inscription_p2.css"
+import "../Connexion/Connexion"
 import { useNavigate } from "react-router-dom" // pour la navigation
 
 function Inscription() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './headerAgenda'; // Import header agenda
-import Sidebar from "../../assets/composants/sidebar" // Import SideBar
-import './agenda.css'; // CSS de la page agenda
+import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import './Agenda.css'; // CSS de la page agenda
 
 
 

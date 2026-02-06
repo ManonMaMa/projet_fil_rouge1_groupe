@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './headerDocuments'; // Import header documents
-import Sidebar from "../../assets/composants/sidebar" // Import SideBar
-import './documents.css'; // CSS de la page documents
+import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import './Documents.css'; // CSS de la page documents
 
 
 

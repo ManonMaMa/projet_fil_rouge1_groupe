@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './headerFinances'; // Import header finance
-import Sidebar from "../../assets/composants/sidebar" // Import SideBar
-import './finances.css'; // CSS de la page finances
+import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import './Finances.css'; // CSS de la page finances
 
 
 
