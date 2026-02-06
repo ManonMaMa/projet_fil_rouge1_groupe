@@ -1,3 +1,26 @@
+-- Table: public.utilisateur
+
+-- DROP TABLE IF EXISTS public.utilisateur;
+
+CREATE TABLE IF NOT EXISTS public.utilisateur
+(
+    id_user character varying(300) COLLATE pg_catalog."default" NOT NULL,
+    nom_user character varying(50) COLLATE pg_catalog."default",
+    prenom_user character varying(50) COLLATE pg_catalog."default",
+    email_user character varying(50) COLLATE pg_catalog."default",
+    mdp_user text COLLATE pg_catalog."default",
+    tel_user character varying(50) COLLATE pg_catalog."default",
+    entreprise_user character varying(50) COLLATE pg_catalog."default",
+    adresse_postale_user text COLLATE pg_catalog."default",
+    CONSTRAINT user_pkey PRIMARY KEY (id_user)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.utilisateur
+    OWNER to postgres;
+
+
 -- Table: public.client
 
 -- DROP TABLE IF EXISTS public.client;
@@ -26,28 +49,6 @@ ALTER TABLE IF EXISTS public.client
     OWNER to postgres;
 
 
-
--- Table: public.utilisateur
-
--- DROP TABLE IF EXISTS public.utilisateur;
-
-CREATE TABLE IF NOT EXISTS public.utilisateur
-(
-    id_user character varying(300) COLLATE pg_catalog."default" NOT NULL,
-    nom_user character varying(50) COLLATE pg_catalog."default",
-    prenom_user character varying(50) COLLATE pg_catalog."default",
-    email_user character varying(50) COLLATE pg_catalog."default",
-    mdp_user text COLLATE pg_catalog."default",
-    tel_user character varying(50) COLLATE pg_catalog."default",
-    entreprise_user character varying(50) COLLATE pg_catalog."default",
-    adresse_postale_user text COLLATE pg_catalog."default",
-    CONSTRAINT user_pkey PRIMARY KEY (id_user)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.utilisateur
-    OWNER to postgres;
 
 
 
