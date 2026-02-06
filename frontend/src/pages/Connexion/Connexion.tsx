@@ -1,15 +1,32 @@
 import "./Connexion.css"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 function Connexion() {
-    const navigate = useNavigate()
+
+    const [email, setEmail] = useState("")       // email ce que l'utilisateur tape
+    const [password, setPassword] = useState("") // setPassword comment on le met à jour
     
-    // Route vers la page Factures --> "Changer par la suite vers la page Dashboard"
-    const handleConnexion = () => {
-        navigate("/factures")
+    // Envoyer vers le fastAPI pour simuler un connexion à la  base de donnée !!! A CHANGER VERS LA BDD !!!
+    const handleConnexion = async () => {
+        const response = await fetch("http://localhost:8000/connexion", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            email: email,
+            password: password,
+        }),
+    })
+
+    const data = await response.json()
+    console.log("Réponse du serveur :", data)
     }
 
+
     // Route vers la page Inscription
+    const navigate = useNavigate()
     const handleInscription = () => {
         navigate("/Inscription")
     }
@@ -42,12 +59,12 @@ function Connexion() {
 
                     <div className="input-group">
                         <label>Email</label>
-                        <input type="email" />
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="input-group">
                         <label>Mot de passe</label>
-                        <input type="password" />
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
 
                     <button type="submit" className="button-connexion" onClick={handleConnexion}>Connexion</button>
