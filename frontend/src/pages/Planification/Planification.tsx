@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './headerPlanification'; // Import header documents
-import Sidebar from "../../assets/composants/sidebar" // Import SideBar
-import './planification.css'; // CSS de la page planification
+import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import './Planification.css'; // CSS de la page planification
 
 
 

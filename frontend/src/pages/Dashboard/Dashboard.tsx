@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './headerDashboard'; // Import header dashboard
-import Sidebar from "../../assets/composants/sidebar" // Import SideBar
-import './dashboard.css'; // CSS de la page dashboard
+import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import './Dashboard.css'; // CSS de la page dashboard
 
 
 

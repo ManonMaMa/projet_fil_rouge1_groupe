@@ -15,8 +15,6 @@ const Parametres: React.FC = () => {
         { id: 'preferences', etiquette: 'Préférences'},
         { id: 'securite', etiquette: 'Sécurité'},
         { id: 'plan', etiquette: 'Plan'}
-
-
     ];
 
     // Fonction appelée lorsqu'un onglet est sélectionné
@@ -50,31 +48,7 @@ const Parametres: React.FC = () => {
                 {/* Zone principale du contenu de la page ici */}
                 <div className="zone-contenu">
 
-                    {/* Section de la première année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2026</h2>
-                        {/* liste des documents ici */}
-                        <p>Devis 1</p>
-                        <p>Devis 2</p>
-                        <p>Devis 3</p>
-                        <p>Devis 4</p>
-                        <p>Devis 5</p>
-                        <p>Devis 6</p>
-                        <p>Devis 7</p>
-                    </div>
-
-                    {/* Section de la duexième année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2025</h2>
-                        {/* Liste des documents ici */}
-                        <p>Devis 1</p>
-                        <p>Devis 2</p>
-                        <p>Devis 3</p>
-                        <p>Devis 4</p>
-                        <p>Devis 5</p>
-                        <p>Devis 6</p>
-                        <p>Devis 7</p>
-                    </div>
+                    
                 </div>
             </div>
         </div>

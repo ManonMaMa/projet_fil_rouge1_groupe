@@ -57,8 +57,6 @@ const Header: React.FC<ProprieteHeader> = ({
       {/* ----------------- SECTION 1 : Barre supérieure - Titre + actions ---------------- */}
       <div className="header-top">
         <h1 className="header-titre">{titre}</h1>
-        
-
       </div>
       {/* --------------------------------------------------------------------------------- */}
 
