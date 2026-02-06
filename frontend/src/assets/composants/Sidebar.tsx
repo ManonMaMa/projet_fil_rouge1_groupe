@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom" // Pour la navigation
 import { useState, useEffect } from "react"
-import "./Sidebar.css"
+import "./sidebar.css"
 
 
 function Sidebar() {

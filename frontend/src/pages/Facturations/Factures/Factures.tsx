@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../../assets/composants/headerFactures';
-import Sidebar from "../../../assets/composants/Sidebar"
-import './Factures.css'; // CSS de la page facture
+import Sidebar from "../../../assets/composants/sidebar"
+import './factures.css'; // CSS de la page facture
 
 // Composant principal des Factures
 const Factures: React.FC = () => {
