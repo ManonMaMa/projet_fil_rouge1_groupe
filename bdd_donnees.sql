@@ -116,13 +116,13 @@ INSERT INTO public.utilisateur (id_user, nom_user, prenom_user, email_user, mdp_
 INSERT INTO public.statut (id_statut, nom_statut, facture) VALUES
 (1, 'Brouillon', false),
 (2, 'Envoyé', false),
-(3, 'Accepté', false),
+(3, 'En attente', false),
 (4, 'Refusé', false),
 (5, 'Brouillon', true),
 (6, 'Envoyée', true),
 (7, 'Payée', true),
-(8, 'Partiellement payée', true),
-(9, 'Annulée', true);
+(8, 'En attente', true),
+(9, 'En retard', true);
 
 
 
