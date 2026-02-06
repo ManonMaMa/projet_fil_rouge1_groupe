@@ -2,10 +2,6 @@ import "./Inscription.css"
 import "../Connexion/Connexion"
 import { useNavigate } from "react-router-dom" // pour la navigation
 
-
-import googleIcone from "../../icone-svg/google.svg";
-import appleIcone from "../../icone-svg/apple.svg";
-
 function Inscription() {
     const navigate = useNavigate() // pour la navigation
 
@@ -38,7 +34,7 @@ function Inscription() {
                 </div>
 
                 {/* Formulaire */}
-                <form className="connexion-form">
+                <form className="inscription-form">
                   
                     <div className="input-group">
                         <label>Email</label>
@@ -50,28 +46,14 @@ function Inscription() {
                         <input type="password" />
                     </div>
 
+                    <div className="input-group">
+                        <label>Confirmation</label>
+                        <input type="password" />
+                    </div>
+
                     <button type="submit" className="button-connexion">Continuer</button>
 
                 </form>
-
-                <div className="actions">
-                    <div className="connexion-autre">
-                        <div className="ligne"></div>
-                        <p className="ou">ou</p>
-                        <div className="ligne"></div>
-                    </div>
-
-                    <div className="button-co-autre">
-                        <button className="button-connexion co-autre">
-                            <img src={googleIcone} alt="Google" className="icone"></img>
-                            <p>Google</p>
-                        </button>
-                        <button className="button-connexion co-autre">
-                            <img src={appleIcone} alt="Apple" className="icone"></img>
-                            <p>Apple</p>
-                        </button>
-                    </div>
-                </div>
 
                 <p className="signup">
                 Vous avez déjà un compte ? <span onClick={handleConnexion}>Connexion</span>

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Orbitron:wght@400..900&family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+div{
+    font-family: 'Inter', sans-serif;
+}
+
+.inscription-page {
+    /* Pleine hauteur */
+    height: 100vh; 
+    display: flex;
+}
+
+
+.contenu_inscription_p2 {
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    width: 70%;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.champs-ligne {
+    display: flex;
+    gap: 3vh;
+}
+
+.button-passer {
+    background-color: #F5F5F5;
+    border: 0.1vh solid #9d9d9d;
+    color: #9d9d9d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8vh;
+}
+
+.button-passer:hover {
+    border-color: #141414;
+    color: #141414;
+}

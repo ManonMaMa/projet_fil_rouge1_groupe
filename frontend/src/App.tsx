@@ -8,6 +8,7 @@ import './assets/composants/Style.css'
 // Importation des pages
 import Connexion from "./pages/Connexion/Connexion"
 import Inscription from "./pages/Inscription/Inscription"
+import InscriptionP2 from "./pages/Inscription_partie2/Inscription_p2"
 
 import Dashboard from './pages/Dashboard/Dashboard'
 import Agenda from './pages/Agenda/Agenda'
@@ -43,6 +44,10 @@ function App() {
 
             <Route path="/clients" element={<Clients />} />
             <Route path="/parametres" element={<Parametres />} />
+
+            <Route path="/inscription" element={<Inscription />} />
+            <Route path="/inscriptionP2" element={<InscriptionP2 />} />
+            <Route path="/connexion" element={<Connexion />} />
           </Routes>
         </main>
       </div>

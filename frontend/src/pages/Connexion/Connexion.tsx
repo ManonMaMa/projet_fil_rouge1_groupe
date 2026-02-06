@@ -49,12 +49,13 @@ function Connexion() {
                         <label>Mot de passe</label>
                         <input type="password" />
                     </div>
+
+                    <button type="submit" className="button-connexion" onClick={handleConnexion}>Connexion</button>
                 </form>
 
                 {/* Lien */}
                 <div className="actions">
-                    <button type="submit" onClick={handleConnexion}>Connexion</button>
-                    <p className="link">Mot de passe oublié</p>
+                    <p className="link">Mot de passe oublié ?</p>
                 </div>
 
                 <p className="signup">
