@@ -1,0 +1,191 @@
+/* ─── Ligne Facture ──────────────────────────────────────────────────────── */
+
+.ligne-facture {
+  display: grid;
+  grid-template-columns:
+    3%          /* checkbox */
+    10%         /* date */
+    10%         /* numéro */
+    33%           /* client / fournisseur */
+    10%         /* échéance */
+    10%         /* montant TTC */
+    19%         /* statut */
+    5%;         /* actions */
+  align-items: center;
+  justify-items: center;
+  min-height: 60px;
+  min-width: 1202px;
+  padding: 0 8px;
+  border: 1.5px solid #f5f5f5;
+  border-radius: 20px;
+  background-color: #ffffff;
+  transition: background-color 0.15s ease;
+  margin-bottom: 1%;
+}
+
+.ligne-facture:hover {
+  background-color: #fafafa;
+}
+
+.ligne-facture--selectionnee {
+  background-color: #f5f8ff;
+}
+
+/* Cellules */
+.ligne-facture__cellule {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.ligne-facture__cellule--checkbox {
+  padding: 0;
+  justify-content: center;
+}
+
+.ligne-facture__cellule--montant {
+  justify-content: flex-end;
+}
+
+.ligne-facture__cellule--actions {
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+/* Textes */
+.ligne-facture__texte {
+  font-size: 13.5px;
+  color: #3d3d3d;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ligne-facture__texte--gras {
+  font-weight: 500;
+  color: #141414;
+}
+
+/* Checkbox */
+.ligne-facture__checkbox {
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  outline: none;
+}
+
+.ligne-facture__checkbox:hover {
+  border-color: #a0a0a0;
+}
+
+.ligne-facture__checkbox:focus-visible {
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+}
+
+.ligne-facture__checkbox--coche {
+  background-color: #141414;
+  border-color: #141414;
+}
+
+
+/* Statut badge */
+.ligne-facture__statut {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.ligne-facture__statut-icone {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* En attente */
+.statut--en-attente {
+  color: #1F2A37;
+  background-color: #EEF4FA;
+}
+
+/* Annulé */
+.statut--annule {
+  color: #3A1F1F;
+  background-color: #F6E1E1;
+}
+
+/* Payé */
+.statut--paye {
+  color: #1F3A2E;
+  background-color: #EAF5EA;
+}
+
+/* Boutons d'actions */
+.ligne-facture__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #717171;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  outline: none;
+}
+
+.ligne-facture__action-btn:hover {
+  color: #3d3d3d;
+  background-color: #f0f0f0;
+}
+
+.ligne-facture__action-btn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ligne-facture {
+    grid-template-columns:
+      36px
+      100px
+      90px
+      1fr
+      100px
+      100px
+      130px
+      70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ligne-facture {
+    grid-template-columns:
+      36px
+      1fr
+      100px
+      70px;
+  }
+
+  .ligne-facture__cellule--numero,
+  .ligne-facture__cellule--echeance,
+  .ligne-facture__cellule--montant {
+    display: none;
+  }
+}

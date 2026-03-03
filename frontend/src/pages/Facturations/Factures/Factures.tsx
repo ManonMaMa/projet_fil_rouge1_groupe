@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../../../assets/composants/headerFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
 import './Factures.css'; // CSS de la page facture
+import LigneFacture from '../../../assets/composants/ligneFacture';
+
 
 // Composant principal des Factures
 const Factures: React.FC = () => {
@@ -30,9 +32,9 @@ const Factures: React.FC = () => {
   return (
     <div className="page-conteneur">
       {/* [Importation de la SideBar ici] */}
-      <Sidebar/>
-      
-      
+      <Sidebar />
+
+
       <div className="page-contenu">
         {/* Header */}
         <Header
@@ -44,37 +46,67 @@ const Factures: React.FC = () => {
           nouvelElement={NouvelleFacture}             // callback pour créer une nouvelle facture
           texteBoutonNouvelElement="Nouvelle Facture" // Texte du bouton
         />
-        
+
 
 
         {/* Zone principale du contenu de la page ici */}
         <div className="zone-contenu">
 
-            {/* Section de la première année */}
-            <div className="section-annee">
-                <h2 className="titre-annee">2026</h2>
-                {/* liste des factures ici */}
-                <p>Facture 1</p>
-                <p>Facture 2</p>
-                <p>Facture 3</p>
-                <p>Facture 4</p>
-                <p>Facture 5</p>
-                <p>Facture 6</p>
-                <p>Facture 7</p>
-            </div>
-          
-            {/* Section de la duexième année */}
-            <div className="section-annee">
-                <h2 className="titre-annee">2025</h2>
-                {/* Liste des factures ici */}
-                <p>Facture 1</p>
-                <p>Facture 2</p>
-                <p>Facture 3</p>
-                <p>Facture 4</p>
-                <p>Facture 5</p>
-                <p>Facture 6</p>
-                <p>Facture 7</p>
-            </div>
+          {/* Section de la première année */}
+          <div className="section-annee">
+            <h2 className="titre-annee">2026</h2>
+            {/* liste des factures ici */}
+
+            {/* 1ere facture */}
+            <LigneFacture
+              id="1"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="en_attente"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 2eme facture */}
+            <LigneFacture
+              id="2"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="annule"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 3eme facture */}
+            <LigneFacture
+              id="2"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Dupont Camille"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+          </div>
+
+
+
+
+
+          {/* Section de la deuxième année */}
+          <div className="section-annee">
+            <h2 className="titre-annee">2025</h2>
+            {/* Liste des factures ici */}
+
+          </div>
         </div>
       </div>
     </div>
