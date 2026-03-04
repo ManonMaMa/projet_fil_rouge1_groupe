@@ -1,5 +1,4 @@
-/* ─── Ligne Facture ──────────────────────────────────────────────────────── */
-
+/* Ligne factures */
 .ligne-facture {
   display: grid;
   grid-template-columns:
