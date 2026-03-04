@@ -3,11 +3,11 @@
   display: grid;
   grid-template-columns:
     3%          /* checkbox */
-    10%         /* date */
-    10%         /* numéro */
-    33%           /* client / fournisseur */
-    10%         /* échéance */
-    10%         /* montant TTC */
+    11%         /* date */
+    11%         /* numéro */
+    29%           /* client / fournisseur */
+    11%         /* échéance */
+    11%         /* montant TTC */
     19%         /* statut */
     5%;         /* actions */
   align-items: center;
@@ -19,11 +19,13 @@
   border-radius: 20px;
   background-color: #ffffff;
   transition: background-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   margin-bottom: 1%;
 }
 
 .ligne-facture:hover {
   background-color: #fafafa;
+  cursor: pointer;
 }
 
 .ligne-facture--selectionnee {

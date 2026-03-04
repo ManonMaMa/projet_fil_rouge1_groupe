@@ -14,8 +14,7 @@ interface LigneFactureProps {
     montantTTC: string;
     statut: Statut;
     selectionne?: boolean;
-    surSelection?: (id: string) => void;
-    surVoir?: (id: string) => void;
+    surFavoris?: (id: string) => void;
     surOptions?: (id: string) => void;
 }
 
@@ -80,26 +79,18 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
     echeance,
     montantTTC,
     statut,
-    selectionne = false,
-    surSelection,
-    surVoir,
+    surFavoris,
     surOptions,
 }) => {
     const config = configStatuts[statut];
 
     return (
-        <div className={`ligne-facture ${selectionne ? 'ligne-facture--selectionnee' : ''}`}>
+        <div className={`ligne-facture 'ligne-facture--selectionnee' : ''}`}>
             {/* Checkbox */}
             <div className="ligne-facture__cellule ligne-facture__cellule--checkbox">
                 <div
-                    className={`ligne-facture__checkbox ${selectionne ? 'ligne-facture__checkbox--coche' : ''}`}
-                    onClick={() => surSelection?.(id)}
-                    role="checkbox"
-                    aria-checked={selectionne}
-                    tabIndex={0}
-                    onKeyDown={(e) => e.key === ' ' && surSelection?.(id)}
+                    className={`ligne-facture__checkbox 'ligne-facture__checkbox--coche' : ''}`}
                 >
-
                 </div>
             </div>
 
@@ -140,7 +131,7 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
             <div className="ligne-facture__cellule ligne-facture__cellule--actions">
                 <button
                     className="ligne-facture__action-btn"
-                    onClick={() => surVoir?.(id)}
+                    onClick={() => surFavoris?.(id)}
                     title="Voir la facture"
                     aria-label="Voir la facture"
                 >
