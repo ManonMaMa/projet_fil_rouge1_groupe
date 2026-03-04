@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Header from '../../../assets/composants/headerFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
 import './Factures.css'; // CSS de la page facture
@@ -8,6 +9,8 @@ import EnTeteFactures from '../../../assets/composants/enteteFactures';
 
 // Composant principal des Factures
 const Factures: React.FC = () => {
+
+  const navigate = useNavigate();
 
   // Définition des onglets de navigations pour le header
   const Onglets = [
@@ -25,6 +28,7 @@ const Factures: React.FC = () => {
   // Fonction déclanchée pour créer une nouvelle facture
   const NouvelleFacture = () => {
     console.log('créer une nouvelle facture');
+    navigate("/facturation/factures/nouvelle");
     // [Ajouter la logique pour créer une facture --> envoie vers page de création de facture]
   };
 
@@ -68,7 +72,7 @@ const Factures: React.FC = () => {
               echeance="31/01/2026"
               montantTTC="1 150 €"
               statut="en_attente"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -81,7 +85,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="annule"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -94,7 +98,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -106,7 +110,7 @@ const Factures: React.FC = () => {
               echeance="31/01/2026"
               montantTTC="1 150 €"
               statut="en_attente"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -118,7 +122,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -130,7 +134,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="annule"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
           </div>
@@ -154,7 +158,7 @@ const Factures: React.FC = () => {
               echeance="31/01/2026"
               montantTTC="1 150 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -167,7 +171,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -180,7 +184,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -192,7 +196,7 @@ const Factures: React.FC = () => {
               echeance="31/01/2026"
               montantTTC="1 150 €"
               statut="annule"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -204,7 +208,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 
@@ -216,7 +220,7 @@ const Factures: React.FC = () => {
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
-              surVoir={(id) => console.log('Voir', id)}
+              surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
 

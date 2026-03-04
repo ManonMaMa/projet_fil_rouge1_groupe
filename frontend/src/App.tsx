@@ -19,6 +19,7 @@ import Parametres from './pages/Parametres/Parametres'
 
 
 import Factures from "./pages/Facturations/Factures/Factures"
+import NouvelleFacture from "./pages/Facturations/Factures/nouvelleFacture"
 import Devis from "./pages/Facturations/Devis/Devis"
 
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/documents" element={<Documents />} />
 
             <Route path="/facturation/factures" element={<Factures />} />
+            <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />
             <Route path="/facturation/devis" element={<Devis />} />
 
 
