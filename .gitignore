@@ -1,1 +1,5 @@
+# Fichier sensibles
 __pycache__
+.env
+backend/.env
+frontend/.env
