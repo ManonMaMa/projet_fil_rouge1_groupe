@@ -38,3 +38,17 @@
     padding: 16px 20px;
   }
 }
+
+.en-tête_tableau{
+  display : flex;
+  justify-content: space-between;
+  width : 80%;
+  padding-bottom: 2vh;
+}
+
+.tableau_clients{
+  display : flex;
+  justify-content: space-between;
+  width : 80%;
+  padding-bottom: 2vh;
+}
