@@ -3,6 +3,7 @@
   flex-direction: column;
   background-color: #ffffff;
   border-bottom: 1px solid #e5e7eb;
+  margin-top: 2%;
 }
 
 /* Section top - Titre et boutons d'actions */
@@ -91,7 +92,8 @@
 /* Liste des onglets */
 .onglets-list {
   display: flex;
-  gap: 35px; /* Espacement entre les onglets */
+  gap: 35px;
+  /* Espacement entre les onglets */
 
 }
 
@@ -132,7 +134,8 @@
   bottom: -1px;
   left: 0;
   right: 0;
-  height: 2px;  /* Épaisseur */
+  height: 2px;
+  /* Épaisseur */
   background-color: #141414;
 }
 
