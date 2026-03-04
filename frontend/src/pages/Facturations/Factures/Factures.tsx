@@ -3,6 +3,7 @@ import Header from '../../../assets/composants/headerFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
 import './Factures.css'; // CSS de la page facture
 import LigneFacture from '../../../assets/composants/ligneFacture';
+import EnTeteFactures from '../../../assets/composants/enteteFactures';
 
 
 // Composant principal des Factures
@@ -56,6 +57,7 @@ const Factures: React.FC = () => {
           <div className="section-annee">
             <h2 className="titre-annee">2026</h2>
             {/* liste des factures ici */}
+            <EnTeteFactures />
 
             {/* 1ere facture */}
             <LigneFacture
@@ -85,13 +87,49 @@ const Factures: React.FC = () => {
 
             {/* 3eme facture */}
             <LigneFacture
-              id="2"
+              id="3"
               date="05/01/2026"
               numero="1826-92"
               clientFournisseur="Dupont Camille"
               echeance="12/02/2026"
               montantTTC="550 €"
               statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="4"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="en_attente"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="5"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="6"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="annule"
               surVoir={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
@@ -105,6 +143,82 @@ const Factures: React.FC = () => {
           <div className="section-annee">
             <h2 className="titre-annee">2025</h2>
             {/* Liste des factures ici */}
+            <EnTeteFactures />
+
+            {/* 1ere facture */}
+            <LigneFacture
+              id="1"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 2eme facture */}
+            <LigneFacture
+              id="2"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 3eme facture */}
+            <LigneFacture
+              id="3"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Dupont Camille"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="4"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="annule"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="5"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="6"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surVoir={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
 
           </div>
         </div>

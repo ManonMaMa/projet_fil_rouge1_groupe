@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ligneFacture.css';
 
 // Types de statut disponibles
@@ -151,6 +151,7 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
                 >
                     <IcôneVoir />
                 </button>
+                
                 <button
                     className="ligne-facture__action-btn"
                     onClick={() => surOptions?.(id)}
