@@ -1,22 +1,21 @@
-.contenu-profil {
+/* Contenu générale */
+.contenu-securite {
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
 
-.derniere-modification-profil {
+.derniere-modification-securite {
     color: #64748B;
     font-size: 14px;
     font-weight: 400;
 }
 
-.derniere-modification-profil span {
+.derniere-modification-securite span {
     color: #141414;
     font-size: 14px;
     font-weight: 400;
 }
-
-
 
 
 .logo-titre {
@@ -36,20 +35,21 @@
 
 
 
+/* ---------- Contenu 1 ---------- */
 
-.zone-identite-profil {
+
+
+/* ---------- Contenu 2 ---------- */
+.contenu-2 {
     display: flex;
     flex-direction: column;
+    gap: 70px;
 }
 
-.titre-section-profil {
-    font-size: 30px;
-    font-weight: 600;
-    color: #141414;
-    margin-bottom: 1%;
-}
 
-.input-information-profil {
+
+
+.input-information-securite {
     display: flex;
     flex-direction: row;
     /* Pour le retour à la ligne en cas de dépassement */

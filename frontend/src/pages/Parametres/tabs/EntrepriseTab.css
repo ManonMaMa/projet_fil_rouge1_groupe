@@ -1,7 +1,7 @@
 .contenu-entreprise {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 35px;
 }
 
 .derniere-modification-entreprise {

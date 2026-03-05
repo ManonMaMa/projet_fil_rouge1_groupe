@@ -23,6 +23,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
+  /* Couleur d'écriture */
   color: #141414;
   outline: none;
   box-sizing: border-box;
@@ -33,6 +34,7 @@
   color: #c4c4c4;
 }
 
+/* Quand on clique dessus */
 .input-field:focus {
   border-color: #1f1f1f;
 }
