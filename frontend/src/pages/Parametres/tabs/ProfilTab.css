@@ -1,0 +1,28 @@
+.contenu-profil {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.derniere-modification-profil {
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.derniere-modification-profil span {
+    color: #141414;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.titre-section-profil {
+    font-size: 30px;
+    font-weight: 600;
+    color: #141414;
+}
+
+.zone-input-profil {
+    display: flex;
+    gap: 21px;
+}

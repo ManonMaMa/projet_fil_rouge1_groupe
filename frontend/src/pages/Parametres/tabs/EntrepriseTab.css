@@ -1,0 +1,28 @@
+.contenu-entreprise {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.derniere-modification-entreprise {
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.derniere-modification-entreprise span {
+    color: #141414;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.titre-section-entreprise {
+    font-size: 30px;
+    font-weight: 600;
+    color: #141414;
+}
+
+.zone-input-entreprise {
+    display: flex;
+    gap: 21px;
+}
