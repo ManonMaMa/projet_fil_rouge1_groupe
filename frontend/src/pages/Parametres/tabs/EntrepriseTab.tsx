@@ -22,13 +22,13 @@ const ProfilTab: React.FC = () => {
                 <div className="zone-information-entreprise">
                     <h2 className="titre-section-entreprise">Informations légales</h2>
                     <div className="input-information-entreprise">
-                    <Input label="Email" type="" placeholder="" />
-                    <Input label="Téléphone" type="" placeholder="06 60 06 60 06" />
-                    <Input label="Numéro" type="" placeholder="24" />
-                    <Input label="Rue" type="" placeholder="rue de l'impasse" />
-                    <Input label="Code postal" type="" placeholder="73000" />
-                    <Input label="Ville" type="" placeholder="Chambéry" />
-                    <Input label="Pays" type="" placeholder="France" />
+                        <Input label="Email" type="" placeholder="exemple@gmail.com" />
+                        <Input label="Téléphone" type="" placeholder="06 60 06 60 06" />
+                        <Input label="Numéro" type="" placeholder="24" />
+                        <Input label="Rue" type="" placeholder="rue de l'impasse" />
+                        <Input label="Code postal" type="" placeholder="73000" />
+                        <Input label="Ville" type="" placeholder="Chambéry" />
+                        <Input label="Pays" type="" placeholder="France" />
                     </div>
                 </div>
             </div>

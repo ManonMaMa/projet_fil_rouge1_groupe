@@ -1,7 +1,7 @@
 .contenu-entreprise {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 24px;
 }
 
 .derniere-modification-entreprise {
@@ -16,6 +16,11 @@
     font-weight: 400;
 }
 
+.zone-identite-entreprise {
+    display: flex;
+    flex-direction: column;
+}
+
 .titre-section-entreprise {
     font-size: 30px;
     font-weight: 600;
@@ -23,13 +28,12 @@
     margin-bottom: 1%;
 }
 
-.zone-input-entreprise {
-    display: flex;
-    gap: 21px;
-}
 
 .input-information-entreprise {
     display: flex;
     flex-direction: row;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
     gap: 21px;
+    overflow: hidden;
 }
