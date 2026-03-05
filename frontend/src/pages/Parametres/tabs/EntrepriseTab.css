@@ -1,7 +1,7 @@
 .contenu-entreprise {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 30px;
 }
 
 .derniere-modification-entreprise {
@@ -20,9 +20,16 @@
     font-size: 30px;
     font-weight: 600;
     color: #141414;
+    margin-bottom: 1%;
 }
 
 .zone-input-entreprise {
     display: flex;
+    gap: 21px;
+}
+
+.input-information-entreprise {
+    display: flex;
+    flex-direction: row;
     gap: 21px;
 }

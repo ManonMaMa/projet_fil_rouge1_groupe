@@ -10,16 +10,26 @@ const ProfilTab: React.FC = () => {
                 {/* Dernière modification */}
                 <p className="derniere-modification-entreprise">Dernière modifications le <span>24 janvier 2025</span></p>
 
-                {/* Titre section */}
-                <h2 className="Titre-section-entreprise">Identité de l'entreprise</h2>
 
-                {/* Zone input */}
-                <div className="zone-input-entreprise">
-                    <Input label="Nom" type="" placeholder="Dupond" />
-                    <Input label="Prénom" type="" placeholder="Jean" />
-                    <Input label="Mail" type="" placeholder="exemple@gmail.com" />
-                    <Input label="Langue" type="" placeholder="" />
-                    <Input label="Fuseau horaire" type="" placeholder="" />
+                {/* Zone identité entreprise */}
+                <div className="zone-identite-entreprise">
+                    <h2 className="titre-section-entreprise">Identité de l'entreprise</h2>
+                    <Input label="Nom de l'entreprise" type="" placeholder="" />
+                </div>
+
+
+                {/* Zone informations légales */}
+                <div className="zone-information-entreprise">
+                    <h2 className="titre-section-entreprise">Informations légales</h2>
+                    <div className="input-information-entreprise">
+                    <Input label="Email" type="" placeholder="" />
+                    <Input label="Téléphone" type="" placeholder="06 60 06 60 06" />
+                    <Input label="Numéro" type="" placeholder="24" />
+                    <Input label="Rue" type="" placeholder="rue de l'impasse" />
+                    <Input label="Code postal" type="" placeholder="73000" />
+                    <Input label="Ville" type="" placeholder="Chambéry" />
+                    <Input label="Pays" type="" placeholder="France" />
+                    </div>
                 </div>
             </div>
 
