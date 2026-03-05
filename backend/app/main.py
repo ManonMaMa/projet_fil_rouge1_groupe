@@ -2,9 +2,9 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 import uuid
 
-from backend.database import get_db
-from backend.models import Utilisateur
-from backend.schemas import InscriptionCreate
+from app.database import get_db
+from app.models import Utilisateur
+from app.schemas import InscriptionCreate
 
 
 from fastapi import FastAPI

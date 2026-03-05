@@ -1,6 +1,7 @@
 To prepare the Workspace for the app, do the following:
+(based on https://fastapi.tiangolo.com/virtual-environments/#create-a-virtual-environment)
 
-(on a linux terminal)
+### on a Linux terminal
 
 * Create a python virtual environnement at the root of the project:
   $ `python -m venv .venv`
@@ -8,10 +9,8 @@ To prepare the Workspace for the app, do the following:
   ```
   $ cat << EOT > .venv/.gitignore
   #Excluding this directory and all its content from git versionning.
-
-  \*
+  *
   EOT
-
   ```
 * Activate the virtual environment
   $ `source .venv/bin/activate`
@@ -22,3 +21,26 @@ To prepare the Workspace for the app, do the following:
 * Launch FastAPI server
   $ `fastapi dev main.py`
 * Server started loccally on http://127.0.0.1:8000/
+
+
+### on a Windows powershell
+
+* Create a python virtual environnement at the root of the project:
+  $ `python -m venv .venv`
+* Exclude this directory from the git versionning
+  ```
+$ echo "#Excluding this directory and all its content from git versionning.
+*
+" > test .venv/.gitignore
+  ```
+* Activate the virtual environment
+  $ `.venv\Scripts\Activate.ps1`
+* Ensure your virtual environment is active and python is ok
+  $ `Get-Command python`
+* Install dependencies of Python project
+  $ `pip install -r ./requirements.txt`
+* Launch FastAPI server
+  $ `fastapi dev main.py`
+* Server started loccally on http://127.0.0.1:8000/
+
+
