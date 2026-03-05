@@ -24,7 +24,7 @@ const Parametres: React.FC = () => {
     };
 
 
-
+///////
 
     return (
         <div className="page-conteneur">
