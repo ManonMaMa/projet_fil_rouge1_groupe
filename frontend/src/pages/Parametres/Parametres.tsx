@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './headerParametres'; // Import header parametres
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
-import Input from '../../assets/composants/input';
+
+import ProfilTab from './tabs/ProfilTab';
+import EntrepriseTab from './tabs/EntrepriseTab';
+import PreferencesTab from './tabs/PreferencesTab';
+import SecuriteTab from './tabs/SecuriteTab';
+import PlanTab from './tabs/PlanTab';
+
 import './Parametres.css'; // CSS de la page parametres
 
 
 
 // Composant principal des Parametres
 const Parametres: React.FC = () => {
+
+    const [ongletActif, setOngletActif] = useState('mon-profil');
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -18,17 +26,30 @@ const Parametres: React.FC = () => {
         { id: 'plan', etiquette: 'Plan'}
     ];
 
-    // Fonction appelée lorsqu'un onglet est sélectionné
-    const changementOnglet = (tabId: string) => {
-        console.log('Onglet remplacé par :', tabId);
-        // [Ajouter la logique pour filtrer les documents selon l'onglet]
+
+    const renderContenu = () => {
+
+        switch(ongletActif) {
+            case 'mon-profil':
+                return <ProfilTab />;
+            case 'entreprise':
+                return <EntrepriseTab />;
+            case 'preferences':
+                return <PreferencesTab />;
+            case 'securite':
+                return <SecuriteTab />;
+            case 'plan':
+                return <PlanTab />;
+            default:
+                return null;
+        }
     };
 
 
 
     return (
         <div className="page-conteneur">
-            {/* [Importation de la SideBar ici] */}
+            {/* Import SideBar */}
             <Sidebar />
 
 
@@ -37,24 +58,15 @@ const Parametres: React.FC = () => {
                 <Header
                     titre="Paramètres"                          // changer le titre de la page
                     onglets={Onglets}                           // Onglets à afficher
-                    ongletActif="mon-profil"                    // ID de l'onglet actif par défaut
-                    surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
-                    afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
-                    texteBoutonNouvelElement="Nouveau Document" // Texte du bouton
+                    ongletActif={ongletActif}                   // ID de l'onglet actif par défaut
+                    surChangementOnglet={setOngletActif  }      // callback pour changement d'onglet
                 />
 
 
 
                 {/* Zone principale du contenu de la page ici */}
                 <div className="zone-contenu">
-                    <Input label="Nom" type="" placeholder="Dupond" />
-                    <Input label="Prénom" type="" placeholder="Jean" />
-                    <Input label="Mail" type="" placeholder="exemple@gmail.com" />
-                    <Input label="Langue" type="" placeholder="" />
-                    <Input label="Fuseau horaire" type="" placeholder="" />
-
-
-                    
+                    {renderContenu()}
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './headerParametres.css'; // Import CSS du header
 
 
@@ -32,24 +32,6 @@ const Header: React.FC<ProprieteHeader> = ({
 }) => {
 
 
-  // État local pour suivre l'onglet actuellement selectionné
-  const [ongletCourant, setOngletCourant] = useState(ongletActif);
-
-
-
-  // Gestion du clic sur un onglet
-  const gererClicOnglet = (ongletID: string) => {
-    setOngletCourant(ongletID);
-
-    // Appel du callback parent si fourni
-    if (surChangementOnglet) {
-      surChangementOnglet(ongletID);
-    }
-  };
-
-
-
-
   return (
     // Container principal du header
     <div className="header-contenu">
@@ -69,8 +51,8 @@ const Header: React.FC<ProprieteHeader> = ({
             {onglets.map((onglets) => (
               <button
                 key={onglets.id}
-                className={`onglets-button ${ongletCourant === onglets.id ? 'active' : ''}`}
-                onClick={() => gererClicOnglet(onglets.id)}
+                className={`onglets-button ${ongletActif === onglets.id ? 'active' : ''}`}
+                onClick={() => surChangementOnglet?.(onglets.id)}
               >
                 {onglets.etiquette}
 
