@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HeaderNouvelleFacture from './headerNouvelleFacture';
 import Sidebar from "../../../assets/composants/Sidebar"
 import './nouvelleFacture.css'; // CSS de la page devis
+import Input from '../../../assets/composants/input';
 
 
 
@@ -28,7 +29,13 @@ const nouvelleFacture: React.FC = () => {
           {/* Section de la première année */}
           <div className="section-annee">
             <h2 className="titre-annee">Client</h2>
-            {/* liste des devis ici */}
+            {/* Import composant input */}
+            <Input label="Nom / Société" type="" placeholder="" />
+            <Input label="Adresse" type="" placeholder="" />
+            <Input label="Email" type="" placeholder="exemple@email.com" />
+            <Input label="Numéro client" type="" placeholder="" />
+
+
             <p>Nom / société</p>
             <p>Adresse</p>
             <p>Email</p>
