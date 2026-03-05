@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './headerParametres'; // Import header parametres
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import Input from '../../assets/composants/input';
 import './Parametres.css'; // CSS de la page parametres
 
 
@@ -24,7 +25,6 @@ const Parametres: React.FC = () => {
     };
 
 
-///////
 
     return (
         <div className="page-conteneur">
@@ -47,6 +47,12 @@ const Parametres: React.FC = () => {
 
                 {/* Zone principale du contenu de la page ici */}
                 <div className="zone-contenu">
+                    <Input label="Nom" type="" placeholder="Dupond" />
+                    <Input label="Prénom" type="" placeholder="Jean" />
+                    <Input label="Mail" type="" placeholder="exemple@gmail.com" />
+                    <Input label="Langue" type="" placeholder="" />
+                    <Input label="Fuseau horaire" type="" placeholder="" />
+
 
                     
                 </div>
