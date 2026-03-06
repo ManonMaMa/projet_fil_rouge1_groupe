@@ -27,9 +27,13 @@ const ProfilTab: React.FC = () => {
                         </div>
 
                         <div className="input-information-securite">
-                            <InputPasswordActuel label="Mot de passe actuel" type="" placeholder="" />
-                            <InputPassword label="Nouveau mot de passe" type="" placeholder="Entrez un nouveau mot de passe" />
-                            <InputPassword label="Confirmez le mot de passe" type="" placeholder="Confirmez le nouveau mot de passe" />
+                            <div className="mdp-actuel">
+                                <InputPasswordActuel label="Mot de passe actuel" type="" placeholder="" />
+                            </div>
+                            <div className="nouveau-mdp">
+                                <InputPassword label="Nouveau mot de passe" type="" placeholder="Entrez un nouveau mot de passe" />
+                                <InputPassword label="Confirmez le mot de passe" type="" placeholder="Confirmez le nouveau mot de passe" />
+                            </div>
                         </div>
                     </div>
 

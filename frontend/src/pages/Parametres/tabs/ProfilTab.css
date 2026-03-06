@@ -22,12 +22,12 @@
 .logo-titre {
     color: #717171;
 }
-.titre-section-securite {
+.titre-section-profil {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
-.titre-section-securite h2 {
+.titre-section-profil h2 {
     font-size: 20px;
     font-weight: 600;
     color: #141414;

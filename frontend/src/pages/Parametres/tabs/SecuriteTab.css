@@ -45,13 +45,18 @@
     flex-direction: column;
     gap: 70px;
 }
+.nouveau-mdp {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
 
 
 
 
 .input-information-securite {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* Pour le retour à la ligne en cas de dépassement */
     flex-wrap: wrap;
     gap: 21px;
