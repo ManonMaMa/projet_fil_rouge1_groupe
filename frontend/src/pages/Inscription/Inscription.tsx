@@ -5,6 +5,7 @@ import { useState } from "react"
 
 
 function Inscription() {
+        const navigate = useNavigate() // pour la navigation
 
         const [email_user, setEmail] = useState("")       // email ce que l'utilisateur tape
         const [mdp_user, setPassword] = useState("") // setPassword comment on le met à jour
@@ -24,11 +25,11 @@ function Inscription() {
     
         const data = await response.json()
         console.log("Réponse du serveur :", data)
+        navigate("/Connexion")
         }
     
 
     // Route vers la page Inscription
-    const navigate = useNavigate() // pour la navigation
     const handleConnexion = () => {
         navigate("/Connexion")
     }
