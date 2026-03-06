@@ -37,3 +37,20 @@
     gap: 21px;
     overflow: hidden;
 }
+
+.input-information-legale-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+}
+
+.input-information-legale-2 {
+    display: flex;
+    flex-direction: row;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}

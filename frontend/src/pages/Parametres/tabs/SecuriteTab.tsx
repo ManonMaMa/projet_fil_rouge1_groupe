@@ -2,21 +2,31 @@ import React from "react";
 import Input from "../../../assets/composants/input";
 import InputPassword from "../../../assets/composants/inputPassword";
 import InputPasswordActuel from "../../../assets/composants/inputPasswordActuel";
+import HistoriqueSession from "../../../assets/composants/historiqueSession";
 import "./SecuriteTab.css"
 
+
+const sessions = [
+    { id: 1, browserName: 'Safari sur Mac OS X', location: 'Grenoble, France', isActive: true },
+    { id: 2, browserName: 'Chrome sur Windows', location: 'Paris, France', isActive: false },
+    { id: 3, browserName: 'Firefox sur Linux', location: 'Lyon, France', isActive: false },
+];
+
 const ProfilTab: React.FC = () => {
+
+
 
     return (
         <>
             <div className="contenu-securite">
 
-                {/* Zone Changer MDP */}
                 <div className="contenu-1">
                     {/* Dernière modification */}
                     <p className="derniere-modification-securite">Dernière modifications le <span>08 Juin 2025</span></p>
                 </div>
 
                 <div className="contenu-2">
+                    {/* Zone Changer MDP */}
                     <div className="zone-changer-mdp-securite">
                         <div className="titre-section-securite">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -48,7 +58,11 @@ const ProfilTab: React.FC = () => {
                         </div>
 
                         <div className="input-information-securite">
-                            <InputPasswordActuel label="Mot de passe actuel" type="" placeholder="" />
+                            <HistoriqueSession
+                                sessions={sessions}
+                                label="Sessions actives"
+                                onDelete={(id) => console.log('Supprimer session', id)}
+                            />
                         </div>
                     </div>
 
