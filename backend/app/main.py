@@ -15,15 +15,16 @@ app.include_router(prestation_router)
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import HTTPException   #Gere le exception
 
 
 class Inscription(BaseModel):
     email_user: str
-    password_user: str
+    mdp_user: str
 
 class Connexion(BaseModel):
     email_user: str
-    password_user: str
+    mdp_user: str
 
 app = FastAPI()
 
@@ -49,8 +50,8 @@ def inscription(
 
     nouvel_utilisateur = Utilisateur(
         id_user=str(uuid.uuid4()),
-        email_user=data.email,
-        mdp_user=data.password
+        email_user=data.email_user,
+        mdp_user=data.mdp_user
     )
 
     db.add(nouvel_utilisateur)
@@ -65,8 +66,13 @@ def inscription(
 
 
 @app.post("/connexion")
-def connexion(data: Connexion):
+def connexion(data: Connexion, db: Session = Depends(get_db)):
+    utilisateur = db.query(Utilisateur).filter(Utilisateur.email_user == data.email_user).first()
+    if not utilisateur or utilisateur.mdp_user != data.mdp_user:
+        raise HTTPException(status_code=401, detail="Email ou mot de passe incorrect")
+
     return {
         "message": "Vous êtes bien connecté",
-        "email": data.email
+        "id_user": utilisateur.id_user,
+        "email": utilisateur.email_user
     }

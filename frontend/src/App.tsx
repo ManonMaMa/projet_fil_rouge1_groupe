@@ -31,7 +31,7 @@ function App() {
       <div className="app-layout">
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/agenda" element={<Agenda />} />
             <Route path="/planification" element={<Planification />} />
             <Route path="/finances" element={<Finances />} />
