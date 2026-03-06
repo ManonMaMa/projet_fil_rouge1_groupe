@@ -22,6 +22,8 @@ import Factures from "./pages/Facturations/Factures/Factures"
 import NouvelleFacture from "./pages/Facturations/Factures/nouvelleFacture"
 import Devis from "./pages/Facturations/Devis/Devis"
 
+import Prestations from "./pages/Prestations/Prestations"
+
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
             <Route path="/inscription" element={<Inscription />} />
             <Route path="/inscriptionP2" element={<InscriptionP2 />} />
             <Route path="/connexion" element={<Connexion />} />
+            <Route path="/prestations" element={<Prestations />} />
           </Routes>
         </main>
       </div>

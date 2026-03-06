@@ -76,7 +76,6 @@ ALTER TABLE IF EXISTS public.statut
     OWNER to postgres;
 
 
-
 -- Table: public.prestation
 
 -- DROP TABLE IF EXISTS public.prestation;
@@ -86,13 +85,20 @@ CREATE TABLE IF NOT EXISTS public.prestation
     id_prestation integer NOT NULL,
     description_prestation text COLLATE pg_catalog."default" NOT NULL,
     montant_prestation numeric(15,2) NOT NULL,
-    CONSTRAINT prestation_pkey PRIMARY KEY (id_prestation)
+    id_user_fk character varying(300) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT prestation_pkey PRIMARY KEY (id_prestation),
+    CONSTRAINT id_user_fk FOREIGN KEY (id_user_fk)
+        REFERENCES public.utilisateur (id_user) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
 )
 
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.prestation
     OWNER to postgres;
+
 
 
 -- Table: public.devis

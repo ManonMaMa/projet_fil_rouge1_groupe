@@ -8,3 +8,11 @@ class PrestationCreate(BaseModel):
 
 class PrestationUpdate(PrestationCreate):
     pass
+
+
+class PrestationOut(PrestationCreate):
+    id: int
+
+    class Config:
+        from_attributes = True
+

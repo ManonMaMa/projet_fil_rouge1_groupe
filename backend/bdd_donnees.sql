@@ -475,3 +475,16 @@ FROM (
 WHERE public.client.id_client = u.id_client;
 
 
+
+-- pour lier un prestation à un utilisateur
+
+UPDATE public.prestation
+SET id_user_fk = u.user_id
+FROM (
+    SELECT id_prestation,
+           (ARRAY['u001','u002','u003','u004'])[floor(random()*4 + 1)] AS user_id
+    FROM public.prestation
+) u
+WHERE public.prestation.id_prestation = u.id_prestation;
+
+

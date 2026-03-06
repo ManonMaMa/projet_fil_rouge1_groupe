@@ -1,0 +1,354 @@
+.header-contenu {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Section top - Titre et boutons d'actions */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 16px;
+}
+
+/* Titre du header : Page */
+.header-titre {
+  font-size: 40px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+/* Boutons d'actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Bouton filtre */
+.bouton-filtre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+}
+
+/* Bouton filtre - hover */
+.bouton-filtre:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Bouton filtre - actif */
+.bouton-filtre.active {
+  background-color: #111827;
+  border-color: #111827;
+  color: #ffffff;
+}
+
+/* Bouton nouvelle action */
+.nouvelle-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Bouton nouvelle action - hover */
+.nouvelle-action-btn:hover {
+  background-color: #1f2937;
+}
+
+.plus-icon {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Section onglets */
+.header-onglets {
+  padding: 0 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Liste des onglets */
+.onglets-list {
+  display: flex;
+  gap: 35px; /* Espacement entre les onglets */
+
+}
+
+
+
+/* Bouton des onglets */
+.onglets-button {
+  position: relative;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Bouton des onglets - hover */
+.onglets-button:hover {
+  color: #111827;
+}
+
+/* Bouton des onglets - actif */
+.onglets-button.active {
+  color: #141414;
+  font-weight: 600;
+}
+
+/* Indicateur barre des onglets */
+.onglets-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;  /* Épaisseur */
+  background-color: #141414;
+}
+
+/* Indicateur (bulle) */
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000000;
+}
+
+/* Indicateur (bulle) - actif */
+.onglets-button.active .tab-count {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+
+
+/* Barre des filtres */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 1%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  border: none;
+}
+
+
+/* Condition qui vérifie si l'utilisateur a demandé de réduire les animations dans son système d'exploitation */
+@media (prefers-reduced-motion: reduce) {
+  .filter-bar {
+    animation: none;
+  }
+}
+
+/* @keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+/* Barre de recherche */
+.filter-search {
+  position: relative;
+  flex: 0 0 360px;
+}
+
+/* Barre de recherche - icône */
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* Barre de recherche - écriture */
+.filter-search-input {
+  width: 100%;
+  height: 36px;
+  padding: 10px 12px 10px 36px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-size: 12px;
+  border: none;
+  color: #141414;
+  transition: border-color 0.2s ease;
+}
+
+/* Barre de recherche - placeholder */
+.filter-search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Barre de recherche - on click */
+.filter-search-input:focus {
+  outline: none;
+  border-color: #f5f5f5;
+}
+
+/* Zone Boutons de filtres */
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Butons de filtres */
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 10px 30px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #141414;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Boutons de filtres - hover */
+.filter-btn:hover {
+  background-color: #f9fafb;
+}
+
+/* Icône chevron */
+.chevron-icon {
+  color: #6b7280;
+}
+
+/* Boutons d'actions filtres */
+.filter-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.btn-secondary,
+.btn-primary {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #141414;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.btn-primary {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1f2937;
+}
+
+
+
+
+
+/* Si largeur écran <= 1200px */
+@media (max-width: 1200px) {
+  .filter-bar {
+    flex-wrap: wrap;
+  }
+
+  .filter-search {
+    flex: 1 1 100%;
+  }
+
+  .filter-controls {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+  }
+
+  .filter-actions {
+    margin-left: 0;
+  }
+}
+
+
+/* Si largeur écran <= 768px */
+@media (max-width: 768px) {
+  .header-top {
+    padding: 16px 20px 12px;
+  }
+
+  .header-titre {
+    font-size: 24px;
+  }
+
+  .header-onglets,
+  .filter-bar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .onglets-list {
+    gap: 24px;
+  }
+}

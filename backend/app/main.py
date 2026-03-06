@@ -1,10 +1,15 @@
-from fastapi import Depends
+from fastapi import Depends, FastAPI
 from sqlalchemy.orm import Session
 import uuid
 
 from app.database import get_db
 from app.models import Utilisateur
 from app.utilisateur.schemas_utilisateur import InscriptionCreate
+from app.prestation.routers_prestation import router as prestation_router
+
+app = FastAPI()
+
+app.include_router(prestation_router)
 
 
 from fastapi import FastAPI
