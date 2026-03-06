@@ -6,8 +6,8 @@ import { useState } from "react"
 
 function Inscription() {
 
-        const [email, setEmail] = useState("")       // email ce que l'utilisateur tape
-        const [password, setPassword] = useState("") // setPassword comment on le met à jour
+        const [email_user, setEmail] = useState("")       // email ce que l'utilisateur tape
+        const [mdp_user, setPassword] = useState("") // setPassword comment on le met à jour
         
         // Envoyer vers le fastAPI pour simuler un connexion à la  base de donnée !!! A CHANGER VERS LA BDD !!!
         const handleInscription = async () => {
@@ -17,8 +17,8 @@ function Inscription() {
                 "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                email: email,
-                password: password,
+                email_user: email_user,
+                mdp_user: mdp_user,
             }),
         })
     
@@ -61,12 +61,12 @@ function Inscription() {
                   
                     <div className="input-group">
                         <label>Email</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="email" value={email_user} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="input-group">
                         <label>Mot de passe</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" value={mdp_user} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
 
                     <div className="input-group">

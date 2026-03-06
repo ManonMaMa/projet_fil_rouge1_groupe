@@ -56,3 +56,11 @@ class Devis(Base):
     id_client_fk = Column(Integer, ForeignKey("client.id_client"), nullable=False)
     id_user_fk = Column(String(300), ForeignKey("utilisateur.id_user"), nullable=False)
     id_statut_fk = Column(Integer, ForeignKey("statut.id_statut"), nullable=False)
+
+
+class Service(Base):
+    __tablename__ = "service"
+
+    id_service = Column(Integer, primary_key=True, index=True)
+    description_service = Column(Text)
+    montant_service = Column(Numeric(15, 2))

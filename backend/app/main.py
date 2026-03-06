@@ -4,7 +4,7 @@ import uuid
 
 from app.database import get_db
 from app.models import Utilisateur
-from app.schemas import InscriptionCreate
+from app.utilisateur.schemas_utilisateur import InscriptionCreate
 
 
 from fastapi import FastAPI
@@ -13,12 +13,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 class Inscription(BaseModel):
-    email: str
-    password: str
+    email_user: str
+    password_user: str
 
 class Connexion(BaseModel):
-    email: str
-    password: str
+    email_user: str
+    password_user: str
 
 app = FastAPI()
 
