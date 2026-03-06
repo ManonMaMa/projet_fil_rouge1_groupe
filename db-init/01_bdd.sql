@@ -226,6 +226,3 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.facture_prestation
     OWNER to postgres;
-
-
-

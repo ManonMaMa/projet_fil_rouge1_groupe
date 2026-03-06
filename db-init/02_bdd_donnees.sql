@@ -486,5 +486,3 @@ FROM (
     FROM public.prestation
 ) u
 WHERE public.prestation.id_prestation = u.id_prestation;
-
-
