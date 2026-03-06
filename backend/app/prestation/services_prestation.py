@@ -11,8 +11,8 @@ def create_prestation(db: Session, data: PrestationCreate):
     return prestation
 
 
-def get_prestations(db: Session, id_user: str):
-    return db.query(Prestation).filter(Prestation.id_user == id_user).all()
+def get_prestations(db: Session, id_user_fk: str):
+    return db.query(Prestation).filter(Prestation.id_user_fk == id_user_fk).all()
 
 
 def get_prestation_by_id(db: Session, prestation_id: int):

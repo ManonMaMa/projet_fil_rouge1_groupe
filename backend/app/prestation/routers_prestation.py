@@ -21,8 +21,8 @@ def creer_prestation(data: PrestationCreate, db: Session = Depends(get_db)):
 
 # 🟢 Lire toutes les prestations d’un utilisateur
 @router.get("/", response_model=list[PrestationOut])
-def lire_prestations(id_user: str, db: Session = Depends(get_db)):
-    prestations = get_prestations(db, id_user)
+def lire_prestations(id_user_fk: str, db: Session = Depends(get_db)):
+    prestations = get_prestations(db, id_user_fk)
 
     if not prestations:
         return {"erreur": "Aucune prestation trouvée pour cet utilisateur"}
@@ -32,9 +32,9 @@ def lire_prestations(id_user: str, db: Session = Depends(get_db)):
 
 # 🟢 Lire une les prestations
 @router.get("/{prestation_id}", response_model=PrestationOut)
-def lire_prestation(id_user: str, db: Session = Depends(get_db)):
+def lire_prestation(id_user_fk: str, db: Session = Depends(get_db)):
 
-    prestation = get_prestation_by_id(db, id_user)
+    prestation = get_prestation_by_id(db, id_user_fk)
 
     if not prestation:
         return {"erreur": "Prestation non trouvée"}

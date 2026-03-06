@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 import uuid
 
@@ -7,27 +7,16 @@ from app.models import Utilisateur
 from app.utilisateur.schemas_utilisateur import InscriptionCreate
 from app.prestation.routers_prestation import router as prestation_router
 
-app = FastAPI()
-
-app.include_router(prestation_router)
-
-
-from fastapi import FastAPI
-from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import HTTPException   #Gere le exception
+from pydantic import BaseModel
 
 
-class Inscription(BaseModel):
-    email_user: str
-    mdp_user: str
-
-class Connexion(BaseModel):
-    email_user: str
-    mdp_user: str
-
+# ---------------------------
+# Création de l'application
+# ---------------------------
 app = FastAPI()
 
+# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
@@ -36,18 +25,32 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Inclusion du router PRESTATIONS
+app.include_router(prestation_router)
 
+
+# ---------------------------
+# Schémas internes
+# ---------------------------
+class Inscription(BaseModel):
+    email_user: str
+    mdp_user: str
+
+class Connexion(BaseModel):
+    email_user: str
+    mdp_user: str
+
+
+# ---------------------------
+# Routes API
+# ---------------------------
 @app.get("/")
 def api_status():
     return {"status": "API opérationnelle !!"}
 
-@app.post("/inscription")
-def inscription(
-    data: InscriptionCreate,
-    db: Session = Depends(get_db)
-):
-    print("📩 Données reçues :", data)
 
+@app.post("/inscription")
+def inscription(data: InscriptionCreate, db: Session = Depends(get_db)):
     nouvel_utilisateur = Utilisateur(
         id_user=str(uuid.uuid4()),
         email_user=data.email_user,
@@ -62,7 +65,6 @@ def inscription(
         "message": "Utilisateur créé avec succès 🎉",
         "email": nouvel_utilisateur.email_user
     }
-
 
 
 @app.post("/connexion")
