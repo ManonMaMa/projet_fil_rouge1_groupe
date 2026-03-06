@@ -77,21 +77,21 @@ ALTER TABLE IF EXISTS public.statut
 
 
 
--- Table: public.service
+-- Table: public.prestation
 
--- DROP TABLE IF EXISTS public.service;
+-- DROP TABLE IF EXISTS public.prestation;
 
-CREATE TABLE IF NOT EXISTS public.service
+CREATE TABLE IF NOT EXISTS public.prestation
 (
-    id_service integer NOT NULL,
-    description_service text COLLATE pg_catalog."default" NOT NULL,
-    montant_service numeric(15,2) NOT NULL,
-    CONSTRAINT service_pkey PRIMARY KEY (id_service)
+    id_prestation integer NOT NULL,
+    description_prestation text COLLATE pg_catalog."default" NOT NULL,
+    montant_prestation numeric(15,2) NOT NULL,
+    CONSTRAINT prestation_pkey PRIMARY KEY (id_prestation)
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public.service
+ALTER TABLE IF EXISTS public.prestation
     OWNER to postgres;
 
 
@@ -169,21 +169,21 @@ ALTER TABLE IF EXISTS public.facture
 
 
 
--- Table: public.devis_service
+-- Table: public.devis_prestation
 
--- DROP TABLE IF EXISTS public.devis_service;
+-- DROP TABLE IF EXISTS public.devis_prestation;
 
-CREATE TABLE IF NOT EXISTS public.devis_service
+CREATE TABLE IF NOT EXISTS public.devis_prestation
 (
     id_devis_fk integer NOT NULL,
-    id_service_fk integer NOT NULL,
-    duree_service integer NOT NULL DEFAULT 1,
+    id_prestation_fk integer NOT NULL,
+    duree_prestation integer NOT NULL DEFAULT 1,
     CONSTRAINT devis_fk FOREIGN KEY (id_devis_fk)
         REFERENCES public.devis (id_devis) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT service_fk FOREIGN KEY (id_service_fk)
-        REFERENCES public.service (id_service) MATCH SIMPLE
+    CONSTRAINT prestation_fk FOREIGN KEY (id_prestation_fk)
+        REFERENCES public.prestation (id_prestation) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         NOT VALID
@@ -191,34 +191,34 @@ CREATE TABLE IF NOT EXISTS public.devis_service
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public.devis_service
+ALTER TABLE IF EXISTS public.devis_prestation
     OWNER to postgres;
 
 
 
 
--- Table: public.facture_service
+-- Table: public.facture_prestation
 
--- DROP TABLE IF EXISTS public.facture_service;
+-- DROP TABLE IF EXISTS public.facture_prestation;
 
-CREATE TABLE IF NOT EXISTS public.facture_service
+CREATE TABLE IF NOT EXISTS public.facture_prestation
 (
     id_facture_fk integer NOT NULL,
-    id_service_fk integer NOT NULL,
-    duree_service integer NOT NULL DEFAULT 1,
+    id_prestation_fk integer NOT NULL,
+    duree_prestation integer NOT NULL DEFAULT 1,
     CONSTRAINT facture_fk FOREIGN KEY (id_facture_fk)
         REFERENCES public.facture (id_facture) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT service_fk FOREIGN KEY (id_service_fk)
-        REFERENCES public.service (id_service) MATCH SIMPLE
+    CONSTRAINT prestation_fk FOREIGN KEY (id_prestation_fk)
+        REFERENCES public.prestation (id_prestation) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public.facture_service
+ALTER TABLE IF EXISTS public.facture_prestation
     OWNER to postgres;
 
 

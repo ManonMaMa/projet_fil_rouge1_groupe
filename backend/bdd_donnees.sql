@@ -129,7 +129,7 @@ INSERT INTO public.statut (id_statut, nom_statut, facture) VALUES
 
 
 
-INSERT INTO public.service (id_service, description_service, montant_service) VALUES
+INSERT INTO public.prestation (id_prestation, description_prestation, montant_prestation) VALUES
 (1, 'Consultation stratégique', 120.00),
 (2, 'Développement web front-end', 80.00),
 (3, 'Développement web back-end', 90.00),
@@ -270,8 +270,8 @@ INSERT INTO public.facture (id_facture, numero_facture, date_facture, echeance_f
 
 
 
--- Factures 1 à 100, nombre de services variable (1 à 5), durée 1-8
-INSERT INTO public.facture_service (id_facture_fk, id_service_fk, duree_service) VALUES
+-- Factures 1 à 100, nombre de prestations variable (1 à 5), durée 1-8
+INSERT INTO public.facture_prestation (id_facture_fk, id_prestation_fk, duree_prestation) VALUES
 (1,2,4),(1,7,2),
 (2,1,5),(2,4,3),(2,12,2),
 (3,5,1),
@@ -403,7 +403,7 @@ INSERT INTO public.devis (id_devis, numero_devis, date_devis, montant_total_devi
 
 
 
-INSERT INTO public.devis_service (id_devis_fk, id_service_fk, duree_service) VALUES
+INSERT INTO public.devis_prestation (id_devis_fk, id_prestation_fk, duree_prestation) VALUES
 (1,3,4),(1,7,2),(1,12,1),
 (2,1,5),(2,5,3),
 (3,2,2),
@@ -427,34 +427,34 @@ INSERT INTO public.devis_service (id_devis_fk, id_service_fk, duree_service) VAL
 
 
 
--- calcule le montant total du devis en fonction des services presents dans le devis 
+-- calcule le montant total du devis en fonction des prestations presentes dans le devis 
 
 UPDATE public.devis d
 SET montant_total_devis = sub.total
 FROM (
     SELECT
         ds.id_devis_fk,
-        SUM(s.montant_service * ds.duree_service) AS total
-    FROM public.devis_service ds
-    JOIN public.service s
-        ON s.id_service = ds.id_service_fk
+        SUM(s.montant_prestation * ds.duree_prestation) AS total
+    FROM public.devis_prestation ds
+    JOIN public.prestation s
+        ON s.id_prestation = ds.id_prestation_fk
     GROUP BY ds.id_devis_fk
 ) sub
 WHERE d.id_devis = sub.id_devis_fk;
 
 
 
--- calcule le montant total de la facture en fonction des services presents dans la factures 
+-- calcule le montant total de la facture en fonction des prestations presentes dans la factures 
 
 UPDATE public.facture f
 SET montant_total_facture = sub.total
 FROM (
     SELECT
         fs.id_facture_fk,
-        SUM(s.montant_service * fs.duree_service) AS total
-    FROM public.facture_service fs
-    JOIN public.service s
-        ON s.id_service = fs.id_service_fk
+        SUM(s.montant_prestation * fs.duree_prestation) AS total
+    FROM public.facture_prestation fs
+    JOIN public.prestation s
+        ON s.id_prestation = fs.id_prestation_fk
     GROUP BY fs.id_facture_fk
 ) sub
 WHERE f.id_facture = sub.id_facture_fk;
