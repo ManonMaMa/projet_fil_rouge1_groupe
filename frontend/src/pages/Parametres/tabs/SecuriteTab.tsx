@@ -3,6 +3,7 @@ import Input from "../../../assets/composants/input";
 import InputPassword from "../../../assets/composants/inputPassword";
 import InputPasswordActuel from "../../../assets/composants/inputPasswordActuel";
 import HistoriqueSession from "../../../assets/composants/historiqueSession";
+import DeconnecterSessions from "../../../assets/composants/deconnecterSessions";
 import "./SecuriteTab.css"
 
 
@@ -63,6 +64,7 @@ const ProfilTab: React.FC = () => {
                                 label="Sessions actives"
                                 onDelete={(id) => console.log('Supprimer session', id)}
                             />
+                            <DeconnecterSessions/>
                         </div>
                     </div>
 
