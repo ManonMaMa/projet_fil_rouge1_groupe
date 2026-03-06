@@ -44,8 +44,8 @@ def inscription(
 
     nouvel_utilisateur = Utilisateur(
         id_user=str(uuid.uuid4()),
-        email_user=data.email,
-        mdp_user=data.password
+        email_user=data.email_user,
+        mdp_user=data.mdp_user
     )
 
     db.add(nouvel_utilisateur)
@@ -63,5 +63,5 @@ def inscription(
 def connexion(data: Connexion):
     return {
         "message": "Vous êtes bien connecté",
-        "email": data.email
+        "email": data.email_user
     }
