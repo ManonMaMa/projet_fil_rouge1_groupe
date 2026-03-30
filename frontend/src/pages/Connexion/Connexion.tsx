@@ -35,11 +35,11 @@ function Connexion() {
             const data = await response.json()
             console.log("Réponse du serveur :", data)
 
-            // On pourrait stocker l'id_user dans le localStorage pour l'utiliser plus tard
-            localStorage.setItem("id_user", data.id_user)
+            // fake token pour test
+            localStorage.setItem("token", "ok")
 
             // Navigation vers le Dashboard
-            navigate("/Dashboard")
+            navigate("/")
         } catch (err) {
             console.error("Erreur réseau :", err)
             setError("Impossible de se connecter. Vérifiez votre connexion.")
