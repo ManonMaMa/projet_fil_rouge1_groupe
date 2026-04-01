@@ -35,12 +35,12 @@ const Factures: React.FC = () => {
 
 
   return (
-    <div className="page-conteneur">
+    <div className="page-conteneur-facture">
       {/* [Importation de la SideBar ici] */}
       <Sidebar />
 
 
-      <div className="page-contenu">
+      <div className="page-contenu-facture">
         {/* Header */}
         <Header
           titre="Factures"                            // changer le titre de la page
@@ -55,7 +55,8 @@ const Factures: React.FC = () => {
 
 
         {/* Zone principale du contenu de la page ici */}
-        <div className="zone-contenu">
+        <div className="zone-contenu-factures">
+
 
           {/* Section de la première année */}
           <div className="section-annee">
@@ -214,6 +215,79 @@ const Factures: React.FC = () => {
 
             <LigneFacture
               id="6"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+
+            <LigneFacture
+              id="7"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="8"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="9"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="10"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="11"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="12"
               date="05/01/2026"
               numero="1826-92"
               clientFournisseur="Alain Jean"

@@ -1,0 +1,89 @@
+.ligne-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+/* Section Client */
+.titre-section-client {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.titre-section-client h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+.input-information-client {
+    display: flex;
+    flex-direction: column;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}
+.client-ligne-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+
+
+
+
+
+
+.droite {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Section Dates */
+.titre-section-dates {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+.titre-section-dates h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+.input-information-dates {
+    display: flex;
+    flex-direction: row;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+/* Section Dates */
+.titre-section-facture {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+.titre-section-facture h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+.input-information-facture {
+    display: flex;
+    flex-direction: row;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}

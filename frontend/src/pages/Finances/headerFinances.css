@@ -57,7 +57,7 @@
 }
 
 /* Bouton nouvelle action */
-.nouvelle-action-btn {
+.nouvelle-activité-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -82,18 +82,6 @@
   font-weight: 400;
 }
 
-/* Section onglets */
-.header-onglets {
-  padding: 0 32px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-/* Liste des onglets */
-.onglets-list {
-  display: flex;
-  gap: 35px; /* Espacement entre les onglets */
-
-}
 
 
 
