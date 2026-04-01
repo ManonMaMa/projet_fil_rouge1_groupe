@@ -3,15 +3,24 @@ from sqlalchemy.orm import Session
 import uuid
 
 from app.database import get_db
-from app.models import Utilisateur
+from app.Models.models_utilisateur import Utilisateur
 from app.utilisateur.schemas_utilisateur import InscriptionCreate
 
 
 from fastapi import FastAPI
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import HTTPException   #Gere le exception
 
 from app.Routers.utilisateur_routers import router as utilisateur_router
+
+class Inscription(BaseModel):
+    email_user: str
+    mdp_user: str
+
+class Connexion(BaseModel):
+    email_user: str
+    mdp_user: str
 
 app = FastAPI()
 
