@@ -35,11 +35,15 @@ function Connexion() {
             const data = await response.json()
             console.log("Réponse du serveur :", data)
 
-            // fake token pour test
-            localStorage.setItem("token", "ok")
+            // token valide
+            if (data.id_user) {
+                localStorage.setItem("token", data.id_user)
+                // Navigation vers le Dashboard
+                navigate("/")
+            } else {
+                setError("Token invalide !!")
+            }
 
-            // Navigation vers le Dashboard
-            navigate("/")
         } catch (err) {
             console.error("Erreur réseau :", err)
             setError("Impossible de se connecter. Vérifiez votre connexion.")
