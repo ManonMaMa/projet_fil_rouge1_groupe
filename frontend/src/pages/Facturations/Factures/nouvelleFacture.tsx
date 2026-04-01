@@ -47,11 +47,10 @@ const nouvelleFacture: React.FC = () => {
                 <div className="client-ligne-2">
                   <Input label="Adresse" type="" placeholder="" />
                   <Input label="Email" type="" placeholder="" />
-                </div>
-
-                <div className="client-ligne-3">
                   <Input label="Numéro client" type="" placeholder="" />
                 </div>
+
+
               </div>
             </div>
 
