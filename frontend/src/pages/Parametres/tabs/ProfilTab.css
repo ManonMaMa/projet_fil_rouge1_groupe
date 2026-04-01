@@ -1,0 +1,59 @@
+.contenu-profil {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.derniere-modification-profil {
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.derniere-modification-profil span {
+    color: #141414;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+
+.logo-titre {
+    color: #717171;
+}
+.titre-section-profil {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.titre-section-profil h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+
+
+
+.zone-identite-profil {
+    display: flex;
+    flex-direction: column;
+}
+
+.titre-section-profil {
+    font-size: 30px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+.input-information-profil {
+    display: flex;
+    flex-direction: row;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}

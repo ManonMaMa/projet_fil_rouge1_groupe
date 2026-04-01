@@ -1,0 +1,64 @@
+/* Contenu générale */
+.contenu-securite {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.derniere-modification-securite {
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.derniere-modification-securite span {
+    color: #141414;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.logo-titre {
+    color: #717171;
+}
+.titre-section-securite {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.titre-section-securite h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+
+
+/* ---------- Contenu 1 ---------- */
+
+
+
+/* ---------- Contenu 2 ---------- */
+.contenu-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+.nouveau-mdp {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+
+
+.input-information-securite {
+    display: flex;
+    flex-direction: column;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}
