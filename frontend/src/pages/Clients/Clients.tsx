@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Header from './headerClient'; // Import header client
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
 import './Clients.css'; // CSS de la page client
@@ -7,6 +8,8 @@ import './Clients.css'; // CSS de la page client
 
 // Composant principal des Clients
 const Clients: React.FC = () => {
+
+    const navigate = useNavigate();
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -24,6 +27,7 @@ const Clients: React.FC = () => {
     // Fonction déclanchée pour créer un nouveau client
     const NouvelleFacture = () => {
         console.log('Créer un nouveau client');
+        navigate("/clients/nouveau");
         // [Ajouter la logique pour créer un nouveau client]
     };
 

@@ -4,7 +4,7 @@ import HeaderNouvelleFacture from './headerNouvelleFacture';
 import Sidebar from "../../../assets/composants/Sidebar"
 import Input from '../../../assets/composants/input';
 import InputV2 from '../../../assets/composants/inputV2';
-import './nouvelleFacture.css'; // CSS de la page devis
+import './nouvelleFacture.css'; // CSS de la page nouvelle facture
 
 
 

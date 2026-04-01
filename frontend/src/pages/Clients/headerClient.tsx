@@ -30,7 +30,7 @@ const Header: React.FC<ProprieteHeader> = ({
   surChangementOnglet,
   afficherBasculeFiltre = true,                 // Affichage du bouton filtre par défaut
   nouvelElement,
-  texteBoutonNouvelElement = 'Nouvelle Facture' // Libellé par défaut du bouton d'action
+  texteBoutonNouvelElement = 'Nouveau Client'   // Libellé par défaut du bouton d'action
 }) => {
 
 

@@ -29,7 +29,6 @@ const Factures: React.FC = () => {
   const NouvelleFacture = () => {
     console.log('créer une nouvelle facture');
     navigate("/facturation/factures/nouvelle");
-    // [Ajouter la logique pour créer une facture --> envoie vers page de création de facture]
   };
 
 

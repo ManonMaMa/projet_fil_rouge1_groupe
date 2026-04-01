@@ -1,16 +1,17 @@
-.ligne-1 {
+.ligne-1-nouveau-client {
     display: flex;
     flex-direction: row;
-    gap: 21px;
+    justify-content: space-between;
+    /* gap: 50px; */
 }
 
 /* Section Client */
-.titre-section-client {
+.titre-section-nouveau-client {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
-.titre-section-client h2 {
+.titre-section-nouveau-client h2 {
     font-size: 20px;
     font-weight: 600;
     color: #141414;
@@ -21,7 +22,7 @@
     flex-direction: column;
     /* Pour le retour à la ligne en cas de dépassement */
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 21px;
     overflow: hidden;
 }
 .client-ligne-2 {
@@ -35,31 +36,32 @@
 
 
 
-.droite {
+.nouveau-client-droite {
     display: flex;
     flex-direction: column;
 }
 
-.nouvelle-facture-droite {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
 
-/* Section Dates */
-.titre-section-dates {
+.titre-section-contact {
     display: flex;
     flex-direction: row;
-    gap: 21px;
+    gap: 8px;
 }
-.titre-section-dates h2 {
+.titre-section-nouveau-client {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1vh;
+}
+
+.titre-section-nouveau-client h2 {
     font-size: 20px;
     font-weight: 600;
     color: #141414;
-    margin-bottom: 1%;
+    margin-bottom: 0;
 }
-.input-information-dates {
+.input-information-contact {
     display: flex;
     flex-direction: row;
     /* Pour le retour à la ligne en cas de dépassement */
@@ -71,25 +73,3 @@
 
 
 
-
-
-/* Section Dates */
-.titre-section-facture {
-    display: flex;
-    flex-direction: row;
-    gap: 21px;
-}
-.titre-section-facture h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #141414;
-    margin-bottom: 1%;
-}
-.input-information-facture {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 21px;
-    overflow: hidden;
-}

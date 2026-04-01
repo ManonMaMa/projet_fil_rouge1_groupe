@@ -20,6 +20,8 @@ import Parametres from './pages/Parametres/Parametres'
 
 import Factures from "./pages/Facturations/Factures/Factures"
 import NouvelleFacture from "./pages/Facturations/Factures/nouvelleFacture"
+
+import NouveauClient from "./pages/Clients/nouveauClient"
 import Devis from "./pages/Facturations/Devis/Devis"
 
 
@@ -41,6 +43,7 @@ function App() {
 
 
             <Route path="/clients" element={<Clients />} />
+            <Route path="clients/nouveau" element={<NouveauClient />} />
             <Route path="/parametres" element={<Parametres />} />
 
             <Route path="/inscription" element={<Inscription />} />
