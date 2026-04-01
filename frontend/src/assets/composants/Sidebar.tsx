@@ -1,10 +1,12 @@
-import { Link, useLocation } from "react-router-dom" // Pour la navigation
+import { Link, useLocation, useNavigate } from "react-router-dom" // Pour la navigation
 import { useState, useEffect } from "react"
 import "./Sidebar.css"
 
 
 function Sidebar() {
     const location = useLocation()
+
+    const navigate = useNavigate();
 
     const isActive = (path: string) => {
         return location.pathname === path ? "onglet active" : "onglet"
@@ -138,6 +140,8 @@ function Sidebar() {
                 {/* Déconnexion */}
                 <button className="onglet" onClick={() => {
                     // Logique de déconnexion ici
+                    localStorage.removeItem("token")
+                    navigate("/connexion")
                     console.log("Déconnexion")
                 }}>
                     <svg  xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
