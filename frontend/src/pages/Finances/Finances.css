@@ -1,35 +1,63 @@
 /* Conteneur principal de la page */
-.page-conteneur {
+.page-conteneur-finance {
   display: flex;
   min-height: 100vh;
   background-color: #ffffff;
 }
 
 /* Contenu de la page */
-.page-contenu {
+.page-contenu-finance {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 /* Zone de contenu */
-.zone-contenu {
+.zone-contenu-finance {
   flex: 1;
   padding: 24px 32px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: row;
 }
 
-/* Section année */
-.section-annee {
+.finance-gauche {
+  height: auto;
+  width: 70%;
+}
+
+.separateur {
+  width: 20px;
+  background-color: #FAFAFA;
+}
+
+.finance-droite {
+  height: auto;
+  width: 30%;
+}
+
+
+
+.section {
   margin-bottom: 32px;
 }
 
 /* Titre année */
-.titre-annee {
+.titre-section {
   font-size: 30px;
   font-weight: 600;
   color: #141414;
   margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+
+
 }
 
 /* Responsive */

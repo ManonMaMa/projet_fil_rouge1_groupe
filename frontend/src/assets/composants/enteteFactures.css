@@ -17,7 +17,6 @@
     min-height: 60px;
     min-width: 1202px;
     padding: 0 8px;
-    background-color: #ffffff;
 
     /* Reste visible en haut du conteneur scrollable */
     position: sticky;

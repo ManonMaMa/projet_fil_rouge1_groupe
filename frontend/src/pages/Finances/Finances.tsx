@@ -30,40 +30,53 @@ const Finances: React.FC = () => {
 
 
     return (
-        <div className="page-conteneur">
-            {/* [Importation de la SideBar ici] */}
+        <div className="page-conteneur-finance">
             <Sidebar />
 
 
-            <div className="page-contenu">
+            <div className="page-contenu-finance">
                 {/* Header */}
                 <Header
-                    titre="Finances"                           // changer le titre de la page
-                    onglets={Onglets}                           // Onglets à afficher
-                    ongletActif="tous"                          // ID de l'onglet actif par défaut
-                    surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
-                    afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
-                    nouvelElement={NouvelleFacture}             // callback pour créer une nouvelle facture
-                    texteBoutonNouvelElement="Nouvelle Activité" // Texte du bouton
+                    titre="Finances"                                // changer le titre de la page
+                    nouvelElement={NouvelleFacture}                 // callback pour créer une nouvelle facture
+                    texteBoutonNouvelElement="Ajouter une activité" // Texte du bouton
                 />
 
 
 
                 {/* Zone principale du contenu de la page ici */}
-                <div className="zone-contenu">
+                <div className="zone-contenu-finance">
 
-                    {/* Section de la première année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2026</h2>
-                        {/* liste des devis ici */}
-    
+                    {/* ---------- Partie Gauche ---------- */}
+                    <div className="finance-gauche">
+                        <div className="section">
+                            <h2 className="titre-section">Aperçu</h2>
+                            <p>contenu</p>
+
+                        </div>
+
+                        <div className="section">
+                            <h2 className="titre-section">Graphique</h2>
+                            <p>contenu</p>
+
+                        </div>
+
+                        <div className="section">
+                            <h2 className="titre-section">Factures</h2>
+                            <p>contenu</p>
+
+                        </div>
                     </div>
 
-                    {/* Section de la duexième année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2025</h2>
-                        {/* Liste des devis ici */}
-    
+
+
+                    <div className="separateur"></div>
+
+
+
+                    {/* ---------- Partie Droite ---------- */}
+                    <div className="finance-droite">
+
                     </div>
                 </div>
             </div>
