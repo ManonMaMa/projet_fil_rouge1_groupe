@@ -41,6 +41,26 @@ app.include_router(utilisateur_router)
 def api_status():
     return {"status": "API opérationnelle !!"}
 
+@app.get("/user/{id_user}")  # Récupére l'id de l'utilisateur
+def get_user(id_user: str, db: Session = Depends(get_db)):
+    utilisateur = db.query(Utilisateur).filter(Utilisateur.id_user == id_user).first()
+
+    if not utilisateur:
+        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+
+    return {
+        "id_user": utilisateur.id_user,
+        "email": utilisateur.email_user,
+        "nom": utilisateur.nom_user,
+        "prenom": utilisateur.prenom_user,
+        "tel": utilisateur.tel_user,
+        "entreprise": utilisateur.entreprise_user,
+        "adresse": utilisateur.adresse_postale_user,
+        "code_postal": utilisateur.code_postal_user,
+        "ville": utilisateur.ville_user,
+        "pays": utilisateur.pays_user
+    } 
+
 @app.post("/inscription")
 def inscription(
     data: InscriptionCreate,

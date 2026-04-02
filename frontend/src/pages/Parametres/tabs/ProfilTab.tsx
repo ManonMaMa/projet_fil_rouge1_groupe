@@ -2,7 +2,11 @@ import React from "react";
 import Input from "../../../assets/composants/input";
 import "./ProfilTab.css"
 
-const ProfilTab: React.FC = () => {
+const ProfilTab = ({ user }: any) => {
+
+    if (!user) {
+        return <p>Chargement...</p>
+    }
 
     return (
         <>
@@ -20,11 +24,11 @@ const ProfilTab: React.FC = () => {
                         <h2>Mon profil</h2>
                     </div>
                     <div className="input-information-profil">
-                        <Input label="Nom" type="" placeholder="Dupond" />
-                        <Input label="Prénom" type="" placeholder="Jean" />
-                        <Input label="Mail" type="" placeholder="exemple@gmail.com" />
-                        <Input label="Langue" type="" placeholder="" />
-                        <Input label="Fuseau horaire" type="" placeholder="" />
+                        <Input label="Nom" type="" placeholder={user.nom || ""} />
+                        <Input label="Prénom" type="" placeholder={user.prenom || ""} />
+                        <Input label="Mail" type="" placeholder={user.email || ""} />
+                        <Input label="Langue" type="" placeholder={user.langue || ""} />
+                        <Input label="Fuseau horaire" type="" placeholder={user.timezone || ""} />
                     </div>
                 </div>
 

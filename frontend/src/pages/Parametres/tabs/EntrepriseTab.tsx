@@ -7,7 +7,11 @@ import "./EntrepriseTab.css"
 
 
 
-const ProfilTab: React.FC = () => {
+const ProfilTab = ({ user }: any) => {
+
+    if (!user) {
+        return <p>Chargement...</p>
+    }
 
 
     const [logoSrc, setLogoSrc] = useState<string | null>(null);
