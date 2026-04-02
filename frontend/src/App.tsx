@@ -34,6 +34,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route element={<ProtectedRoute />}>
+            </Route>
               <Route path="/" element={<Dashboard />} />
               <Route path="/agenda" element={<Agenda />} />
               <Route path="/planification" element={<Planification />} />
@@ -45,7 +46,6 @@ function App() {
               <Route path="/facturation/factures" element={<Factures />} />
               <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />
               <Route path="/parametres" element={<Parametres />} />
-            </Route>
             <Route path="/inscription" element={<Inscription />} />
             <Route path="/inscriptionP2" element={<InscriptionP2 />} />
             <Route path="/connexion" element={<Connexion />} />

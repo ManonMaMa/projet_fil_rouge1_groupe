@@ -66,19 +66,42 @@ const nouveauClient: React.FC = () => {
 
                             <div className="input-information-contact">
                                 <div className="client-ligne-1">
-                                    <InputV2 label="Type de client" type="" placeholder="" />
+                                    <Input label="Email *" type="" placeholder="" />
+                                    <Input label="Téléphone" type="" placeholder="" />
                                 </div>
+                                <div className="client-ligne-2">
+                                    <Input label="Rue" type="" placeholder="" />
+                                    <Input label="Code Postal" type="" placeholder="" />
+                                </div>
+                                <div className="client-ligne-3">
+                                    <Input label="Ville" type="" placeholder="" />
+                                    <Input label="Pays" type="" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {/* Ligne 2 */}
+                    <div className="ligne-2-nouveau-client">
+                        {/* Section Gauche */}
+                        <div className="nouveau-client-gauche">
+                            <div className="titre-section-nouveau-client">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" viewBox="0 0 24 24" >
+                                    <path d="M19.67 2.61c-.81-.81-2.14-.81-2.95 0L3.38 15.95c-.13.13-.22.29-.26.46l-1.09 4.34c-.08.34.01.7.26.95.19.19.45.29.71.29.08 0 .16 0 .24-.03l4.34-1.09c.18-.04.34-.13.46-.26L21.38 7.27c.81-.81.81-2.14 0-2.95L19.66 2.6ZM6.83 19.01l-2.46.61.61-2.46 9.96-9.94 1.84 1.84zM19.98 5.86 18.2 7.64 16.36 5.8l1.78-1.78s.09-.03.12 0l1.72 1.72s.03.09 0 .12"></path>
+                                </svg>
+                                <h2>Divers</h2>
+                            </div>
+
+                            <div className="input-information-client">
                                 <div className="client-ligne-1">
-                                    <InputV2 label="Type de client" type="" placeholder="" />
+                                    <Input label="Statut" type="" placeholder="" />
+                                    <Input label="Date de création" type="" placeholder="" />
                                 </div>
-                                <div className="client-ligne-1">
-                                    <InputV2 label="Type de client" type="" placeholder="" />
+                                <div className="client-ligne-2">
+
                                 </div>
-                                <Input label="Email *" type="" placeholder="" />
-                                <Input label="Téléphone" type="" placeholder="" />
-                                <Input label="Rue" type="" placeholder="" />
-                                <Input label="Code Postal" type="" placeholder="" />
-                                <Input label="Ville" type="" placeholder="" />
                             </div>
                         </div>
                     </div>
