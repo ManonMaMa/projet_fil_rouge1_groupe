@@ -1,0 +1,39 @@
+.custom-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 273px;   /* largeur de base */
+  height: 50px;
+  padding: 12px 16px;
+
+  background-color: #141414;
+  color: #fff;
+  border: none;
+  border-radius: 11px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+
+  white-space: nowrap;
+  width: fit-content;   /* clé principale */
+  max-width: 100%;      /* sécurité responsive */
+}
+
+.custom-primary-btn:hover {
+  background-color: #2d2d2d;
+}
+
+.custom-primary-btn:active {
+  opacity: 0.8;
+}
+
+.custom-primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
