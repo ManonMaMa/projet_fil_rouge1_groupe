@@ -86,7 +86,7 @@ const ProfilTab: React.FC = () => {
 
                         <div className="input-information-securite">
                             <div className="mdp-actuel">
-                                <InputV2 label="Nom de l'entreprise" type="" placeholder="" />
+                                <Input label="Nom de l'entreprise" type="" placeholder="" />
                             </div>
 
                         </div>

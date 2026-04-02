@@ -50,10 +50,7 @@
 }
 
 .input-information-profil {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 21px;
-    overflow: hidden;
 }

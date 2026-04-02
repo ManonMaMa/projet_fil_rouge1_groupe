@@ -1,5 +1,4 @@
 import React from "react";
-import Input from "../../../assets/composants/input";
 import InputPassword from "../../../assets/composants/inputPassword";
 import InputPasswordActuel from "../../../assets/composants/inputPasswordActuel";
 import HistoriqueSession from "../../../assets/composants/historiqueSession";
@@ -66,7 +65,7 @@ const ProfilTab: React.FC = () => {
                                 onDelete={(id) => console.log('Supprimer session', id)}
                             />
                             <DeconnecterSessions/>
-                            <BoutonPrimary label="Déconnecter toutes les sessions actives" />
+                            <BoutonPrimary label="Déconnecter" />
                         </div>
                     </div>
 

@@ -19,6 +19,7 @@
 .zone-identite-entreprise {
     display: flex;
     flex-direction: column;
+    width: 49%;
 }
 
 .titre-section-entreprise {
@@ -39,11 +40,9 @@
 }
 
 .input-information-legale-1 {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 21px;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
 }
 
 .input-information-legale-2 {
