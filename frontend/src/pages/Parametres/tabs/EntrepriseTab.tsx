@@ -44,7 +44,7 @@ const ProfilTab: React.FC = () => {
                 <div className="contenu-2">
                     {/* Zone Identité Entreprise */}
                     <div className="zone-identite-entreprise">
-                        <div className="titre-section-securite">
+                        <div className="titre-section-entreprise">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 fill="currentColor" viewBox="0 0 24 24" >
                                 <path d="M20 6h-4V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v17c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V8c0-1.1-.9-2-2-2m0 14H4V4h10v3c0 .55.45 1 1 1h5z"></path><path d="M10 6h2v2h-2zM6 6h2v2H6zm0 4h2v2H6zm4 0h2v2h-2zm6 0h2v2h-2zm-6 4h2v2h-2zm-4 0h2v2H6zm10 0h2v2h-2z"></path>
@@ -84,7 +84,7 @@ const ProfilTab: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="input-information-securite">
+                        <div className="input-information-entreprise">
                             <div className="mdp-actuel">
                                 <Input label="Nom de l'entreprise" type="" placeholder="" />
                             </div>

@@ -4,32 +4,48 @@
     gap: 50px;
 }
 
+/* ----- Ligne 1 ----- */
 .ligne-1-nouveau-client {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* gap: 50px; */
+    gap: 5%;
 }
 
-/* Section Client */
-.titre-section-nouveau-client {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+/* ----- Ligne 2 ----- */
+.ligne-2-nouveau-client {
+    width: 47.5%;
 }
-.titre-section-nouveau-client h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #141414;
-    margin-bottom: 1%;
+
+
+.ligne-1-contenu-gauche {
+    width: 50%;
+    /* background-color: red; */
 }
+
+.ligne-1-contenu-droite {
+    width: 50%;
+    /* background-color: blue; */
+}
+
+
+
 .input-information-client {
     display: flex;
     flex-direction: column;
-    /* Pour le retour à la ligne en cas de dépassement */
     flex-wrap: wrap;
     gap: 21px;
     overflow: hidden;
+    width: 100%;
+}
+
+.input-information-contact {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+    width: 100%;
 }
 
 
@@ -52,28 +68,18 @@
 }
 
 
-.nouveau-client-gauche {
-    flex: 1;
-}
-
-.nouveau-client-droite {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
 
 
 
-.titre-section-contact {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-}
+
+
+/* Titres des sections */
 .titre-section-nouveau-client {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
+    color: #717171;
 }
 
 .titre-section-nouveau-client h2 {
@@ -82,15 +88,3 @@
     color: #141414;
     margin-bottom: 0;
 }
-.input-information-contact {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 21px;
-    overflow: hidden;
-}
-
-
-
-

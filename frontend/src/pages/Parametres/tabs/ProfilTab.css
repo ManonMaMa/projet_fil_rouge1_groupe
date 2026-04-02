@@ -46,7 +46,15 @@
     font-size: 30px;
     font-weight: 600;
     color: #141414;
-    margin-bottom: 1%;
+    margin-bottom: 2vh;
+    color : #717171;
+}
+
+.titre-section-profil h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 0;
 }
 
 .input-information-profil {

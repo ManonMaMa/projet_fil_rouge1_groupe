@@ -29,7 +29,7 @@ const nouveauClient: React.FC = () => {
                     <div className="ligne-1-nouveau-client">
 
                         {/* Section Gauche */}
-                        <div className="nouveau-client-gauche">
+                        <div className="ligne-1-contenu-gauche">
                             <div className="titre-section-nouveau-client">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     fill="currentColor" viewBox="0 0 24 24" >
@@ -40,14 +40,14 @@ const nouveauClient: React.FC = () => {
 
                             <div className="input-information-client">
                                 <div className="client-ligne-1">
-                                    <InputV2 label="Type de client" type="" placeholder="" />
+                                    <Input label="Type de client" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
                                     <Input label="Nom *" type="" placeholder="" />
                                     <Input label="Prénom *" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-3">
-                                    <InputV2 label="Société" type="" placeholder="" />
+                                    <Input label="Société" type="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@ const nouveauClient: React.FC = () => {
 
 
                         {/* Section Droite */}
-                        <div className="nouveau-client-droite">
+                        <div className="ligne-1-contenu-droite">
                             <div className="titre-section-nouveau-client">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     fill="currentColor" viewBox="0 0 24 24" >
@@ -66,7 +66,7 @@ const nouveauClient: React.FC = () => {
 
                             <div className="input-information-contact">
                                 <div className="client-ligne-1">
-                                    <Input label="Email *" type="" placeholder="" />
+                                    <Input label="Email" type="" placeholder="" />
                                     <Input label="Téléphone" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">

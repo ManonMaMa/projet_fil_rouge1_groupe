@@ -23,10 +23,17 @@
 }
 
 .titre-section-entreprise {
-    font-size: 30px;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2vh;
+    color: #717171;
+}
+
+.titre-section-entreprise h2 {
+    font-size: 20px;
     font-weight: 600;
     color: #141414;
-    margin-bottom: 1%;
+    margin-bottom: 2vh;
 }
 
 
