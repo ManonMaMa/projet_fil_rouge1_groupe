@@ -42,6 +42,12 @@
     flex-direction: column;
 }
 
+.titre-section-profil {
+    font-size: 30px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
 
 .input-information-profil {
     display: flex;

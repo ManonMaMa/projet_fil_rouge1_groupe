@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css'
+import ProtectedRoute from "./ProtectedRoute"
 import './assets/composants/Style.css'
 
 
@@ -21,31 +22,30 @@ import Parametres from './pages/Parametres/Parametres'
 import Factures from "./pages/Facturations/Factures/Factures"
 import NouvelleFacture from "./pages/Facturations/Factures/nouvelleFacture"
 
+
 import NouveauClient from "./pages/Clients/nouveauClient"
 import Devis from "./pages/Facturations/Devis/Devis"
 
 
 function App() {
   return (
-   <BrowserRouter>
+    <BrowserRouter>
       <div className="app-layout">
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/agenda" element={<Agenda />} />
-            <Route path="/planification" element={<Planification />} />
-            <Route path="/finances" element={<Finances />} />
-            <Route path="/documents" element={<Documents />} />
-
-            <Route path="/facturation/factures" element={<Factures />} />
-            <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />
-            <Route path="/facturation/devis" element={<Devis />} />
-
-
-            <Route path="/clients" element={<Clients />} />
-            <Route path="clients/nouveau" element={<NouveauClient />} />
-            <Route path="/parametres" element={<Parametres />} />
-
+            <Route element={<ProtectedRoute />}>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/agenda" element={<Agenda />} />
+              <Route path="/planification" element={<Planification />} />
+              <Route path="/finances" element={<Finances />} />
+              <Route path="/documents" element={<Documents />} />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="clients/nouveau" element={<NouveauClient />} />
+              <Route path="/facturation/devis" element={<Devis />} />
+              <Route path="/facturation/factures" element={<Factures />} />
+              <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />
+              <Route path="/parametres" element={<Parametres />} />
+            </Route>
             <Route path="/inscription" element={<Inscription />} />
             <Route path="/inscriptionP2" element={<InscriptionP2 />} />
             <Route path="/connexion" element={<Connexion />} />
