@@ -62,7 +62,6 @@
 .input-information-securite {
     display: flex;
     flex-direction: column;
-    /* Pour le retour à la ligne en cas de dépassement */
     flex-wrap: wrap;
     gap: 21px;
     overflow: hidden;

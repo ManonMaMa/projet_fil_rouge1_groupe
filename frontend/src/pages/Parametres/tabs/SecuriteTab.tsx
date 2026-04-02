@@ -64,8 +64,13 @@ const ProfilTab: React.FC = () => {
                                 label="Sessions actives"
                                 onDelete={(id) => console.log('Supprimer session', id)}
                             />
-                            <DeconnecterSessions/>
-                            <BoutonPrimary label="Déconnecter" />
+                            <DeconnecterSessions />
+                            <BoutonPrimary
+                                label="Essai"
+                                onClick={() => {
+                                    console.log('Bouton essai cliqué');
+                                }}
+                            />
                         </div>
                     </div>
 

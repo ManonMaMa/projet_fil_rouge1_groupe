@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Input from "../../../assets/composants/input";
-import InputV2 from "../../../assets/composants/inputV2";
+import BoutonPrimary from "../../../assets/composants/boutonPrimary";
 import "./EntrepriseTab.css"
 
 
@@ -111,14 +111,9 @@ const ProfilTab: React.FC = () => {
                             <Input label="Ville" type="" placeholder="Chambéry" />
                             <Input label="Pays" type="" placeholder="France" />
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </>
     );
 
