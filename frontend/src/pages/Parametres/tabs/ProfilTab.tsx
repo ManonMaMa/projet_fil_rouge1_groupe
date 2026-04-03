@@ -68,19 +68,26 @@ const ProfilTab = ({ user }: any) => {
         setFormData(savedData)
     }
 
-    if (!user) return <p>Chargement...</p>
+    // if (!user) return <p>Chargement...</p>
 
     return (
         <>
             <div className="contenu-profil">
-                <p className="derniere-modification-profil">
-                    Dernière modification
-                </p>
+                <p className="derniere-modification-profil">Dernière modifications le <span>08 Juin 2025</span></p>
+
 
                 <div className="zone-information-profil">
-                    <h2>Mon profil</h2>
+                    
+                    <div className="titre-section-securite">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" viewBox="0 0 24 24" className="logo-titre">
+                            <path d="M6 22h12c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H6c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2M9 7c0-1.65 1.35-3 3-3s3 1.35 3 3v2H9zm-3 4h12v9h-5v-2.28c.59-.35 1-.99 1-1.72 0-1.1-.9-2-2-2s-2 .9-2 2a2 2 0 0 0 1 1.72V20H6z"></path>
+                        </svg>
+                        <h2>Mon Profil</h2>
+                    </div>
 
-                    <Input
+                    <div className="information-profil">
+                        <Input
                         label="Nom"
                         name="nom"
                         value={formData.nom}
@@ -103,6 +110,7 @@ const ProfilTab = ({ user }: any) => {
                         onChange={handleChange}
                         placeholder="exemple@gmail.com"
                     />
+                    </div>
                 </div>
             </div>
 
