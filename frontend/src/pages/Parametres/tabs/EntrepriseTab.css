@@ -4,6 +4,15 @@
     gap: 35px;
 }
 
+.zone-identite-entreprise {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
+
+
+/* ---------- Dernière Modifications ---------- */
 .derniere-modification-entreprise {
     color: #64748B;
     font-size: 14px;
@@ -16,49 +25,22 @@
     font-weight: 400;
 }
 
-.zone-identite-entreprise {
+
+
+/* ---------- Titre Section Entreprise ---------- */
+.titre-section-entreprise {
     display: flex;
-    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 2vh;
+    color: #717171;
 }
 
-.titre-section-entreprise {
-    font-size: 30px;
+.titre-section-entreprise h2 {
+    font-size: 20px;
     font-weight: 600;
     color: #141414;
-    margin-bottom: 1%;
+    margin-bottom: 2vh;
 }
-
-
-.input-information-entreprise {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 21px;
-    overflow: hidden;
-}
-
-.input-information-legale-1 {
-    display: flex;
-    flex-direction: row;
-    gap: 21px;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-}
-
-.input-information-legale-2 {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 21px;
-    overflow: hidden;
-}
-
-
-
-
-
 
 /* Zone Logo */
 .zone-logo {
@@ -125,3 +107,48 @@
 .btn-supprimer-logo:hover {
     background: #eecece;
 }
+
+
+
+
+
+
+
+/* ---------- Titre Section Sécurité ---------- */
+.titre-section-securite {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2vh;
+    color: #717171;
+}
+
+.titre-section-securite h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 2vh;
+}
+
+
+
+
+.input-information-legale-1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 21px;
+}
+
+.input-information-legale-2 {
+    display: flex;
+    flex-direction: row;
+    /* Pour le retour à la ligne en cas de dépassement */
+    flex-wrap: wrap;
+    gap: 21px;
+    overflow: hidden;
+}
+
+
+
+
+
+

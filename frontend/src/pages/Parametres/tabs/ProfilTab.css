@@ -46,14 +46,19 @@
     font-size: 30px;
     font-weight: 600;
     color: #141414;
-    margin-bottom: 1%;
+    margin-bottom: 2vh;
+    color : #717171;
+}
+
+.titre-section-profil h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 0;
 }
 
 .input-information-profil {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 21px;
-    overflow: hidden;
 }

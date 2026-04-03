@@ -37,8 +37,8 @@ function Connexion() {
 
             // token valide
             if (data.id_user) {
-                localStorage.setItem("token", data.id_user)
                 // Navigation vers le Dashboard
+                localStorage.setItem("token", data.id_user)
                 navigate("/")
             } else {
                 setError("Token invalide !!")
