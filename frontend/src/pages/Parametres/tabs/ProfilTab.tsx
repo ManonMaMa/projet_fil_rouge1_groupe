@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useState, useRef, useCallback } from "react";
 import Input from "../../../assets/composants/input";
+import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
 import "./ProfilTab.css"
 
+
+// Valeurs initiales
+const INITIAL_FORM = {
+    nom: "",
+    prenom: "",
+    mail: "",
+    langue: "",
+    fuseau: "",
+};
+
 const ProfilTab: React.FC = () => {
+
+    // Etat actuel
+    const [formValues, setFormValues] = useState(INITIAL_FORM);
+
+    // Etat sauvegardé
+    const [savedValues, setSavedValues] = useState(INITIAL_FORM);
+
+    // Détection modification
+    const isDirty =
+        JSON.stringify(formValues) !== JSON.stringify(savedValues);
+
+    // Gestion changement input
+    const handleChange = useCallback(
+        (field: keyof typeof INITIAL_FORM) =>
+            (e: React.ChangeEvent<HTMLInputElement>) => {
+                setFormValues(prev => ({
+                    ...prev,
+                    [field]: e.target.value
+                }));
+            },
+        []
+    );
+
+    // Save
+    const handleSave = () => {
+        setSavedValues(formValues);
+        // appel API ici
+    };
+
+    // Reset
+    const handleReset = () => {
+        setFormValues(savedValues);
+    };
 
     return (
         <>
@@ -20,15 +64,50 @@ const ProfilTab: React.FC = () => {
                         <h2>Mon profil</h2>
                     </div>
                     <div className="input-information-profil">
-                        <Input label="Nom" type="" placeholder="Dupond" />
-                        <Input label="Prénom" type="" placeholder="Jean" />
-                        <Input label="Mail" type="" placeholder="exemple@gmail.com" />
-                        <Input label="Langue" type="" placeholder="" />
-                        <Input label="Fuseau horaire" type="" placeholder="" />
+
+                        <Input
+                            label="Nom"
+                            placeholder="Dupond"
+                            value={formValues.nom}
+                            onChange={handleChange("nom")}
+                        />
+
+                        <Input
+                            label="Prénom"
+                            placeholder="Jean"
+                            value={formValues.prenom}
+                            onChange={handleChange("prenom")}
+                        />
+
+                        <Input
+                            label="Mail"
+                            placeholder="exemple@gmail.com"
+                            value={formValues.mail}
+                            onChange={handleChange("mail")}
+                        />
+
+                        <Input
+                            label="Langue"
+                            value={formValues.langue}
+                            onChange={handleChange("langue")}
+                        />
+
+                        <Input
+                            label="Fuseau horaire"
+                            value={formValues.fuseau}
+                            onChange={handleChange("fuseau")}
+                        />
                     </div>
                 </div>
 
             </div>
+
+            {/* Barre de modifications non enregistrées - Pop Up */}
+            <UnsavedChangesBar
+                visible={isDirty}
+                onSave={handleSave}
+                onReset={handleReset}
+            />
 
         </>
     );
