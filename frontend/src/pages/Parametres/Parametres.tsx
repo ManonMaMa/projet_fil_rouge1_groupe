@@ -58,7 +58,7 @@ const Parametres: React.FC = () => {
             case 'mon-profil':
                 return <ProfilTab user={user} />;
             case 'entreprise':
-                return <EntrepriseTab />;
+                return <EntrepriseTab user={user}/>;
             case 'preferences':
                 return <PreferencesTab  />;
             case 'securite':
