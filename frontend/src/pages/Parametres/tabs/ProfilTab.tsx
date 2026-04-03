@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../../assets/composants/input";
 import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
+import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./ProfilTab.css"
 
 const ProfilTab = ({ user }: any) => {
@@ -68,7 +69,7 @@ const ProfilTab = ({ user }: any) => {
         setFormData(savedData)
     }
 
-    // if (!user) return <p>Chargement...</p>
+    if (!user) return <ErreurConnexion loginHref="connexion" homeHref="/connexion" />;
 
     return (
         <>
@@ -77,7 +78,7 @@ const ProfilTab = ({ user }: any) => {
 
 
                 <div className="zone-information-profil">
-                    
+
                     <div className="titre-section-securite">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             fill="currentColor" viewBox="0 0 24 24" className="logo-titre">
@@ -112,6 +113,8 @@ const ProfilTab = ({ user }: any) => {
                     />
                     </div>
                 </div>
+
+                <p className="derniere-modification-profil">* Les informations peuvent être mises à jour en modifiant directement les champs correspondants.</p>
             </div>
 
 

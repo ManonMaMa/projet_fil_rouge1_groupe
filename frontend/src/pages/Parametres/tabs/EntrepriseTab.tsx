@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Input from "../../../assets/composants/input";
-import InputV2 from "../../../assets/composants/inputV2";
 import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
+import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./EntrepriseTab.css";
 
 const EntrepriseTab = ({ user }: any) => {
@@ -103,7 +103,7 @@ const EntrepriseTab = ({ user }: any) => {
         setLogoSrc(savedLogo);
     };
 
-    // if (!user) return <p>Chargement...</p>;
+    if (!user) return <ErreurConnexion loginHref="connexion" homeHref="/connexion" />;
 
     return (
         <>
@@ -138,7 +138,7 @@ const EntrepriseTab = ({ user }: any) => {
                             onChange={handleFileChange}
                         />
 
-                        <button onClick={handleImport}>
+                        <button onClick={handleImport} className="btn-modifier-logo">
                             {logoSrc ? "Modifier" : "Importer un logo"}
                         </button>
 
@@ -218,7 +218,10 @@ const EntrepriseTab = ({ user }: any) => {
                             placeholder="France"
                         />
                     </div>
+
+
                 </div>
+                    <p className="derniere-modification-profil">* Les informations peuvent être mises à jour en modifiant directement les champs correspondants.</p>
             </div>
 
             <UnsavedChangesBar
