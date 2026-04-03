@@ -21,8 +21,8 @@ div{
     flex: 1;                        /* chaque colonne prend 50% */
     display: flex;
     flex-direction: column;
-    justify-content: center;         /* centrer verticalement */
-    align-items: center;             /* centrer horizontalement */
+    justify-content: center;
+    align-items: center;
     padding: 5.4vh;
 }
 
@@ -67,9 +67,10 @@ div{
 /* Sous titre */
 .sous-titre {
     margin-top: 0;
-    font-size: 2.2vh;
+    font-size: 16px;
     color: #9d9d9d;
     margin-bottom: 3.5vh;
+    font-weight: 400;
 }
 
 
@@ -80,7 +81,8 @@ div{
 }
 
 .input-group label {
-    font-size: 2vh;
+    font-size: 16px;
+    font-weight: 300;
     color: #9d9d9d;
 }
 
@@ -109,6 +111,8 @@ div{
 .button-connexion {
     width: 100%;
     height: 6.1vh; 
+    font-size: 16px;
+    font-weight: 500;
     margin-top: 2.8vh;
     padding: 1.6vh;
     background: #141414;
@@ -118,16 +122,14 @@ div{
     cursor: pointer;
 }
 
-.actions .link {
-    margin-top: 2.8vh;
-}
+
 
 /* Mot de passe oublié */
 .link {
     text-align: center;
-    font-size: 1.8vh;
+    font-size: 14px;
     margin-top: 0px;
-    color: #333;
+    color: #9d9d9d;
     cursor: pointer;
 }
 /* -------------------------------- */
@@ -135,9 +137,9 @@ div{
 /* Signup */
 .signup {
     text-align: center;
-    font-size: 1.7vh;
+    font-size: 14px;
     margin-top: 4vh;
-    color: #333;
+    color: #141414;
 }
 
 /* Signup bouton */
