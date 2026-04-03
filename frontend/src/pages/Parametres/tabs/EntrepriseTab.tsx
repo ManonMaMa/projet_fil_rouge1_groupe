@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Input from "../../../assets/composants/input";
-import InputV2 from "../../../assets/composants/inputV2";
 import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
+import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./EntrepriseTab.css";
 
 const EntrepriseTab = ({ user }: any) => {
@@ -103,19 +103,24 @@ const EntrepriseTab = ({ user }: any) => {
         setLogoSrc(savedLogo);
     };
 
-    if (!user) return <p>Chargement...</p>;
+    if (!user) return <ErreurConnexion loginHref="connexion" homeHref="/connexion" />;
 
     return (
         <>
             <div className="contenu-entreprise">
+                <p className="derniere-modification-profil">Dernière modifications le <span>08 Juin 2025</span></p>
 
-                <p className="derniere-modification-entreprise">
-                    Dernière modification
-                </p>
 
                 {/* IDENTITÉ */}
                 <div className="zone-identite-entreprise">
-                    <h2>Identité de l'entreprise</h2>
+
+                    <div className="titre-section-securite">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" viewBox="0 0 24 24" >
+                            <path d="M20 6h-4V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v17c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V8c0-1.1-.9-2-2-2m0 14H4V4h10v3c0 .55.45 1 1 1h5z"></path><path d="M10 6h2v2h-2zM6 6h2v2H6zm0 4h2v2H6zm4 0h2v2h-2zm6 0h2v2h-2zm-6 4h2v2h-2zm-4 0h2v2H6zm10 0h2v2h-2z"></path>
+                        </svg>
+                        <h2>Identité de l'entreprise</h2>
+                    </div>
 
                     <div className="zone-logo">
                         <div className="logo-cercle">
@@ -133,7 +138,7 @@ const EntrepriseTab = ({ user }: any) => {
                             onChange={handleFileChange}
                         />
 
-                        <button onClick={handleImport}>
+                        <button onClick={handleImport} className="btn-modifier-logo">
                             {logoSrc ? "Modifier" : "Importer un logo"}
                         </button>
 
@@ -144,7 +149,7 @@ const EntrepriseTab = ({ user }: any) => {
                         )}
                     </div>
 
-                    <InputV2
+                    <Input
                         label="Nom de l'entreprise"
                         name="entreprise"
                         value={formData.entreprise}
@@ -152,58 +157,71 @@ const EntrepriseTab = ({ user }: any) => {
                     />
                 </div>
 
-                {/* INFOS */}
-                <div className="zone-historique-securite">
-                    <h2>Informations légales</h2>
 
-                    <Input
-                        label="Email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="example@email.fr"
-                    />
 
-                    <Input
-                        label="Téléphone"
-                        name="tel"
-                        value={formData.tel}
-                        onChange={handleChange}
-                        placeholder="06 00 00 00 00"
-                    />
+                <div className="zone-information-legal-profil">
 
-                    <Input
-                        label="Adresse"
-                        name="adresse_postale"
-                        value={formData.adresse_postale}
-                        onChange={handleChange}
-                        placeholder="24 Rue de Paris"
-                    />
+                    <div className="titre-section-securite">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" viewBox="0 0 24 24" className="logo-titre">
+                            <path d="M6 22h12c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H6c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2M9 7c0-1.65 1.35-3 3-3s3 1.35 3 3v2H9zm-3 4h12v9h-5v-2.28c.59-.35 1-.99 1-1.72 0-1.1-.9-2-2-2s-2 .9-2 2a2 2 0 0 0 1 1.72V20H6z"></path>
+                        </svg>
+                        <h2>Informations légales</h2>
+                    </div>
 
-                    <Input
-                        label="Code postal"
-                        name="code_postal"
-                        value={formData.code_postal}
-                        onChange={handleChange}
-                        placeholder="75000"
-                    />
+                    <div className="information-profil">
+                        <Input
+                            label="Email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="example@email.fr"
+                        />
 
-                    <Input
-                        label="Ville"
-                        name="ville"
-                        value={formData.ville}
-                        onChange={handleChange}
-                        placeholder="Paris"
-                    />
+                        <Input
+                            label="Téléphone"
+                            name="tel"
+                            value={formData.tel}
+                            onChange={handleChange}
+                            placeholder="06 00 00 00 00"
+                        />
 
-                    <Input
-                        label="Pays"
-                        name="pays"
-                        value={formData.pays}
-                        onChange={handleChange}
-                        placeholder="France"
-                    />
+                        <Input
+                            label="Adresse"
+                            name="adresse_postale"
+                            value={formData.adresse_postale}
+                            onChange={handleChange}
+                            placeholder="24 Rue de Paris"
+                        />
+
+                        <Input
+                            label="Code postal"
+                            name="code_postal"
+                            value={formData.code_postal}
+                            onChange={handleChange}
+                            placeholder="75000"
+                        />
+
+                        <Input
+                            label="Ville"
+                            name="ville"
+                            value={formData.ville}
+                            onChange={handleChange}
+                            placeholder="Paris"
+                        />
+
+                        <Input
+                            label="Pays"
+                            name="pays"
+                            value={formData.pays}
+                            onChange={handleChange}
+                            placeholder="France"
+                        />
+                    </div>
+
+
                 </div>
+                    <p className="derniere-modification-profil">* Les informations peuvent être mises à jour en modifiant directement les champs correspondants.</p>
             </div>
 
             <UnsavedChangesBar

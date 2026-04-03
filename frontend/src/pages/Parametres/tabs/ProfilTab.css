@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 35px;
+    width: 50%;
 }
 
 .derniere-modification-profil {
@@ -60,5 +61,12 @@
 .input-information-profil {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 21px;
+}
+
+
+.information-profil {
+    display: flex;
+    flex-direction: row;
     gap: 21px;
 }
