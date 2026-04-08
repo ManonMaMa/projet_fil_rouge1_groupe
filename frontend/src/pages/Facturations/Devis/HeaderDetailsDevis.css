@@ -1,0 +1,176 @@
+/* Container principal */
+.header-details-devis-contenu {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  margin-top: 3%;
+  padding-bottom: 0;
+}
+
+
+/* ---------------------- SECTION 1 : Retour à la liste ---------------------- */
+.header-details-devis-retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 32px 0;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  color: #717171;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.header-details-devis-retour:hover {
+  color: #111827;
+}
+
+
+/* ------------------- SECTION 2 : Titre + actions principales --------------- */
+.header-details-devis-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px 12px;
+}
+
+/* Titre */
+.header-details-devis-titre {
+  font-size: 40px;
+  font-weight: 600;
+  color: #141414;
+  margin: 0;
+}
+
+/* Groupe de boutons d'actions */
+.header-details-devis-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* ---- Bouton Aperçu ---- */
+.header-details-devis-btn-apercu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: transparent;
+  border: 1px solid #f5f5f5;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-details-devis-btn-apercu:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+
+/* ---- Bouton Enregistrer en brouillon ---- */
+.header-details-devis-btn-brouillon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: transparent;
+  border: 1px solid #f5f5f5;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-details-devis-btn-brouillon:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+
+/* ---- Bouton Émettre la facture ---- */
+.header-details-devis-btn-emettre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #141414;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.header-details-devis-btn-emettre:hover {
+  background-color: #1f2937;
+}
+
+
+/* ------------------- SECTION 3 : Statut + favori --------------------------- */
+.header-details-devis-sous-titre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px 12px;
+}
+
+/* Badge */
+.header-details-devis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  color: #1F2A37;
+  background-color: #EEF4FA;
+}
+
+
+/* ---- Bouton favori ---- */
+.header-details-devis-btn-favori {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #f5f5f5;
+  border-radius: 6px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.header-details-devis-btn-favori:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.header-details-devis-btn-favori.active {
+  color: #000000;
+}
+
+
+/* ---- Séparateur ---- */
+.header-details-devis-separateur {
+  margin: 0;
+  border: none;
+  border-top: 0.5px solid #1F1F1F;
+  margin: 0px 32px;
+}

@@ -1,4 +1,3 @@
-// boutonPrimary.tsx
 import React from 'react';
 import './boutonPrimary.css';
 

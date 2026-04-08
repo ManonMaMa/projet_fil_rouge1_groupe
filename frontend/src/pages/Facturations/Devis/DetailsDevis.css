@@ -1,0 +1,137 @@
+.zone-contenu-details-devis {
+    display: flex;
+    flex-direction: row;
+    padding: 24px 32px 16px;
+    gap: 25px;
+}
+
+
+.details-devis-gauche {
+    position: relative;
+    height: 64%;
+    width: 50%;
+    background-color: #F5F5F5;
+}
+
+
+.details-devis-droite {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+    height: 100%;
+    width: 50%;
+}
+
+.details-devis-droite-client {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* --------------- TITRES SECTIONS --------------- */
+/* Section statut */
+.titre-section-statut {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.titre-section-statut h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+
+/* Section Client */
+.titre-section-client {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.titre-section-client h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+
+/* Section Devis */
+.titre-section-devis {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.titre-section-devis h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+
+/* Section Historique */
+.titre-section-historique {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.titre-section-historique h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 1%;
+}
+
+/* ----------------------------------------------- */
+
+.details-devis-droite-statut {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.details-devis-droite-client {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.details-devis-droite-devis {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.details-devis-droite-historique {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+
+
+.ligne-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+
+.ligne-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+
+.ligne-3 {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}

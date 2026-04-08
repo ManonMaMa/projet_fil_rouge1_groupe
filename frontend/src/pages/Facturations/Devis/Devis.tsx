@@ -1,12 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../../assets/composants/headerDevis';
 import Sidebar from "../../../assets/composants/Sidebar"
+import EnTeteFactures from '../../../assets/composants/enteteFactures';
+import LigneFacture from '../../../assets/composants/ligneFacture';
 import './Devis.css'; // CSS de la page devis
 
 
 
 // Composant principal des Devis
 const Devis: React.FC = () => {
+
+  const navigate = useNavigate();
 
   // Définition des onglets de navigations pour le header
   const Onglets = [
@@ -21,21 +26,21 @@ const Devis: React.FC = () => {
     // [Ajouter la logique pour filtrer les devis selon l'onglet]
   };
 
-  // Fonction déclanchée pour créer un nouveau devis
-  const NouvelleFacture = () => {
-    console.log('créer un nouveau devis');
-    // [Ajouter la logique pour créer un nouveau devis --> envoie vers page de création de devis]
+  // Fonction déclanchée pour voir les détails d'un devis
+  const DetailsDevis = () => {
+    console.log("Voir les détails d'un devis");
+    navigate("/facturation/Devis/details");
   };
 
 
 
   return (
-    <div className="page-conteneur">
+    <div className="page-conteneur-devis">
       {/* [Importation de la SideBar ici] */}
-      <Sidebar/>
-      
-      
-      <div className="page-contenu">
+      <Sidebar />
+
+
+      <div className="page-contenu-devis">
         {/* Header */}
         <Header
           titre="Devis"                               // changer le titre de la page
@@ -43,40 +48,261 @@ const Devis: React.FC = () => {
           ongletActif="tous"                          // ID de l'onglet actif par défaut
           surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
           afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
-          nouvelElement={NouvelleFacture}             // callback pour créer une nouvelle facture
+          nouvelElement={DetailsDevis}             // callback pour créer une nouvelle facture
           texteBoutonNouvelElement="Nouveau Devis" // Texte du bouton
         />
-        
+
 
 
         {/* Zone principale du contenu de la page ici */}
-        <div className="zone-contenu">
+        <div className="zone-contenu-factures">
 
-            {/* Section de la première année */}
-            <div className="section-annee">
-                <h2 className="titre-annee">2026</h2>
-                {/* liste des devis ici */}
-                <p>Devis 1</p>
-                <p>Devis 2</p>
-                <p>Devis 3</p>
-                <p>Devis 4</p>
-                <p>Devis 5</p>
-                <p>Devis 6</p>
-                <p>Devis 7</p>
-            </div>
-          
-            {/* Section de la duexième année */}
-            <div className="section-annee">
-                <h2 className="titre-annee">2025</h2>
-                {/* Liste des devis ici */}
-                <p>Devis 1</p>
-                <p>Devis 2</p>
-                <p>Devis 3</p>
-                <p>Devis 4</p>
-                <p>Devis 5</p>
-                <p>Devis 6</p>
-                <p>Devis 7</p>
-            </div>
+
+          {/* Section de la première année */}
+          <div className="section-annee">
+            <h2 className="titre-annee">2026</h2>
+            {/* liste des factures ici */}
+            <EnTeteFactures />
+
+            {/* 1ere facture */}
+            <button
+              onClick={DetailsDevis}
+            >
+              <LigneFacture
+                id="1"
+                date="01/01/2026"
+                numero="1910-86"
+                clientFournisseur="Victor Albert"
+                echeance="31/01/2026"
+                montantTTC="1 150 €"
+                statut="en_attente"
+                surFavoris={(id) => console.log('Voir', id)}
+                surOptions={(id) => console.log('Options', id)}
+              />
+            </button>
+
+            {/* 2eme facture */}
+            <LigneFacture
+              id="2"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="annule"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 3eme facture */}
+            <LigneFacture
+              id="3"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Dupont Camille"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="4"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="en_attente"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="5"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="6"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="annule"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+          </div>
+
+
+
+
+
+          {/* Section de la deuxième année */}
+          <div className="section-annee">
+            <h2 className="titre-annee">2025</h2>
+            {/* Liste des factures ici */}
+            <EnTeteFactures />
+
+            {/* 1ere facture */}
+            <LigneFacture
+              id="1"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 2eme facture */}
+            <LigneFacture
+              id="2"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            {/* 3eme facture */}
+            <LigneFacture
+              id="3"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Dupont Camille"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="4"
+              date="01/01/2026"
+              numero="1910-86"
+              clientFournisseur="Victor Albert"
+              echeance="31/01/2026"
+              montantTTC="1 150 €"
+              statut="annule"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="5"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="6"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+
+            <LigneFacture
+              id="7"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="8"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="9"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="10"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="11"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+            <LigneFacture
+              id="12"
+              date="05/01/2026"
+              numero="1826-92"
+              clientFournisseur="Alain Jean"
+              echeance="12/02/2026"
+              montantTTC="550 €"
+              statut="paye"
+              surFavoris={(id) => console.log('Voir', id)}
+              surOptions={(id) => console.log('Options', id)}
+            />
+
+          </div>
         </div>
       </div>
     </div>
