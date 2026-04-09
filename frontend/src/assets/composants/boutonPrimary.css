@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 273px;   /* largeur de base */
+  min-width: 273px;
   height: 50px;
   padding: 12px 16px;
 
@@ -21,8 +21,8 @@
   transition: background-color 0.2s ease, opacity 0.2s ease;
 
   white-space: nowrap;
-  width: fit-content;   /* clé principale */
-  max-width: 100%;      /* sécurité responsive */
+  width: fit-content;
+  max-width: 100%;
 }
 
 .custom-primary-btn:hover {
