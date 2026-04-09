@@ -5,6 +5,7 @@ import './HeaderDetailsDevis.css';
 // ------------------------------ Propriétés du composant Header ------------------------------
 interface ProprieteHeaderDetailsDevis {
     titre?: string;                        // Titre affiché 
+    sousTitre?: String;
     surRetour?: () => void;                // Callback bouton retour
     surApercu?: () => void;                // Callback bouton aperçu
     surEnregistrerBrouillon?: () => void;  // Callback enregistrer en brouillon
@@ -16,7 +17,8 @@ interface ProprieteHeaderDetailsDevis {
 
 // ------------------------------ Composant principal ------------------------------
 const HeaderDetailsDevis: React.FC<ProprieteHeaderDetailsDevis> = ({
-    titre = 'Détails Devis',
+    titre = 'Devis',
+    sousTitre = '',
     surRetour,
     surEmettreDevis,
     estFavori = false,
@@ -50,8 +52,20 @@ const HeaderDetailsDevis: React.FC<ProprieteHeaderDetailsDevis> = ({
             {/* ------------------------- SECTION 2 : Titre + actions principales ------------------------- */}
             <div className="header-details-devis-top">
 
-                {/* Titre de la devis */}
-                <h1 className="header-details-devis-titre">{titre}</h1>
+                {/* Titre + Référence */}
+                <div className="header-details-devis-titre-container">
+                    <h1 className="header-details-devis-titre">
+                        {titre}
+                    </h1>
+
+                    {sousTitre && (
+                        <span className="header-details-devis-reference">
+                            {sousTitre}
+                        </span>
+                    )}
+                </div>
+
+                
 
                 {/* Actions de droite */}
                 <div className="header-details-devis-actions">

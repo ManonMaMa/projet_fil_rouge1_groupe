@@ -22,7 +22,11 @@ const detailsDevis: React.FC = () => {
 
             <div className="page-contenu">
                 {/* Importation Header */}
+
+
                 <HeaderDetailsDevis
+                    titre="Devis"
+                    sousTitre="1910-90"
                     surRetour={() => navigate("/facturation/devis")}
                 />
 

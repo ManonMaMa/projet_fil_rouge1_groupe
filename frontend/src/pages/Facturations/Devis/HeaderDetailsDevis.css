@@ -45,6 +45,18 @@
   margin: 0;
 }
 
+.header-details-devis-titre-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-details-devis-reference {
+  font-size: 24px;
+  font-weight: 600;
+  color: #9CA3AF;
+}
+
 /* Groupe de boutons d'actions */
 .header-details-devis-actions {
   display: flex;
