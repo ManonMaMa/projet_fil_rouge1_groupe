@@ -5,6 +5,7 @@ import Sidebar from "../../../assets/composants/Sidebar"
 import Input from '../../../assets/composants/input';
 import BoutonDevisAccepte from '../../../assets/composants/boutonDevisAccepte';
 import BoutonDevisRefuse from '../../../assets/composants/boutonDevisRefuse';
+import HistoriqueDetailsDevis from '../../../assets/composants/historiqueDetailsDevis';
 import './DetailsDevis.css'; // CSS de la page nouvelle facture
 
 
@@ -50,7 +51,7 @@ const detailsDevis: React.FC = () => {
                                         console.log('Bouton (devis) - Marquer comme accepté cliqué');
                                     }}
                                 />
-                                
+
 
                                 <BoutonDevisRefuse
                                     onClick={() => {
@@ -122,13 +123,19 @@ const detailsDevis: React.FC = () => {
                                 <h2>Historique</h2>
                             </div>
                             <div className="ligne-1">
-                                <Input label="Nom / Société" type="" placeholder="" />
-                                <Input label="Référence client" type="" placeholder="" />
+                                <HistoriqueDetailsDevis
+                                    title="En attente de payement"
+                                    description="Lundi 01 Janvier 2026 à 10:32"
+                                    count={2}
+                                />
                             </div>
 
                             <div className="ligne-2">
-                                <Input label="Adresse" type="" placeholder="" />
-                                <Input label="Email" type="" placeholder="" />
+                                <HistoriqueDetailsDevis
+                                    title="Envoyé par mail"
+                                    description="Vendredi 28 Décembre 2026 à 09:14"
+                                    count={1}
+                                />
                             </div>
                         </div>
 
