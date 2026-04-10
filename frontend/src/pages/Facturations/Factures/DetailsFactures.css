@@ -14,7 +14,7 @@
 }
 
 
-.zone-contenu-details-devis {
+.zone-contenu-details-factures {
     flex: 1;
     padding: 24px 32px;
     height: 100%;
@@ -24,7 +24,7 @@
 }
 
 
-.details-devis-gauche {
+.details-factures-gauche {
     width: 50%;
     height: 100%;
     background-color: #F5F5F5;
@@ -34,7 +34,7 @@
 }
 
 
-.details-devis-droite {
+.details-factures-droite {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
     padding-right: 10px;
 }
 
-.details-devis-droite-client {
+.details-factures-droite-client {
     display: flex;
     flex-direction: column;
 }
@@ -54,19 +54,17 @@
 
 /* --------------- TITRES SECTIONS --------------- */
 /* Section statut */
-.titre-section-details-devis {
+.titre-section-statut {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     gap: 8px;
-    margin-bottom: 2vh;
-    color: #717171;
 }
 
-.titre-section-details-devis h2 {
+.titre-section-statut h2 {
     font-size: 20px;
     font-weight: 600;
     color: #141414;
-    margin-bottom: 0;
+    margin-bottom: 1%;
 }
 
 
@@ -85,14 +83,14 @@
 }
 
 
-/* Section Devis */
-.titre-section-devis {
+/* Section factures */
+.titre-section-factures {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
 
-.titre-section-devis h2 {
+.titre-section-factures h2 {
     font-size: 20px;
     font-weight: 600;
     color: #141414;
@@ -116,25 +114,25 @@
 
 /* ----------------------------------------------- */
 
-.details-devis-droite-statut {
+.details-factures-droite-statut {
     display: flex;
     flex-direction: column;
     gap: 21px;
 }
 
-.details-devis-droite-client {
+.details-factures-droite-client {
     display: flex;
     flex-direction: column;
     gap: 21px;
 }
 
-.details-devis-droite-devis {
+.details-factures-droite-devis {
     display: flex;
     flex-direction: column;
     gap: 21px;
 }
 
-.details-devis-droite-historique {
+.details-factures-droite-historique {
     display: flex;
     flex-direction: column;
     gap: 21px;

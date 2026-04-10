@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../../assets/composants/headerDevis';
+import Header from './headerDevis';
 import Sidebar from "../../../assets/composants/Sidebar"
 import EnTeteFactures from '../../../assets/composants/enteteFactures';
 import LigneFacture from '../../../assets/composants/ligneFacture';
@@ -31,6 +31,11 @@ const Devis: React.FC = () => {
     console.log("Voir les détails d'un devis");
     navigate("/facturation/Devis/details");
   };
+
+  const CreerNouveauDevis = () => {
+    console.log("Créer un nouveau devis");
+    // ...
+  }
 
 
 
@@ -76,7 +81,7 @@ const Devis: React.FC = () => {
                 echeance="31/01/2026"
                 montantTTC="1 150 €"
                 statut="en_attente"
-                surFavoris={(id) => console.log('Voir', id)}
+                surFavoris={(id) => console.log('Favoris', id)}
                 surOptions={(id) => console.log('Options', id)}
               />
             </button>
