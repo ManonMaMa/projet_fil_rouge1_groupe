@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css'
 import ProtectedRoute from "./ProtectedRoute"
-import './assets/composants/Style.css'
+import '../src/styles/variables.css'
 
 
 

@@ -34,7 +34,7 @@
 }
 
 .ligne-facture:hover {
-  background-color: #fafafa;
+  background-color: var(--Hover);
   cursor: pointer;
 }
 

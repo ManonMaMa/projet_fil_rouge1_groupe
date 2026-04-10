@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import Header from '../../../assets/composants/headerFactures';
+// import Header from '../../../assets/composants/headerFactures';
+import Header from './headerFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
 import './Factures.css'; // CSS de la page facture
 import LigneFacture from '../../../assets/composants/ligneFacture';

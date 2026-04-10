@@ -1,30 +1,82 @@
 .sidebar-page {
   height: 100vh;
   width: 14vw;
-
-  border-right: 1px solid var(--couleur-text-secondaire);
-
-  color: var(--couleur-text-secondaire);
-  font-family: var(--font);
+  border-right: 1px solid var(--Separateur);
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-top: 1rem;
 }
 
-.sidebar-page h1{
-    font-size: var(--font-size-h1);
+
+
+/* ── Logo ── */
+.sidebar-logo {
+  position: relative;
+  width: 100%;
+  height: 15%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.sidebar-page p{
-    font-size: var(--font-size-base);
+.logo-band {
+  position: absolute;
+  width: 700px;
+  height: 50px;
+  left: -15%;
+  transform-origin: center;
+  background: linear-gradient(to right, #D9D9D9, #737373);
+  opacity: 0.12;
+}
+
+.logo-band-1 {
+  top: 25px;
+  transform: translateX(-50%) rotate(-28deg);
+}
+
+.logo-band-2 {
+  top: 100px;
+  transform: translateX(-50%) rotate(-28deg);
+}
+
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 100%;
+}
+
+
+
+.sidebar-page h1 {
+  font-size: var(--font-size-h1);
+}
+
+.sidebar-page p {
+  font-size: var(--font-size-base);
 }
 
 /* Conteneurs pour les sections */
 .milieu-page {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  margin-top: 0%;
+  background-color: transparent;
 }
 
 .bas-page {
@@ -37,22 +89,22 @@
 
 
 
-.onglet{
+.onglet {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 1vh 20px;
   cursor: pointer;
   position: relative;
-  color: var(--couleur-text-secondaire);
+  color: var(--text-secondaire);
   text-decoration: none;
-  background: none;
+  background: transparent;
   border: none;
   width: 100%;
   text-align: left;
   font-family: inherit;
   transition: color 0.2s ease;
-  padding-left: 17%; /* Raproché les onglets vers le centre de la navbar */
+  padding-left: 17%;
 
 }
 
@@ -78,14 +130,14 @@
   height: 80%;
   width: 2px;
 
-  background-color: var(--couleur-principal);
+  background-color: var(--Principal);
 
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
 .onglet:hover {
-  color: var(--couleur-principal);
+  color: var(--Principal);
 }
 
 .onglet:hover::before {
@@ -93,14 +145,14 @@
 }
 
 .onglet.active {
-  color: var(--couleur-principal);
+  color: var(--Principal);
 }
 
-.onglet.active svg:not(.chevron){
-  color: var(--couleur-fond);
-  background-color: var(--couleur-principal);
-  border-radius: 15px;
-  box-shadow: 0px 3px 8px var(--couleur-principal);
+.onglet.active svg:not(.chevron) {
+  color: var(--Couleur-fond);
+  background-color: var(--Principal);
+  border-radius: 13px;
+  box-shadow: 0px 3px 8px var(--Principal);
 }
 
 .onglet.active::before {
@@ -154,7 +206,8 @@
 
 .sous-menu .onglet {
   padding: 0.8vh 20px;
-  padding-left: 64px; /* Aligné avec le texte parent */
+  padding-left: 64px;
+  /* Aligné avec le texte parent */
 }
 
 .sous-menu .onglet p {
@@ -164,7 +217,8 @@
 }
 
 .sous-menu .onglet::before {
-  width: 1px; /* Barre plus fine pour les sous-éléments */
+  width: 1px;
+  /* Barre plus fine pour les sous-éléments */
 }
 
 
@@ -218,4 +272,3 @@
   }
 
 }
-

@@ -61,10 +61,10 @@ const Header: React.FC<ProprieteHeader> = ({
 
   return (
     // Container principal du header
-    <div className="header-contenu">
+    <div className="header-factures-contenu">
 
       {/* ----------------- SECTION 1 : Barre supérieure - Titre + actions ---------------- */}
-      <div className="header-top">
+      <div className="header-factures-top">
         <h1 className="header-titre">{titre}</h1>
 
         {/* Bouton d'affichage des filtres */}
@@ -216,6 +216,10 @@ const Header: React.FC<ProprieteHeader> = ({
           </div>
         </div>
       )}
+
+      {/* Séparateur */}
+      <hr className="header-factures-separateur" />
+
     </div>
   );
 };

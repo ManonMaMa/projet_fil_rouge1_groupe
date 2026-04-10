@@ -183,6 +183,6 @@
 .header-details-devis-separateur {
   margin: 0;
   border: none;
-  border-top: 0.5px solid #1F1F1F;
+  border-top: 0.5px solid var(--Separateur);
   margin: 0px 32px;
 }
