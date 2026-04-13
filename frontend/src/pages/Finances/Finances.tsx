@@ -3,6 +3,8 @@ import Header from './headerFinances'; // Import header finance
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
 import BeneficesClient from '../../assets/composants/beneficesClient';
 import FacturesEmises from '../../assets/composants/facturesEmises';
+import FacturesPayees from '../../assets/composants/facturesPayees';
+import FacturesAttentes from '../../assets/composants/facturesAttentes';
 import './Finances.css'; // CSS de la page finances
 
 
@@ -62,6 +64,12 @@ const Finances: React.FC = () => {
                                 />
 
                                 <FacturesEmises count={10} amount="10 000 €" />
+
+                                <FacturesPayees count={8} amount="8 000 €" />
+
+                                <FacturesAttentes count={2} amount="2 000 €" />
+
+
                             </div>
 
 

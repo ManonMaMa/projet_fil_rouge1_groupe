@@ -8,7 +8,7 @@ type FacturesEmisesProps = {
 
 const Icon = () => (
   <svg
-    className="factures-card__icon"
+    className="factures-emises-card__icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -26,15 +26,15 @@ const FacturesEmises: React.FC<FacturesEmisesProps> = ({
   amount,
 }) => {
   return (
-    <div className="factures-card">
-        <div className="factures-card__top">
+    <div className="factures-emises-card">
+        <div className="factures-emises-card__top">
             <Icon />
-            <span className="factures-card__label">Factures émises</span>
-            <span className="factures-card__count">{count}</span>
+            <span className="factures-emises-card__label">Factures émises</span>
+            <span className="factures-emises-card__count">{count}</span>
         </div>
 
-        <div className="factures-card__bottom">
-            <div className="factures-card__amount">{amount}</div>
+        <div className="factures-emises-card__bottom">
+            <div className="factures-emises-card__amount">{amount}</div>
         </div>
     </div>
   );

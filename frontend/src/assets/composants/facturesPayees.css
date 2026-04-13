@@ -1,4 +1,4 @@
-.factures-emises-card {
+.factures-payees-card {
     width: 171px;
     height: 212px;
     border-radius: 20px;
@@ -10,7 +10,7 @@
 
 
 /* HAUT */
-.factures-emises-card__top {
+.factures-payees-card__top {
     position: relative;
     width: 100%;
     height: 70%;
@@ -26,21 +26,21 @@
 }
 
 /* Icon */
-.factures-emises-card__icon {
+.factures-payees-card__icon {
     width: 45px;
     height: 45px;
     color: var(--Principal);
 }
 
 /* LABEL */
-.factures-emises-card__label {
+.factures-payees-card__label {
     color: var(--Secondaire);
     font-size: 13px;
     font-weight: 400;
 }
 
 /* COUNT */
-.factures-emises-card__count {
+.factures-payees-card__count {
     font-size: 20px;
     font-weight: 700;
     color: #000;
@@ -50,10 +50,10 @@
 
 
 /* BAS */
-.factures-emises-card__bottom {
+.factures-payees-card__bottom {
     width: 100%;
     height: 25%;
-    background-color: #FFF9E6;
+    background-color: #EAF5EA;
     border-radius: 20px;
 
     display: flex;
@@ -62,8 +62,8 @@
 }
 
 /* AMOUNT */
-.factures-emises-card__amount {
+.factures-payees-card__amount {
     font-size: 18px;
     font-weight: 600;
-    color: #5a4a2c;
+    color: #1F3A2E;
 }
