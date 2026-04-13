@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './headerFinances'; // Import header finance
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import BeneficesClient from '../../assets/composants/beneficesClient';
+import FacturesEmises from '../../assets/composants/facturesEmises';
 import './Finances.css'; // CSS de la page finances
 
 
@@ -51,7 +53,17 @@ const Finances: React.FC = () => {
                     <div className="finance-gauche">
                         <div className="section">
                             <h2 className="titre-section">Aperçu</h2>
-                            <p>contenu</p>
+
+                            <div className="essai">
+                                <BeneficesClient
+                                    label="Bénéfices"
+                                    amount="8 000 €"
+
+                                />
+
+                                <FacturesEmises count={10} amount="10 000 €" />
+                            </div>
+
 
                         </div>
 

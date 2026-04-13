@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HeaderNouveauClient from './headerNouveauClient';
 import Sidebar from '../../assets/composants/Sidebar';
 import Input from '../../assets/composants/input';
-import InputV2 from '../../assets/composants/inputV2';
+import TextArea from '../../assets/composants/textArea';
 import './nouveauClient.css'; // CSS de la page nouveau client
 
 
@@ -100,7 +100,7 @@ const nouveauClient: React.FC = () => {
                                     <Input label="Date de création" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
-
+                                    <TextArea label="Note interne" placeholder="" />
                                 </div>
                             </div>
                         </div>

@@ -40,6 +40,14 @@
 
 .section {
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.essai {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
 }
 
 /* Titre année */
