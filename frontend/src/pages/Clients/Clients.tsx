@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from './headerClient'; // Import header client
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
+import EnTeteClients from '../../assets/composants/enteteClients';
+import LigneClient from '../../assets/composants/ligneClient';
 import './Clients.css'; // CSS de la page client
 
 
@@ -34,12 +36,12 @@ const Clients: React.FC = () => {
 
 
     return (
-        <div className="page-conteneur">
+        <div className="page-conteneur-clients">
             {/* [Importation de la SideBar ici] */}
             <Sidebar />
 
 
-            <div className="page-contenu">
+            <div className="page-contenu-clients">
                 {/* Header */}
                 <Header
                     titre="Clients"                           // changer le titre de la page
@@ -54,64 +56,75 @@ const Clients: React.FC = () => {
 
 
                 {/* Zone principale du contenu de la page ici */}
-                <div className="zone-contenu">
+                <div className="zone-contenu-clients">
+
 
                     {/* Section de la première année */}
                     <div className="section-annee">
                         <h2 className="titre-annee">2026</h2>
-                        <table className="tableau_clients">
-                            <thead>
-                                <tr className="en-tête_tableau">
-                                    <th className="tt_nom_societe">Nom / Société</th>
-                                    <th className="tt_email">Email</th>
-                                    <th className="tt_tel">Téléphone</th>
-                                    <th className="tt_facture">Facture en cours</th>
-                                    <th className="tt_solde">Solde dû</th>
-                                    <th className="tt_derniere_activite">Dernière activité</th>
-                                </tr>
-                            </thead>
+                        <EnTeteClients />
 
-                            {/* for each clients */}
-                            <tbody>
-                                <tr className="tableau_clients">
-                                    <td className="nom_societe">Bernard Guy</td>
-                                    <td className="email">bernardguy@gmail.com</td>
-                                    <td className="tel">06 67 78 89 90</td>
-                                    <td className="facture">5318-90</td>
-                                    <td className="solde">1 150 €</td>
-                                    <td className="derniere_activite">07/12/25</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        {/* 1er client */}
+                        <LigneClient
+                            id="1"
+                            nom_societe="Bernard Guy"
+                            email="bernardguy@gmail.com"
+                            telephone="06 67 78 89 90"
+                            facture_en_cours="5218-90"
+                            solde_du="1 150 €"
+                            derniere_activite="07/12/2025 €"
+                            surOptions={(id) => console.log('Options', id)}
+                        />
+
+
                     </div>
 
-                    {/* Section de la duexième année */}
+
+
+
+
+                    {/* Section de la deuxième année */}
                     <div className="section-annee">
                         <h2 className="titre-annee">2025</h2>
-                        <table className="tableau_clients">
-                            <thead>
-                                <tr className="en-tête_tableau">
-                                    <th className="tt_nom_societe">Nom / Société</th>
-                                    <th className="tt_email">Email</th>
-                                    <th className="tt_tel">Téléphone</th>
-                                    <th className="tt_facture">Facture en cours</th>
-                                    <th className="tt_solde">Solde dû</th>
-                                    <th className="tt_derniere_activite">Dernière activité</th>
-                                </tr>
-                            </thead>
+                        <EnTeteClients />
 
-                            {/* for each clients */}
-                            <tbody>
-                                <tr className="tableau_clients">
-                                    <td className="nom_societe">Bernard Guy</td>
-                                    <td className="email">bernardguy@gmail.com</td>
-                                    <td className="tel">06 67 78 89 90</td>
-                                    <td className="facture">5318-90</td>
-                                    <td className="solde">1 150 €</td>
-                                    <td className="derniere_activite">07/12/25</td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+                        <LigneClient
+                            id="2"
+                            nom_societe="Delois Alain"
+                            email="deloisalain@gmail.com"
+                            telephone="06 67 78 89 90"
+                            facture_en_cours="5218-90"
+                            solde_du="1 150 €"
+                            derniere_activite="1 150 €"
+                            surOptions={(id) => console.log('Options', id)}
+                        />
+
+                        <LigneClient
+                            id="3"
+                            nom_societe="Dupuis Gille"
+                            email="dupuisgille@gmail.com"
+                            telephone="06 67 78 89 90"
+                            facture_en_cours="5218-90"
+                            solde_du="1 150 €"
+                            derniere_activite="1 150 €"
+                            surOptions={(id) => console.log('Options', id)}
+                        />
+
+                        <LigneClient
+                            id="4"
+                            nom_societe="Moreau Marie"
+                            email="moreaumarie@gmail.com"
+                            telephone="06 67 78 89 90"
+                            facture_en_cours="5218-90"
+                            solde_du="1 150 €"
+                            derniere_activite="1 150 €"
+                            surOptions={(id) => console.log('Options', id)}
+                        />
+
+
+
+
 
                     </div>
                 </div>

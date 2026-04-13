@@ -1,10 +1,11 @@
 import React from 'react';
 import './ligneFacture.css';
 
+
 // Types de statut disponibles
 type Statut = 'en_attente' | 'annule' | 'paye';
 
-// Interface des props du composant
+
 interface LigneFactureProps {
     id?: string;
     date: string;
@@ -18,8 +19,10 @@ interface LigneFactureProps {
     surOptions?: (id: string) => void;
 }
 
-// Configuration des statuts (icône SVG, libellé, classe CSS)
+
+// Configuration des statuts
 const configStatuts: Record<Statut, { icone: React.ReactNode; libelle: string; classe: string }> = {
+
     en_attente: {
         icone: (
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -54,7 +57,8 @@ const configStatuts: Record<Statut, { icone: React.ReactNode; libelle: string; c
     },
 };
 
-// Icône œil
+
+// Icône favoris
 const IcôneFavoris = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
         fill="currentColor" viewBox="0 0 24 24" >
@@ -70,7 +74,7 @@ const IcôneTroisPoints = () => (
     </svg>
 );
 
-// Composant LigneFacture
+
 const LigneFacture: React.FC<LigneFactureProps> = ({
     id = '',
     date,
@@ -126,6 +130,7 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
                     <span className="ligne-facture__statut-libelle">{config.libelle}</span>
                 </span>
             </div>
+
 
             {/* Actions */}
             <div className="ligne-facture__cellule ligne-facture__cellule--actions">

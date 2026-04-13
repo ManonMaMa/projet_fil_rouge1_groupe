@@ -1,0 +1,105 @@
+.ligne-clients {
+    display: grid;
+    grid-template-columns:
+        15% 16% 16% 16% 16% 16% 5%;
+    align-items: center;
+    justify-items: center;
+    min-height: 60px;
+    width: 100%;
+    min-width: 1202px;
+    padding: 0 8px;
+    border: 2px solid #f5f5f5;
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: background-color 0.15s ease;
+    margin-bottom: 1%;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: apparitionLigne 0.35s ease forwards;
+}
+
+@keyframes apparitionLigne {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ligne-clients:hover {
+    background-color: var(--Hover);
+    cursor: pointer;
+}
+
+
+/* Textes */
+.ligne-clients__texte {
+    font-size: 13.5px;
+    color: #3d3d3d;
+    font-family: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ligne-clients__texte--gras {
+    font-weight: 500;
+    color: #141414;
+}
+
+
+
+/* Zone boutons d'actions */
+.ligne-clients__cellule--actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2px;
+}
+
+/* Boutons d'actions */
+.ligne-clients__action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: #717171;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    outline: none;
+}
+
+.ligne-clients__action-btn:hover {
+    color: #3d3d3d;
+    background-color: #f0f0f0;
+}
+
+.ligne-clients__action-btn:focus-visible {
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+}
+
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .ligne-clients {
+        grid-template-columns:
+            36px 100px 90px 1fr 100px 100px 130px 70px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ligne-clients {
+        grid-template-columns:
+            36px 1fr 100px 70px;
+    }
+
+    .ligne-clients__cellule--numero,
+    .ligne-clients__cellule--echeance,
+    .ligne-clients__cellule--montant {
+        display: none;
+    }
+}

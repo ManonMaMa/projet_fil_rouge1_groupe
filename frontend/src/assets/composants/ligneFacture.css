@@ -1,18 +1,11 @@
-/* Ligne factures */
 .ligne-facture {
   display: grid;
   grid-template-columns:
-    3%          /* checkbox */
-    11%         /* date */
-    11%         /* numéro */
-    29%           /* client / fournisseur */
-    11%         /* échéance */
-    11%         /* montant TTC */
-    19%         /* statut */
-    5%;         /* actions */
+    3% 11% 11% 29% 11% 11% 19% 5%;
   align-items: center;
   justify-items: center;
   min-height: 60px;
+  width: 100%;
   min-width: 1202px;
   padding: 0 8px;
   border: 2px solid #f5f5f5;
@@ -20,17 +13,16 @@
   background-color: #ffffff;
   transition: background-color 0.15s ease;
   margin-bottom: 1%;
-
   opacity: 0;
   transform: translateY(10px);
   animation: apparitionLigne 0.35s ease forwards;
 }
 
 @keyframes apparitionLigne {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .ligne-facture:hover {
@@ -66,7 +58,7 @@
 /* Textes */
 .ligne-facture__texte {
   font-size: 13.5px;
-  color: #3d3d3d;
+  color: var(--text-secondaire);
   font-family: inherit;
   white-space: nowrap;
   overflow: hidden;
@@ -75,14 +67,14 @@
 
 .ligne-facture__texte--gras {
   font-weight: 500;
-  color: #141414;
+  color: var(--Principal);
 }
 
 /* Checkbox */
 .ligne-facture__checkbox {
   width: 17px;
   height: 17px;
-  border: 1.5px solid #d0d0d0;
+  border: 1.5px solid var(--Secondaire);
   border-radius: 4px;
   background-color: #ffffff;
   cursor: pointer;
@@ -94,17 +86,9 @@
 }
 
 .ligne-facture__checkbox:hover {
-  border-color: #a0a0a0;
+  border-color: var(--Secondaire);
 }
 
-.ligne-facture__checkbox:focus-visible {
-  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
-}
-
-.ligne-facture__checkbox--coche {
-  background-color: #141414;
-  border-color: #141414;
-}
 
 
 /* Statut badge */
@@ -128,20 +112,20 @@
 
 /* En attente */
 .statut--en-attente {
-  color: #1F2A37;
-  background-color: #EEF4FA;
+  color: var(--badge-en-attente-text);
+  background-color: var(--badge-en-attente-background);
 }
 
 /* Annulé */
 .statut--annule {
-  color: #3A1F1F;
-  background-color: #F6E1E1;
+  color: var(--badge-annule-text);
+  background-color: var(--badge-annule-background);
 }
 
 /* Payé */
 .statut--paye {
-  color: #1F3A2E;
-  background-color: #EAF5EA;
+  color: var(--badge-paye-text);
+  background-color: var(--badge-paye-background);
 }
 
 /* Boutons d'actions */
@@ -153,7 +137,7 @@
   height: 30px;
   border: none;
   background: transparent;
-  color: #717171;
+  color: var(--Secondaire);
   border-radius: 6px;
   cursor: pointer;
   transition: color 0.15s ease, background-color 0.15s ease;
@@ -174,24 +158,14 @@
 @media (max-width: 900px) {
   .ligne-facture {
     grid-template-columns:
-      36px
-      100px
-      90px
-      1fr
-      100px
-      100px
-      130px
-      70px;
+      36px 100px 90px 1fr 100px 100px 130px 70px;
   }
 }
 
 @media (max-width: 640px) {
   .ligne-facture {
     grid-template-columns:
-      36px
-      1fr
-      100px
-      70px;
+      36px 1fr 100px 70px;
   }
 
   .ligne-facture__cellule--numero,

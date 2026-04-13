@@ -1,22 +1,26 @@
 /* Conteneur principal de la page */
-.page-conteneur {
+.page-conteneur-clients {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background-color: #ffffff;
 }
 
 /* Contenu de la page */
-.page-contenu {
+.page-contenu-clients {
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Zone de contenu */
-.zone-contenu {
+.zone-contenu-clients {
   flex: 1;
   padding: 24px 32px;
   overflow-y: auto;
+  height: 100%;
 }
 
 /* Section année */
@@ -29,7 +33,13 @@
   font-size: 30px;
   font-weight: 600;
   color: #141414;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  padding-top: 10px;
 }
 
 /* Responsive */
@@ -39,16 +49,4 @@
   }
 }
 
-.en-tête_tableau{
-  display : flex;
-  justify-content: space-between;
-  width : 80%;
-  padding-bottom: 2vh;
-}
 
-.tableau_clients{
-  display : flex;
-  justify-content: space-between;
-  width : 80%;
-  padding-bottom: 2vh;
-}

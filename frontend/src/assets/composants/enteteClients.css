@@ -1,13 +1,12 @@
-.entete-factures {
+.entete-clients {
     display: grid;
     grid-template-columns:
-        3% 
-        11%
-        11% 
-        29% 
-        11% 
-        11% 
-        19% 
+        15% 
+        16% 
+        16% 
+        16% 
+        16% 
+        16% 
         5%;
     align-items: center;
     justify-items: center;
@@ -23,24 +22,24 @@
 
 
 /* Cellules */
-.entete-factures__cellule {
+.entete-clients__cellule {
     display: flex;
     align-items: center;
     padding: 0 8px;
 }
 
-.entete-factures__cellule--checkbox {
+.entete-clients__cellule--checkbox {
     padding: 0;
 }
 
-.entete-factures__cellule--droite {
+.entete-clients__cellule--droite {
     justify-content: flex-end;
 }
 
 
 
 /* Label */
-.entete-factures__label {
+.entete-clients__label {
     font-size: 12.5px;
     font-weight: 500;
     color: #717171;
@@ -52,24 +51,24 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-    .entete-factures {
+    .entete-clients {
         grid-template-columns:
             36px 100px 90px 1fr 100px 100px 130px 70px;
     }
 }
 
 @media (max-width: 640px) {
-    .entete-factures {
+    .entete-clients {
         grid-template-columns:
             36px 1fr 100px 70px;
     }
 
     /* Masque les mêmes colonnes que LigneFacture en mobile */
-    .entete-factures__cellule:nth-child(3),
+    .entete-clients__cellule:nth-child(3),
     /* Numéro */
-    .entete-factures__cellule:nth-child(6),
+    .entete-clients__cellule:nth-child(6),
     /* Échéance */
-    .entete-factures__cellule:nth-child(7) {
+    .entete-clients__cellule:nth-child(7) {
         /* Montant TTC */
         display: none;
     }

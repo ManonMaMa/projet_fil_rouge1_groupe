@@ -7,6 +7,21 @@
     --text-secondaire : #717171;
     --Separateur : #1F1F1F;
 
+
+    /* BADGE - EN ATTENTE */
+    --badge-en-attente-background : #EEF4FA;
+    --badge-en-attente-text : #1F2A37;
+
+    /* BADGE - ANNULÉ */
+    --badge-annule-background : #F6E1E1;
+    --badge-annule-text : #3A1F1F;
+
+    /* BADGE - PAYÉ */
+    --badge-paye-background : #EAF5EA;
+    --badge-paye-text : #1F3A2E;
+
+
+
     /* Typographie */
     --font: 'Inter', system-ui, sans-serif;
 
