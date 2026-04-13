@@ -59,13 +59,13 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 2vh;
-    color: #717171;
+    color: var(--Secondaire);
 }
 
 .titre-section-details-devis h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #141414;
+    color: var(--Principal);
     margin-bottom: 0;
 }
 

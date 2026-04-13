@@ -1,71 +1,85 @@
+/* ------------------------- LIGNE 1 ------------------------- */
 .ligne-1 {
     display: flex;
     flex-direction: row;
     gap: 21px;
+    height: 50%;
 }
 
-/* Section Client */
-.titre-section-client {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-}
-.titre-section-client h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #141414;
-    margin-bottom: 1%;
-}
-.input-information-client {
+
+/* ----- GAUCHE ----- */
+.nouvelle-facture-gauche {
+    width: 50%;
+    height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 50px;
-    overflow: hidden;
+    gap: 8%;
 }
-.client-ligne-2 {
+
+.ligne-1-nouvelle-facture {
+    width: 100%;
+}
+
+.ligne-2-nouvelle-facture {
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 21px;
 }
 
-
-
-
-
-
-.droite {
-    display: flex;
-    flex-direction: column;
+.ligne-3-nouvelle-facture {
+    width: 100%;
 }
 
+
+
+
+
+/* ----- DROITE ----- */
 .nouvelle-facture-droite {
+    width: 50%;
+    height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-
-/* Section Dates */
-.titre-section-dates {
+.nouvelle-facture-droite-1 {
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
     display: flex;
-    flex-direction: row;
-    gap: 21px;
+    flex-direction: column;
+    gap: 8%;
 }
-.titre-section-dates h2 {
+
+.nouvelle-facture-droite-2 {
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8%;
+}
+
+/* ----------------------------------------------------------- */
+
+
+/* Titres sections */
+.titre-section-nouvelle-facture {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--Secondaire);
+}
+
+.titre-section-nouvelle-facture h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #141414;
-    margin-bottom: 1%;
-}
-.input-information-dates {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 21px;
-    overflow: hidden;
+    color: var(--Principal);
+    margin-bottom: 0;
 }
 
 
@@ -73,23 +87,7 @@
 
 
 
-/* Section Dates */
-.titre-section-facture {
-    display: flex;
-    flex-direction: row;
-    gap: 21px;
-}
-.titre-section-facture h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #141414;
-    margin-bottom: 1%;
-}
-.input-information-facture {
-    display: flex;
-    flex-direction: row;
-    /* Pour le retour à la ligne en cas de dépassement */
-    flex-wrap: wrap;
-    gap: 21px;
-    overflow: hidden;
-}
+
+
+
+
