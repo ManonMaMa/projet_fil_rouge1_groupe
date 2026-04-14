@@ -15,10 +15,10 @@ const TextArea: React.FC<TextAreaProps> = ({ label, id, ...props }) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
 
-    // const resize = () => {
-    //   textarea.style.height = 'auto';
-    //   textarea.style.height = textarea.scrollHeight + 'px';
-    // };
+    const resize = () => {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    };
 
     resize();
     textarea.addEventListener('input', resize);

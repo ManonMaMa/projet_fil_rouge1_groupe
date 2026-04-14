@@ -70,12 +70,12 @@ const nouveauClient: React.FC = () => {
                                     <Input label="Téléphone" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
-                                    <Input label="Rue" type="" placeholder="" />
-                                    <Input label="Code Postal" type="" placeholder="" />
+                                    <Input label="Adresse Postale" type="" placeholder="75 rue de l'impasse" />
+                                    <Input label="Code Postal" type="" placeholder="75000" />
                                 </div>
                                 <div className="client-ligne-3">
-                                    <Input label="Ville" type="" placeholder="" />
-                                    <Input label="Pays" type="" placeholder="" />
+                                    <Input label="Ville" type="" placeholder="Paris" />
+                                    <Input label="Pays" type="" placeholder="France" />
                                 </div>
                             </div>
                         </div>
