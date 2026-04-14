@@ -33,6 +33,11 @@ const Clients: React.FC = () => {
         // [Ajouter la logique pour créer un nouveau client]
     };
 
+    // Fonction déclanchée pour voir les détails d'un client
+    const DetailsClients = () => {
+        console.log("Voir les détails d'un client");
+        navigate("/clients/details");
+    };
 
 
     return (
@@ -65,22 +70,21 @@ const Clients: React.FC = () => {
                         <EnTeteClients />
 
                         {/* 1er client */}
-                        <LigneClient
-                            id="1"
-                            nom_societe="Bernard Guy"
-                            email="bernardguy@gmail.com"
-                            telephone="06 67 78 89 90"
-                            facture_en_cours="5218-90"
-                            solde_du="1 150 €"
-                            derniere_activite="07/12/2025 €"
-                            surOptions={(id) => console.log('Options', id)}
-                        />
-
-
+                        <button
+                            onClick={DetailsClients}
+                        >
+                            <LigneClient
+                                id="1"
+                                nom_societe="Bernard Guy"
+                                email="bernardguy@gmail.com"
+                                telephone="06 67 78 89 90"
+                                facture_en_cours="5218-90"
+                                solde_du="1 150 €"
+                                derniere_activite="07/12/2025 €"
+                                surOptions={(id) => console.log('Options', id)}
+                            />
+                        </button>
                     </div>
-
-
-
 
 
                     {/* Section de la deuxième année */}
@@ -129,7 +133,7 @@ const Clients: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -1,0 +1,117 @@
+/* Conteneur principal de la page */
+.page-conteneur-details-clients {
+    display: flex;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+/* Contenu de la page */
+.page-contenu-details-clients {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Zone de contenu */
+.zone-contenu-details-clients {
+    flex: 1;
+    padding: 24px 32px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+
+/* ------------------------------- SECTION GAUCHE ----------------------------- */
+.details-clients-gauche {
+    width: 70%;
+    height: 70vh;
+    overflow-y: auto;
+}
+
+
+/* Section - Aperçu */
+.apercu-details-clients {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.ligne-input-informations-details-clients {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+
+.ligne-input-informations-details-clients {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
+
+.details-clients-informations-left {
+    width: 32%;
+}
+
+.details-clients-informations-right {
+    width: 67%;
+}
+
+/* ---------------------------------------------------------------------------- */
+
+
+/* ------------------------------- SECTION DROITE ----------------------------- */
+.details-clients-droite {
+    width: 30%;
+    height: auto;
+    overflow-y: auto;
+}
+
+/* Section - Activité */
+.activite-details-clients {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ---------------------------------------------------------------------------- */
+
+
+/* Sections */
+.section-details-clients {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5%;
+    gap: 21px;
+}
+
+/* Titre Sections */
+.titre-section-details-clients {
+    font-size: 30px;
+    font-weight: 600;
+    color: #141414;
+}
+
+
+
+
+
+
+
+
+
+
+
+.separateur {
+    width: 20px;
+    background-color: #FAFAFA;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-area {
+        padding: 16px 20px;
+    }
+}

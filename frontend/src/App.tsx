@@ -22,9 +22,11 @@ import Parametres from './pages/Parametres/Parametres'
 import Factures from "./pages/Facturations/Factures/Factures"
 import NouvelleFacture from "./pages/Facturations/Factures/nouvelleFacture"
 import DetailsFactures from "./pages/Facturations/Factures/DetailsFactures"
+
 import Devis from "./pages/Facturations/Devis/Devis"
 import DetailsDevis from "./pages/Facturations/Devis/DetailsDevis"
 
+import DetailsClients from "./pages/Clients/DetailsClients"
 import NouveauClient from "./pages/Clients/nouveauClient"
 
 
@@ -44,6 +46,7 @@ function App() {
 
               <Route path="/clients" element={<Clients />} />
               <Route path="clients/nouveau" element={<NouveauClient />} />
+              <Route path="clients/details" element={<DetailsClients />} />
 
               <Route path="/facturation/devis" element={<Devis />} />
               <Route path="/facturation/devis/details" element={<DetailsDevis />} />

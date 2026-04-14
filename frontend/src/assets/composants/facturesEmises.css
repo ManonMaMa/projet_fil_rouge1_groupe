@@ -1,6 +1,6 @@
 .factures-emises-card {
-    width: 171px;
-    height: 212px;
+    width: 100%;
+    height: 25vh;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
