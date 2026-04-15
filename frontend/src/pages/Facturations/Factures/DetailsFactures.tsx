@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import HeaderDetailsFactures from './HeaderDetailsFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
 import Input from '../../../assets/composants/input';
-import BoutonDevisAccepte from '../../../assets/composants/boutonDevisAccepte';
+import BoutonFacturePayee from '../../../assets/composants/boutonFacturePayee';
+import BoutonFactureRefuse from '../../../assets/composants/boutonFactureRefuse';
 import BoutonDevisRefuse from '../../../assets/composants/boutonDevisRefuse';
 import HistoriqueDetailsDevis from '../../../assets/composants/historiqueDetailsDevis';
 import './DetailsFactures.css';
+import BoutonDevisAccepte from '../../../assets/composants/boutonDevisAccepte';
 
 
 
@@ -49,16 +51,16 @@ const detailsFactures: React.FC = () => {
                                 <h2>Statut</h2>
                             </div>
                             <div className="ligne-1">
-                                <BoutonDevisAccepte
+                                <BoutonFacturePayee
                                     onClick={() => {
-                                        console.log('Bouton (factures) - Marquer comme accepté cliqué');
+                                        console.log('Bouton (factures) - Marquer comme "Facture payé" cliqué');
                                     }}
                                 />
 
 
-                                <BoutonDevisRefuse
+                                <BoutonFactureRefuse
                                     onClick={() => {
-                                        console.log('Bouton (factures) - Marquer comme accepté cliqué');
+                                        console.log('Bouton (factures) - Marquer comme "Facture refusé" cliqué');
                                     }}
                                 />
                             </div>

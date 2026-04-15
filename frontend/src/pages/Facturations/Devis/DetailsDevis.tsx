@@ -52,14 +52,14 @@ const detailsDevis: React.FC = () => {
                             <div className="ligne-1">
                                 <BoutonDevisAccepte
                                     onClick={() => {
-                                        console.log('Bouton (devis) - Marquer comme accepté cliqué');
+                                        console.log('Bouton (devis) - Marquer comme "Devis accepté" cliqué');
                                     }}
                                 />
 
 
                                 <BoutonDevisRefuse
                                     onClick={() => {
-                                        console.log('Bouton (devis) - Marquer comme accepté cliqué');
+                                        console.log('Bouton (devis) - Marquer comme "Devis refusé" cliqué');
                                     }}
                                 />
                             </div>

@@ -1,0 +1,41 @@
+.custom-primary-btn-facture-payee {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 273px;
+  height: 50px;
+  padding: 12px 16px;
+
+  background-color: #EAF5EA;
+  color: #1F3A2E;
+  border: none;
+  border-radius: 11px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+
+  white-space: nowrap;
+  width: 100%;
+  max-width: 100%;
+}
+
+.custom-primary-btn-facture-payee:hover {
+  background-color: #def1de;
+}
+
+.custom-primary-btn-facture-payee:active {
+  opacity: 0.8;
+}
+
+.custom-primary-btn-facture-payee:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
