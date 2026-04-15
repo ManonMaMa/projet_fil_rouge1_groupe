@@ -29,7 +29,7 @@ const BoutonFactureRefuse: React.FC<BoutonFactureRefuseProps> = ({
                 </svg>
             </span>
 
-            <span>Marquer comme refusé</span>
+            <span>Marquer comme refusée</span>
         </button>
     );
 };

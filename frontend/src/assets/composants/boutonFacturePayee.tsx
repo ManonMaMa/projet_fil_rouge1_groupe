@@ -29,7 +29,7 @@ const BoutonFacturePayee: React.FC<BoutonFacturePayeeProps> = ({
         </svg>
       </span>
 
-      <span>Marquer comme payé</span>
+      <span>Marquer comme payée</span>
     </button>
   );
 };
