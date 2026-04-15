@@ -1,11 +1,11 @@
-.page-conteneur {
+.page-conteneur-factures {
     display: flex;
     height: 100vh;
     overflow: hidden;
     background-color: #ffffff;
 }
 
-.page-contenu {
+.page-contenu-factures {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -54,13 +54,14 @@
 
 /* --------------- TITRES SECTIONS --------------- */
 /* Section statut */
-.titre-section-statut {
+.titre-section {
     display: flex;
     flex-direction: row;
     gap: 8px;
+    color: var(--Secondaire);
 }
 
-.titre-section-statut h2 {
+.titre-section h2 {
     font-size: 20px;
     font-weight: 600;
     color: #141414;
@@ -126,7 +127,7 @@
     gap: 21px;
 }
 
-.details-factures-droite-devis {
+.details-factures-droite-factures {
     display: flex;
     flex-direction: column;
     gap: 21px;

@@ -17,7 +17,7 @@ interface ProprieteHeaderDetailsFactures {
 
 // ------------------------------ Composant principal ------------------------------
 const HeaderDetailsFactures: React.FC<ProprieteHeaderDetailsFactures> = ({
-    titre = 'Devis',
+    titre = '',
     sousTitre = '',
     surRetour,
     surEmettreDevis,

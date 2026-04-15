@@ -34,6 +34,14 @@ const Factures: React.FC = () => {
 
 
 
+  // Fonction déclanchée pour voir les détails d'une facture
+  const DetailsFactures = () => {
+    console.log("Voir les détails d'une factures");
+    navigate("/facturation/factures/details");
+  };
+
+
+
   return (
     <div className="page-conteneur-facture">
       {/* [Importation de la SideBar ici] */}
@@ -65,17 +73,21 @@ const Factures: React.FC = () => {
             <EnTeteFactures />
 
             {/* 1ere facture */}
-            <LigneFacture
-              id="1"
-              date="01/01/2026"
-              numero="1910-86"
-              clientFournisseur="Victor Albert"
-              echeance="31/01/2026"
-              montantTTC="1 150 €"
-              statut="en_attente"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
+            <button
+              onClick={DetailsFactures}
+            >
+              <LigneFacture
+                id="1"
+                date="01/01/2026"
+                numero="1910-86"
+                clientFournisseur="Victor Albert"
+                echeance="31/01/2026"
+                montantTTC="1 150 €"
+                statut="en_attente"
+                surFavoris={(id) => console.log('Favoris', id)}
+                surOptions={(id) => console.log('Options', id)}
+              />
+            </button>
 
             {/* 2eme facture */}
             <LigneFacture

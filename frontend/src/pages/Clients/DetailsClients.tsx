@@ -55,7 +55,7 @@ const DetailsClients: React.FC = () => {
 
                         {/* INFORMATIONS */}
                         <div className="section-details-clients">
-                            <h2 className="titre-section">Informations</h2>
+                            <h2 className="titre-section-details-clients">Informations</h2>
 
                             <div className="ligne-input-informations-details-clients">
                                 <Input label="Nom" type="" placeholder="" />
@@ -83,7 +83,7 @@ const DetailsClients: React.FC = () => {
 
                         {/* FACTURES */}
                         <div className="section-details-clients">
-                            <h2 className="titre-section">Factures</h2>
+                            <h2 className="titre-section-details-clients">Factures</h2>
                             <LigneFacture
                                 id="1"
                                 date="01/01/2026"
@@ -110,10 +110,10 @@ const DetailsClients: React.FC = () => {
 
                             <LigneFacture
                                 id="1"
-                                date="01/01/2026"
+                                date="01/01/2025"
                                 numero="1910-86"
                                 clientFournisseur="Victor Albert"
-                                echeance="31/01/2026"
+                                echeance="31/01/2025"
                                 montantTTC="1 150 €"
                                 statut="annule"
                                 surFavoris={(id) => console.log('Voir', id)}
@@ -124,7 +124,7 @@ const DetailsClients: React.FC = () => {
 
                         {/* DEVIS */}
                         <div className="section-details-clients">
-                            <h2 className="titre-section">Devis</h2>
+                            <h2 className="titre-section-details-clients">Devis</h2>
                             <LigneFacture
                                 id="1"
                                 date="01/01/2026"
