@@ -1,0 +1,67 @@
+.entete-details-factures {
+    display: grid;
+    grid-template-columns:
+        5% 18% 18% 18% 18% 18% 5%;
+    align-items: center;
+    justify-items: center;
+    min-height: 60px;
+    min-width: 1202px;
+    padding: 0 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+
+/* Cellules */
+.entete-details-factures__cellule {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.entete-details-factures__cellule--checkbox {
+    padding: 0;
+}
+
+.entete-details-factures__cellule--droite {
+    justify-content: flex-end;
+}
+
+
+
+/* Label */
+.entete-details-factures__label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #717171;
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: 0.01em;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .entete-details-factures {
+        grid-template-columns:
+            36px 100px 90px 1fr 100px 100px 130px 70px;
+    }
+}
+
+@media (max-width: 640px) {
+    .entete-details-factures {
+        grid-template-columns:
+            36px 1fr 100px 70px;
+    }
+
+    /* Masque les mêmes colonnes que LigneFacture en mobile */
+    .entete-details-factures__cellule:nth-child(3),
+    /* Numéro */
+    .entete-details-factures__cellule:nth-child(6),
+    /* Échéance */
+    .entete-details-factures__cellule:nth-child(7) {
+        /* Montant TTC */
+        display: none;
+    }
+}

@@ -1,0 +1,142 @@
+.ligne-details-facture {
+    display: grid;
+    grid-template-columns:
+        5% 18% 18% 18% 18% 18% 5%;
+    align-items: center;
+    justify-items: center;
+    min-height: 60px;
+    width: 100%;
+    padding: 0 8px;
+    border: 1px solid var(--Border-input);
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: background-color 0.15s ease;
+    margin-bottom: 1%;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: apparitionLigne 0.35s ease forwards;
+}
+
+@keyframes apparitionLigne {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ligne-details-facture:hover {
+    background-color: var(--Hover);
+    cursor: pointer;
+}
+
+.ligne-details-facture--selectionnee {
+    background-color: #f5f8ff;
+}
+
+/* Cellules */
+.ligne-details-facture__cellule {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.ligne-details-facture__cellule--checkbox {
+    padding: 0;
+    justify-content: center;
+}
+
+.ligne-details-facture__cellule--montant {
+    justify-content: flex-end;
+}
+
+.ligne-details-facture__cellule--actions {
+    justify-content: flex-end;
+    gap: 2px;
+}
+
+/* Textes */
+.ligne-details-facture__texte {
+    font-size: 13.5px;
+    color: var(--text-secondaire);
+    font-family: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ligne-details-facture__texte--gras {
+    font-weight: 500;
+    color: var(--Principal);
+}
+
+
+
+
+
+/* Statut badge */
+.ligne-details-facture__statut {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    font-size: 12.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+.ligne-details-facture__statut-icone {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+
+/* Boutons d'actions */
+.ligne-details-facture__action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: var(--Secondaire);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    outline: none;
+}
+
+.ligne-details-facture__action-btn:hover {
+    color: #3d3d3d;
+    background-color: #f0f0f0;
+}
+
+.ligne-details-facture__action-btn:focus-visible {
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .ligne-details-facture {
+        grid-template-columns:
+            36px 100px 90px 1fr 100px 100px 130px 70px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ligne-details-facture {
+        grid-template-columns:
+            36px 1fr 100px 70px;
+    }
+
+    .ligne-details-facture__cellule--numero,
+    .ligne-details-facture__cellule--echeance,
+    .ligne-details-facture__cellule--montant {
+        display: none;
+    }
+}

@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import HeaderNouvelleFacture from './headerNouvelleFacture';
 import Sidebar from "../../../assets/composants/Sidebar"
 import Input from '../../../assets/composants/input';
+
+import EnTeteDetailsFactures from '../../../assets/composants/enteteDetailsFactures';
+
 import './nouvelleFacture.css';
+import LigneDetailsFactures from '../../../assets/composants/ligneDetailsFactures';
 
 
 const nouvelleFacture: React.FC = () => {
@@ -11,24 +15,24 @@ const nouvelleFacture: React.FC = () => {
 
   return (
 
-    <div className="page-conteneur">
+    <div className="page-conteneur-nouvelle-facture">
       {/* Importation SideBar */}
       <Sidebar />
 
-      <div className="page-contenu">
-        {/* Importation Header */}
+      <div className="page-contenu-nouvelle-facture">
         <HeaderNouvelleFacture
           surRetour={() => navigate("/facturation/factures")}
         />
 
-        {/* Zone principale du contenu de la page ici */}
-        <div className="zone-contenu">
+
+
+        <div className="zone-contenu-nouvelle-facture">
 
           {/* Ligne 1 */}
-          <div className="ligne-1">
+          <div className="ligne-1-nouvelle-facture">
 
             {/* Section Gauche */}
-            <div className="nouvelle-facture-gauche">
+            <div className="ligne-1-contenu-gauche-nouvelle-facture">
               <div className="titre-section-nouvelle-facture">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                   fill="currentColor" viewBox="0 0 24 24" >
@@ -37,42 +41,43 @@ const nouvelleFacture: React.FC = () => {
                 <h2>Client</h2>
               </div>
 
-              <div className="ligne-1-nouvelle-facture">
-                <Input label="Nom / Société" type="" placeholder="Séléctionner un client" />
-              </div>
-
-              <div className="ligne-2-nouvelle-facture">
-                <Input label="Adresse" type="" placeholder="75 rue du puis 75000 Paris" />
-                <Input label="Email" type="" placeholder="example@email.com" />
-              </div>
-
-              <div className="ligne-3-nouvelle-facture">
-                <Input label="Numéro client" type="" placeholder="" />
+              <div className="input-information-client-nouvelle-facture">
+                <div className="client-ligne-1">
+                  <Input label="Nom / Société" type="" placeholder="" />
+                </div>
+                <div className="client-ligne-2">
+                  <Input label="Adresse" type="" placeholder="" />
+                  <Input label="Email" type="" placeholder="" />
+                </div>
+                <div className="client-ligne-3">
+                  <Input label="Numéro Client" type="" placeholder="" />
+                </div>
               </div>
             </div>
 
 
 
             {/* Section Droite */}
-            <div className="nouvelle-facture-droite">
-
-              <div className="nouvelle-facture-droite-1">
+            <div className="ligne-1-contenu-droite-nouvelle-facture">
+              <div>
                 <div className="titre-section-nouvelle-facture">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                     fill="currentColor" viewBox="0 0 24 24" >
                     <path d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2M5 20V8h14V6v14z"></path><path d="M12 13h5v5h-5z"></path>
                   </svg>
-                  <h2>Date</h2>
+                  <h2>Dates</h2>
                 </div>
 
-                <div className="ligne-2-nouvelle-facture">
-                  <Input label="Date d'émission" type="" placeholder="" />
-                  <Input label="Date d'échéance" type="" placeholder="" />
+                <div className="">
+                  <div className="client-ligne-1">
+                    <Input label="Date d'émission" type="" placeholder="" />
+                    <Input label="Date d'échéance" type="" placeholder="" />
+                  </div>
                 </div>
               </div>
 
 
-              <div className="nouvelle-facture-droite-2">
+              <div>
                 <div className="titre-section-nouvelle-facture">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                     fill="currentColor" viewBox="0 0 24 24" >
@@ -81,17 +86,67 @@ const nouvelleFacture: React.FC = () => {
                   <h2>Numéro de facture</h2>
                 </div>
 
-                <div className="ligne-1-nouvelle-facture">
-                  <Input label="Numéro de facture" type="" placeholder="Le numéro sera attribué lors de l'émission" />
+                <div className="input-information-contact">
+                  <div className="client-ligne-1">
+                    <Input label="Numéro de facture" type="" placeholder="Le numéro vous sera attribué directement lors de l'émission" />
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
 
+          {/* Ligne 2 */}
+          <div className="ligne-2-nouvelle-facture">
 
+            <div className="titre-section-nouvelle-facture">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                fill="currentColor" viewBox="0 0 24 24" >
+                <path d="M19.67 2.61c-.81-.81-2.14-.81-2.95 0L3.38 15.95c-.13.13-.22.29-.26.46l-1.09 4.34c-.08.34.01.7.26.95.19.19.45.29.71.29.08 0 .16 0 .24-.03l4.34-1.09c.18-.04.34-.13.46-.26L21.38 7.27c.81-.81.81-2.14 0-2.95L19.66 2.6ZM6.83 19.01l-2.46.61.61-2.46 9.96-9.94 1.84 1.84zM19.98 5.86 18.2 7.64 16.36 5.8l1.78-1.78s.09-.03.12 0l1.72 1.72s.03.09 0 .12"></path>
+              </svg>
+              <h2>Détails</h2>
+            </div>
 
+            <div className="input-information-details-nouvelle-facture">
+              <EnTeteDetailsFactures />
+              <LigneDetailsFactures
+                id="1"
+                description="Frontend developpeur"
+                quantite="1"
+                prix="100"
+                tva="10"
+                total="90"
+                surOptions={(id) => console.log('Options', id)}
+              />
+            </div>
 
+            <div className="input-information-details-2-nouvelle-facture">
+              <div>
+                <button className="nouvelle-facture-ajouter-ligne" aria-label="Ajouter une ligne">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                    fill="currentColor" viewBox="0 0 24 24" >
+                    <path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path>
+                  </svg>
+                  Ajouter une ligne
+                </button>
+              </div>
+
+              <div>
+                <div className="total-ht-nouvelle-facture">
+                  <p>Total HT</p>
+                  <p>200€</p>
+                </div>
+
+                <div className="total-tva-nouvelle-facture">
+                  <p>TVA</p>
+                  <p>20 %</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@
   width: 100%;
   height: 6vh;
   min-height: 45px;
-  border: 1.5px solid #d0d0d0;
+  border: 1.5px solid var(--Border-input);
   border-radius: 2vh;
   background-color: #ffffff;
   padding: 0 20px;
