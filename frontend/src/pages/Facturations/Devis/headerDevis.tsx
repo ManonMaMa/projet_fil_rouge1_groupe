@@ -1,58 +1,59 @@
+// -------------------------------- IMPORT -------------------------------- //
 import React, { useState } from 'react';
 import './headerDevis.css';
+// ------------------------------------------------------------------------ //
 
 
 
 interface Onglet {
   id: string;         // ID de l'onglet
-  etiquette: string;  // Libellé affiché
+  etiquette: string;  // Texte affiché
   compteur?: number;  // Compteur
 }
 
-
-// ------------------------- Propriété du composant Header --------------------------
+// --------------------- Propriété du composant Header -------------------- //
 interface ProprieteHeaderDevis {
   titre: string;                                    // Titre du header (Page)
-  ongletsDevis?: Onglet[];                               // Liste d'onglets
-  ongletActif?: string;                             // ID de l'onglet actif
-  surChangementOnglet?: (ongletID: string) => void; // Callback lors du changement d'onglets
+  ongletsDevis?: Onglet[];                          // Liste des onglets
+  ongletActif?: string;                             // Onglet sléctionné au départ
+  surChangementOnglet?: (ongletID: string) => void; // Foinction appelée quand on change d'onglets
   afficherBasculeFiltre?: boolean;                  // Affiche ou non le bouton de filtres
-  CreerNouveauDevis?: () => void;
-  texteBoutonCreerNouveauDevis?: string;
+  CreerNouveauDevis?: () => void;                   // Fonction pour créer un devis
+  texteBoutonCreerNouveauDevis?: string;            // Texte du bouton
 }
+// ------------------------------------------------------------------------ //
 
 
-// -------------------------------- Composant Header --------------------------------
-const Header: React.FC<ProprieteHeaderDevis> = ({
+
+// -------------------------- COMPOSANT PRINCIPAL ------------------------- // 
+const HeaderDevis: React.FC<ProprieteHeaderDevis> = ({
   titre,
-  ongletsDevis = [],                                 // Valeur par défaut : tableau vide
-  ongletActif = ongletsDevis[0]?.id || '',           // Onglet actif par défaut
+  ongletsDevis = [],                                // Si rien : tableau vide
+  ongletActif = ongletsDevis[0]?.id || '',          // Premier onglet actif par défaut
   surChangementOnglet,
-  afficherBasculeFiltre = true,                 // Affichage du bouton filtre par défaut
+  afficherBasculeFiltre = true,                     // Affichage du bouton filtre par défaut
   CreerNouveauDevis,
-  texteBoutonCreerNouveauDevis = ''             // Libellé par défaut du bouton d'action
+  texteBoutonCreerNouveauDevis = ''                 // Texte vide par défaut du bouton d'action
 }) => {
 
 
-  // État local pour suivre l'onglet actuellement selectionné
+  // Garder en mémoire l'onglet sélectionné
   const [ongletCourant, setOngletCourant] = useState(ongletActif);
 
-  // État local pour afficher / masquer la barre de filtres
+  // Garder en mémoire si la barre des filtres est visible
   const [afficherFiltres, setAfficherFiltres] = useState(false);
-
 
   // Gestion du clic sur un onglet
   const gererClicOnglet = (ongletID: string) => {
-    setOngletCourant(ongletID);
+    setOngletCourant(ongletID); // changer l'onglet actif
 
-    // Appel du callback parent si fourni
+    // Appelle la fonction parent si elle existe
     if (surChangementOnglet) {
       surChangementOnglet(ongletID);
     }
   };
 
-
-  // Bascule l'affichage des filtres
+  // Afficher / Cacher les filtres
   const basculerFiltres = () => {
     setAfficherFiltres(!afficherFiltres);
   };
@@ -60,19 +61,18 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
 
 
   return (
-    // Container principal du header
     <div className="header-devis-contenu">
 
       {/* ----------------- SECTION 1 : Barre supérieure - Titre + actions ---------------- */}
-      <div className="header-top">
-        <h1 className="header-titre">{titre}</h1>
+      <div className="header-devis-top">
+        <h1 className="header-devis-titre">{titre}</h1>
 
-        {/* Bouton d'affichage des filtres */}
-        <div className="header-actions">
+        <div className="header-devis-actions">
+          {/* Bouton filtre */}
           {afficherBasculeFiltre && (
             <button
-              className={`bouton-filtre ${afficherFiltres ? 'active' : ''}`}
-              onClick={basculerFiltres}
+              className={`header-devis-bouton-filtre ${afficherFiltres ? 'active' : ''}`} // actif si ouvert
+              onClick={basculerFiltres} // toggle
               aria-label="Basculer filtres"
             >
               {/* Icône filtre */}
@@ -83,10 +83,10 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
             </button>
           )}
 
-          {/* Bouton création nouveau devis */}
+          {/* Bouton créer devis */}
           {CreerNouveauDevis && (
-            <button className="nouvelle-action-btn" onClick={CreerNouveauDevis}>
-              <span className="plus-icon">+</span>
+            <button className="header-devis-nouveau-devis-btn" onClick={CreerNouveauDevis}>
+              <span className="header-devis-plus-icon">+</span>
               {texteBoutonCreerNouveauDevis}
             </button>
           )}
@@ -98,19 +98,19 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
 
       {/* ------------------------------ SECTION 2 : Onglets ------------------------------ */}
       {ongletsDevis.length > 0 && (
-        <div className="header-onglets">
-          <div className="onglets-list">
-            {ongletsDevis.map((ongletsDevis) => (
+        <div className="header-devis-onglets">
+          <div className="header-devis-onglets-list">
+            {ongletsDevis.map((ongletsDevis) => ( // Boucle sur chaque onglet
               <button
                 key={ongletsDevis.id}
-                className={`onglets-button ${ongletCourant === ongletsDevis.id ? 'active' : ''}`}
+                className={`header-devis-onglets-button ${ongletCourant === ongletsDevis.id ? 'active' : ''}`}
                 onClick={() => gererClicOnglet(ongletsDevis.id)}
               >
-                {ongletsDevis.etiquette}
+                {ongletsDevis.etiquette} 
 
                 {/* Bulle compteur */}
                 {ongletsDevis.compteur !== undefined && (
-                  <span className="tab-count">{ongletsDevis.compteur}</span>
+                  <span className="header-devis-tab-count">{ongletsDevis.compteur}</span>
                 )}
               </button>
             ))}
@@ -123,27 +123,29 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
 
       {/* --------------------- SECTION 3 : Barre de filtres amovible --------------------- */}
       {afficherFiltres && (
-        <div className="filter-bar">
-          <div className="filter-search">
+        <div className="header-devis-filter-bar">
+
+          {/* Barre de recherche */}
+          <div className="header-devis-filter-search">
             {/* Icône */}
-            <svg className="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg className="header-devis-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M7 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM14 14l-3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
 
             <input
               type="text"
               placeholder="Rechercher..."
-              className="filter-search-input"
+              className="header-devis-filter-search-input"
             />
           </div>
 
 
 
-          {/* Boutons de filtres */}
-          <div className="filter-controls">
+          {/* Boutons de filtres (Non fonctionnels)*/}
+          <div className="header-devis-filter-controls">
 
-            {/* ----- Filtre par date ----- */}
-            <button className="filter-btn">
+            {/* ----- Date ----- */}
+            <button className="header-devis-filter-btn">
               {/* Icône */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
@@ -158,9 +160,9 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
             </button>
 
 
-            {/* ----- Filtre par type ----- */}
-            <button className="filter-btn">
-              {/* Logo */}
+            {/* ----- Type ----- */}
+            <button className="header-devis-filter-btn">
+              {/* Icône */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
                 <path d="M7 10h10v2H7zm0 4h7v2H7z"></path><path d="M19 3h-2c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1H5c-1.1 0-2 .9-2 2v15c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 17H5V5h2v2h10V5h2z"></path>
@@ -174,9 +176,9 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
             </button>
 
 
-            {/* ----- Filtre par statut ----- */}
-            <button className="filter-btn">
-              {/* Logo */}
+            {/* ----- Statut ----- */}
+            <button className="header-devis-filter-btn">
+              {/* Icône */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
                 <path d="M13.71 3.29A1 1 0 0 0 13 3H4c-.55 0-1 .45-1 1v9c0 .27.11.52.29.71l8 8c.2.2.45.29.71.29s.51-.1.71-.29l9-9a.996.996 0 0 0 0-1.41zM12 19.58l-7-7V4.99h7.59l7 7z"></path><path d="M9 7c-1.11 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"></path>
@@ -190,9 +192,9 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
             </button>
 
 
-            {/* ----- Filtre par montant ----- */}
-            <button className="filter-btn">
-              {/* Logo */}
+            {/* ----- Montant ----- */}
+            <button className="header-devis-filter-btn">
+              {/* Icône */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
                 <path d="M7.51 18.35c1.63 1.71 3.8 2.65 6.11 2.65s4.48-.94 6.11-2.65l-1.45-1.38c-1.25 1.31-2.9 2.03-4.66 2.03s-3.41-.72-4.66-2.03c-.55-.58-.99-1.25-1.31-1.97h4.36v-2H7.08c-.04-.33-.07-.66-.07-1s.03-.67.07-1h4.93V9H7.65c.32-.72.76-1.39 1.31-1.97C10.21 5.72 11.86 5 13.62 5s3.41.72 4.66 2.03l1.45-1.38C18.1 3.94 15.93 3 13.62 3s-4.48.94-6.11 2.65C6.59 6.61 5.92 7.75 5.5 9H3v2h2.06c-.03.33-.06.66-.06 1s.02.67.06 1H3v2h2.5a9 9 0 0 0 2.01 3.35"></path>
@@ -209,15 +211,17 @@ const Header: React.FC<ProprieteHeaderDevis> = ({
 
 
 
-          {/* Actions de filtre */}
-          <div className="filter-actions">
-            <button className="btn-secondary">Réinitialiser</button>
-            <button className="btn-primary">Appliquer</button>
+          {/* Actions */}
+          <div className="header-devis-filter-actions">
+            <button className="header-devis-btn-secondary">Réinitialiser</button>
+            <button className="header-devis-btn-primary">Appliquer</button>
           </div>
         </div>
       )}
     </div>
   );
 };
+// ------------------------------------------------------------------------ //  
 
-export default Header;
+
+export default HeaderDevis;
