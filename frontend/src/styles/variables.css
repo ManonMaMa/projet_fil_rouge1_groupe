@@ -2,8 +2,10 @@
     /* Couleurs */
     --Principal: #141414;
     --Secondaire: #B5B5B5;
-    --Couleur-fond: #E3EDFF;
+    --Blanc: #fff;
+    --Couleur-fond: #f5f5f5;
     --Hover: #fafafa; 
+    --Hover-bouton : #1f2937;
     --text-secondaire : #717171;
     --Separateur : #1F1F1F;
     --Border-input : #d0d0d0;

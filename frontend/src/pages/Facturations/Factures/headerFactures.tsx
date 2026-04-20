@@ -1,36 +1,36 @@
+// -------------------------------- IMPORT -------------------------------- //
 import React, { useState } from 'react';
-import './headerFactures.css'; // Import CSS du header
-
+import './headerFactures.css';
 
 
 interface Onglet {
-  id: string;         // Identifiant de l'onglet
+  id: string;         // ID de l'onglet
   etiquette: string;  // Libellé affiché
-  compteur?: number;  // Compteur (nombre d'éléments)
+  compteur?: number;  // Compteur
 }
 
 
 // ------------------------- Propriété du composant Header --------------------------
-interface ProprieteHeader {
+interface ProprieteHeaderFactures {
   titre: string;                                    // Titre du header (Page)
-  onglets?: Onglet[];                               // Liste d'onglets
+  ongletsFactures?: Onglet[];                               // Liste d'onglets
   ongletActif?: string;                             // ID de l'onglet actif
   surChangementOnglet?: (ongletID: string) => void; // Callback lors du changement d'onglets
   afficherBasculeFiltre?: boolean;                  // Affiche ou non le bouton de filtres
-  nouvelElement?: () => void;                       // Callback pour le bouton "Nouvel élément"
-  texteBoutonNouvelElement?: string;
+  CreerNouvelleFacture?: () => void;                     // Callback pour le bouton "Nouvelle facture"
+  texteBoutonCreerNouvelleFacture?: string;         // Texte bouton "créer nouvelle facture"
 }
 
 
 // -------------------------------- Composant Header --------------------------------
-const Header: React.FC<ProprieteHeader> = ({
+const Header: React.FC<ProprieteHeaderFactures> = ({
   titre,
-  onglets = [],                                 // Valeur par défaut : tableau vide
-  ongletActif = onglets[0]?.id || '',           // Onglet actif par défaut
+  ongletsFactures = [],                                 // Valeur par défaut : tableau vide
+  ongletActif = ongletsFactures[0]?.id || '',           // Onglet actif par défaut
   surChangementOnglet,
   afficherBasculeFiltre = true,                 // Affichage du bouton filtre par défaut
-  nouvelElement,
-  texteBoutonNouvelElement = 'Nouvelle Facture' // Libellé par défaut du bouton d'action
+  CreerNouvelleFacture,
+  texteBoutonCreerNouvelleFacture = ''          // Libellé par défaut du bouton "créer nouvelle facture"
 }) => {
 
 
@@ -65,10 +65,10 @@ const Header: React.FC<ProprieteHeader> = ({
 
       {/* ----------------- SECTION 1 : Barre supérieure - Titre + actions ---------------- */}
       <div className="header-factures-top">
-        <h1 className="header-titre">{titre}</h1>
+        <h1 className="header-factures-titre">{titre}</h1>
 
         {/* Bouton d'affichage des filtres */}
-        <div className="header-actions">
+        <div className="header-factures-actions">
           {afficherBasculeFiltre && (
             <button
               className={`bouton-filtre ${afficherFiltres ? 'active' : ''}`}
@@ -84,10 +84,10 @@ const Header: React.FC<ProprieteHeader> = ({
           )}
 
           {/* Bouton création nouvelle facture */}
-          {nouvelElement && (
-            <button className="nouvelle-action-btn" onClick={nouvelElement}>
+          {CreerNouvelleFacture && (
+            <button className="nouvelle-action-btn" onClick={CreerNouvelleFacture}>
               <span className="plus-icon">+</span>
-              {texteBoutonNouvelElement}
+              {texteBoutonCreerNouvelleFacture}
             </button>
           )}
         </div>
@@ -97,20 +97,20 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
       {/* ------------------------------ SECTION 2 : Onglets ------------------------------ */}
-      {onglets.length > 0 && (
-        <div className="header-onglets">
-          <div className="onglets-list">
-            {onglets.map((onglets) => (
+      {ongletsFactures.length > 0 && (
+        <div className="header-factures-onglets">
+          <div className="factures-onglets-list">
+            {ongletsFactures.map((ongletsFactures) => (
               <button
-                key={onglets.id}
-                className={`onglets-button ${ongletCourant === onglets.id ? 'active' : ''}`}
-                onClick={() => gererClicOnglet(onglets.id)}
+                key={ongletsFactures.id}
+                className={`factures-onglets-button ${ongletCourant === ongletsFactures.id ? 'active' : ''}`}
+                onClick={() => gererClicOnglet(ongletsFactures.id)}
               >
-                {onglets.etiquette}
+                {ongletsFactures.etiquette}
 
                 {/* Bulle compteur */}
-                {onglets.compteur !== undefined && (
-                  <span className="tab-count">{onglets.compteur}</span>
+                {ongletsFactures.compteur !== undefined && (
+                  <span className="factures-tab-count">{ongletsFactures.compteur}</span>
                 )}
               </button>
             ))}
@@ -123,8 +123,8 @@ const Header: React.FC<ProprieteHeader> = ({
 
       {/* --------------------- SECTION 3 : Barre de filtres amovible --------------------- */}
       {afficherFiltres && (
-        <div className="filter-bar">
-          <div className="filter-search">
+        <div className="factures-filter-bar">
+          <div className="factures-filter-search">
             {/* Icône */}
             <svg className="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M7 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM14 14l-3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -140,7 +140,7 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
           {/* Boutons de filtres */}
-          <div className="filter-controls">
+          <div className="factures-filter-controls">
 
             {/* ----- Filtre par date ----- */}
             <button className="filter-btn">
@@ -159,7 +159,7 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
             {/* ----- Filtre par type ----- */}
-            <button className="filter-btn">
+            <button className="factures-filter-btn">
               {/* Logo */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
@@ -175,7 +175,7 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
             {/* ----- Filtre par statut ----- */}
-            <button className="filter-btn">
+            <button className="factures-filter-btn">
               {/* Logo */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
@@ -191,7 +191,7 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
             {/* ----- Filtre par montant ----- */}
-            <button className="filter-btn">
+            <button className="factures-filter-btn">
               {/* Logo */}
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
@@ -210,9 +210,9 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
           {/* Actions de filtre */}
-          <div className="filter-actions">
-            <button className="btn-secondary">Réinitialiser</button>
-            <button className="btn-primary">Appliquer</button>
+          <div className="factures-filter-actions">
+            <button className="factures-btn-secondary">Réinitialiser</button>
+            <button className="factures-btn-primary">Appliquer</button>
           </div>
         </div>
       )}

@@ -1,75 +1,89 @@
+// -------------------------------- IMPORT -------------------------------- //
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from './headerDevis';
+import HeaderDevis from './headerDevis';
 import Sidebar from "../../../assets/composants/Sidebar"
 import EnTeteFactures from '../../../assets/composants/enteteFactures';
 import LigneFacture from '../../../assets/composants/ligneFacture';
-import './Devis.css'; // CSS de la page devis
+import './Devis.css';
+// ------------------------------------------------------------------------ //
 
 
 
-// Composant principal des Devis
+// -------------------------- COMPOSANT PRINCIPAL ------------------------- // 
 const Devis: React.FC = () => {
 
   const navigate = useNavigate();
 
-  // Définition des onglets de navigations pour le header
-  const Onglets = [
+  // --------- Définition des onglets du header ----------
+  const ongletsDevis = [
     { id: 'tous', etiquette: 'Tous', compteur: 45 },
     { id: 'recents', etiquette: 'Récents', compteur: 5 },
     { id: 'favoris', etiquette: 'Favoris', compteur: 3 }
   ];
+  // -----------------------------------------------------
 
-  // Fonction appelée lorsqu'un onglet est sélectionné
+
+  // --------- Définition du changement d'onglet ---------
   const changementOnglet = (tabId: string) => {
-    console.log('Onglet remplacé par :', tabId);
-    // [Ajouter la logique pour filtrer les devis selon l'onglet]
+    console.log('Onglet devis remplacé par :', tabId);
+    // TODO : implémenter le filtrage des devis
   };
+  // -----------------------------------------------------
 
-  // Fonction déclanchée pour voir les détails d'un devis
+
+  // ------ Navigation vers la création d'un devis -------
+  const CreerNouveauDevis = () => {
+    console.log("Créer un nouveau devis");
+    // TODO : implémenter la route
+  }
+  // -----------------------------------------------------
+
+
+  // ------- Navigation vers le détail d'un devis --------
   const DetailsDevis = () => {
     console.log("Voir les détails d'un devis");
     navigate("/facturation/Devis/details");
   };
-
-  const CreerNouveauDevis = () => {
-    console.log("Créer un nouveau devis");
-    // ...
-  }
+  // -----------------------------------------------------
 
 
 
   return (
     <div className="page-conteneur-devis">
-      {/* [Importation de la SideBar ici] */}
+
       <Sidebar />
 
-
       <div className="page-contenu-devis">
-        {/* Header */}
-        <Header
-          titre="Devis"                               // changer le titre de la page
-          onglets={Onglets}                           // Onglets à afficher
-          ongletActif="tous"                          // ID de l'onglet actif par défaut
-          surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
-          afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
-          nouvelElement={DetailsDevis}             // callback pour créer une nouvelle facture
-          texteBoutonNouvelElement="Nouveau Devis" // Texte du bouton
+
+        {/* ---------------------- Header ----------------------- */}
+        <HeaderDevis
+          titre="Devis"                                 // Titre de la page
+          ongletsDevis={ongletsDevis}                   // Onglets à afficher
+          ongletActif="tous"                            // ID de l'onglet actif par défaut
+          surChangementOnglet={changementOnglet}        // callback pour changement d'onglet
+          afficherBasculeFiltre={true}                  // affiche le bouton bascule filtre
+          CreerNouveauDevis={CreerNouveauDevis}         // callback pour créer un nouveau devis
+          texteBoutonCreerNouveauDevis="Nouveau Devis"  // Texte du bouton
         />
+        {/* ----------------------------------------------------- */}
 
 
 
-        {/* Zone principale du contenu de la page ici */}
-        <div className="zone-contenu-factures">
+        {/* ----------------- Contenu principal ----------------- */}
+        <div className="zone-contenu-devis">
 
 
-          {/* Section de la première année */}
-          <div className="section-annee">
-            <h2 className="titre-annee">2026</h2>
-            {/* liste des factures ici */}
+          {/* 2026 */}
+          <div className="section-annee-devis">
+            <h2 className="titre-annee-devis">2026</h2>
+
+            {/* ---------------- En-tête du tableau ----------------- */}
             <EnTeteFactures />
+            {/* ----------------------------------------------------- */}
 
-            {/* 1ere facture */}
+
+            {/* ----------------- Lignes cliquables ----------------- */}
             <button
               onClick={DetailsDevis}
             >
@@ -86,7 +100,7 @@ const Devis: React.FC = () => {
               />
             </button>
 
-            {/* 2eme facture */}
+
             <LigneFacture
               id="2"
               date="05/01/2026"
@@ -99,7 +113,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
-            {/* 3eme facture */}
+
             <LigneFacture
               id="3"
               date="05/01/2026"
@@ -111,6 +125,7 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="4"
@@ -124,6 +139,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="5"
               date="05/01/2026"
@@ -136,6 +152,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="6"
               date="05/01/2026"
@@ -147,19 +164,21 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+            {/* ----------------------------------------------------- */}
           </div>
 
 
 
+          {/* 2025 */}
+          <div className="section-annee-devis">
+            <h2 className="titre-annee-devis">2025</h2>
 
-
-          {/* Section de la deuxième année */}
-          <div className="section-annee">
-            <h2 className="titre-annee">2025</h2>
-            {/* Liste des factures ici */}
+            {/* ---------------- En-tête du tableau ----------------- */}
             <EnTeteFactures />
+            {/* ----------------------------------------------------- */}
 
-            {/* 1ere facture */}
+
+            {/* ----------------- Lignes cliquables ----------------- */}
             <LigneFacture
               id="1"
               date="01/01/2026"
@@ -172,7 +191,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
-            {/* 2eme facture */}
+
             <LigneFacture
               id="2"
               date="05/01/2026"
@@ -185,7 +204,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
-            {/* 3eme facture */}
+
             <LigneFacture
               id="3"
               date="05/01/2026"
@@ -197,6 +216,7 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="4"
@@ -210,6 +230,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="5"
               date="05/01/2026"
@@ -221,6 +242,7 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="6"
@@ -247,6 +269,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="8"
               date="05/01/2026"
@@ -258,6 +281,7 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="9"
@@ -271,6 +295,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="10"
               date="05/01/2026"
@@ -282,6 +307,7 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="11"
@@ -295,6 +321,7 @@ const Devis: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="12"
               date="05/01/2026"
@@ -306,12 +333,17 @@ const Devis: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+            {/* ----------------------------------------------------- */}
 
           </div>
         </div>
+        {/* ----------------------------------------------------- */}
+
       </div>
     </div>
   );
 };
+// ------------------------------------------------------------------------ //  
+
 
 export default Devis;

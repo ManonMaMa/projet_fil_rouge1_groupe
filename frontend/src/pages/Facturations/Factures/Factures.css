@@ -1,4 +1,3 @@
-/* Conteneur principal de la page */
 .page-conteneur-facture {
   display: flex;
   height: 100vh;
@@ -15,7 +14,7 @@
   overflow: hidden;
 }
 
-/* Zone de contenu */
+/* --------------- Contenu principal -------------- */
 .zone-contenu-factures {
   flex: 1;
   padding: 24px 32px;
@@ -24,23 +23,24 @@
 }
 
 /* Section année */
-.section-annee {
+.section-annee-factures {
   margin-bottom: 32px;
 }
 
 /* Titre année */
-.titre-annee {
+.titre-annee-factures {
   font-size: 30px;
   font-weight: 600;
-  color: #141414;
+  color: var(--Principal);
   margin-bottom: 10px;
-
   position: sticky;
   top: 0;
-  background: white;
+  background: var(--Blanc);
   z-index: 10;
   padding-top: 10px;
 }
+
+
 
 /* Responsive */
 @media (max-width: 768px) {

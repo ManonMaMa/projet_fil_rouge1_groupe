@@ -1,78 +1,89 @@
+// -------------------------------- IMPORT -------------------------------- //
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-// import Header from '../../../assets/composants/headerFactures';
-import Header from './headerFactures';
+import HeaderFactures from './headerFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
-import './Factures.css'; // CSS de la page facture
-import LigneFacture from '../../../assets/composants/ligneFacture';
 import EnTeteFactures from '../../../assets/composants/enteteFactures';
+import LigneFacture from '../../../assets/composants/ligneFacture';
+import './Factures.css';
+// ------------------------------------------------------------------------ //
 
 
-// Composant principal des Factures
+
+// -------------------------- COMPOSANT PRINCIPAL ------------------------- // 
 const Factures: React.FC = () => {
 
   const navigate = useNavigate();
 
-  // Définition des onglets de navigations pour le header
-  const Onglets = [
+  // --------- Définition des onglets du header ----------
+  const ongletsFactures = [
     { id: 'tous', etiquette: 'Tous', compteur: 48 },
     { id: 'recents', etiquette: 'Récents', compteur: 5 },
     { id: 'favoris', etiquette: 'Favoris', compteur: 3 }
   ];
+  // -----------------------------------------------------
 
-  // Fonction appelée lorsqu'un onglet est sélectionné
+
+  // --------- Définition du changement d'onglet ---------
   const changementOnglet = (tabId: string) => {
-    console.log('Onglet remplacé par :', tabId);
-    // [Ajouter la logique pour filtrer les factures selon l'onglet]
+    console.log('Onglet facture remplacé par :', tabId);
+    // TODO : implémenter le filtrage des factures
   };
+  // -----------------------------------------------------
 
-  // Fonction déclanchée pour créer une nouvelle facture
-  const NouvelleFacture = () => {
+
+  // ----- Navigation vers la création d'une facture -----
+  const CreerNouvelleFacture = () => {
     console.log('créer une nouvelle facture');
     navigate("/facturation/factures/nouvelle");
   };
+  // -----------------------------------------------------
 
 
-
-  // Fonction déclanchée pour voir les détails d'une facture
+  // ------ Navigation vers le détail d'une facture ------
   const DetailsFactures = () => {
     console.log("Voir les détails d'une factures");
     navigate("/facturation/factures/details");
   };
+  // -----------------------------------------------------
 
 
 
   return (
     <div className="page-conteneur-facture">
-      {/* [Importation de la SideBar ici] */}
+
       <Sidebar />
 
-
       <div className="page-contenu-facture">
-        {/* Header */}
-        <Header
-          titre="Factures"                            // changer le titre de la page
-          onglets={Onglets}                           // Onglets à afficher
-          ongletActif="tous"                          // ID de l'onglet actif par défaut
-          surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
-          afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
-          nouvelElement={NouvelleFacture}             // callback pour créer une nouvelle facture
-          texteBoutonNouvelElement="Nouvelle Facture" // Texte du bouton
+
+        {/* ---------------------- Header ----------------------- */}
+        <HeaderFactures
+          titre="Factures"                                    // Titre de la page
+          ongletsFactures={ongletsFactures}                   // Onglets à afficher
+          ongletActif="tous"                                  // ID de l'onglet actif par défaut
+          surChangementOnglet={changementOnglet}              // callback pour changement d'onglet
+          afficherBasculeFiltre={true}                        // affiche le bouton bascule filtre
+          CreerNouvelleFacture={CreerNouvelleFacture}         // callback pour créer une nouvelle facture
+          texteBoutonCreerNouvelleFacture="Nouvelle Facture"  // Texte du bouton
         />
+        {/* ----------------------------------------------------- */}
 
 
 
-        {/* Zone principale du contenu de la page ici */}
+        {/* ----------------- Contenu principal ----------------- */}
         <div className="zone-contenu-factures">
 
 
-          {/* Section de la première année */}
-          <div className="section-annee">
-            <h2 className="titre-annee">2026</h2>
-            {/* liste des factures ici */}
-            <EnTeteFactures />
+          {/* 2026 */}
+          <div className="section-annee-factures">
+            <h2 className="titre-annee-factures">2026</h2>
 
-            {/* 1ere facture */}
+            {/* ---------------- En-tête du tableau ----------------- */}
+            <EnTeteFactures />
+            {/* ----------------------------------------------------- */}
+
+
+            {/* ----------------- Lignes cliquables ----------------- */}
             <button
               onClick={DetailsFactures}
             >
@@ -89,7 +100,7 @@ const Factures: React.FC = () => {
               />
             </button>
 
-            {/* 2eme facture */}
+
             <LigneFacture
               id="2"
               date="05/01/2026"
@@ -102,7 +113,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
-            {/* 3eme facture */}
+
             <LigneFacture
               id="3"
               date="05/01/2026"
@@ -114,6 +125,7 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="4"
@@ -127,6 +139,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="5"
               date="05/01/2026"
@@ -139,6 +152,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="6"
               date="05/01/2026"
@@ -150,19 +164,21 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+            {/* ----------------------------------------------------- */}
           </div>
 
 
 
+          {/* 2025 */}
+          <div className="section-annee-factures">
+            <h2 className="titre-annee-factures">2025</h2>
 
-
-          {/* Section de la deuxième année */}
-          <div className="section-annee">
-            <h2 className="titre-annee">2025</h2>
-            {/* Liste des factures ici */}
+            {/* ---------------- En-tête du tableau ----------------- */}
             <EnTeteFactures />
+            {/* ----------------------------------------------------- */}
 
-            {/* 1ere facture */}
+
+            {/* ----------------- Lignes cliquables ----------------- */}
             <LigneFacture
               id="1"
               date="01/01/2026"
@@ -175,7 +191,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
-            {/* 2eme facture */}
+
             <LigneFacture
               id="2"
               date="05/01/2026"
@@ -188,7 +204,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
-            {/* 3eme facture */}
+
             <LigneFacture
               id="3"
               date="05/01/2026"
@@ -200,6 +216,7 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="4"
@@ -213,6 +230,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="5"
               date="05/01/2026"
@@ -224,6 +242,7 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="6"
@@ -250,6 +269,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="8"
               date="05/01/2026"
@@ -261,6 +281,7 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="9"
@@ -274,6 +295,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="10"
               date="05/01/2026"
@@ -285,6 +307,7 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+
 
             <LigneFacture
               id="11"
@@ -298,6 +321,7 @@ const Factures: React.FC = () => {
               surOptions={(id) => console.log('Options', id)}
             />
 
+
             <LigneFacture
               id="12"
               date="05/01/2026"
@@ -309,12 +333,17 @@ const Factures: React.FC = () => {
               surFavoris={(id) => console.log('Voir', id)}
               surOptions={(id) => console.log('Options', id)}
             />
+            {/* ----------------------------------------------------- */}
 
           </div>
         </div>
+        {/* ----------------------------------------------------- */}
+
       </div>
     </div>
   );
 };
+// ------------------------------------------------------------------------ //  
+
 
 export default Factures;

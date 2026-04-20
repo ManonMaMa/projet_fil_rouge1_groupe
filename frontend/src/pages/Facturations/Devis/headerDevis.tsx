@@ -1,38 +1,36 @@
 import React, { useState } from 'react';
-import './headerDevis.css'; // Import CSS du header
+import './headerDevis.css';
 
 
 
 interface Onglet {
-  id: string;         // Identifiant de l'onglet
+  id: string;         // ID de l'onglet
   etiquette: string;  // Libellé affiché
-  compteur?: number;  // Compteur (nombre d'éléments)
+  compteur?: number;  // Compteur
 }
 
 
 // ------------------------- Propriété du composant Header --------------------------
-interface ProprieteHeader {
+interface ProprieteHeaderDevis {
   titre: string;                                    // Titre du header (Page)
-  onglets?: Onglet[];                               // Liste d'onglets
+  ongletsDevis?: Onglet[];                               // Liste d'onglets
   ongletActif?: string;                             // ID de l'onglet actif
   surChangementOnglet?: (ongletID: string) => void; // Callback lors du changement d'onglets
   afficherBasculeFiltre?: boolean;                  // Affiche ou non le bouton de filtres
-  nouvelElement?: () => void;                       // Callback pour le bouton "Nouvel élément"
   CreerNouveauDevis?: () => void;
-  texteBoutonNouvelElement?: string;
+  texteBoutonCreerNouveauDevis?: string;
 }
 
 
 // -------------------------------- Composant Header --------------------------------
-const Header: React.FC<ProprieteHeader> = ({
+const Header: React.FC<ProprieteHeaderDevis> = ({
   titre,
-  onglets = [],                                 // Valeur par défaut : tableau vide
-  ongletActif = onglets[0]?.id || '',           // Onglet actif par défaut
+  ongletsDevis = [],                                 // Valeur par défaut : tableau vide
+  ongletActif = ongletsDevis[0]?.id || '',           // Onglet actif par défaut
   surChangementOnglet,
   afficherBasculeFiltre = true,                 // Affichage du bouton filtre par défaut
-  nouvelElement,
   CreerNouveauDevis,
-  texteBoutonNouvelElement = 'Nouveau Devis' // Libellé par défaut du bouton d'action
+  texteBoutonCreerNouveauDevis = ''             // Libellé par défaut du bouton d'action
 }) => {
 
 
@@ -63,7 +61,7 @@ const Header: React.FC<ProprieteHeader> = ({
 
   return (
     // Container principal du header
-    <div className="header-contenu">
+    <div className="header-devis-contenu">
 
       {/* ----------------- SECTION 1 : Barre supérieure - Titre + actions ---------------- */}
       <div className="header-top">
@@ -86,10 +84,10 @@ const Header: React.FC<ProprieteHeader> = ({
           )}
 
           {/* Bouton création nouveau devis */}
-          {nouvelElement && (
+          {CreerNouveauDevis && (
             <button className="nouvelle-action-btn" onClick={CreerNouveauDevis}>
               <span className="plus-icon">+</span>
-              {texteBoutonNouvelElement}
+              {texteBoutonCreerNouveauDevis}
             </button>
           )}
         </div>
@@ -99,20 +97,20 @@ const Header: React.FC<ProprieteHeader> = ({
 
 
       {/* ------------------------------ SECTION 2 : Onglets ------------------------------ */}
-      {onglets.length > 0 && (
+      {ongletsDevis.length > 0 && (
         <div className="header-onglets">
           <div className="onglets-list">
-            {onglets.map((onglets) => (
+            {ongletsDevis.map((ongletsDevis) => (
               <button
-                key={onglets.id}
-                className={`onglets-button ${ongletCourant === onglets.id ? 'active' : ''}`}
-                onClick={() => gererClicOnglet(onglets.id)}
+                key={ongletsDevis.id}
+                className={`onglets-button ${ongletCourant === ongletsDevis.id ? 'active' : ''}`}
+                onClick={() => gererClicOnglet(ongletsDevis.id)}
               >
-                {onglets.etiquette}
+                {ongletsDevis.etiquette}
 
                 {/* Bulle compteur */}
-                {onglets.compteur !== undefined && (
-                  <span className="tab-count">{onglets.compteur}</span>
+                {ongletsDevis.compteur !== undefined && (
+                  <span className="tab-count">{ongletsDevis.compteur}</span>
                 )}
               </button>
             ))}

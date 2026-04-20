@@ -1,7 +1,8 @@
-.header-contenu {
+.header-devis-contenu {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  margin-top: 3%;
   border-bottom: 1px solid #e5e7eb;
 }
 

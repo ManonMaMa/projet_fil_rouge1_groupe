@@ -1,16 +1,9 @@
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
+
 
 .header-factures-contenu {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  /* border-bottom: 1px solid #e5e7eb; */
   margin-top: 3%;
 }
 
@@ -24,7 +17,7 @@
 }
 
 /* Titre du header : Page */
-.header-titre {
+.header-factures-titre {
   font-size: 40px;
   font-weight: 600;
   color: #111827;
@@ -32,7 +25,7 @@
 }
 
 /* Boutons d'actions */
-.header-actions {
+.header-factures-actions {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -61,9 +54,9 @@
 
 /* Bouton filtre - actif */
 .bouton-filtre.active {
-  background-color: #111827;
+  background-color: var(--Principal);
   border-color: #111827;
-  color: #ffffff;
+  color: var(--Blanc);
 }
 
 /* Bouton nouvelle action */
@@ -72,8 +65,8 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background-color: #111827;
-  color: #ffffff;
+  background-color: var(--Principal);
+  color: var(--Blanc);
   border: none;
   border-radius: 6px;
   font-size: 14px;
@@ -84,7 +77,7 @@
 
 /* Bouton nouvelle action - hover */
 .nouvelle-action-btn:hover {
-  background-color: #1f2937;
+  background-color: var(--Hover-bouton);
 }
 
 .plus-icon {
@@ -93,21 +86,21 @@
 }
 
 /* Section onglets */
-.header-onglets {
+.header-factures-onglets {
   padding: 0 32px;
 }
 
 /* Liste des onglets */
-.onglets-list {
+.factures-onglets-list {
   display: flex;
-  gap: 35px; /* Espacement entre les onglets */
+  gap: 35px;
 
 }
 
 
 
 /* Bouton des onglets */
-.onglets-button {
+.factures-onglets-button {
   position: relative;
   width: auto;
   display: flex;
@@ -118,42 +111,42 @@
   border: none;
   font-size: 14px;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--Secondaire);
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 /* Bouton des onglets - hover */
-.onglets-button:hover {
-  color: #111827;
+.factures-onglets-button:hover {
+  color: var(--Hover-bouton);
 }
 
 /* Bouton des onglets - actif */
-.onglets-button.active {
-  color: #141414;
+.factures-onglets-button.active {
+  color: var(--Principal);
   font-weight: 600;
 }
 
 /* Indicateur barre des onglets */
-.onglets-button.active::after {
+.factures-onglets-button.active::after {
   content: '';
   position: absolute;
   bottom: -1px;
   left: 0;
   right: 0;
   height: 2px;  /* Épaisseur */
-  background-color: #141414;
+  background-color: var(--Principal);
 }
 
 /* Indicateur (bulle) */
-.tab-count {
+.factures-tab-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 20px;
   height: 20px;
   padding: 0 6px;
-  background-color: #f5f5f5;
+  background-color: var(--Couleur-fond);
   border-radius: 10px;
   font-size: 12px;
   font-weight: 500;
@@ -161,15 +154,15 @@
 }
 
 /* Indicateur (bulle) - actif */
-.onglets-button.active .tab-count {
-  background-color: #111827;
-  color: #ffffff;
+.factures-onglets-button.active .factures-tab-count {
+  background-color: var(--Principal);
+  color: var(--Blanc);
 }
 
 
 
 /* Barre des filtres */
-.filter-bar {
+.factures-filter-bar {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -191,20 +184,8 @@
   }
 }
 
-/* @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
-
 /* Barre de recherche */
-.filter-search {
+.factures-filter-search {
   position: relative;
   flex: 0 0 360px;
 }
@@ -244,14 +225,14 @@
 }
 
 /* Zone Boutons de filtres */
-.filter-controls {
+.factures-filter-controls {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 /* Butons de filtres */
-.filter-btn {
+.factures-filter-btn {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -269,7 +250,7 @@
 }
 
 /* Boutons de filtres - hover */
-.filter-btn:hover {
+.factures-filter-btn:hover {
   background-color: #f9fafb;
 }
 
@@ -279,14 +260,14 @@
 }
 
 /* Boutons d'actions filtres */
-.filter-actions {
+.factures-filter-actions {
   display: flex;
   gap: 8px;
   margin-left: auto;
 }
 
-.btn-secondary,
-.btn-primary {
+.factures-btn-secondary,
+.factures-btn-primary {
   padding: 10px 16px;
   border: none;
   border-radius: 6px;
@@ -296,24 +277,20 @@
   transition: all 0.2s ease;
 }
 
-.btn-secondary {
+.factures-btn-secondary {
   background-color: transparent;
-  color: #141414;
+  color: var(--Principal);
   border: none;
 }
 
-.btn-secondary:hover {
-  background-color: #f9fafb;
-  border-color: #9ca3af;
+
+.factures-btn-primary {
+  background-color: var(--Principal);
+  color: var(--Blanc);
 }
 
-.btn-primary {
-  background-color: #141414;
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background-color: #1f2937;
+.factures-btn-primary:hover {
+  background-color: var(--Hover-bouton);
 }
 
 
@@ -322,20 +299,20 @@
 
 /* Si largeur écran <= 1200px */
 @media (max-width: 1200px) {
-  .filter-bar {
+  .factures-filter-bar {
     flex-wrap: wrap;
   }
 
-  .filter-search {
+  .factures-filter-search {
     flex: 1 1 100%;
   }
 
-  .filter-controls {
+  .factures-filter-controls {
     flex: 1 1 100%;
     flex-wrap: wrap;
   }
 
-  .filter-actions {
+  .factures-filter-actions {
     margin-left: 0;
   }
 }
@@ -343,21 +320,21 @@
 
 /* Si largeur écran <= 768px */
 @media (max-width: 768px) {
-  .header-top {
+  .header-factures-top {
     padding: 16px 20px 12px;
   }
 
-  .header-titre {
+  .header-factures-titre {
     font-size: 24px;
   }
 
-  .header-onglets,
-  .filter-bar {
+  .header-factures-onglets,
+  .factures-filter-bar {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  .onglets-list {
+  .factures-onglets-list {
     gap: 24px;
   }
 }
