@@ -5,6 +5,7 @@ import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./ProfilTab.css"
 
 type User = {
+    id_user: string
     nom: string
     prenom: string
     email: string
@@ -60,7 +61,7 @@ const ProfilTab = ({ user }: { user: User | null }) => {
     // SAVE (API)
     const handleSave = async () => {
         try {
-            await fetch("http://localhost:8000/user/update", {
+            await fetch(`http://localhost:8000/user/update/${user?.id_user}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

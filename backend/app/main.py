@@ -4,7 +4,7 @@ import uuid
 
 from app.database import get_db
 from app.utilisateur.models import Utilisateur
-from app.utilisateur.schemas import UtilisateurCreate
+from app.utilisateur.schemas import UtilisateurCreate, UtilisateurUpdate
 
 
 from fastapi import FastAPI
@@ -36,10 +36,13 @@ app.add_middleware(
 # Charger les routes utilisateur
 app.include_router(utilisateur_router)
 
+# ----- DEMARRAGE DE L'APPLICATION ------
 
 @app.get("/")
 def api_status():
     return {"status": "API opérationnelle !!"}
+
+# ----- RECUPERATION USER ------
 
 @app.get("/user/{id_user}")  # Récupére l'id de l'utilisateur
 def get_user(id_user: str, db: Session = Depends(get_db)):
@@ -60,6 +63,8 @@ def get_user(id_user: str, db: Session = Depends(get_db)):
         "ville": utilisateur.ville_user,
         "pays": utilisateur.pays_user
     } 
+
+# ----- INSCRIPTION ------
 
 @app.post("/inscription")
 def inscription(
@@ -84,6 +89,30 @@ def inscription(
     }
 
 
+# ----- MISE A JOUR ------
+
+@app.put("/user/update/{id_user}")
+def update_user(
+    id_user: str,
+    data: UtilisateurUpdate,
+    db: Session = Depends(get_db)
+):
+    utilisateur = db.query(Utilisateur).filter(Utilisateur.id_user == id_user).first()
+
+    if not utilisateur:
+        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+
+    # update dynamique
+    for key, value in data.model_dump(exclude_unset=True).items():
+        setattr(utilisateur, key, value)
+
+    db.commit()
+    db.refresh(utilisateur)
+
+    return {"message": "Utilisateur mis à jour"}
+
+
+# ----- CONNEXION ------
 
 @app.post("/connexion")
 def connexion(data: Connexion, db: Session = Depends(get_db)):

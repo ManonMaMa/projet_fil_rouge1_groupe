@@ -5,10 +5,11 @@ import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./EntrepriseTab.css";
 
 type User = {
+    id_user: string
     entreprise: string
     email: string
     tel: string
-    adresse_postale: string
+    adresse: string
     code_postal: string
     ville: string
     pays: string
@@ -50,7 +51,7 @@ const EntrepriseTab = ({ user }: { user: User | null }) => {
                 entreprise: user.entreprise || "",
                 email: user.email || "",
                 tel: user.tel|| "",
-                adresse_postale: user.adresse_postale || "",
+                adresse_postale: user.adresse || "",
                 code_postal: user.code_postal || "",
                 ville: user.ville || "",
                 pays: user.pays || ""
@@ -94,7 +95,7 @@ const EntrepriseTab = ({ user }: { user: User | null }) => {
     // SAVE
     const handleSave = async () => {
         try {
-            await fetch("http://localhost:8000/user/update", {
+            await fetch(`http://localhost:8000/user/update/${user?.id_user}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
