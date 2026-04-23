@@ -12,7 +12,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import HTTPException   #Gere le exception
 
-from app.Routers.utilisateur_routers import router as utilisateur_router
+from app.utilisateur.routers import router as utilisateur_router
 
 class Inscription(BaseModel):
     email_user: str
