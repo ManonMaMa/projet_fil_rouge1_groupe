@@ -4,9 +4,29 @@ import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
 import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./EntrepriseTab.css";
 
-const EntrepriseTab = ({ user }: any) => {
+type User = {
+    entreprise: string
+    email: string
+    tel: string
+    adresse_postale: string
+    code_postal: string
+    ville: string
+    pays: string
+}
 
-    const [formData, setFormData] = useState({
+type EntrepriseFormData = {
+    entreprise: string
+    email: string
+    tel: string
+    adresse_postale: string
+    code_postal: string
+    ville: string
+    pays: string
+}
+
+const EntrepriseTab = ({ user }: { user: User | null }) => {
+
+    const [formData, setFormData] = useState<EntrepriseFormData>({
         entreprise: "",
         email: "",
         tel: "",
@@ -16,7 +36,7 @@ const EntrepriseTab = ({ user }: any) => {
         pays: ""
     });
 
-    const [savedData, setSavedData] = useState(formData);
+    const [savedData, setSavedData] = useState<EntrepriseFormData>(formData);
 
     const [logoSrc, setLogoSrc] = useState<string | null>(null);
     const [savedLogo, setSavedLogo] = useState<string | null>(null);
@@ -26,26 +46,26 @@ const EntrepriseTab = ({ user }: any) => {
     // Mapping user -> form
     useEffect(() => {
         if (user) {
-            const mapped = {
+            const mapped: EntrepriseFormData = {
                 entreprise: user.entreprise || "",
                 email: user.email || "",
-                tel: user.tel || "",
+                tel: user.tel|| "",
                 adresse_postale: user.adresse_postale || "",
                 code_postal: user.code_postal || "",
                 ville: user.ville || "",
                 pays: user.pays || ""
-            };
+            }
 
-            setFormData(mapped);
-            setSavedData(mapped);
+            setFormData(mapped)
+            setSavedData(mapped)
         }
-    }, [user]);
+    }, [user])
 
     // Change input
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
+                    ...formData,
+                    [e.target.name]: e.target.value
         });
     };
 

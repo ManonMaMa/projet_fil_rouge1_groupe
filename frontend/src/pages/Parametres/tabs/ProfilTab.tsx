@@ -4,24 +4,35 @@ import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
 import ErreurConnexion from "../../../assets/composants/erreurConnexion";
 import "./ProfilTab.css"
 
-const ProfilTab = ({ user }: any) => {
+type User = {
+    nom: string
+    prenom: string
+    email: string
+}
 
-    const [formData, setFormData] = useState({
+type FormData = {
+    nom: string
+    prenom: string
+    email: string
+}
+
+const ProfilTab = ({ user }: { user: User | null }) => {
+
+    const [formData, setFormData] = useState<FormData>({
         nom: "",
         prenom: "",
         email: ""
     })
 
-    const [savedData, setSavedData] = useState({
+    const [savedData, setSavedData] = useState<FormData>({
         nom: "",
         prenom: "",
         email: ""
     })
 
-    // Remplir avec user
     useEffect(() => {
         if (user) {
-            const mapped = {
+            const mapped: FormData = {
                 nom: user.nom || "",
                 prenom: user.prenom || "",
                 email: user.email || ""
@@ -32,12 +43,15 @@ const ProfilTab = ({ user }: any) => {
         }
     }, [user])
 
-    const handleChange = (e: any) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        })
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        } as FormData))
     }
+
 
     // Détection modification
     const isDirty =
