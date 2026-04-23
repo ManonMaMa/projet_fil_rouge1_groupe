@@ -25,7 +25,7 @@ type EntrepriseFormData = {
     pays: string
 }
 
-const EntrepriseTab = ({ user }: { user: User | null }) => {
+const EntrepriseTab = ({ user, refreshUser }: { user: User | null, refreshUser: () => void }) => {
 
     const [formData, setFormData] = useState<EntrepriseFormData>({
         entreprise: "",
@@ -111,6 +111,7 @@ const EntrepriseTab = ({ user }: { user: User | null }) => {
                 })
             });
 
+            await refreshUser()
             setSavedData(formData);
             setSavedLogo(logoSrc);
         } catch (err) {

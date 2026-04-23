@@ -17,7 +17,7 @@ type FormData = {
     email: string
 }
 
-const ProfilTab = ({ user }: { user: User | null }) => {
+const ProfilTab = ({ user, refreshUser }: { user: User | null, refreshUser: () => void }) => {
 
     const [formData, setFormData] = useState<FormData>({
         nom: "",
@@ -73,6 +73,7 @@ const ProfilTab = ({ user }: { user: User | null }) => {
                 })
             })
 
+            await refreshUser()
             setSavedData(formData)
         } catch (err) {
             console.error(err)
