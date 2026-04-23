@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Text, Integer, Date, ForeignKey, Numeric
+from sqlalchemy import Column, String, Text, Integer, ForeignKey
 from app.database import Base
 
 class Client(Base):

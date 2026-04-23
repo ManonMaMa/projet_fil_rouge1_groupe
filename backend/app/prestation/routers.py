@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.prestation.schemas_prestation import PrestationResponse, PrestationUpdate
-from app.prestation.services_prestation import get_prestations_by_user, update_prestation
+from app.prestation.schemas import PrestationResponse, PrestationUpdate
+from app.prestation.services import get_prestations_by_user, update_prestation
 
 router = APIRouter()
 

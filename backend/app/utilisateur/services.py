@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.Models.models_utilisateur import Utilisateur
-from app.Schemas.schemas_utilisateur import UtilisateurUpdate
+from app.utilisateur.models import Utilisateur
+from app.utilisateur.schemas import UtilisateurUpdate
 
 
 def get_utilisateur(db: Session, id_user: str):

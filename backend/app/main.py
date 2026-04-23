@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 import uuid
 
 from app.database import get_db
-from app.Models.models_utilisateur import Utilisateur
-from app.utilisateur.schemas_utilisateur import InscriptionCreate
+from app.utilisateur.models import Utilisateur
+from app.utilisateur.schemas import UtilisateurCreate
 
 
 from fastapi import FastAPI
@@ -63,7 +63,7 @@ def get_user(id_user: str, db: Session = Depends(get_db)):
 
 @app.post("/inscription")
 def inscription(
-    data: InscriptionCreate,
+    data: UtilisateurCreate,
     db: Session = Depends(get_db)
 ):
     print("📩 Données reçues :", data)

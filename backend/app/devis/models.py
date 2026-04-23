@@ -1,6 +1,5 @@
-from sqlalchemy import Column, String, Text, Integer, Date, ForeignKey, Numeric
+from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric
 from app.database import Base
-
 
 class Devis(Base):
     __tablename__ = "devis"
