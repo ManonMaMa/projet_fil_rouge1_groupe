@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.utilisateur
     prenom_user character varying(50) COLLATE pg_catalog."default",
     email_user character varying(50) COLLATE pg_catalog."default",
     mdp_user text COLLATE pg_catalog."default",
+    logo_user text COLLATE pg_catalog."default",
     tel_user character varying(50) COLLATE pg_catalog."default",
     entreprise_user character varying(50) COLLATE pg_catalog."default",
     adresse_postale_user text COLLATE pg_catalog."default",
