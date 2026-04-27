@@ -30,7 +30,7 @@ ALTER TABLE IF EXISTS public.utilisateur
 
 CREATE TABLE IF NOT EXISTS public.client
 (
-    id_client integer NOT NULL,
+    id_client integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     nom_client character varying(50) COLLATE pg_catalog."default",
     prenom_client character varying(50) COLLATE pg_catalog."default",
     email_client character varying(50) COLLATE pg_catalog."default",
@@ -83,7 +83,7 @@ ALTER TABLE IF EXISTS public.statut
 
 CREATE TABLE IF NOT EXISTS public.prestation
 (
-    id_prestation integer NOT NULL,
+    id_prestation integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     description_prestation text COLLATE pg_catalog."default" NOT NULL,
     montant_prestation numeric(15,2) NOT NULL,
     CONSTRAINT prestation_pkey PRIMARY KEY (id_prestation)
@@ -101,7 +101,7 @@ ALTER TABLE IF EXISTS public.prestation
 
 CREATE TABLE IF NOT EXISTS public.devis
 (
-    id_devis integer NOT NULL,
+    id_devis integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     numero_devis character varying(50) COLLATE pg_catalog."default" NOT NULL,
     date_devis date NOT NULL,
     montant_total_devis numeric(15,3),
@@ -137,7 +137,7 @@ ALTER TABLE IF EXISTS public.devis
 
 CREATE TABLE IF NOT EXISTS public.facture
 (
-    id_facture integer NOT NULL,
+    id_facture integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     numero_facture character varying(50) COLLATE pg_catalog."default" NOT NULL,
     date_facture date NOT NULL,
     echeance_facture date NOT NULL,
