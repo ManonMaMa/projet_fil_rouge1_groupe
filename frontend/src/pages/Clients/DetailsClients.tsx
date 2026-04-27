@@ -99,24 +99,24 @@ const DetailsClients: React.FC = () => {
                             <h2 className="titre-section-details-clients">Informations</h2>
 
                             <div className="ligne-input-informations-details-clients">
-                                <Input label="Nom" value={client?.nom_client || ""} type="" placeholder="" />
-                                <Input label="Prénom" value={client?.prenom_client || ""} type="" placeholder="" />
-                                <Input label="Société" value={client?.entreprise_client || ""} type="" placeholder="" />
+                                <Input label="Nom" value={client?.nom_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Prénom" value={client?.prenom_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Société" value={client?.entreprise_client || ""} readOnly type="" placeholder="" />
                             </div>
 
                             <div className="ligne-input-informations-details-clients">
-                                <Input label="Email" value={client?.email_client || ""} type="" placeholder="" />
-                                <Input label="Téléphone" value={client?.tel_client || ""} type="" placeholder="" />
-                                <Input label="Adrese" value={client?.adresse_postale_client || ""} type="" placeholder="" />
+                                <Input label="Email" value={client?.email_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Téléphone" value={client?.tel_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Adrese" value={client?.adresse_postale_client || ""} readOnly type="" placeholder="" />
                             </div>
 
                             <div className="ligne-input-informations-details-clients">
                                 <div className="details-clients-informations-left">
-                                    <Input label="Ville" value={client?.ville_client || ""} type="" placeholder="" />
+                                    <Input label="Ville" value={client?.ville_client || ""} readOnly type="" placeholder="" />
                                 </div>
 
                                 <div className="details-clients-informations-right">
-                                    <Input label="Note" type="" placeholder="" />
+                                    <Input label="Note" value="" readOnly type="" placeholder="" />
                                 </div>
                             </div>
                         </div>
