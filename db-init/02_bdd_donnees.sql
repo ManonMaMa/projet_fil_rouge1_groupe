@@ -117,10 +117,10 @@ INSERT INTO public.client (
 
 
 INSERT INTO public.utilisateur VALUES
-('u001','Durand','Paul','paul.durand@luminatech.fr','$2b$12$example1','06 12 45 78 32','LuminaTech','12 rue Victor Hugo','75015','Paris','France'),
-('u002','Martin','Sophie','sophie.martin@novastrat.fr','$2b$12$example2','07 55 83 19 64','NovaStrat','8 avenue Jean Jaurès','69007','Lyon','France'),
-('u003','Bernard','Luc','luc.bernard@bluecanyon.fr','$2b$12$example3','06 89 21 43 77','BlueCanyon Solutions','25 boulevard National','13003','Marseille','France'),
-('u004','Petit','Claire','claire.petit@eclatcreatif.fr','$2b$12$example4','07 42 16 90 58','Éclat Créatif','3 rue de la République','31000','Toulouse','France');
+('u001','Durand','Paul','paul.durand@luminatech.fr','$2b$12$example1','','06 12 45 78 32','LuminaTech','12 rue Victor Hugo','75015','Paris','France'),
+('u002','Martin','Sophie','sophie.martin@novastrat.fr','$2b$12$example2','','07 55 83 19 64','NovaStrat','8 avenue Jean Jaurès','69007','Lyon','France'),
+('u003','Bernard','Luc','luc.bernard@bluecanyon.fr','$2b$12$example3','','06 89 21 43 77','BlueCanyon Solutions','25 boulevard National','13003','Marseille','France'),
+('u004','Petit','Claire','claire.petit@eclatcreatif.fr','$2b$12$example4','','07 42 16 90 58','Éclat Créatif','3 rue de la République','31000','Toulouse','France');
 
 
 
