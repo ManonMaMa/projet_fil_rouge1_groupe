@@ -6,6 +6,8 @@ import BeneficesClient from '../../assets/composants/beneficesClient';
 import FacturesEmises from '../../assets/composants/facturesEmises';
 import FacturesPayees from '../../assets/composants/facturesPayees';
 import FacturesAttentes from '../../assets/composants/facturesAttentes';
+import UnsavedChangesBar from "../../assets/composants/UnsavedChangesBar";
+
 
 import Input from '../../assets/composants/input';
 import LigneFacture from '../../assets/composants/ligneFacture';
@@ -27,37 +29,92 @@ type ClientType = {
 const DetailsClients: React.FC = () => {
     const navigate = useNavigate();
     const { id } = useParams();
+
     const [client, setClient] = useState<ClientType | null>(null);
+    const [formData, setFormData] = useState<ClientType | null>(null);
+    const [savedData, setSavedData] = useState<ClientType | null>(null);
+
+    const fetchClient = async () => {
+        try {
+            if (!id) return;
+
+            const id_user = localStorage.getItem("id_user");
+
+            console.log("👤 id_user:", id_user);
+            console.log("🆔 client id:", id);
+
+            const response = await fetch(
+                `http://localhost:8000/client/${id}?id_user=${id_user}`
+            );
+
+            if (!response.ok) {
+                throw new Error("Erreur récupération client");
+            }
+
+            const data = await response.json();
+
+            console.log("👤 CLIENT API :", data);
+
+            setClient(data);
+            setFormData(data);
+            setSavedData(data);
+
+        } catch (error) {
+            console.error("❌ Erreur fetch client :", error);
+        }
+    };
 
     useEffect(() => {
-        const fetchClient = async () => {
-            try {
-                const id_user = localStorage.getItem("id_user");
-                if (!id_user || !id) return;
-
-                const response = await fetch(`http://localhost:8000/clients/${id_user}`);
-
-                if (!response.ok) {
-                    throw new Error("Erreur client");
-                }
-
-                const data = await response.json();
-
-                console.log("DATA API:", data); // 👈 debug important
-
-                const selectedClient = data.find(
-                    (c: ClientType) => c.id_client === Number(id)
-                );
-
-                setClient(selectedClient || null);
-
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
         fetchClient();
     }, [id]);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        setFormData(prev => ({
+            ...prev!,
+            [name]: value
+        }));
+    };
+
+        // Détection modification
+    const isDirty =
+        JSON.stringify(formData) !== JSON.stringify(savedData)
+
+    // SAVE (API)
+    const handleSave = async () => {
+        try {
+            if (!id || !formData) return;
+
+            const response = await fetch(
+                `http://localhost:8000/client/update/${id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Erreur update client");
+            }
+
+            console.log("✅ Client mis à jour");
+
+            await fetchClient(); // refresh
+        } catch (err) {
+            console.error("❌ Erreur update :", err);
+        }
+    };
+
+    // RESET
+    const handleReset = () => {
+            setFormData(savedData);
+        };
+
+    if (!formData) return <p>Chargement...</p>;
 
     return (
         <div className="page-conteneur-details-clients">
@@ -99,24 +156,24 @@ const DetailsClients: React.FC = () => {
                             <h2 className="titre-section-details-clients">Informations</h2>
 
                             <div className="ligne-input-informations-details-clients">
-                                <Input label="Nom" value={client?.nom_client || ""} readOnly type="" placeholder="" />
-                                <Input label="Prénom" value={client?.prenom_client || ""} readOnly type="" placeholder="" />
-                                <Input label="Société" value={client?.entreprise_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Nom" name="nom_client" value={formData.nom_client} onChange={handleChange}  type="" placeholder="" />
+                                <Input label="Prénom" name="prenom_client" value={formData.prenom_client} onChange={handleChange} type="" placeholder="" />
+                                <Input label="Société" name="entreprise_client" value={formData.entreprise_client} onChange={handleChange}  type="" placeholder="" />
                             </div>
 
                             <div className="ligne-input-informations-details-clients">
-                                <Input label="Email" value={client?.email_client || ""} readOnly type="" placeholder="" />
-                                <Input label="Téléphone" value={client?.tel_client || ""} readOnly type="" placeholder="" />
-                                <Input label="Adrese" value={client?.adresse_postale_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Email" name="email_client" value={formData.email_client} onChange={handleChange}  type="" placeholder="" />
+                                <Input label="Téléphone" name="tel_client" value={formData.tel_client} onChange={handleChange}  type="" placeholder="" />
+                                <Input label="Adrese" name="adresse_postale_client" value={formData.adresse_postale_client} onChange={handleChange}  />
                             </div>
 
                             <div className="ligne-input-informations-details-clients">
                                 <div className="details-clients-informations-left">
-                                    <Input label="Ville" value={client?.ville_client || ""} readOnly type="" placeholder="" />
+                                    <Input label="Ville" name="ville_client" value={formData.ville_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
 
                                 <div className="details-clients-informations-right">
-                                    <Input label="Note" value="" readOnly type="" placeholder="" />
+                                    <Input label="Note" value="" type="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -223,6 +280,13 @@ const DetailsClients: React.FC = () => {
 
                 </div>
             </div>
+            {/* Barre de modifications non enregistrées - Pop Up */}
+            <UnsavedChangesBar
+                visible={isDirty}
+                onSave={handleSave}
+                onReset={handleReset}
+            />
+
         </div>
     );
 };

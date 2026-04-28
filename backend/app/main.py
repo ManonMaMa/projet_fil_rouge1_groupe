@@ -92,24 +92,34 @@ def get_clients_by_user(id_user: str, db: Session = Depends(get_db)):
 # ----- AJOUT ROUTE CLIENT POUR CLIENT ------
 
 @app.get("/client/{id_client}")
-def get_client(id_client: int, db: Session = Depends(get_db)):
+def get_client(id_client: int, id_user: str, db: Session = Depends(get_db)):
+    client = db.query(Client).filter(
+        Client.id_client == id_client,
+        Client.id_user_fk == id_user
+    ).first()
+
+    if not client:
+        raise HTTPException(status_code=404, detail="Client non trouvé")
+
+    return client
+
+
+# ----- METTRE A JOUR UN CLIENT ------
+
+@app.put("/client/update/{id_client}")
+def update_client(id_client: int, data: ClientCreate, db: Session = Depends(get_db)):
     client = db.query(Client).filter(Client.id_client == id_client).first()
 
     if not client:
         raise HTTPException(status_code=404, detail="Client non trouvé")
 
-    return {
-        "id_client": client.id_client,
-        "nom_client": client.nom_client,
-        "prenom_client": client.prenom_client,
-        "email_client": client.email_client,
-        "tel_client": client.tel_client,
-        "entreprise_client": client.entreprise_client,
-        "adresse_postale_client": client.adresse_postale_client,
-        "code_postal_client": client.code_postal_client,
-        "ville_client": client.ville_client,
-        "pays_client": client.pays_client,
-    }
+    for key, value in data.model_dump().items():
+        setattr(client, key, value)
+
+    db.commit()
+    db.refresh(client)
+
+    return {"message": "Client mis à jour"}
 
 
 # ----- AJOUTER UN NOUVEAU CLIENT ------
