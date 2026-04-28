@@ -139,37 +139,37 @@ INSERT INTO public.statut (nom_statut, facture) VALUES
 
 
 
--- INSERT INTO public.prestation (description_prestation, montant_prestation) VALUES
--- ('Consultation stratégique', 120.00),
--- ('Développement web front-end', 80.00),
--- ('Développement web back-end', 90.00),
--- ('Audit de processus interne', 100.00),
--- ('Formation logiciel bureautique', 60.00),
--- ('Création de logo', 50.00),
--- ('Campagne marketing digital', 75.00),
--- ('Maintenance informatique', 65.00),
--- ('Réalisation vidéo promotionnelle', 70.00),
--- ('Conseil cybersécurité', 110.00),
--- ('Optimisation SEO', 85.00),
--- ('Gestion réseaux sociaux', 55.00),
--- ('Rédaction de contenu web', 45.00),
--- ('Conception UX/UI', 95.00),
--- ('Analyse de données', 100.00),
--- ('Support technique à distance', 50.00),
--- ('Déploiement cloud', 120.00),
--- ('Formation sécurité informatique', 80.00),
--- ('Photographie professionnelle', 65.00),
--- ('Design d’interface mobile', 90.00),
--- ('Audit financier', 110.00),
--- ('Conseil en gestion de projet', 100.00),
--- ('Animation réseaux sociaux', 55.00),
--- ('Réalisation maquettes graphiques', 60.00),
--- ('Installation serveur', 95.00),
--- ('Optimisation base de données', 105.00),
--- ('Création newsletter', 50.00),
--- ('Plan marketing stratégique', 120.00),
--- ('Support client', 45.00),
--- ('Conseil en organisation interne', 85.00);
+INSERT INTO public.prestation (description_prestation, montant_prestation) VALUES
+('Consultation stratégique', 120.00),
+('Développement web front-end', 80.00),
+('Développement web back-end', 90.00),
+('Audit de processus interne', 100.00),
+('Formation logiciel bureautique', 60.00),
+('Création de logo', 50.00),
+('Campagne marketing digital', 75.00),
+('Maintenance informatique', 65.00),
+('Réalisation vidéo promotionnelle', 70.00),
+('Conseil cybersécurité', 110.00),
+('Optimisation SEO', 85.00),
+('Gestion réseaux sociaux', 55.00),
+('Rédaction de contenu web', 45.00),
+('Conception UX/UI', 95.00),
+('Analyse de données', 100.00),
+('Support technique à distance', 50.00),
+('Déploiement cloud', 120.00),
+('Formation sécurité informatique', 80.00),
+('Photographie professionnelle', 65.00),
+('Design d’interface mobile', 90.00),
+('Audit financier', 110.00),
+('Conseil en gestion de projet', 100.00),
+('Animation réseaux sociaux', 55.00),
+('Réalisation maquettes graphiques', 60.00),
+('Installation serveur', 95.00),
+('Optimisation base de données', 105.00),
+('Création newsletter', 50.00),
+('Plan marketing stratégique', 120.00),
+('Support client', 45.00),
+('Conseil en organisation interne', 85.00);
 
 
 
@@ -413,61 +413,61 @@ INSERT INTO public.devis (numero_devis, date_devis, montant_total_devis, id_clie
 
 
 
--- INSERT INTO public.devis_prestation (id_devis_fk, id_prestation_fk, duree_prestation) VALUES
--- (1,3,4),(1,7,2),(1,12,1),
--- (2,1,5),(2,5,3),
--- (3,2,2),
--- (4,6,4),(4,8,2),(4,11,1),(4,14,3),
--- (5,3,2),
--- (6,1,3),(6,5,1),
--- (7,2,4),(7,7,2),
--- (8,3,5),(8,6,1),(8,9,2),
--- (9,1,3),(9,12,4),
--- (10,2,2),
--- (11,3,1),(11,5,3),
--- (12,6,2),(12,8,4),
--- (13,1,3),(13,7,2),(13,12,1),
--- (14,2,5),
--- (15,3,2),(15,6,3),
--- (16,1,4),(16,5,1),
--- (17,3,2),(17,7,1),(17,10,3),
--- (18,2,3),
--- (19,1,4),(19,6,2),
--- (20,3,5),(20,8,1);
+INSERT INTO public.devis_prestation (id_devis_fk, id_prestation_fk, duree_prestation) VALUES
+(1,3,4),(1,7,2),(1,12,1),
+(2,1,5),(2,5,3),
+(3,2,2),
+(4,6,4),(4,8,2),(4,11,1),(4,14,3),
+(5,3,2),
+(6,1,3),(6,5,1),
+(7,2,4),(7,7,2),
+(8,3,5),(8,6,1),(8,9,2),
+(9,1,3),(9,12,4),
+(10,2,2),
+(11,3,1),(11,5,3),
+(12,6,2),(12,8,4),
+(13,1,3),(13,7,2),(13,12,1),
+(14,2,5),
+(15,3,2),(15,6,3),
+(16,1,4),(16,5,1),
+(17,3,2),(17,7,1),(17,10,3),
+(18,2,3),
+(19,1,4),(19,6,2),
+(20,3,5),(20,8,1);
 
 
 
--- -- calcule le montant total du devis en fonction des prestations presentes dans le devis 
+-- calcule le montant total du devis en fonction des prestations presentes dans le devis 
 
--- UPDATE public.devis d
--- SET montant_total_devis = sub.total
--- FROM (
---     SELECT
---         ds.id_devis_fk,
---         SUM(s.montant_prestation * ds.duree_prestation) AS total
---     FROM public.devis_prestation ds
---     JOIN public.prestation s
---         ON s.id_prestation = ds.id_prestation_fk
---     GROUP BY ds.id_devis_fk
--- ) sub
--- WHERE d.id_devis = sub.id_devis_fk;
+UPDATE public.devis d
+SET montant_total_devis = sub.total
+FROM (
+    SELECT
+        ds.id_devis_fk,
+        SUM(s.montant_prestation * ds.duree_prestation) AS total
+    FROM public.devis_prestation ds
+    JOIN public.prestation s
+        ON s.id_prestation = ds.id_prestation_fk
+    GROUP BY ds.id_devis_fk
+) sub
+WHERE d.id_devis = sub.id_devis_fk;
 
 
 
--- -- calcule le montant total de la facture en fonction des prestations presentes dans la factures 
+-- calcule le montant total de la facture en fonction des prestations presentes dans la factures 
 
--- UPDATE public.facture f
--- SET montant_total_facture = sub.total
--- FROM (
---     SELECT
---         fs.id_facture_fk,
---         SUM(s.montant_prestation * fs.duree_prestation) AS total
---     FROM public.facture_prestation fs
---     JOIN public.prestation s
---         ON s.id_prestation = fs.id_prestation_fk
---     GROUP BY fs.id_facture_fk
--- ) sub
--- WHERE f.id_facture = sub.id_facture_fk;
+UPDATE public.facture f
+SET montant_total_facture = sub.total
+FROM (
+    SELECT
+        fs.id_facture_fk,
+        SUM(s.montant_prestation * fs.duree_prestation) AS total
+    FROM public.facture_prestation fs
+    JOIN public.prestation s
+        ON s.id_prestation = fs.id_prestation_fk
+    GROUP BY fs.id_facture_fk
+) sub
+WHERE f.id_facture = sub.id_facture_fk;
 
 
 
