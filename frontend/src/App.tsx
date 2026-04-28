@@ -49,7 +49,7 @@ function App() {
               <Route path="clients/details/:id" element={<DetailsClients />} />
 
               <Route path="/facturation/devis" element={<Devis />} />
-              <Route path="/facturation/devis/details" element={<DetailsDevis />} />
+              <Route path="/facturation/devis/details/:id" element={<DetailsDevis />} />
 
               <Route path="/facturation/factures" element={<Factures />} />
               <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />

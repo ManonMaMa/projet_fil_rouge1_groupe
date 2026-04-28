@@ -6,27 +6,103 @@ import Input from '../../../assets/composants/input';
 import BoutonDevisAccepte from '../../../assets/composants/boutonDevisAccepte';
 import BoutonDevisRefuse from '../../../assets/composants/boutonDevisRefuse';
 import HistoriqueDetailsDevis from '../../../assets/composants/historiqueDetailsDevis';
+import UnsavedChangesBar from "../../../assets/composants/UnsavedChangesBar";
+
 import './DetailsDevis.css';
+
+type DevisType = {
+    id_devis: number;
+    numero_devis: string;
+    date_devis: string;
+    montant_total_devis: number;
+    id_client_fk: number;
+
+    client?: {
+        nom_client: string;
+        prenom_client: string;
+        entreprise_client: string;
+        adresse_postale_client: string;
+        email_client: string;
+    };
+};
+
+
 
 const DetailsDevis: React.FC = () => {
     const navigate = useNavigate();
     const { id } = useParams(); // 👈 ID du devis
 
-    const [devis, setDevis] = useState<any>(null);
+    const [devis, setDevis] = useState<DevisType | null>(null);
+    const [formData, setFormData] = useState<DevisType | null>(null);
+    const [savedData, setSavedData] = useState<DevisType | null>(null);
+
+    const fetchDevis = async () => {
+        try {
+            if (!id) return;
+
+            const res = await fetch(`http://localhost:8000/facturation/devis/details/${id}`);
+            const data = await res.json();
+
+            console.log("📄 DEVIS API:", data);
+
+            setDevis(data);
+            setFormData(data);
+            setSavedData(data);
+
+        } catch (err) {
+            console.error("❌ Erreur chargement devis :", err);
+        }
+    };
 
     useEffect(() => {
-        const fetchDevis = async () => {
-            try {
-                const res = await fetch(`http://localhost:8000/facturation/devis/details/${id}`);
-                const data = await res.json();
-                setDevis(data);
-            } catch (err) {
-                console.error("Erreur chargement devis :", err);
-            }
-        };
-
-        if (id) fetchDevis();
+        fetchDevis();
     }, [id]);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        setFormData(prev => ({
+            ...prev!,
+            [name]: value
+        }));
+    };
+
+    const isDirty =
+        JSON.stringify(formData) !== JSON.stringify(savedData);
+
+     const handleSave = async () => {
+        try {
+            if (!id || !formData) return;
+
+            const res = await fetch(`http://localhost:8000/facturation/devis/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    numero_devis: formData.numero_devis,
+                    date_devis: formData.date_devis,
+                    montant_total_devis: formData.montant_total_devis,
+                    id_client_fk: formData.id_client_fk
+                })
+            });
+
+            if (!res.ok) throw new Error("Erreur update devis");
+
+            console.log("✅ Devis mis à jour");
+
+            await fetchDevis();
+
+        } catch (err) {
+            console.error("❌ Erreur update :", err);
+        }
+    };
+
+    const handleReset = () => {
+        setFormData(savedData);
+    };
+
+    if (!formData) return <p>Chargement...</p>;    
 
     return (
 
@@ -37,7 +113,7 @@ const DetailsDevis: React.FC = () => {
 
                 <HeaderDetailsDevis
                     titre="Devis"
-                    sousTitre={devis?.numero_devis || ""}
+                    sousTitre={formData.numero_devis}
                     surRetour={() => navigate("/facturation/devis")}
                 />
 
@@ -75,13 +151,14 @@ const DetailsDevis: React.FC = () => {
                             </div>
 
                             <div className="ligne-1">
-                                <Input label="Nom / Société" type="" placeholder="" />
-                                <Input label="Référence client" type="" placeholder={devis?.id_client_fk?.toString() || ""} />
+                                <Input label="Nom / Société" value={formData.client?.entreprise_client || 
+                                    `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`} readOnly type="" placeholder="" />
+                                <Input label="Référence client" value={formData.id_client_fk.toString()} readOnly />
                             </div>
 
                             <div className="ligne-2">
-                                <Input label="Adresse" type="" placeholder={devis?.client?.adresse_postale_client || ""} />
-                                <Input label="Email" type="" placeholder={devis?.client?.email_client || ""} />
+                                <Input label="Adresse" value={formData.client?.adresse_postale_client || ""} readOnly />
+                                <Input label="Email" value={formData.client?.email_client || ""} readOnly />
                             </div>
                         </div>
 
@@ -94,13 +171,13 @@ const DetailsDevis: React.FC = () => {
                             </div>
 
                             <div className="ligne-1">
-                                <Input label="Numéro" type="" placeholder={devis?.numero_devis || ""} />
-                                <Input label="Date d'émission" type="" placeholder={devis?.date_devis || ""} />
+                                <Input label="Numéro" name="numero_devis" value={formData.numero_devis} onChange={handleChange} />
+                                <Input label="Date d'émission" name="date_devis" value={formData.date_devis} onChange={handleChange} />
                             </div>
 
                             <div className="ligne-2">
                                 <Input label="Date d'échéance" type="" placeholder="" />
-                                <Input label="Montant HT" type="" placeholder={devis?.montant_total_devis || ""} />
+                                <Input label="Montant HT" name="montant_total_devis" value={formData.montant_total_devis.toString()} onChange={handleChange} />
                             </div>
 
                             <div className="ligne-3">
@@ -138,6 +215,11 @@ const DetailsDevis: React.FC = () => {
                 </div>
 
             </div>
+            <UnsavedChangesBar
+                visible={isDirty}
+                onSave={handleSave}
+                onReset={handleReset}
+            />
         </div>
     );
 };

@@ -105,22 +105,23 @@ const Devis: React.FC = () => {
 
             {/* ----------------- Lignes cliquables ----------------- */}
             {devis.map((d) => (
-              <button
+              <div
                 key={d.id_devis}
                 onClick={() => DetailsDevis(d.id_devis)}
+                style={{ cursor: "pointer" }}
               >
                 <LigneFacture
                   id={d.id_devis}
                   date={d.date_devis}
                   numero={d.numero_devis}
-                  clientFournisseur={d.client.nom_client}
+                  clientFournisseur={d.client?.nom_client}
                   echeance="—"
                   montantTTC={d.montant_total_devis + " €"}
                   statut="en_attente"
                   surFavoris={(id) => console.log('Favoris', id)}
                   surOptions={(id) => console.log('Options', id)}
                 />
-              </button>
+              </div>
             ))}
           </div>
         </div>
