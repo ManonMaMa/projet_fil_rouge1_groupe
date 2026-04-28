@@ -13,7 +13,7 @@ def liste_devis(id_user: str, db: Session = Depends(get_db)):
     return get_devis_by_user(db, id_user)
 
 
-@router.get("/{id_devis}", response_model=DevisOut)
+@router.get("/details/{id_devis}", response_model=DevisOut)
 def details_devis(id_devis: int, db: Session = Depends(get_db)):
     return get_devis_by_id(db, id_devis)
 
