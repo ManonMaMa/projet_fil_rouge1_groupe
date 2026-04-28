@@ -1,8 +1,10 @@
 from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric
+from sqlalchemy.orm import relationship
 from app.database import Base
 
 class Facture(Base):
     __tablename__ = "facture"
+    client = relationship("Client")
 
     id_facture = Column(Integer, primary_key=True, index=True)
     numero_facture = Column(String(50), unique=True, nullable=False, index=True)
