@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric
+from sqlalchemy.orm import relationship
 from app.database import Base
 
 class Devis(Base):
@@ -11,3 +12,8 @@ class Devis(Base):
     id_client_fk = Column(Integer, ForeignKey("client.id_client"), nullable=False)
     id_user_fk = Column(String(300), ForeignKey("utilisateur.id_user"), nullable=False)
     id_statut_fk = Column(Integer, ForeignKey("statut.id_statut"), nullable=False)
+
+    # 🔥 RELATIONS MANQUANTES (CAUSE DE TON BUG)
+
+    client = relationship("Client", backref="devis")
+    statut = relationship("Statut", backref="devis")

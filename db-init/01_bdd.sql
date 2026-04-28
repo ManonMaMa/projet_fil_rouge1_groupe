@@ -1,6 +1,6 @@
 -- Table: public.utilisateur
 
--- DROP TABLE IF EXISTS public.utilisateur;
+DROP TABLE IF EXISTS public.utilisateur;
 
 CREATE TABLE IF NOT EXISTS public.utilisateur
 (
@@ -27,7 +27,7 @@ ALTER TABLE IF EXISTS public.utilisateur
 
 -- Table: public.client
 
--- DROP TABLE IF EXISTS public.client;
+DROP TABLE IF EXISTS public.client;
 
 CREATE TABLE IF NOT EXISTS public.client
 (
@@ -61,7 +61,7 @@ ALTER TABLE IF EXISTS public.client
 
 -- Table: public.statut
 
--- DROP TABLE IF EXISTS public.statut;
+DROP TABLE IF EXISTS public.statut;
 
 CREATE TABLE IF NOT EXISTS public.statut
 (
@@ -80,7 +80,7 @@ ALTER TABLE IF EXISTS public.statut
 
 -- Table: public.prestation
 
--- DROP TABLE IF EXISTS public.prestation;
+DROP TABLE IF EXISTS public.prestation;
 
 CREATE TABLE IF NOT EXISTS public.prestation
 (
@@ -98,7 +98,7 @@ ALTER TABLE IF EXISTS public.prestation
 
 -- Table: public.devis
 
--- DROP TABLE IF EXISTS public.devis;
+DROP TABLE IF EXISTS public.devis;
 
 CREATE TABLE IF NOT EXISTS public.devis
 (
@@ -134,7 +134,7 @@ ALTER TABLE IF EXISTS public.devis
 
 -- Table: public.facture
 
--- DROP TABLE IF EXISTS public.facture;
+DROP TABLE IF EXISTS public.facture;
 
 CREATE TABLE IF NOT EXISTS public.facture
 (
@@ -172,7 +172,7 @@ ALTER TABLE IF EXISTS public.facture
 
 -- Table: public.devis_prestation
 
--- DROP TABLE IF EXISTS public.devis_prestation;
+DROP TABLE IF EXISTS public.devis_prestation;
 
 CREATE TABLE IF NOT EXISTS public.devis_prestation
 (
@@ -200,7 +200,7 @@ ALTER TABLE IF EXISTS public.devis_prestation
 
 -- Table: public.facture_prestation
 
--- DROP TABLE IF EXISTS public.facture_prestation;
+DROP TABLE IF EXISTS public.facture_prestation;
 
 CREATE TABLE IF NOT EXISTS public.facture_prestation
 (

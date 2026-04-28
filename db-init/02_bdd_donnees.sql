@@ -483,5 +483,3 @@ FROM (
     FROM public.client
 ) u
 WHERE public.client.id_client = u.id_client;
-
-
