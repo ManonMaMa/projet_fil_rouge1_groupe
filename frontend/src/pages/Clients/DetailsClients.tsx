@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderDetailsClients from './headerDetailsClients';
 import Sidebar from "../../assets/composants/Sidebar"
 import BeneficesClient from '../../assets/composants/beneficesClient';
@@ -12,11 +12,52 @@ import LigneFacture from '../../assets/composants/ligneFacture';
 import HistoriqueDetailsDevis from '../../assets/composants/historiqueDetailsDevis';
 import './DetailsClients.css';
 
-
+type ClientType = {
+    id_client: number;
+    nom_client: string;
+    prenom_client: string;
+    email_client: string;
+    tel_client: string;
+    entreprise_client: string;
+    adresse_postale_client: string;
+    ville_client: string;
+};
 
 // Composant principal des Finances
 const DetailsClients: React.FC = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
+    const [client, setClient] = useState<ClientType | null>(null);
+
+    useEffect(() => {
+        const fetchClient = async () => {
+            try {
+                const id_user = localStorage.getItem("id_user");
+                if (!id_user || !id) return;
+
+                const response = await fetch(`http://localhost:8000/clients/${id_user}`);
+
+                if (!response.ok) {
+                    throw new Error("Erreur client");
+                }
+
+                const data = await response.json();
+
+                console.log("DATA API:", data); // 👈 debug important
+
+                const selectedClient = data.find(
+                    (c: ClientType) => c.id_client === Number(id)
+                );
+
+                setClient(selectedClient || null);
+
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchClient();
+    }, [id]);
 
     return (
         <div className="page-conteneur-details-clients">
@@ -58,24 +99,24 @@ const DetailsClients: React.FC = () => {
                             <h2 className="titre-section-details-clients">Informations</h2>
 
                             <div className="ligne-input-informations-details-clients">
-                                <Input label="Nom" type="" placeholder="" />
-                                <Input label="Prénom" type="" placeholder="" />
-                                <Input label="Société" type="" placeholder="" />
+                                <Input label="Nom" value={client?.nom_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Prénom" value={client?.prenom_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Société" value={client?.entreprise_client || ""} readOnly type="" placeholder="" />
                             </div>
 
                             <div className="ligne-input-informations-details-clients">
-                                <Input label="Email" type="" placeholder="" />
-                                <Input label="Téléphone" type="" placeholder="" />
-                                <Input label="Adrese" type="" placeholder="" />
+                                <Input label="Email" value={client?.email_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Téléphone" value={client?.tel_client || ""} readOnly type="" placeholder="" />
+                                <Input label="Adrese" value={client?.adresse_postale_client || ""} readOnly type="" placeholder="" />
                             </div>
 
                             <div className="ligne-input-informations-details-clients">
                                 <div className="details-clients-informations-left">
-                                    <Input label="Ville" type="" placeholder="" />
+                                    <Input label="Ville" value={client?.ville_client || ""} readOnly type="" placeholder="" />
                                 </div>
 
                                 <div className="details-clients-informations-right">
-                                    <Input label="Note" type="" placeholder="" />
+                                    <Input label="Note" value="" readOnly type="" placeholder="" />
                                 </div>
                             </div>
                         </div>

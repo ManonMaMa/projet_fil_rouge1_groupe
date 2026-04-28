@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from './headerClient'; // Import header client
 import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
@@ -6,12 +6,37 @@ import EnTeteClients from '../../assets/composants/enteteClients';
 import LigneClient from '../../assets/composants/ligneClient';
 import './Clients.css'; // CSS de la page client
 
-
-
 // Composant principal des Clients
 const Clients: React.FC = () => {
 
     const navigate = useNavigate();
+
+    const [clients, setClients] = useState<any[]>([]);
+
+    // FETCH CLIENTS
+    useEffect(() => {
+        const fetchClients = async () => {
+            try {
+                const id_user = localStorage.getItem("id_user");
+                if (!id_user) return;
+
+                const response = await fetch(`http://localhost:8000/clients/${id_user}`);
+
+                if (!response.ok) {
+                    throw new Error("Erreur récupération clients");
+                }
+
+                const data = await response.json();
+                setClients(data);
+
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchClients();
+    }, []);
+
 
     // Définition des onglets de navigations pour le header
     const Onglets = [
@@ -34,9 +59,9 @@ const Clients: React.FC = () => {
     };
 
     // Fonction déclanchée pour voir les détails d'un client
-    const DetailsClients = () => {
+    const DetailsClients = (id: number) => {
         console.log("Voir les détails d'un client");
-        navigate("/clients/details");
+        navigate(`/clients/details/${id}`);
     };
 
 
@@ -69,71 +94,33 @@ const Clients: React.FC = () => {
                         <h2 className="titre-annee">2026</h2>
                         <EnTeteClients />
 
-                        {/* 1er client */}
-                        <button
-                            onClick={DetailsClients}
-                        >
-                            <LigneClient
-                                id="1"
-                                nom_societe="Bernard Guy"
-                                email="bernardguy@gmail.com"
-                                telephone="06 67 78 89 90"
-                                facture_en_cours="5218-90"
-                                solde_du="1 150 €"
-                                derniere_activite="07/12/2025 €"
-                                surOptions={(id) => console.log('Options', id)}
-                            />
-                        </button>
-                    </div>
-
-
-                    {/* Section de la deuxième année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2025</h2>
-                        <EnTeteClients />
-
-
-                        <LigneClient
-                            id="2"
-                            nom_societe="Delois Alain"
-                            email="deloisalain@gmail.com"
-                            telephone="06 67 78 89 90"
-                            facture_en_cours="5218-90"
-                            solde_du="1 150 €"
-                            derniere_activite="1 150 €"
-                            surOptions={(id) => console.log('Options', id)}
-                        />
-
-                        <LigneClient
-                            id="3"
-                            nom_societe="Dupuis Gille"
-                            email="dupuisgille@gmail.com"
-                            telephone="06 67 78 89 90"
-                            facture_en_cours="5218-90"
-                            solde_du="1 150 €"
-                            derniere_activite="1 150 €"
-                            surOptions={(id) => console.log('Options', id)}
-                        />
-
-                        <LigneClient
-                            id="4"
-                            nom_societe="Moreau Marie"
-                            email="moreaumarie@gmail.com"
-                            telephone="06 67 78 89 90"
-                            facture_en_cours="5218-90"
-                            solde_du="1 150 €"
-                            derniere_activite="1 150 €"
-                            surOptions={(id) => console.log('Options', id)}
-                        />
-
-
-
-
+                        {clients.map((client) => (
+                            <div
+                                key={client.id_client}
+                                onClick={() => DetailsClients(client.id_client)}
+                                style={{ cursor: "pointer" }}
+                            >
+                                <LigneClient
+                                    id={client.id_client}
+                                    nom_societe={
+                                        client.entreprise_client ||
+                                        `${client.nom_client} ${client.prenom_client}`
+                                    }
+                                    email={client.email_client}
+                                    telephone={client.tel_client}
+                                    facture_en_cours="0"
+                                    solde_du="0 €"
+                                    derniere_activite="—"
+                                    surOptions={(id) => console.log('Options', id)}
+                                />
+                            </div>
+                        ))}
 
                     </div>
+
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 

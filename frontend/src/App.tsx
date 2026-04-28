@@ -46,7 +46,7 @@ function App() {
 
               <Route path="/clients" element={<Clients />} />
               <Route path="clients/nouveau" element={<NouveauClient />} />
-              <Route path="clients/details" element={<DetailsClients />} />
+              <Route path="clients/details/:id" element={<DetailsClients />} />
 
               <Route path="/facturation/devis" element={<Devis />} />
               <Route path="/facturation/devis/details" element={<DetailsDevis />} />

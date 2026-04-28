@@ -48,13 +48,13 @@ const EntrepriseTab = ({ user, refreshUser }: { user: User | null, refreshUser: 
     useEffect(() => {
         if (user) {
             const mapped: EntrepriseFormData = {
-                entreprise: user.entreprise || "",
-                email: user.email || "",
-                tel: user.tel|| "",
-                adresse_postale: user.adresse || "",
-                code_postal: user.code_postal || "",
-                ville: user.ville || "",
-                pays: user.pays || ""
+                entreprise: (user as any).entreprise || "",
+                email: (user as any).email || "",
+                tel: (user as any).tel|| "",
+                adresse_postale: (user as any).adresse || "",
+                code_postal: (user as any).code_postal || "",
+                ville: (user as any).ville || "",
+                pays: (user as any).pays || ""
             }
 
             setFormData(mapped)
