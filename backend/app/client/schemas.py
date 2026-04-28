@@ -20,6 +20,7 @@ class ClientCreate(ClientBase):
 class ClientResponse(ClientBase):
     id_client: int
     id_user_fk: str
+    nom: Optional[str] = None
 
     class Config:
         from_attributes = True

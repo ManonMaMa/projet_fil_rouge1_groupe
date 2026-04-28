@@ -8,7 +8,7 @@ from app.devis.services import get_devis_by_id, get_devis_by_user, create_devis,
 router = APIRouter(prefix="/facturation/devis", tags=["Devis"])
 
 
-@router.get("/", response_model=list[DevisOut])
+@router.get("", response_model=list[DevisOut])
 def liste_devis(id_user: str, db: Session = Depends(get_db)):
     return get_devis_by_user(db, id_user)
 
@@ -18,7 +18,7 @@ def details_devis(id_devis: int, db: Session = Depends(get_db)):
     return get_devis_by_id(db, id_devis)
 
 
-@router.post("/", response_model=DevisOut)
+@router.post("", response_model=DevisOut)
 def ajouter_devis(devis_data: DevisCreate, db: Session = Depends(get_db)):
     return create_devis(db, devis_data)
 

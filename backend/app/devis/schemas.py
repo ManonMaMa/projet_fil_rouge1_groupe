@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import date
 from typing import Optional
+from app.client.schemas import ClientResponse
 
 
 class DevisBase(BaseModel):
@@ -27,6 +28,13 @@ class DevisUpdate(BaseModel):
 
 class DevisOut(DevisBase):
     id_devis: int
+    numero_devis: str
+    date_devis: date   # ✅ FIX ICI (PAS str)
+    montant_total_devis: float
+    id_client_fk: int
+
+    # 🔥 optionnel pour éviter crash
+    client: Optional[ClientResponse] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True

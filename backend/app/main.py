@@ -15,6 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import HTTPException   #Gere le exception
 
 from app.utilisateur.routers import router as utilisateur_router
+from app.devis.routers import router as devis_router
 
 class Inscription(BaseModel):
     email_user: str
@@ -37,6 +38,7 @@ app.add_middleware(
 
 # Charger les routes utilisateur
 app.include_router(utilisateur_router)
+app.include_router(devis_router)
 
 # ----- DEMARRAGE DE L'APPLICATION ------
 

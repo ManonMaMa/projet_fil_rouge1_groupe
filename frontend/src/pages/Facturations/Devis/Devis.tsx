@@ -25,7 +25,7 @@ const Devis: React.FC = () => {
   useEffect(() => {
     const fetchDevis = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/devis?id_user=${id_user}`);
+        const response = await fetch(`http://localhost:8000/facturation/devis?id_user=${id_user}`);
         const data = await response.json();
         setDevis(data);
       } catch (error) {
@@ -113,7 +113,7 @@ const Devis: React.FC = () => {
                   id={d.id_devis}
                   date={d.date_devis}
                   numero={d.numero_devis}
-                  clientFournisseur={d.id_client_fk} // tu peux remplacer par le nom du client si tu fais un JOIN
+                  clientFournisseur={d.client.nom_client}
                   echeance="—"
                   montantTTC={d.montant_total_devis + " €"}
                   statut="en_attente"
