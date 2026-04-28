@@ -1,5 +1,5 @@
 // -------------------------------- IMPORT -------------------------------- //
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import HeaderFactures from './headerFactures';
 import Sidebar from "../../../assets/composants/Sidebar"
@@ -14,6 +14,30 @@ import './Factures.css';
 const Factures: React.FC = () => {
 
   const navigate = useNavigate();
+  const [factures, setFactures] = useState<any[]>([]);
+  const id_user = localStorage.getItem("id_user");
+
+  // ✅ FETCH API
+  useEffect(() => {
+    const fetchFactures = async () => {
+      try {
+        if (!id_user) return;
+
+        const res = await fetch(`http://localhost:8000/facturation/factures?id_user=${id_user}`);
+        const data = await res.json();
+
+        console.log("📄 FACTURES API :", data);
+
+        setFactures(data);
+
+      } catch (err) {
+        console.error("❌ Erreur chargement factures :", err);
+      }
+    };
+
+    fetchFactures();
+  }, [id_user]);
+
 
   // --------- Définition des onglets du header ----------
   const ongletsFactures = [
@@ -41,9 +65,9 @@ const Factures: React.FC = () => {
 
 
   // ------ Navigation vers le détail d'une facture ------
-  const DetailsFactures = () => {
+  const DetailsFactures = (id: string) => {
     console.log("Voir les détails d'une factures");
-    navigate("/facturation/factures/details");
+    navigate(`/facturation/factures/details/${id}`);
   };
   // -----------------------------------------------------
 
@@ -84,256 +108,26 @@ const Factures: React.FC = () => {
 
 
             {/* ----------------- Lignes cliquables ----------------- */}
-            <button
-              onClick={DetailsFactures}
-            >
-              <LigneFacture
-                id="1"
-                date="01/01/2026"
-                numero="1910-86"
-                clientFournisseur="Victor Albert"
-                echeance="31/01/2026"
-                montantTTC="1 150 €"
-                statut="en_attente"
-                surFavoris={(id) => console.log('Favoris', id)}
-                surOptions={(id) => console.log('Options', id)}
-              />
-            </button>
-
-
-            <LigneFacture
-              id="2"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="annule"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="3"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Dupont Camille"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="4"
-              date="01/01/2026"
-              numero="1910-86"
-              clientFournisseur="Victor Albert"
-              echeance="31/01/2026"
-              montantTTC="1 150 €"
-              statut="en_attente"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="5"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="6"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="annule"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-            {/* ----------------------------------------------------- */}
-          </div>
-
-
-
-          {/* 2025 */}
-          <div className="section-annee-factures">
-            <h2 className="titre-annee-factures">2025</h2>
-
-            {/* ---------------- En-tête du tableau ----------------- */}
-            <EnTeteFactures />
-            {/* ----------------------------------------------------- */}
-
-
-            {/* ----------------- Lignes cliquables ----------------- */}
-            <LigneFacture
-              id="1"
-              date="01/01/2026"
-              numero="1910-86"
-              clientFournisseur="Victor Albert"
-              echeance="31/01/2026"
-              montantTTC="1 150 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="2"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="3"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Dupont Camille"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="4"
-              date="01/01/2026"
-              numero="1910-86"
-              clientFournisseur="Victor Albert"
-              echeance="31/01/2026"
-              montantTTC="1 150 €"
-              statut="annule"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="5"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="6"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="7"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="8"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="9"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="10"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="11"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-
-
-            <LigneFacture
-              id="12"
-              date="05/01/2026"
-              numero="1826-92"
-              clientFournisseur="Alain Jean"
-              echeance="12/02/2026"
-              montantTTC="550 €"
-              statut="paye"
-              surFavoris={(id) => console.log('Voir', id)}
-              surOptions={(id) => console.log('Options', id)}
-            />
-            {/* ----------------------------------------------------- */}
+            {/* ✅ LISTE DYNAMIQUE */}
+            {factures.map((f) => (
+              <div
+                key={f.id_facture}
+                onClick={() => DetailsFactures(f.id_facture)}
+                style={{ cursor: "pointer" }}
+              >
+                <LigneFacture
+                  id={f.id_facture}
+                  date={f.date_facture}
+                  numero={f.numero_facture}
+                  clientFournisseur={f.client?.nom_client}
+                  echeance={f.date_echeance || "—"}
+                  montantTTC={f.montant_total_facture + " €"}
+                  statut={f.statut || "en_attente"}
+                  surFavoris={(id) => console.log('Favoris', id)}
+                  surOptions={(id) => console.log('Options', id)}
+                />
+              </div>
+            ))}
 
           </div>
         </div>

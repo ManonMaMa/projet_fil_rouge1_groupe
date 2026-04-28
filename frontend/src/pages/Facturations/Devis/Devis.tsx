@@ -17,7 +17,7 @@ const Devis: React.FC = () => {
 
   // ---------------------- STATE DES DEVIS ---------------------- //
   const [devis, setDevis] = useState<any[]>([]);
-  const id_user = "u001"; // TODO : remplacer par ton auth
+  const id_user = localStorage.getItem("id_user");
   // ------------------------------------------------------------- //
 
 
