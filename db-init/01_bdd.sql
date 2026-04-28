@@ -79,20 +79,20 @@ ALTER TABLE IF EXISTS public.statut
 
 -- Table: public.prestation
 
--- DROP TABLE IF EXISTS public.prestation;
+-- -- DROP TABLE IF EXISTS public.prestation;
 
-CREATE TABLE IF NOT EXISTS public.prestation
-(
-    id_prestation integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
-    description_prestation text COLLATE pg_catalog."default" NOT NULL,
-    montant_prestation numeric(15,2) NOT NULL,
-    CONSTRAINT prestation_pkey PRIMARY KEY (id_prestation)
-)
+-- CREATE TABLE IF NOT EXISTS public.prestation
+-- (
+--     id_prestation integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+--     description_prestation text COLLATE pg_catalog."default" NOT NULL,
+--     montant_prestation numeric(15,2) NOT NULL,
+--     CONSTRAINT prestation_pkey PRIMARY KEY (id_prestation)
+-- )
 
-TABLESPACE pg_default;
+-- TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public.prestation
-    OWNER to postgres;
+-- ALTER TABLE IF EXISTS public.prestation
+--     OWNER to postgres;
 
 
 -- Table: public.devis
@@ -173,53 +173,53 @@ ALTER TABLE IF EXISTS public.facture
 
 -- DROP TABLE IF EXISTS public.devis_prestation;
 
-CREATE TABLE IF NOT EXISTS public.devis_prestation
-(
-    id_devis_fk integer NOT NULL,
-    id_prestation_fk integer NOT NULL,
-    duree_prestation integer NOT NULL DEFAULT 1,
-    CONSTRAINT devis_fk FOREIGN KEY (id_devis_fk)
-        REFERENCES public.devis (id_devis) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT prestation_fk FOREIGN KEY (id_prestation_fk)
-        REFERENCES public.prestation (id_prestation) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID
-)
+-- CREATE TABLE IF NOT EXISTS public.devis_prestation
+-- (
+--     id_devis_fk integer NOT NULL,
+--     id_prestation_fk integer NOT NULL,
+--     duree_prestation integer NOT NULL DEFAULT 1,
+--     CONSTRAINT devis_fk FOREIGN KEY (id_devis_fk)
+--         REFERENCES public.devis (id_devis) MATCH SIMPLE
+--         ON UPDATE NO ACTION
+--         ON DELETE NO ACTION,
+--     CONSTRAINT prestation_fk FOREIGN KEY (id_prestation_fk)
+--         REFERENCES public.prestation (id_prestation) MATCH SIMPLE
+--         ON UPDATE NO ACTION
+--         ON DELETE NO ACTION
+--         NOT VALID
+-- )
 
-TABLESPACE pg_default;
+-- TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public.devis_prestation
-    OWNER to postgres;
-
-
+-- ALTER TABLE IF EXISTS public.devis_prestation
+--     OWNER to postgres;
 
 
--- Table: public.facture_prestation
 
--- DROP TABLE IF EXISTS public.facture_prestation;
 
-CREATE TABLE IF NOT EXISTS public.facture_prestation
-(
-    id_facture_fk integer NOT NULL,
-    id_prestation_fk integer NOT NULL,
-    duree_prestation integer NOT NULL DEFAULT 1,
-    CONSTRAINT facture_fk FOREIGN KEY (id_facture_fk)
-        REFERENCES public.facture (id_facture) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT prestation_fk FOREIGN KEY (id_prestation_fk)
-        REFERENCES public.prestation (id_prestation) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
+-- -- Table: public.facture_prestation
 
-TABLESPACE pg_default;
+-- -- DROP TABLE IF EXISTS public.facture_prestation;
 
-ALTER TABLE IF EXISTS public.facture_prestation
-    OWNER to postgres;
+-- CREATE TABLE IF NOT EXISTS public.facture_prestation
+-- (
+--     id_facture_fk integer NOT NULL,
+--     id_prestation_fk integer NOT NULL,
+--     duree_prestation integer NOT NULL DEFAULT 1,
+--     CONSTRAINT facture_fk FOREIGN KEY (id_facture_fk)
+--         REFERENCES public.facture (id_facture) MATCH SIMPLE
+--         ON UPDATE NO ACTION
+--         ON DELETE NO ACTION,
+--     CONSTRAINT prestation_fk FOREIGN KEY (id_prestation_fk)
+--         REFERENCES public.prestation (id_prestation) MATCH SIMPLE
+--         ON UPDATE NO ACTION
+--         ON DELETE NO ACTION
+-- )
+
+-- TABLESPACE pg_default;
+
+-- ALTER TABLE IF EXISTS public.facture_prestation
+--     OWNER to postgres;
 
 
 
