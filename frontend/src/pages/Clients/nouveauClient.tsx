@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import HeaderNouveauClient from './headerNouveauClient';
 import Sidebar from '../../assets/composants/Sidebar';
@@ -6,11 +6,83 @@ import Input from '../../assets/composants/input';
 import TextArea from '../../assets/composants/textArea';
 import './nouveauClient.css'; // CSS de la page nouveau client
 
+const NouveauClient: React.FC = () => {
 
-
-// Composant principal de la nouvelle facture
-const nouveauClient: React.FC = () => {
     const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        nom_client: "",
+        prenom_client: "",
+        email_client: "",
+        tel_client: "",
+        entreprise_client: "",
+        adresse_postale_client: "",
+        code_postal_client: "",
+        ville_client: "",
+        pays_client: ""
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        console.log("✏️ Champ modifié :", name, value);
+
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    // 🔥 RECUP USER SAFE
+    const getUserId = () => {
+        const id = localStorage.getItem("id_user");
+
+        console.log("👤 ID USER brut localStorage :", id);
+
+        if (!id) {
+            console.error("❌ ERREUR : id_user manquant dans localStorage");
+            return null;
+        }
+
+        return id;
+    };
+
+    const handleCreateClient = async () => {
+        console.log("📦 FormData envoyé :", formData);
+
+        const id_user_fk = getUserId();
+
+        if (!id_user_fk) {
+            alert("Erreur : utilisateur non connecté");
+            return;
+        }
+
+        const payload = {
+            ...formData,
+            id_user_fk
+        };
+
+        console.log("📤 PAYLOAD FINAL :", payload);
+
+        try {
+            const response = await fetch("http://localhost:8000/client", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+        const data = await response.json();
+
+        console.log("✅ Client créé :", data);
+
+            navigate("/clients");
+
+        } catch (err) {
+            console.error("❌ Erreur création client :", err);
+        }
+    };
 
     return (
 
@@ -20,6 +92,7 @@ const nouveauClient: React.FC = () => {
             <div className="page-contenu">
                 <HeaderNouveauClient
                     surRetour={() => navigate("/clients")}
+                    surEmettre={handleCreateClient}
                 />
 
                 {/* Zone principale du contenu de la page ici */}
@@ -43,11 +116,11 @@ const nouveauClient: React.FC = () => {
                                     <Input label="Type de client" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
-                                    <Input label="Nom *" type="" placeholder="" />
-                                    <Input label="Prénom *" type="" placeholder="" />
+                                    <Input label="Nom *" name="nom_client" value={formData.nom_client} onChange={handleChange} type="" placeholder="" />
+                                    <Input label="Prénom *" name="prenom_client" value={formData.prenom_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-3">
-                                    <Input label="Société" type="" placeholder="" />
+                                    <Input label="Société" name="entreprise_client" value={formData.entreprise_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -66,16 +139,16 @@ const nouveauClient: React.FC = () => {
 
                             <div className="input-information-contact">
                                 <div className="client-ligne-1">
-                                    <Input label="Email" type="" placeholder="" />
-                                    <Input label="Téléphone" type="" placeholder="" />
+                                    <Input label="Email" name="email_client" value={formData.email_client} onChange={handleChange} type="" placeholder="" />
+                                    <Input label="Téléphone" name="tel_client" value={formData.tel_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
-                                    <Input label="Adresse Postale" type="" placeholder="75 rue de l'impasse" />
-                                    <Input label="Code Postal" type="" placeholder="75000" />
+                                    <Input label="Adresse Postale" name="adresse_postale_client" value={formData.adresse_postale_client} onChange={handleChange} type="" placeholder="75 rue de l'impasse" />
+                                    <Input label="Code Postal" name="code_postal_client" value={formData.code_postal_client} onChange={handleChange} type="" placeholder="75000" />
                                 </div>
                                 <div className="client-ligne-3">
-                                    <Input label="Ville" type="" placeholder="Paris" />
-                                    <Input label="Pays" type="" placeholder="France" />
+                                    <Input label="Ville" name="ville_client" value={formData.ville_client} onChange={handleChange} type="" placeholder="Paris" />
+                                    <Input label="Pays" name="pays_client" value={formData.pays_client} onChange={handleChange} type="" placeholder="France" />
                                 </div>
                             </div>
                         </div>
@@ -100,7 +173,7 @@ const nouveauClient: React.FC = () => {
                                     <Input label="Date de création" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
-                                    <TextArea label="Note interne" placeholder="" />
+                                    <TextArea label="Note interne" />
                                 </div>
                             </div>
                         </div>
@@ -113,4 +186,4 @@ const nouveauClient: React.FC = () => {
     );
 };
 
-export default nouveauClient;
+export default NouveauClient;

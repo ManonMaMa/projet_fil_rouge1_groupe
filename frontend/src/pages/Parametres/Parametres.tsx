@@ -20,10 +20,10 @@ const Parametres: React.FC = () => {
 
     const fetchUser = async () => {
         try {
-            const token = localStorage.getItem("token");
-            if (!token) return;
+            const id_user = localStorage.getItem("id_user");
+            if (!id_user) return;
 
-            const response = await fetch(`http://localhost:8000/user/${token}`);
+            const response = await fetch(`http://localhost:8000/user/${id_user}`);
             const data = await response.json();
 
             setUser(data);

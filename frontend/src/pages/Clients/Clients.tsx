@@ -17,10 +17,10 @@ const Clients: React.FC = () => {
     useEffect(() => {
         const fetchClients = async () => {
             try {
-                const token = localStorage.getItem("token");
-                if (!token) return;
+                const id_user = localStorage.getItem("id_user");
+                if (!id_user) return;
 
-                const response = await fetch(`http://localhost:8000/clients/${token}`);
+                const response = await fetch(`http://localhost:8000/clients/${id_user}`);
 
                 if (!response.ok) {
                     throw new Error("Erreur récupération clients");

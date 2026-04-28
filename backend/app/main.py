@@ -5,7 +5,9 @@ import uuid
 from app.database import get_db
 from app.utilisateur.models import Utilisateur
 from app.utilisateur.schemas import UtilisateurCreate, UtilisateurUpdate
+
 from app.client.models import Client
+from app.client.schemas import ClientCreate
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -108,7 +110,22 @@ def get_client(id_client: int, db: Session = Depends(get_db)):
         "ville_client": client.ville_client,
         "pays_client": client.pays_client,
     }
-# ----- INSCRIPTION ------
+
+
+# ----- AJOUTER UN NOUVEAU CLIENT ------
+
+@app.post("/client")
+def create_client(data: ClientCreate, db: Session = Depends(get_db)):
+    nouveau_client = Client(**data.model_dump())
+
+    db.add(nouveau_client)
+    db.commit()
+    db.refresh(nouveau_client)
+
+    return nouveau_client
+
+
+# ----- AJOUTER UN NOUVEAU UTILISATEUR ------
 
 @app.post("/inscription")
 def inscription(
