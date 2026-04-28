@@ -23,6 +23,9 @@ const HeaderNouveauClient: React.FC<ProprieteHeaderNouvelleFacture> = ({
   surBasculesFavori,
 }) => {
 
+  // État local favori si aucun callback externe
+  const [favoriLocal, setFavoriLocal] = useState(estFavori);
+
 
   // Fonction enregistrer le client
   const gererEnregistrerClient = () => {
@@ -42,11 +45,6 @@ const HeaderNouveauClient: React.FC<ProprieteHeaderNouvelleFacture> = ({
       surEmettre();
     }
   }
-
-
-
-  // État local favori si aucun callback externe
-  const [favoriLocal, setFavoriLocal] = useState(estFavori);
 
 
   const gererFavori = () => {

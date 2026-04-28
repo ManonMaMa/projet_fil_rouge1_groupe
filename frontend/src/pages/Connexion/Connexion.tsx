@@ -35,13 +35,13 @@ function Connexion() {
             const data = await response.json()
             console.log("Réponse du serveur :", data)
 
-            // token valide
+            // ID valide
             if (data.id_user) {
                 // Navigation vers le Dashboard
-                localStorage.setItem("token", data.id_user)
+                localStorage.setItem("id_user", data.id_user)
                 navigate("/")
             } else {
-                setError("Token invalide !!")
+                setError("ID invalide !!")
             }
 
         } catch (err) {

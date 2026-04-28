@@ -6,6 +6,8 @@ from app.database import get_db
 from app.utilisateur.models import Utilisateur
 from app.utilisateur.schemas import UtilisateurCreate, UtilisateurUpdate
 
+from app.client.models import Client
+from app.client.schemas import ClientCreate
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -42,7 +44,7 @@ app.include_router(utilisateur_router)
 def api_status():
     return {"status": "API opérationnelle !!"}
 
-# ----- RECUPERATION USER ------
+# ----- AJOUT ROUTE USER ------
 
 @app.get("/user/{id_user}")  # Récupére l'id de l'utilisateur
 def get_user(id_user: str, db: Session = Depends(get_db)):
@@ -64,7 +66,66 @@ def get_user(id_user: str, db: Session = Depends(get_db)):
         "pays": utilisateur.pays_user
     } 
 
-# ----- INSCRIPTION ------
+
+# ----- AJOUT ROUTE CLIENT POUR USER ------
+
+@app.get("/clients/{id_user}")
+def get_clients_by_user(id_user: str, db: Session = Depends(get_db)):
+    clients = db.query(Client).filter(Client.id_user_fk == id_user).all()
+
+    return [
+        {
+            "id_client": c.id_client,
+            "nom_client": c.nom_client,
+            "prenom_client": c.prenom_client,
+            "email_client": c.email_client,
+            "tel_client": c.tel_client,
+            "entreprise_client": c.entreprise_client,
+            "adresse_postale_client": c.adresse_postale_client,
+            "code_postal_client": c.code_postal_client,
+            "ville_client": c.ville_client,
+            "pays_client": c.pays_client,
+        }
+        for c in clients
+    ]
+
+# ----- AJOUT ROUTE CLIENT POUR CLIENT ------
+
+@app.get("/client/{id_client}")
+def get_client(id_client: int, db: Session = Depends(get_db)):
+    client = db.query(Client).filter(Client.id_client == id_client).first()
+
+    if not client:
+        raise HTTPException(status_code=404, detail="Client non trouvé")
+
+    return {
+        "id_client": client.id_client,
+        "nom_client": client.nom_client,
+        "prenom_client": client.prenom_client,
+        "email_client": client.email_client,
+        "tel_client": client.tel_client,
+        "entreprise_client": client.entreprise_client,
+        "adresse_postale_client": client.adresse_postale_client,
+        "code_postal_client": client.code_postal_client,
+        "ville_client": client.ville_client,
+        "pays_client": client.pays_client,
+    }
+
+
+# ----- AJOUTER UN NOUVEAU CLIENT ------
+
+@app.post("/client")
+def create_client(data: ClientCreate, db: Session = Depends(get_db)):
+    nouveau_client = Client(**data.model_dump())
+
+    db.add(nouveau_client)
+    db.commit()
+    db.refresh(nouveau_client)
+
+    return nouveau_client
+
+
+# ----- AJOUTER UN NOUVEAU UTILISATEUR ------
 
 @app.post("/inscription")
 def inscription(
