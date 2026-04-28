@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.utilisateur
     prenom_user character varying(50) COLLATE pg_catalog."default",
     email_user character varying(50) COLLATE pg_catalog."default",
     mdp_user text COLLATE pg_catalog."default",
+    logo_user text COLLATE pg_catalog."default",
     tel_user character varying(50) COLLATE pg_catalog."default",
     entreprise_user character varying(50) COLLATE pg_catalog."default",
     adresse_postale_user text COLLATE pg_catalog."default",
@@ -64,7 +65,7 @@ ALTER TABLE IF EXISTS public.client
 
 CREATE TABLE IF NOT EXISTS public.statut
 (
-    id_statut integer NOT NULL,
+    id_statut integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     nom_statut character varying(50) COLLATE pg_catalog."default" NOT NULL,
     facture boolean NOT NULL,
     CONSTRAINT statut_pkey PRIMARY KEY (id_statut)

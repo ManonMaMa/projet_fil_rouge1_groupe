@@ -456,18 +456,18 @@ WHERE d.id_devis = sub.id_devis_fk;
 
 -- calcule le montant total de la facture en fonction des prestations presentes dans la factures 
 
-UPDATE public.facture f
-SET montant_total_facture = sub.total
-FROM (
-    SELECT
-        fs.id_facture_fk,
-        SUM(s.montant_prestation * fs.duree_prestation) AS total
-    FROM public.facture_prestation fs
-    JOIN public.prestation s
-        ON s.id_prestation = fs.id_prestation_fk
-    GROUP BY fs.id_facture_fk
-) sub
-WHERE f.id_facture = sub.id_facture_fk;
+-- UPDATE public.facture f
+-- SET montant_total_facture = sub.total
+-- FROM (
+--     SELECT
+--         fs.id_facture_fk,
+--         SUM(s.montant_prestation * fs.duree_prestation) AS total
+--     FROM public.facture_prestation fs
+--     JOIN public.prestation s
+--         ON s.id_prestation = fs.id_prestation_fk
+--     GROUP BY fs.id_facture_fk
+-- ) sub
+-- WHERE f.id_facture = sub.id_facture_fk;
 
 
 
