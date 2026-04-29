@@ -16,7 +16,7 @@ interface ProprieteHeaderNouvelleFacture {
 
 // ------------------------------ Composant principal ------------------------------
 const HeaderNouveauDevis: React.FC<ProprieteHeaderNouvelleFacture> = ({
-  titre = 'Nouvelle facture',
+  titre = 'Nouveau Devis',
   surRetour,
   surApercu,
   surEnregistrerBrouillon,
