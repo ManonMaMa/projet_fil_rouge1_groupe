@@ -96,7 +96,6 @@ const Devis: React.FC = () => {
 
           {/* 2026 */}
           <div className="section-annee-devis">
-            <h2 className="titre-annee-devis">2026</h2>
 
             {/* ---------------- En-tête du tableau ----------------- */}
             <EnTeteFactures />
@@ -104,6 +103,8 @@ const Devis: React.FC = () => {
 
 
             {/* ----------------- Lignes cliquables ----------------- */}
+            {/* <h2 className="titre-annee-devis">2026</h2> */}
+          
             {devis.map((d) => (
               <div
                 key={d.id_devis}
