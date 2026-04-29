@@ -21,7 +21,7 @@ const NouveauDevis: React.FC = () => {
 
       <div className="page-contenu-nouvelle-facture">
         <HeaderNouveauDevis
-          surRetour={() => navigate("/facturation/factures")}
+          surRetour={() => navigate("/facturation/devis")}
         />
 
 
