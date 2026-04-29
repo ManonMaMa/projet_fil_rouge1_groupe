@@ -98,7 +98,6 @@ const Factures: React.FC = () => {
         <div className="zone-contenu-factures">
 
 
-          {/* 2026 */}
           <div className="section-annee-factures">
 
             {/* ---------------- En-tête du tableau ----------------- */}
@@ -108,7 +107,7 @@ const Factures: React.FC = () => {
 
             {/* ----------------- Lignes cliquables ----------------- */}
             {/* <h2 className="titre-annee-factures">2026</h2> */}
-            
+
             {/* ✅ LISTE DYNAMIQUE */}
             {factures.map((f) => (
               <div

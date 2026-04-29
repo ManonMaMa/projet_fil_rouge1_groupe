@@ -18,28 +18,23 @@
 /* Zone de contenu */
 .zone-contenu-clients {
   flex: 1;
-  padding: 24px 32px;
+  padding: 0px 32px;
   overflow-y: auto;
   height: 100%;
 }
 
 /* Section année */
-.section-annee {
+.section-annee-clients {
   margin-bottom: 32px;
 }
 
 /* Titre année */
-.titre-annee {
-  font-size: 30px;
+.titre-annee-clients {
+  font-size: 22px;
   font-weight: 600;
-  color: #141414;
+  color: var(--Principal);
   margin-bottom: 10px;
-
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 10;
-  padding-top: 10px;
+  padding: 8px 8px 12px 8px;
 }
 
 /* Responsive */
@@ -48,5 +43,3 @@
     padding: 16px 20px;
   }
 }
-
-

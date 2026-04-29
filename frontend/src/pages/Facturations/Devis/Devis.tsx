@@ -94,7 +94,6 @@ const Devis: React.FC = () => {
         <div className="zone-contenu-devis">
 
 
-          {/* 2026 */}
           <div className="section-annee-devis">
 
             {/* ---------------- En-tête du tableau ----------------- */}
