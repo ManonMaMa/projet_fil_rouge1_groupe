@@ -113,14 +113,14 @@ const NouveauClient: React.FC = () => {
 
                             <div className="input-information-client">
                                 <div className="client-ligne-1">
-                                    <Input label="Type de client" type="" placeholder="" />
+                                    <Input label="Type de client *" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
                                     <Input label="Nom *" name="nom_client" value={formData.nom_client} onChange={handleChange} type="" placeholder="" />
                                     <Input label="Prénom *" name="prenom_client" value={formData.prenom_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-3">
-                                    <Input label="Société" name="entreprise_client" value={formData.entreprise_client} onChange={handleChange} type="" placeholder="" />
+                                    <Input label="Société *" name="entreprise_client" value={formData.entreprise_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -139,16 +139,16 @@ const NouveauClient: React.FC = () => {
 
                             <div className="input-information-contact">
                                 <div className="client-ligne-1">
-                                    <Input label="Email" name="email_client" value={formData.email_client} onChange={handleChange} type="" placeholder="" />
-                                    <Input label="Téléphone" name="tel_client" value={formData.tel_client} onChange={handleChange} type="" placeholder="" />
+                                    <Input label="Email *" name="email_client" value={formData.email_client} onChange={handleChange} type="" placeholder="" />
+                                    <Input label="Téléphone *" name="tel_client" value={formData.tel_client} onChange={handleChange} type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
-                                    <Input label="Adresse Postale" name="adresse_postale_client" value={formData.adresse_postale_client} onChange={handleChange} type="" placeholder="75 rue de l'impasse" />
-                                    <Input label="Code Postal" name="code_postal_client" value={formData.code_postal_client} onChange={handleChange} type="" placeholder="75000" />
+                                    <Input label="Adresse Postale *" name="adresse_postale_client" value={formData.adresse_postale_client} onChange={handleChange} type="" placeholder="75 rue de l'impasse" />
+                                    <Input label="Code Postal *" name="code_postal_client" value={formData.code_postal_client} onChange={handleChange} type="" placeholder="75000" />
                                 </div>
                                 <div className="client-ligne-3">
-                                    <Input label="Ville" name="ville_client" value={formData.ville_client} onChange={handleChange} type="" placeholder="Paris" />
-                                    <Input label="Pays" name="pays_client" value={formData.pays_client} onChange={handleChange} type="" placeholder="France" />
+                                    <Input label="Ville *" name="ville_client" value={formData.ville_client} onChange={handleChange} type="" placeholder="Paris" />
+                                    <Input label="Pays *" name="pays_client" value={formData.pays_client} onChange={handleChange} type="" placeholder="France" />
                                 </div>
                             </div>
                         </div>
@@ -169,8 +169,8 @@ const NouveauClient: React.FC = () => {
 
                             <div className="input-information-client">
                                 <div className="client-ligne-1">
-                                    <Input label="Statut" type="" placeholder="" />
-                                    <Input label="Date de création" type="" placeholder="" />
+                                    <Input label="Statut *" type="" placeholder="" />
+                                    <Input label="Date de création *" type="" placeholder="" />
                                 </div>
                                 <div className="client-ligne-2">
                                     <TextArea label="Note interne" />
