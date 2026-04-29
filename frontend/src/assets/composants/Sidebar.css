@@ -161,27 +161,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Chevron animation */
 .chevron {
   margin-left: auto;
   transition: transform 0.3s ease;
-
-  /* Réinitialiser les styles qui pourraient être hérités */
   padding: 0 !important;
   margin: 0 !important;
   background: none !important;
@@ -197,7 +179,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-  padding-left: 20px;
+  padding-left: 0;
 }
 
 .sous-menu.open {
@@ -205,20 +187,36 @@
 }
 
 .sous-menu .onglet {
-  padding: 0.8vh 20px;
-  padding-left: 64px;
-  /* Aligné avec le texte parent */
+  padding: 5px 0px;
+  padding-left: 17% !important;
+  gap: 12px;
+}
+
+.sous-menu .onglet svg {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  margin: 0px 5px;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--text-secondaire);
+  flex-shrink: 0;
+}
+
+
+.sous-menu .onglet.active svg {
+  color: var(--Principal);
+  background-color: transparent !important;
 }
 
 .sous-menu .onglet p {
-  font-size: calc(var(--font-size-base) * 0.9);
-  font-size: 14px;
-
+  margin: 0;
+  line-height: 1;
+  font-size: 13px;
 }
 
 .sous-menu .onglet::before {
   width: 1px;
-  /* Barre plus fine pour les sous-éléments */
 }
 
 
