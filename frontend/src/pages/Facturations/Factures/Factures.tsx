@@ -100,7 +100,7 @@ const Factures: React.FC = () => {
 
           {/* 2026 */}
           <div className="section-annee-factures">
-            <h2 className="titre-annee-factures">2026</h2>
+            {/* <h2 className="titre-annee-factures">2026</h2> */}
 
             {/* ---------------- En-tête du tableau ----------------- */}
             <EnTeteFactures />
@@ -127,7 +127,11 @@ const Factures: React.FC = () => {
                   surOptions={(id) => console.log('Options', id)}
                 />
               </div>
+
+
             ))}
+
+
 
           </div>
         </div>
