@@ -53,7 +53,7 @@ function App() {
 
               <Route path="/facturation/factures" element={<Factures />} />
               <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />
-              <Route path="/facturation/factures/details" element={<DetailsFactures />} />
+              <Route path="/facturation/factures/details/:id" element={<DetailsFactures />} />
 
               <Route path="/parametres" element={<Parametres />} />
               

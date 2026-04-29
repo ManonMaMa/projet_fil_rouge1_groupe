@@ -1,7 +1,7 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from fastapi import HTTPException
 
-from app.devis.models import Devis
+from app.devis.models import Devis, DevisPrestation
 from app.devis.schemas import DevisCreate, DevisUpdate
 
 
@@ -17,7 +17,16 @@ def get_devis_by_user(db: Session, id_user: str):
 
 
 def get_devis_by_id(db: Session, id_devis: int):
-    devis = db.query(Devis).filter(Devis.id_devis == id_devis).first()
+    devis = (
+        db.query(Devis)
+        .options(
+            joinedload(Devis.client),
+            joinedload(Devis.prestations).joinedload(DevisPrestation.prestation)
+        )
+        .filter(Devis.id_devis == id_devis)
+        .first()
+    )
+
 
     if not devis:
         raise HTTPException(status_code=404, detail="Devis introuvable")

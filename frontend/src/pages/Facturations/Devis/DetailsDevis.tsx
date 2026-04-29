@@ -24,6 +24,15 @@ type DevisType = {
         adresse_postale_client: string;
         email_client: string;
     };
+
+    prestations?: {
+        id_prestation_fk: number;
+        duree_prestation: number;
+        prestation?: {
+            description_prestation: string;
+            montant_prestation: number;
+        };
+    }[];
 };
 
 
@@ -102,7 +111,29 @@ const DetailsDevis: React.FC = () => {
         setFormData(savedData);
     };
 
-    if (!formData) return <p>Chargement...</p>;    
+    if (!formData) return <p>Chargement...</p>;
+
+    const handleConvertToFacture = async () => {
+        if (!id) return;
+
+        try {
+            const res = await fetch(`http://localhost:8000/facturation/devis/${id}/convertir`, {
+                method: "POST"
+            });
+
+            if (!res.ok) throw new Error("Erreur conversion devis → facture");
+
+            const facture = await res.json();
+
+            console.log("📄 Facture créée :", facture);
+
+            navigate(`/facturation/factures/details/${facture.id_facture}`);
+
+        } catch (err) {
+            console.error("❌ Erreur conversion :", err);
+        }
+    };
+
 
     return (
 
@@ -139,6 +170,13 @@ const DetailsDevis: React.FC = () => {
                                 <BoutonDevisRefuse
                                     onClick={() => console.log('Devis refusé')}
                                 />
+                                <button
+                                    className="btn-convertir-facture"
+                                    onClick={handleConvertToFacture}
+                                >
+                                    Transformer en facture
+                                </button>
+
                             </div>
                         </div>
 
@@ -208,6 +246,36 @@ const DetailsDevis: React.FC = () => {
                                     description="Vendredi 28 Décembre 2026 à 09:14"
                                     count={1}
                                 />
+                            </div>
+                        </div>
+
+                        {/* Prestations */}
+                        <div className="details-devis-droite-devis">
+                            <div className="titre-section-details-devis">
+                                <h2>Prestations</h2>
+                            </div>
+
+                            <div className="table-prestations">
+                                <div className="table-header">
+                                    <span>Description</span>
+                                    <span>Durée</span>
+                                    <span>Prix unitaire</span>
+                                    <span>Total ligne</span>
+                                </div>
+
+                                {formData.prestations?.map((p, index) => {
+                                    const prix = p.prestation?.montant_prestation || 0;
+                                    const totalLigne = prix * p.duree_prestation;
+
+                                    return (
+                                        <div key={index} className="table-row">
+                                            <span>{p.prestation?.description_prestation || "—"}</span>
+                                            <span>{p.duree_prestation}</span>
+                                            <span>{prix.toFixed(2)} €</span>
+                                            <span>{totalLigne.toFixed(2)} €</span>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
 

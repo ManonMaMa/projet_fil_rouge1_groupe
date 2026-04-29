@@ -1,6 +1,17 @@
 from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric
 from sqlalchemy.orm import relationship
 from app.database import Base
+from app.prestation.models import Prestation
+
+class DevisPrestation(Base):
+    __tablename__ = "devis_prestation"
+
+    id_devis_fk = Column(Integer, ForeignKey("devis.id_devis"), primary_key=True)
+    id_prestation_fk = Column(Integer, ForeignKey("prestation.id_prestation"), primary_key=True)
+    duree_prestation = Column(Integer, nullable=False, default=1)
+
+    devis = relationship("Devis", back_populates="prestations")
+    prestation = relationship(Prestation)
 
 class Devis(Base):
     __tablename__ = "devis"
@@ -13,7 +24,7 @@ class Devis(Base):
     id_user_fk = Column(String(300), ForeignKey("utilisateur.id_user"), nullable=False)
     id_statut_fk = Column(Integer, ForeignKey("statut.id_statut"), nullable=False)
 
-    # 🔥 RELATIONS MANQUANTES (CAUSE DE TON BUG)
-
     client = relationship("Client", backref="devis")
     statut = relationship("Statut", backref="devis")
+
+    prestations = relationship("DevisPrestation", back_populates="devis", cascade="all, delete-orphan")

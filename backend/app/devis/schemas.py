@@ -1,7 +1,16 @@
 from pydantic import BaseModel
 from datetime import date
-from typing import Optional
+from typing import Optional, List
 from app.client.schemas import ClientResponse
+from app.prestation.schemas import PrestationBase
+
+class DevisPrestationOut(BaseModel):
+    id_prestation_fk: int
+    duree_prestation: int
+    prestation: Optional[PrestationBase]
+
+    class Config:
+        from_attributes = True
 
 
 class DevisBase(BaseModel):
@@ -35,6 +44,7 @@ class DevisOut(DevisBase):
 
     # 🔥 optionnel pour éviter crash
     client: Optional[ClientResponse] = None
+    prestations: List[DevisPrestationOut] = []
 
     class Config:
         from_attributes = True

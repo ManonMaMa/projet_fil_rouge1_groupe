@@ -1,7 +1,16 @@
 from pydantic import BaseModel
 from datetime import date
-from typing import Optional
+from typing import Optional, List
 from app.client.schemas import ClientResponse
+from app.prestation.schemas import PrestationBase
+
+class FacturePrestationOut(BaseModel):
+    id_prestation_fk: int
+    duree_prestation: int
+    prestation: Optional[PrestationBase]
+
+    class Config:
+        from_attributes = True
 
 
 class FactureBase(BaseModel):
@@ -23,6 +32,7 @@ class FactureOut(FactureBase):
 
     # 🔥 relation client (JOIN)
     client: Optional[ClientResponse] = None
+    prestations: List[FacturePrestationOut] = []
 
     class Config:
         from_attributes = True
