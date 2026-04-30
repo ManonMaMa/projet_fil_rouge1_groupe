@@ -7,24 +7,12 @@ from app.prestation.services import get_prestations_by_user, update_prestation
 
 router = APIRouter()
 
-@router.get("/prestations")
+@router.get("/prestations", response_model=list[PrestationResponse])
 def lire_prestations(db: Session = Depends(get_db)):
-    return db.query(Prestation).all()
-
-@router.get("/prestations/{id_user}", response_model=list[PrestationResponse])
-def lire_prestations(id_user: str, db: Session = Depends(get_db)):
-    
-    prestations = get_prestations_by_user(db, id_user)
-
-    if not prestations:
-        return {"erreur": "Aucune prestation trouvée"}
-
-    return prestations
-
+    return get_prestations_by_user(db)
 
 @router.put("/prestation/{id_prestation}", response_model=PrestationResponse)
-def modifier_prestation(id_prestation: str, data: PrestationUpdate, db: Session = Depends(get_db)):
-
+def modifier_prestation(id_prestation: int, data: PrestationUpdate, db: Session = Depends(get_db)):
     prestation = update_prestation(db, id_prestation, data)
 
     if not prestation:

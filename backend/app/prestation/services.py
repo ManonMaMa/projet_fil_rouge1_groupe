@@ -4,8 +4,8 @@ from app.prestation.schemas import PrestationCreate, PrestationUpdate
 
 
 # 🔹 Récupérer toutes les prestations d’un user
-def get_prestations_by_user(db: Session, id_user: str):
-    return db.query(Prestation).filter(Prestation.id_user_fk == id_user).all()
+def get_prestations_by_user(db: Session):
+    return db.query(Prestation).all()
 
 
 # 🔹 Récupérer une prestation par ID

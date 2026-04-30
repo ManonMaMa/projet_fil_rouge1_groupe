@@ -8,3 +8,4 @@ class Prestation(Base):
     id_prestation = Column(Integer, primary_key=True, index=True)
     description_prestation = Column(Text)
     montant_prestation = Column(Numeric(15, 2))
+    

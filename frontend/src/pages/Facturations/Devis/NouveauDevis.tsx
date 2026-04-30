@@ -15,12 +15,22 @@ const NouveauDevis: React.FC = () => {
     const [lignes, setLignes] = useState<any[]>([]);
 
     useEffect(() => {
-        const id_user = localStorage.getItem("id_user");
+      const id_user = localStorage.getItem("id_user");
 
-        fetch(`http://localhost:8000/prestations/${id_user}`)
-        .then(res => res.json())
-        .then(data => setPrestations(data));
-    }, []);
+      if (!id_user) return;
+
+      fetch(`http://localhost:8000/prestations`)
+          .then(res => res.json())
+          .then(data => {
+              if (Array.isArray(data)) {
+                  setPrestations(data);
+              } else {
+                  console.error("Erreur API :", data);
+                  setPrestations([]);
+              }
+          })
+          .catch(err => console.error("Erreur fetch :", err));
+      }, []);
 
     // Ajouter une ligne
     const ajouterLigne = () => {
@@ -48,6 +58,12 @@ const NouveauDevis: React.FC = () => {
 
     // Création d'un devis     
     const creerDevis = async () => {
+        const id_user = localStorage.getItem("id_user");
+
+        if (!id_user) {
+            alert("Utilisateur non connecté");
+            return;
+        }
 
         const devis = {
             numero_devis: "DEV-" + Date.now(),
@@ -66,11 +82,17 @@ const NouveauDevis: React.FC = () => {
             body: JSON.stringify(devis)
         });
 
+        if (!res.ok) {
+            const error = await res.text();
+            console.error("Erreur backend :", error);
+            throw new Error("Erreur création devis");
+        }
+
         const data = await res.json();
         console.log("✅ Devis créé :", data);
 
-        // redirection après création
         navigate("/facturation/devis");
+
     };
 
 
@@ -112,20 +134,20 @@ const NouveauDevis: React.FC = () => {
               <div key={index}>
 
                 <select
-                  onChange={(e) => {
-                    const prestation = prestations.find(
-                      p => p.id_prestation === Number(e.target.value)
-                    );
-                    modifierLigne(index, "prestation", prestation);
-                  }}
+                    onChange={(e) => {
+                        const prestation = prestations.find(
+                            p => p.id_prestation === Number(e.target.value)
+                        );
+                        modifierLigne(index, "prestation", prestation);
+                    }}
                 >
-                  <option>Choisir une prestation</option>
+                    <option>Choisir une prestation</option>
 
-                  {prestations.map(p => (
-                    <option key={p.id_prestation} value={p.id_prestation}>
-                      {p.description_prestation} - {p.montant_prestation}€
-                    </option>
-                  ))}
+                    {Array.isArray(prestations) && prestations.map(p => (
+                        <option key={p.id_prestation} value={p.id_prestation}>
+                            {p.description_prestation} - {p.montant_prestation}€
+                        </option>
+                    ))}
                 </select>
 
                 <input

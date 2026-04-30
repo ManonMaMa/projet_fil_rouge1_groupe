@@ -45,6 +45,7 @@ app.add_middleware(
 app.include_router(utilisateur_router)
 app.include_router(devis_router)
 app.include_router(facture_router)
+app.include_router(prestation_router)
 
 # ----- DEMARRAGE DE L'APPLICATION ------
 
