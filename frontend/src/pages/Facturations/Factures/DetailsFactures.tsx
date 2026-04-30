@@ -126,27 +126,41 @@ const DetailsFacture: React.FC = () => {
                                 <h2>Prestations</h2>
                             </div>
 
-                            <div className="table-prestations">
-                                <div className="table-header">
+                            <div className="prestations-table-wrapper">
+                                <div className="prestations-table-header">
                                     <span>Description</span>
-                                    <span>Durée</span>
+                                    <span>Durée (h)</span>
                                     <span>Prix unitaire</span>
-                                    <span>Total ligne</span>
+                                    <span>Total</span>
                                 </div>
 
-                                {facture.prestations?.map((p, index) => {
-                                    const prix = p.prestation?.montant_prestation || 0;
-                                    const totalLigne = prix * p.duree_prestation;
+                                {facture.prestations && facture.prestations.length > 0 ? (
+                                    facture.prestations.map((p, index) => {
+                                        const prix = p.prestation?.montant_prestation || 0;
+                                        const totalLigne = prix * p.duree_prestation;
 
-                                    return (
-                                        <div key={index} className="table-row">
-                                            <span>{p.prestation?.description_prestation || "—"}</span>
-                                            <span>{p.duree_prestation}</span>
-                                            <span>{prix.toFixed(2)} €</span>
-                                            <span>{totalLigne.toFixed(2)} €</span>
-                                        </div>
-                                    );
-                                })}
+                                        return (
+                                            <div key={index} className="prestations-table-row">
+                                                <span className="prestation-description">{p.prestation?.description_prestation || "—"}</span>
+                                                <span>{p.duree_prestation}h</span>
+                                                <span>{prix.toFixed(2)} €</span>
+                                                <span className="prestation-total-ligne">{totalLigne.toFixed(2)} €</span>
+                                            </div>
+                                        );
+                                    })
+                                ) : (
+                                    <div className="prestations-table-empty">Aucune prestation associée</div>
+                                )}
+
+                                <div className="prestations-table-total">
+                                    <span className="total-label">Total HT</span>
+                                    <span className="total-montant">
+                                        {(facture.prestations?.reduce((acc, p) => {
+                                            const prix = p.prestation?.montant_prestation || 0;
+                                            return acc + prix * p.duree_prestation;
+                                        }, 0) ?? 0).toFixed(2)} €
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

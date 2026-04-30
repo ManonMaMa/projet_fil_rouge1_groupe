@@ -25,6 +25,7 @@ import DetailsFactures from "./pages/Facturations/Factures/DetailsFactures"
 
 import Devis from "./pages/Facturations/Devis/Devis"
 import DetailsDevis from "./pages/Facturations/Devis/DetailsDevis"
+import NouveauDevis from "./pages/Facturations/Devis/NouveauDevis"
 
 import DetailsClients from "./pages/Clients/DetailsClients"
 import NouveauClient from "./pages/Clients/nouveauClient"
@@ -50,6 +51,8 @@ function App() {
 
               <Route path="/facturation/devis" element={<Devis />} />
               <Route path="/facturation/devis/details/:id" element={<DetailsDevis />} />
+              <Route path="/facturation/devis/nouveau" element={<NouveauDevis />} />
+
 
               <Route path="/facturation/factures" element={<Factures />} />
               <Route path="/facturation/factures/nouvelle" element={<NouvelleFacture />} />
