@@ -13,6 +13,8 @@ const NouveauDevis: React.FC = () => {
     
     const [prestations, setPrestations] = useState<any[]>([]);
     const [lignes, setLignes] = useState<any[]>([]);
+    const [clients, setClients] = useState<any[]>([]);
+    const [clientSelectionne, setClientSelectionne] = useState<any>(null);
 
     useEffect(() => {
       const id_user = localStorage.getItem("id_user");
@@ -30,6 +32,23 @@ const NouveauDevis: React.FC = () => {
               }
           })
           .catch(err => console.error("Erreur fetch :", err));
+      }, []);
+
+      useEffect(() => {
+          const id_user = localStorage.getItem("id_user");
+
+          if (!id_user) return;
+
+          fetch(`http://localhost:8000/clients/${id_user}`)
+              .then(res => res.json())
+              .then(data => {
+                  if (Array.isArray(data)) {
+                      setClients(data);
+                  } else {
+                      setClients([]);
+                  }
+              })
+              .catch(err => console.error("Erreur clients :", err));
       }, []);
 
     // Ajouter une ligne
@@ -69,7 +88,7 @@ const NouveauDevis: React.FC = () => {
             numero_devis: "DEV-" + Date.now(),
             date_devis: new Date().toISOString().split("T")[0],
             montant_total_devis: totalTTC,
-            id_client_fk: 1, // ⚠️ à remplacer plus tard
+            id_client_fk: clientSelectionne?.id_client,
             id_user_fk: localStorage.getItem("id_user"),
             id_statut_fk: 1
         };
@@ -115,11 +134,49 @@ const NouveauDevis: React.FC = () => {
           <div className="ligne-1-nouvelle-facture">
             <div className="ligne-1-contenu-gauche-nouvelle-facture">
               <h2>Client</h2>
+              <select
+                  onChange={(e) => {
+                      const client = clients.find(
+                          c => c.id_client === Number(e.target.value)
+                      );
+                      setClientSelectionne(client);
+                  }}
+              >
+                  <option value="">Choisir un client</option>
 
-              <Input label="Nom / Société" type="" placeholder="" />
-              <Input label="Adresse" type="" placeholder="" />
-              <Input label="Email" type="" placeholder="" />
-              <Input label="Numéro Client" type="" placeholder="" />
+                  {clients.map(c => (
+                      <option key={c.id_client} value={c.id_client}>
+                          {c.nom_client} {c.prenom_client}
+                      </option>
+                  ))}
+              </select>
+
+              <Input
+                  label="Nom / Société"
+                  value={
+                      clientSelectionne?.entreprise_client ||
+                      `${clientSelectionne?.nom_client || ""} ${clientSelectionne?.prenom_client || ""}`
+                  }
+                  readOnly
+              />
+
+              <Input
+                  label="Adresse"
+                  value={clientSelectionne?.adresse_postale_client || ""}
+                  readOnly
+              />
+
+              <Input
+                  label="Email"
+                  value={clientSelectionne?.email_client || ""}
+                  readOnly
+              />
+
+              <Input
+                  label="Numéro Client"
+                  value={clientSelectionne?.id_client || ""}
+                  readOnly
+              />
             </div>
           </div>
 
