@@ -72,16 +72,16 @@ const DetailsFacture: React.FC = () => {
                     surRetour={() => navigate("/facturation/factures")}
                 />
 
-                <div className="zone-contenu-details-devis">
+                <div className="zone-contenu-details-factures">
 
-                    <div className="details-devis-gauche">
+                    <div className="details-factures-gauche">
                     </div>
 
-                    <div className="details-devis-droite">
+                    <div className="details-factures-droite">
 
                         {/* Client */}
-                        <div className="details-devis-droite-client">
-                            <div className="titre-section-details-devis">
+                        <div className="details-factures-droite-client">
+                            <div className="titre-section-client">
                                 <h2>Client</h2>
                             </div>
 
@@ -92,36 +92,36 @@ const DetailsFacture: React.FC = () => {
                                         facture.client?.entreprise_client ||
                                         `${facture.client?.nom_client || ""} ${facture.client?.prenom_client || ""}`
                                     }
-                                    readOnly
+                                    readOnly style={{ cursor: "default" }}
                                 />
-                                <Input label="Référence client" value={facture.id_client_fk.toString()} readOnly />
+                                <Input label="Référence client" value={facture.id_client_fk.toString()} readOnly style={{ cursor: "default" }} />
                             </div>
 
                             <div className="ligne-2">
-                                <Input label="Adresse" value={facture.client?.adresse_postale_client || ""} readOnly />
-                                <Input label="Email" value={facture.client?.email_client || ""} readOnly />
+                                <Input label="Adresse" value={facture.client?.adresse_postale_client || ""} readOnly style={{ cursor: "default" }} />
+                                <Input label="Email" value={facture.client?.email_client || ""} readOnly style={{ cursor: "default" }} />
                             </div>
                         </div>
 
                         {/* Facture */}
-                        <div className="details-devis-droite-devis">
-                            <div className="titre-section-details-devis">
+                        <div className="details-factures-droite-factures">
+                            <div className="titre-section-factures">
                                 <h2>Facture</h2>
                             </div>
 
                             <div className="ligne-1">
-                                <Input label="Numéro" value={facture.numero_facture} readOnly />
-                                <Input label="Date d'émission" value={facture.date_facture} readOnly />
+                                <Input label="Numéro" value={facture.numero_facture} readOnly style={{ cursor: "default" }} />
+                                <Input label="Date d'émission" value={facture.date_facture} readOnly style={{ cursor: "default" }} />
                             </div>
 
                             <div className="ligne-2">
-                                <Input label="Date d'échéance" value={facture.echeance_facture} readOnly />
-                                <Input label="Montant HT" value={facture.montant_total_facture.toString()} readOnly />
+                                <Input label="Date d'échéance" value={facture.echeance_facture} readOnly style={{ cursor: "default" }} />
+                                <Input label="Montant HT" value={facture.montant_total_facture.toString()} readOnly style={{ cursor: "default" }} />
                             </div>
                         </div>
 
                         {/* Prestations */}
-                        <div className="details-devis-droite-devis">
+                        <div className="details-factures-droite-factures">
                             <div className="titre-section-details-devis">
                                 <h2>Prestations</h2>
                             </div>
@@ -169,5 +169,6 @@ const DetailsFacture: React.FC = () => {
         </div>
     );
 };
+
 
 export default DetailsFacture;
