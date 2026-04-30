@@ -19,8 +19,14 @@ def details_devis(id_devis: int, db: Session = Depends(get_db)):
 
 
 @router.post("", response_model=DevisOut)
-def ajouter_devis(devis_data: DevisCreate, db: Session = Depends(get_db)):
-    return create_devis(db, devis_data)
+def create_devis(data: DevisCreate, db: Session = Depends(get_db)):
+    nouveau = Devis(**data.model_dump())
+
+    db.add(nouveau)
+    db.commit()
+    db.refresh(nouveau)
+
+    return nouveau
 
 
 @router.patch("/{id_devis}", response_model=DevisOut)

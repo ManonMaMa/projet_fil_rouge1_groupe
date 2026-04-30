@@ -7,6 +7,9 @@ from app.prestation.services import get_prestations_by_user, update_prestation
 
 router = APIRouter()
 
+@router.get("/prestations")
+def lire_prestations(db: Session = Depends(get_db)):
+    return db.query(Prestation).all()
 
 @router.get("/prestations/{id_user}", response_model=list[PrestationResponse])
 def lire_prestations(id_user: str, db: Session = Depends(get_db)):

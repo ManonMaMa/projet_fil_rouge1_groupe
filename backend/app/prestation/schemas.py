@@ -15,3 +15,8 @@ class PrestationCreate(BaseModel):
 
 class PrestationUpdate(PrestationCreate):
     pass
+
+class PrestationResponse(BaseModel):
+    id_prestation: int
+    description_prestation: str
+    montant_prestation: float
