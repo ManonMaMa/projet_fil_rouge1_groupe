@@ -40,7 +40,7 @@
 .entete-clients__label {
     font-size: 11px;
     font-weight: 600;
-    color: #b0b0b0;
+    color: var(--Principal);
     white-space: nowrap;
     user-select: none;
     letter-spacing: 0.06em;
