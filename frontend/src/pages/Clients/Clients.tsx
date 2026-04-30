@@ -85,14 +85,19 @@ const Clients: React.FC = () => {
 
 
 
-                {/* Zone principale du contenu de la page ici */}
+                {/* ----------------- Contenu principal ----------------- */}
                 <div className="zone-contenu-clients">
 
 
-                    {/* Section de la première année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2026</h2>
+                    <div className="section-annee-clients">
+
+                        {/* ---------------- En-tête du tableau ----------------- */}
                         <EnTeteClients />
+                        {/* ----------------------------------------------------- */}
+
+
+                        {/* ----------------- Lignes cliquables ----------------- */}
+                        {/* <h2 className="titre-annee-clients">2026</h2> */}
 
                         {clients.map((client) => (
                             <div

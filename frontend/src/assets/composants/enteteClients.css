@@ -1,23 +1,21 @@
 .entete-clients {
     display: grid;
     grid-template-columns:
-        15% 
-        16% 
-        16% 
-        16% 
-        16% 
-        16% 
-        5%;
+        15% 16% 16% 16% 16% 16% 5%;
     align-items: center;
     justify-items: center;
-    min-height: 60px;
+    min-height: 80px;
     min-width: 1202px;
     padding: 0 8px;
 
-    /* Reste visible en haut du conteneur scrollable */
+
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
+
+    background-color: var(--Blanc);
+    border-bottom: 1px solid var(--Couleur-fond);
+    margin-bottom: 10px;
 }
 
 
@@ -40,12 +38,13 @@
 
 /* Label */
 .entete-clients__label {
-    font-size: 12.5px;
-    font-weight: 500;
-    color: #717171;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--Principal);
     white-space: nowrap;
     user-select: none;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 
@@ -63,13 +62,9 @@
             36px 1fr 100px 70px;
     }
 
-    /* Masque les mêmes colonnes que LigneFacture en mobile */
     .entete-clients__cellule:nth-child(3),
-    /* Numéro */
     .entete-clients__cellule:nth-child(6),
-    /* Échéance */
     .entete-clients__cellule:nth-child(7) {
-        /* Montant TTC */
         display: none;
     }
 }
