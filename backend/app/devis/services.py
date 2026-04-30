@@ -8,6 +8,10 @@ from app.devis.schemas import DevisCreate, DevisUpdate
 def get_devis_by_user(db: Session, id_user: str):
     devis = (
         db.query(Devis)
+        .options(
+            joinedload(Devis.client),
+            joinedload(Devis.statut),
+        )
         .filter(Devis.id_user_fk == id_user)
         .all()
     )
@@ -21,6 +25,7 @@ def get_devis_by_id(db: Session, id_devis: int):
         db.query(Devis)
         .options(
             joinedload(Devis.client),
+            joinedload(Devis.statut),
             joinedload(Devis.prestations).joinedload(DevisPrestation.prestation)
         )
         .filter(Devis.id_devis == id_devis)

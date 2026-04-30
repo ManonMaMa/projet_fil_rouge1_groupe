@@ -30,6 +30,7 @@ class Facture(Base):
     client = relationship("Client", backref="facture")
     statut = relationship("Statut", backref="facture")
 
+
     prestations = relationship(
         "FacturePrestation",
         back_populates="facture",

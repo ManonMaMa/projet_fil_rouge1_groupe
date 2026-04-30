@@ -11,7 +11,7 @@ from app.prestation.models import Prestation
 def get_factures_by_user(db: Session, id_user: str):
     return (
         db.query(Facture)
-        .options(joinedload(Facture.client))  # 🔥 pour récupérer le client
+        .options(joinedload(Facture.client), joinedload(Facture.statut))  # 🔥 pour récupérer le client
         .filter(Facture.id_user_fk == id_user)
         .all()
     )
@@ -23,6 +23,7 @@ def get_facture_by_id(db: Session, id_facture: int):
         db.query(Facture)
         .options(
             joinedload(Facture.client),
+            joinedload(Facture.statut),
             joinedload(Facture.prestations).joinedload(FacturePrestation.prestation)
         )
         .filter(Facture.id_facture == id_facture)
@@ -52,7 +53,7 @@ def convertir_devis_en_facture_service(id_devis: int, db: Session):
         montant_total_facture=devis.montant_total_devis,
         id_client_fk=devis.id_client_fk,
         id_user_fk=devis.id_user_fk,
-        id_statut_fk=1
+        id_statut_fk=5
     )
 
     db.add(facture)

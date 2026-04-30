@@ -117,7 +117,7 @@ const Devis: React.FC = () => {
                   clientFournisseur={d.client?.nom_client}
                   echeance="—"
                   montantTTC={d.montant_total_devis + " €"}
-                  statut="en_attente"
+                  statut={d.statut?.nom_statut}
                   surFavoris={(id) => console.log('Favoris', id)}
                   surOptions={(id) => console.log('Options', id)}
                 />

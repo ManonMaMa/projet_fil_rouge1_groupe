@@ -1,33 +1,36 @@
-import React from 'react';
-import Header from './headerDashboard'; // Import header dashboard
-import Sidebar from "../../assets/composants/Sidebar" // Import SideBar
-import './Dashboard.css'; // CSS de la page dashboard
+import React, { useEffect, useState } from "react";
+import Header from "./headerDashboard";
+import Sidebar from "../../assets/composants/Sidebar";
+import "./Dashboard.css";
 
-
-
-// Composant principal des Documents
 const Dashboard: React.FC = () => {
+    // 🔹 États pour les stats
+    const [totalDevisAcceptes, setTotalDevisAcceptes] = useState(0);
+    const [totalFacturesNonPayees, setTotalFacturesNonPayees] = useState(0);
+    const [totalFacturesPayees, setTotalFacturesPayees] = useState(0);
 
-    // Définition des onglets de navigations pour le header
-    const Onglets = [
-        { id: 'tous', etiquette: 'Tous', compteur: 45 },
-        { id: 'recents', etiquette: 'Récents', compteur: 5 },
-        { id: 'favoris', etiquette: 'Favoris', compteur: 3 }
-    ];
+    // 🔹 Chargement des stats
+    const fetchStats = async () => {
+        const userId = "u001"; // à remplacer par ton vrai user connecté
 
-    // Fonction appelée lorsqu'un onglet est sélectionné
-    const changementOnglet = (tabId: string) => {
-        console.log('Onglet remplacé par :', tabId);
-        // [Ajouter la logique pour filtrer les documents selon l'onglet]
+        try {
+            const [dA, fNP, fP] = await Promise.all([
+                fetch(`http://localhost:8000/facturation/stats/devis-acceptes?id_user=${userId}`).then(r => r.json()),
+                fetch(`http://localhost:8000/facturation/stats/factures-non-payees?id_user=${userId}`).then(r => r.json()),
+                fetch(`http://localhost:8000/facturation/stats/factures-payees?id_user=${userId}`).then(r => r.json())
+            ]);
+
+            setTotalDevisAcceptes(dA.total);
+            setTotalFacturesNonPayees(fNP.total);
+            setTotalFacturesPayees(fP.total);
+        } catch (e) {
+            console.error("Erreur chargement stats dashboard :", e);
+        }
     };
 
-    // Fonction déclanchée pour créer un nouvel evénement
-    const NouvelleFacture = () => {
-        console.log('Créer un nouvel evénement');
-        // [Ajouter la logique pour créer un nouvel evénement
-    };
-
-
+    useEffect(() => {
+        fetchStats();
+    }, []);
 
     return (
         <div className="page-conteneur">
@@ -39,43 +42,25 @@ const Dashboard: React.FC = () => {
                 {/* Header */}
                 <Header
                     titre="Dashboard"                           // changer le titre de la page
-                    onglets={Onglets}                           // Onglets à afficher
-                    ongletActif="tous"                          // ID de l'onglet actif par défaut
-                    surChangementOnglet={changementOnglet}      // callback pour changement d'onglet
-                    afficherBasculeFiltre={true}                // affiche le bouton bascule filtre
-                    nouvelElement={NouvelleFacture}             // callback pour créer une nouvelle facture
-                    texteBoutonNouvelElement="Nouveau Document" // Texte du bouton
                 />
-
-
 
                 {/* Zone principale du contenu de la page ici */}
                 <div className="zone-contenu">
+                    <div className="dashboard-cards">
+                        <div className="dashboard-card">
+                            <h3>Devis acceptés</h3>
+                            <p>{totalDevisAcceptes.toFixed(2)} €</p>
+                        </div>
 
-                    {/* Section de la première année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2026</h2>
-                        {/* liste des documents ici */}
-                        <p>Devis 1</p>
-                        <p>Devis 2</p>
-                        <p>Devis 3</p>
-                        <p>Devis 4</p>
-                        <p>Devis 5</p>
-                        <p>Devis 6</p>
-                        <p>Devis 7</p>
-                    </div>
+                        <div className="dashboard-card">
+                            <h3>Factures non payées</h3>
+                            <p>{totalFacturesNonPayees.toFixed(2)} €</p>
+                        </div>
 
-                    {/* Section de la duexième année */}
-                    <div className="section-annee">
-                        <h2 className="titre-annee">2025</h2>
-                        {/* Liste des documents ici */}
-                        <p>Devis 1</p>
-                        <p>Devis 2</p>
-                        <p>Devis 3</p>
-                        <p>Devis 4</p>
-                        <p>Devis 5</p>
-                        <p>Devis 6</p>
-                        <p>Devis 7</p>
+                        <div className="dashboard-card">
+                            <h3>Factures payées</h3>
+                            <p>{totalFacturesPayees.toFixed(2)} €</p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ class DevisPrestation(Base):
 
     devis = relationship("Devis", back_populates="prestations")
     prestation = relationship(Prestation)
+    statut = relationship("Statut", backref="devis")
 
 class Devis(Base):
     __tablename__ = "devis"

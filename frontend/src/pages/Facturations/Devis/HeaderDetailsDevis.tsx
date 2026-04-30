@@ -9,7 +9,7 @@ interface ProprieteHeaderDetailsDevis {
     surRetour?: () => void;                // Callback bouton retour
     surApercu?: () => void;                // Callback bouton aperçu
     surEnregistrerBrouillon?: () => void;  // Callback enregistrer en brouillon
-    surEmettre?: () => void;               // Callback émettre la facture
+    surEmettreDevis?: () => void;               // Callback émettre la facture
     estFavori?: boolean;                   // État favori
     surBasculesFavori?: () => void;        // Callback bascule favori
 }

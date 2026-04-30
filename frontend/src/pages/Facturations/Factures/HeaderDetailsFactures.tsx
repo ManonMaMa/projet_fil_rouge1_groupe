@@ -9,7 +9,7 @@ interface ProprieteHeaderDetailsFactures {
     surRetour?: () => void;                // Callback bouton retour
     surApercu?: () => void;                // Callback bouton aperçu
     surEnregistrerBrouillon?: () => void;  // Callback enregistrer en brouillon
-    surEmettre?: () => void;               // Callback émettre la facture
+    surEmettreFacture?: () => void;               // Callback émettre la facture
     estFavori?: boolean;                   // État favori
     surBasculesFavori?: () => void;        // Callback bascule favori
 }
@@ -20,7 +20,7 @@ const HeaderDetailsFactures: React.FC<ProprieteHeaderDetailsFactures> = ({
     titre = '',
     sousTitre = '',
     surRetour,
-    surEmettreDevis,
+    surEmettreFacture,
     estFavori = false,
     surBasculesFavori,
 }) => {
@@ -106,7 +106,7 @@ const HeaderDetailsFactures: React.FC<ProprieteHeaderDetailsFactures> = ({
 
 
                     {/* Bouton Télécharger le PDF */}
-                    <button className="header-details-factures-btn-emettre" onClick={surEmettreDevis}
+                    <button className="header-details-factures-btn-emettre" onClick={surEmettreFacture}
                         aria-label="Émettre la devis">
                         {/* Icône émettre */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

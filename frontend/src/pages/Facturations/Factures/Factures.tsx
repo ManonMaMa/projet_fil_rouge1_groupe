@@ -122,7 +122,7 @@ const Factures: React.FC = () => {
                   clientFournisseur={f.client?.nom_client}
                   echeance={f.date_echeance || "—"}
                   montantTTC={f.montant_total_facture + " €"}
-                  statut={f.statut || "en_attente"}
+                  statut={f.statut?.nom_statut}
                   surFavoris={(id) => console.log('Favoris', id)}
                   surOptions={(id) => console.log('Options', id)}
                 />
