@@ -86,7 +86,11 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
     surFavoris,
     surOptions,
 }) => {
-    const config = configStatuts[statut];
+    const config = configStatuts[statut] ?? {
+    icone: null,
+    libelle: "Inconnu",
+    classe: "statut--inconnu"
+};
 
     return (
         <div className={`ligne-facture 'ligne-facture--selectionnee' : ''}`}>
