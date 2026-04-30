@@ -9,7 +9,7 @@ interface ProprieteHeaderDetailsDevis {
     surRetour?: () => void;                // Callback bouton retour
     surApercu?: () => void;                // Callback bouton aperçu
     surEnregistrerBrouillon?: () => void;  // Callback enregistrer en brouillon
-    surEmettre?: () => void;               // Callback émettre la facture
+    surTransformerEnFacture?: () => void;  // Callback transformer en facture
     estFavori?: boolean;                   // État favori
     surBasculesFavori?: () => void;        // Callback bascule favori
 }
@@ -20,7 +20,7 @@ const HeaderDetailsDevis: React.FC<ProprieteHeaderDetailsDevis> = ({
     titre = 'Devis',
     sousTitre = '',
     surRetour,
-    surEmettreDevis,
+    surTransformerEnFacture,
     estFavori = false,
     surBasculesFavori,
 }) => {
@@ -105,15 +105,14 @@ const HeaderDetailsDevis: React.FC<ProprieteHeaderDetailsDevis> = ({
 
 
 
-                    {/* Bouton Émettre le devis */}
-                    <button className="header-details-devis-btn-emettre" onClick={surEmettreDevis}
-                        aria-label="Émettre la devis">
-                        {/* Icône émettre */}
+                    {/* Bouton Transformer en facture */}
+                    <button className="header-details-devis-btn-emettre" onClick={surTransformerEnFacture}
+                        aria-label="Transformer en facture">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 24 24" >
                             <path d="M4 18h16v2H4zm7-15v7H7l5 6 5-6h-4V3z"></path>
                         </svg>
-                        Émettre le devis
+                        Transformer en facture
                     </button>
 
                 </div>

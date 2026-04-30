@@ -111,8 +111,6 @@ const DetailsDevis: React.FC = () => {
         setFormData(savedData);
     };
 
-    if (!formData) return <p>Chargement...</p>;
-
     const handleConvertToFacture = async () => {
         if (!id) return;
 
@@ -134,6 +132,8 @@ const DetailsDevis: React.FC = () => {
         }
     };
 
+    if (!formData) return <p>Chargement...</p>;
+
 
     return (
 
@@ -146,6 +146,7 @@ const DetailsDevis: React.FC = () => {
                     titre="Devis"
                     sousTitre={formData.numero_devis}
                     surRetour={() => navigate("/facturation/devis")}
+                    surTransformerEnFacture={handleConvertToFacture}
                 />
 
                 <div className="zone-contenu-details-devis">
@@ -170,13 +171,6 @@ const DetailsDevis: React.FC = () => {
                                 <BoutonDevisRefuse
                                     onClick={() => console.log('Devis refusé')}
                                 />
-                                <button
-                                    className="btn-convertir-facture"
-                                    onClick={handleConvertToFacture}
-                                >
-                                    Transformer en facture
-                                </button>
-
                             </div>
                         </div>
 
