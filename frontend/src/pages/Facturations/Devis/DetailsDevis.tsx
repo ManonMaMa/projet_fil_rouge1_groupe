@@ -190,13 +190,13 @@ const DetailsDevis: React.FC = () => {
 
                             <div className="ligne-1">
                                 <Input label="Nom / Société" value={formData.client?.entreprise_client || 
-                                    `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`} readOnly type="" placeholder="" />
-                                <Input label="Référence client" value={formData.id_client_fk.toString()} readOnly />
+                                    `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`} readOnly type="" placeholder="" style={{ cursor: "default" }} />
+                                <Input label="Référence client" value={formData.id_client_fk.toString()} readOnly style={{ cursor: "default" }} />
                             </div>
 
                             <div className="ligne-2">
-                                <Input label="Adresse" value={formData.client?.adresse_postale_client || ""} readOnly />
-                                <Input label="Email" value={formData.client?.email_client || ""} readOnly />
+                                <Input label="Adresse" value={formData.client?.adresse_postale_client || ""} readOnly style={{ cursor: "default" }} />
+                                <Input label="Email" value={formData.client?.email_client || ""} readOnly style={{ cursor: "default" }} />
                             </div>
                         </div>
 
@@ -258,7 +258,7 @@ const DetailsDevis: React.FC = () => {
                             <div className="prestations-table-wrapper">
                                 <div className="prestations-table-header">
                                     <span>Description</span>
-                                    <span>Durée (h)</span>
+                                    <span>Durée</span>
                                     <span>Prix unitaire</span>
                                     <span>Total</span>
                                 </div>

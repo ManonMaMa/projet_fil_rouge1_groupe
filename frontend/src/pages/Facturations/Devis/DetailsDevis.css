@@ -2,7 +2,7 @@
     display: flex;
     height: 100vh;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: var(--Blanc);
 }
 
 .page-contenu {
@@ -80,7 +80,7 @@
 .titre-section-client h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #141414;
+    color: var(--Principal);
     margin-bottom: 1%;
 }
 
@@ -95,7 +95,7 @@
 .titre-section-devis h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #141414;
+    color: var(--Principal);
     margin-bottom: 1%;
 }
 
@@ -110,7 +110,7 @@
 .titre-section-historique h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #141414;
+    color: var(--Principal);
     margin-bottom: 1%;
 }
 
@@ -160,6 +160,10 @@
     gap: 21px;
 }
 
+/* Inputs sans bordures */
+.details-devis-droite .input-field {
+    border: none;
+}
 
 /* -------- TABLE PRESTATIONS -------- */
 
@@ -240,7 +244,7 @@
 .total-montant {
     font-size: 16px;
     font-weight: 700;
-    color: #111827;
+    color: var(--Principal);
 }
 
 /* ------------------------------------- */

@@ -9,6 +9,9 @@ from app.utilisateur.schemas import UtilisateurCreate, UtilisateurUpdate
 from app.client.models import Client
 from app.client.schemas import ClientCreate
 
+from app.devis.models import Devis
+from app.devis.schemas import DevisCreate
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,6 +21,7 @@ from app.utilisateur.routers import router as utilisateur_router
 from app.devis.routers import router as devis_router
 from app.facture.routers import router as facture_router
 from app.dashboard.stats import router as stats_router
+from app.prestation.routers import router as prestation_router
 
 class Inscription(BaseModel):
     email_user: str
@@ -38,12 +42,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Charger les routes utilisateur
+# Charger les différentes routes
 app.include_router(utilisateur_router)
 app.include_router(devis_router)
 app.include_router(facture_router)
 app.include_router(stats_router)
-
+app.include_router(prestation_router)
 
 # ----- DEMARRAGE DE L'APPLICATION ------
 
@@ -167,7 +171,7 @@ def inscription(
     }
 
 
-# ----- MISE A JOUR ------
+# ----- MISE A JOUR DE L'UTILISATEUR ------
 
 @app.put("/user/update/{id_user}")
 def update_user(

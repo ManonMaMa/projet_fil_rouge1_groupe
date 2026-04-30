@@ -116,9 +116,17 @@ function Sidebar() {
                     {/* Sous-menu */}
                     <div className={`sous-menu ${isFacturationOpen ? 'open' : ''}`}>
                         <Link to="/facturation/factures" className={isActive("/facturation/factures")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="currentColor" viewBox="0 0 24 24" >
+                                <path d="M19 21H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2M5 5v14h14V5z"></path><path d="M7 7h10v2H7z"></path>
+                            </svg>
                             <p>Factures</p>
                         </Link>
                         <Link to="/facturation/devis" className={isActive("/facturation/devis")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="currentColor" viewBox="0 0 24 24" >
+                                <path d="M19 21H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2M5 5v14h14V5z"></path><path d="M7 7h2v10H7z"></path>
+                            </svg>
                             <p>Devis</p>
                         </Link>
                     </div>
