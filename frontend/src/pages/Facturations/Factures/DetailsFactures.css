@@ -160,8 +160,7 @@
 }
 
 
-/* -------- INPUTS EN LECTURE SEULE (sans bordure) -------- */
-
+/* Inputs sans bordures */
 .details-factures-droite .input-field {
     border: none;
 }
