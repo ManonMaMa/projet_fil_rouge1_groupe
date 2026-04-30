@@ -1,6 +1,6 @@
 .unsaved-bar {
     position: fixed;
-    bottom: 32px;
+    top: 32px;
     left: 50%;
     transform: translateX(-50%) translateY(120%);
     display: flex;

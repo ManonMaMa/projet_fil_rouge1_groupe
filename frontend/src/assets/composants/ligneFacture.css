@@ -12,15 +12,19 @@
   background-color: #ffffff;
   transition: background-color 0.15s ease;
   margin-bottom: 1%;
-  opacity: 0;
-  transform: translateY(10px);
   animation: apparitionLigne 0.35s ease forwards;
 }
 
 @keyframes apparitionLigne {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
   to {
     opacity: 1;
     transform: translateY(0);
+
   }
 }
 
