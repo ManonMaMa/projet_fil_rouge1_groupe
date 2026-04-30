@@ -129,7 +129,7 @@ const DetailsFacture: React.FC = () => {
                             <div className="prestations-table-wrapper">
                                 <div className="prestations-table-header">
                                     <span>Description</span>
-                                    <span>Durée (h)</span>
+                                    <span>Durée</span>
                                     <span>Prix unitaire</span>
                                     <span>Total</span>
                                 </div>
