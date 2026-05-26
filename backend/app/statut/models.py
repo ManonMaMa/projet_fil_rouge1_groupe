@@ -5,3 +5,4 @@ class Statut(Base):
     __tablename__ = "statut"
 
     id_statut = Column(Integer, primary_key=True, index=True)
+    nom_statut = Column(String(50), nullable=False)

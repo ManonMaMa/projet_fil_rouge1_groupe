@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from datetime import date
 from typing import Optional, List
 from app.client.schemas import ClientResponse
+from app.statut.schemas import StatutOut
 from app.prestation.schemas import PrestationBase
 
 class DevisPrestationOut(BaseModel):
@@ -44,6 +45,7 @@ class DevisOut(DevisBase):
 
     # 🔥 optionnel pour éviter crash
     client: Optional[ClientResponse] = None
+    statut: Optional[StatutOut] = None
     prestations: List[DevisPrestationOut] = []
 
     class Config:

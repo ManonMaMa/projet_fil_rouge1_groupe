@@ -201,7 +201,7 @@ const DetailsClients: React.FC = () => {
                                 clientFournisseur="Victor Albert"
                                 echeance="31/01/2026"
                                 montantTTC="1 150 €"
-                                statut="paye"
+                                statut="payee"
                                 surFavoris={(id) => console.log('Voir', id)}
                                 surOptions={(id) => console.log('Options', id)}
                             />
@@ -213,7 +213,7 @@ const DetailsClients: React.FC = () => {
                                 clientFournisseur="Victor Albert"
                                 echeance="31/01/2025"
                                 montantTTC="1 150 €"
-                                statut="annule"
+                                statut="non_payee"
                                 surFavoris={(id) => console.log('Voir', id)}
                                 surOptions={(id) => console.log('Options', id)}
                             />
@@ -230,7 +230,7 @@ const DetailsClients: React.FC = () => {
                                 clientFournisseur="Victor Albert"
                                 echeance="31/01/2026"
                                 montantTTC="1 150 €"
-                                statut="paye"
+                                statut="payee"
                                 surFavoris={(id) => console.log('Voir', id)}
                                 surOptions={(id) => console.log('Options', id)}
                             />
@@ -242,7 +242,7 @@ const DetailsClients: React.FC = () => {
                                 clientFournisseur="Victor Albert"
                                 echeance="31/01/2026"
                                 montantTTC="1 150 €"
-                                statut="annule"
+                                statut="non_payee"
                                 surFavoris={(id) => console.log('Voir', id)}
                                 surOptions={(id) => console.log('Options', id)}
                             />

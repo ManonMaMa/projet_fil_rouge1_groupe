@@ -3,7 +3,7 @@ import './ligneFacture.css';
 
 
 // Types de statut disponibles
-type Statut = 'en_attente' | 'annule' | 'paye';
+type Statut = 'en_attente' | 'non_payee' | 'payee' | 'refuse' | 'accepte';
 
 
 interface LigneFactureProps {
@@ -34,25 +34,47 @@ const configStatuts: Record<Statut, { icone: React.ReactNode; libelle: string; c
         classe: 'statut--en-attente',
     },
 
-    annule: {
+    refuse: {
+        icone: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                fill="currentColor" viewBox="0 0 24 24" >
+                <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"></path><path d="M13 6h-2v6c0 .18.05.35.13.5l3 5.2 1.73-1-2.87-4.96V6.01Z"></path>
+            </svg>
+        ),
+        libelle: 'Refusé',
+        classe: 'statut--en-attente',
+    },
+
+    accepte: {
+        icone: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                fill="currentColor" viewBox="0 0 24 24" >
+                <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"></path><path d="M13 6h-2v6c0 .18.05.35.13.5l3 5.2 1.73-1-2.87-4.96V6.01Z"></path>
+            </svg>
+        ),
+        libelle: 'Accepté',
+        classe: 'statut--en-attente',
+    },
+
+    non_payee: {
         icone: (
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
                 <path d="m7.76 14.83-2.83 2.83 1.41 1.41 2.83-2.83 2.12-2.12.71-.71.71.71 1.41 1.42 3.54 3.53 1.41-1.41-3.53-3.54-1.42-1.41-.71-.71 5.66-5.66-1.41-1.41L12 10.59 6.34 4.93 4.93 6.34 10.59 12l-.71.71z"></path>
             </svg>
         ),
-        libelle: 'Annulé',
+        libelle: 'Non payée',
         classe: 'statut--annule',
     },
 
-    paye: {
+    payee: {
         icone: (
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                 fill="currentColor" viewBox="0 0 24 24" >
                 <path d="M9 15.59 4.71 11.3 3.3 12.71l5 5c.2.2.45.29.71.29s.51-.1.71-.29l11-11-1.41-1.41L9.02 15.59Z"></path>
             </svg>
         ),
-        libelle: 'Payé',
+        libelle: 'Payée',
         classe: 'statut--paye',
     },
 };

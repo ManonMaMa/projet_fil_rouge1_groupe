@@ -126,11 +126,11 @@ INSERT INTO public.utilisateur VALUES
 
 
 INSERT INTO public.statut (nom_statut) VALUES
-('En attente'),
-('Refusé'),
-('Accepté'),
-('Payée'),
-('Non payée');
+('en_attente'),
+('refuse'),
+('accepte'),
+('payee'),
+('non_payee');
 
 
 
@@ -171,10 +171,10 @@ INSERT INTO public.prestation (description_prestation, montant_prestation) VALUE
 
 
 INSERT INTO public.facture (numero_facture, date_facture, echeance_facture, montant_total_facture, id_client_fk, id_user_fk, id_statut_fk) VALUES
-('F001', '2026-01-05', '2026-02-04', 1240.50, 1, 'u001', 4),
+('F001', '2026-01-05', '2026-02-04', 1240.50, 1, 'u001', 1),
 ('F002', '2026-01-10', '2026-02-09', 850.00, 2, 'u002', 4),
 ('F003', '2026-01-12', '2026-02-11', 2300.75, 3, 'u003', 4),
-('F004', '2026-01-14', '2026-02-13', 560.00, 4, 'u004', 4),
+('F004', '2026-01-14', '2026-02-13', 560.00, 4, 'u004', 1),
 ('F005', '2026-01-16', '2026-02-15', 1990.20, 5, 'u001', 5),
 ('F006', '2026-01-18', '2026-02-17', 125.50, 6, 'u002', 5),
 ('F007', '2026-01-20', '2026-02-19', 3000.00, 7, 'u003', 5),
