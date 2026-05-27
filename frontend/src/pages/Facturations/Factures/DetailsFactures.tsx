@@ -74,9 +74,91 @@ const DetailsFacture: React.FC = () => {
 
                 <div className="zone-contenu-details-factures">
 
+                    {/* Contenu Gauche - Aperçu Facture */}
                     <div className="details-factures-gauche">
+                        <div className="apercu-facture">
+                            <div className="apercu-entete">
+                                <div className="apercu-logo-zone">
+                                    <div className="apercu-logo-cercle" />
+                                    <span className="apercu-logo-label">Votre Entreprise</span>
+                                </div>
+                                <div className="apercu-badge-facture">FACTURE</div>
+                            </div>
+
+                            <div className="apercu-meta">
+                                <div className="apercu-meta-bloc">
+                                    <span className="apercu-meta-label">Numéro</span>
+                                    <span className="apercu-meta-valeur">{facture.numero_facture}</span>
+                                </div>
+                                <div className="apercu-meta-bloc">
+                                    <span className="apercu-meta-label">Émission</span>
+                                    <span className="apercu-meta-valeur">{facture.date_facture}</span>
+                                </div>
+                                <div className="apercu-meta-bloc">
+                                    <span className="apercu-meta-label">Échéance</span>
+                                    <span className="apercu-meta-valeur">{facture.echeance_facture}</span>
+                                </div>
+                            </div>
+
+                            <div className="apercu-separateur" />
+
+                            <div className="apercu-client">
+                                <span className="apercu-section-label">Facturé à</span>
+                                <p className="apercu-client-nom">
+                                    {facture.client?.entreprise_client ||
+                                        `${facture.client?.nom_client || ""} ${facture.client?.prenom_client || ""}`}
+                                </p>
+                                <p className="apercu-client-detail">{facture.client?.adresse_postale_client}</p>
+                                <p className="apercu-client-detail">{facture.client?.email_client}</p>
+                            </div>
+
+                            <div className="apercu-separateur" />
+
+                            <div className="apercu-lignes">
+                                <div className="apercu-ligne-header">
+                                    <span>Description</span>
+                                    <span>Total</span>
+                                </div>
+                                {facture.prestations && facture.prestations.length > 0 ? (
+                                    facture.prestations.slice(0, 4).map((p, i) => {
+                                        const prix = p.prestation?.montant_prestation || 0;
+                                        const total = prix * p.duree_prestation;
+                                        return (
+                                            <div key={i} className="apercu-ligne-item">
+                                                <span className="apercu-ligne-desc">
+                                                    {p.prestation?.description_prestation || "—"}
+                                                </span>
+                                                <span className="apercu-ligne-montant">{total.toFixed(2)} €</span>
+                                            </div>
+                                        );
+                                    })
+                                ) : (
+                                    <p className="apercu-vide">Aucune prestation</p>
+                                )}
+                                {facture.prestations && facture.prestations.length > 4 && (
+                                    <p className="apercu-plus">+{facture.prestations.length - 4} ligne(s)…</p>
+                                )}
+                            </div>
+
+                            <div className="apercu-total-bande">
+                                <span className="apercu-total-label">TOTAL HT</span>
+                                <span className="apercu-total-montant">
+                                    {(facture.prestations?.reduce((acc, p) => {
+                                        const prix = p.prestation?.montant_prestation || 0;
+                                        return acc + prix * p.duree_prestation;
+                                    }, 0) ?? 0).toFixed(2)} €
+                                </span>
+                            </div>
+
+                            <div className="apercu-pied">
+                                <div className="apercu-pied-ligne" />
+                                <span className="apercu-pied-texte">Merci pour votre confiance</span>
+                            </div>
+                        </div>
                     </div>
 
+
+                    {/* Contenu Droite - Détails Facture */}
                     <div className="details-factures-droite">
 
                         {/* Client */}

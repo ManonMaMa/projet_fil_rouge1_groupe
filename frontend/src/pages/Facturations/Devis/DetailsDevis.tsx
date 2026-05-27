@@ -84,7 +84,7 @@ const DetailsDevis: React.FC = () => {
     const isDirty =
         JSON.stringify(formData) !== JSON.stringify(savedData);
 
-     const handleSave = async () => {
+    const handleSave = async () => {
         try {
             if (!id || !formData) return;
 
@@ -155,9 +155,98 @@ const DetailsDevis: React.FC = () => {
 
                 <div className="zone-contenu-details-devis">
 
+                    {/* Contenu Gauche - Aperçu Devis */}
                     <div className="details-devis-gauche">
+                        <div className="apercu-devis">
+                            <div className="apercu-entete">
+                                <div className="apercu-logo-zone">
+                                    <div className="apercu-logo-cercle" />
+                                    <span className="apercu-logo-label">
+                                        {formData.client?.entreprise_client ||
+                                            `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`}
+                                    </span>
+                                </div>
+                                <div className="apercu-badge-devis">DEVIS</div>
+                            </div>
+
+                            <div className="apercu-meta">
+                                <div className="apercu-meta-bloc">
+                                    <span className="apercu-meta-label">Numéro</span>
+                                    <span className="apercu-meta-valeur">{formData.numero_devis}</span>
+                                </div>
+                                <div className="apercu-meta-bloc">
+                                    <span className="apercu-meta-label">Émission</span>
+                                    <span className="apercu-meta-valeur">{formData.date_devis}</span>
+                                </div>
+                                <div className="apercu-meta-bloc">
+                                    <span className="apercu-meta-label">Statut</span>
+                                    <span className="apercu-meta-valeur">
+                                        {formData.id_statut_fk === 1 ? "En attente" :
+                                            formData.id_statut_fk === 2 ? "Refusé" :
+                                                formData.id_statut_fk === 3 ? "Accepté" : "—"}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="apercu-separateur" />
+
+                            <div className="apercu-client">
+                                <span className="apercu-section-label">Adressé à</span>
+                                <p className="apercu-client-nom">
+                                    {formData.client?.entreprise_client ||
+                                        `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`}
+                                </p>
+                                <p className="apercu-client-detail">{formData.client?.adresse_postale_client}</p>
+                                <p className="apercu-client-detail">{formData.client?.email_client}</p>
+                            </div>
+
+                            <div className="apercu-separateur" />
+
+                            <div className="apercu-lignes">
+                                <div className="apercu-ligne-header">
+                                    <span>Description</span>
+                                    <span>Total</span>
+                                </div>
+                                {formData.prestations && formData.prestations.length > 0 ? (
+                                    formData.prestations.slice(0, 4).map((p, i) => {
+                                        const prix = p.prestation?.montant_prestation || 0;
+                                        const total = prix * p.duree_prestation;
+                                        return (
+                                            <div key={i} className="apercu-ligne-item">
+                                                <span className="apercu-ligne-desc">
+                                                    {p.prestation?.description_prestation || "—"}
+                                                </span>
+                                                <span className="apercu-ligne-montant">{total.toFixed(2)} €</span>
+                                            </div>
+                                        );
+                                    })
+                                ) : (
+                                    <p className="apercu-vide">Aucune prestation</p>
+                                )}
+                                {formData.prestations && formData.prestations.length > 4 && (
+                                    <p className="apercu-plus">+{formData.prestations.length - 4} ligne(s)…</p>
+                                )}
+                            </div>
+
+                            <div className="apercu-total-bande">
+                                <span className="apercu-total-label">TOTAL HT</span>
+                                <span className="apercu-total-montant">
+                                    {(formData.prestations?.reduce((acc, p) => {
+                                        const prix = p.prestation?.montant_prestation || 0;
+                                        return acc + prix * p.duree_prestation;
+                                    }, 0) ?? 0).toFixed(2)} €
+                                </span>
+                            </div>
+
+                            <div className="apercu-pied">
+                                <div className="apercu-pied-ligne" />
+                                <span className="apercu-pied-texte">Merci pour votre confiance</span>
+                            </div>
+                        </div>
                     </div>
 
+
+                    {/* Contenu Droite - Détails Devis */}
                     <div className="details-devis-droite">
 
                         {/* Statut */}
@@ -169,9 +258,9 @@ const DetailsDevis: React.FC = () => {
                                     Statut : {
                                         // formData?.statut?.nom_statut ||
                                         (formData?.id_statut_fk === 1 ? "En attente" :
-                                        formData?.id_statut_fk === 2 ? "Refusé" :
-                                        formData?.id_statut_fk === 3 ? "Accepté" :
-                                        "Inconnu")
+                                            formData?.id_statut_fk === 2 ? "Refusé" :
+                                                formData?.id_statut_fk === 3 ? "Accepté" :
+                                                    "Inconnu")
                                     }
                                 </h2>
                             </div>
@@ -218,7 +307,7 @@ const DetailsDevis: React.FC = () => {
                             </div>
 
                             <div className="ligne-1">
-                                <Input label="Nom / Société" value={formData.client?.entreprise_client || 
+                                <Input label="Nom / Société" value={formData.client?.entreprise_client ||
                                     `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`} readOnly type="" placeholder="" style={{ cursor: "default" }} />
                                 <Input label="Référence client" value={formData.id_client_fk.toString()} readOnly style={{ cursor: "default" }} />
                             </div>
