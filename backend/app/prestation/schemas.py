@@ -20,3 +20,8 @@ class PrestationResponse(BaseModel):
     id_prestation: int
     description_prestation: str
     montant_prestation: float
+
+
+class AddPrestationSchema(BaseModel):
+    id_prestation: int
+    duree: int

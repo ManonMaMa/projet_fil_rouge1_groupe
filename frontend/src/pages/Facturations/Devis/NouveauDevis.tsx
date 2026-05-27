@@ -71,28 +71,50 @@ const NouveauDevis: React.FC = () => {
             alert("Utilisateur non connecté");
             return;
         }
+
+        // 1️⃣ Création du devis
         const devis = {
             numero_devis: "DEV-" + Date.now(),
             date_devis: new Date().toISOString().split("T")[0],
-            montant_total_devis: totalTTC,
+            montant_total_devis: 0, // le backend recalculera
             id_client_fk: clientSelectionne?.id_client,
-            id_user_fk: localStorage.getItem("id_user"),
+            id_user_fk: id_user,
             id_statut_fk: 1
         };
+
         const res = await fetch("http://localhost:8000/facturation/devis", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(devis)
         });
+
         if (!res.ok) {
-            const error = await res.text();
-            console.error("Erreur backend :", error);
-            throw new Error("Erreur création devis");
+            console.error(await res.text());
+            alert("Erreur création devis");
+            return;
         }
-        const data = await res.json();
-        console.log("✅ Devis créé :", data);
+
+        const devisCree = await res.json();
+        console.log("Devis créé :", devisCree);
+
+        // 2️⃣ Ajout des prestations une par une
+        for (const ligne of lignes) {
+            if (!ligne.prestation) continue;
+
+            await fetch(`http://localhost:8000/facturation/devis/${devisCree.id_devis}/prestations`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id_prestation: ligne.prestation.id_prestation,
+                    duree: ligne.quantite
+                })
+            });
+        }
+
+        // 3️⃣ Redirection
         navigate("/facturation/devis");
     };
+
 
     return (
         <div className="page-conteneur-nouvelle-facture">

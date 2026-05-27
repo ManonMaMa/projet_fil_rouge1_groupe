@@ -3,12 +3,13 @@ from datetime import date
 from typing import Optional, List
 from app.client.schemas import ClientResponse
 from app.statut.schemas import StatutOut
-from app.prestation.schemas import PrestationBase
+from app.prestation.schemas import PrestationResponse
+
 
 class DevisPrestationOut(BaseModel):
     id_prestation_fk: int
     duree_prestation: int
-    prestation: Optional[PrestationBase]
+    prestation: PrestationResponse
 
     class Config:
         from_attributes = True
@@ -17,7 +18,7 @@ class DevisPrestationOut(BaseModel):
 class DevisBase(BaseModel):
     numero_devis: str
     date_devis: date
-    montant_total_devis: Optional[float] = None
+    montant_total_devis: Optional[float] = 0
     id_client_fk: int
     id_user_fk: str
     id_statut_fk: int
@@ -38,12 +39,6 @@ class DevisUpdate(BaseModel):
 
 class DevisOut(DevisBase):
     id_devis: int
-    numero_devis: str
-    date_devis: date   # ✅ FIX ICI (PAS str)
-    montant_total_devis: float
-    id_client_fk: int
-
-    # 🔥 optionnel pour éviter crash
     client: Optional[ClientResponse] = None
     statut: Optional[StatutOut] = None
     prestations: List[DevisPrestationOut] = []
