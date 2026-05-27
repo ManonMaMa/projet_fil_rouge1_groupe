@@ -47,48 +47,48 @@ function Sidebar() {
             <div className="milieu-page">
 
                 {/* Dashboard */}
-                <Link to="/" className={isActive("/")}>
+                {/* <Link to="/" className={isActive("/")}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
                         <path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.4 0 .77-.24.92-.62.15-.37.07-.8-.22-1.09l-8.99-9a.996.996 0 0 0-1.41 0l-9.01 9c-.29.29-.37.72-.22 1.09s.52.62.92.62Zm9-8.59 6 6V20H6v-9.59z"></path>
                     </svg>
                     <p>Dashboard</p>
-                </Link>
+                </Link> */}
 
 
                 {/* Agenda */}
-                <Link to="/agenda" className={isActive("/agenda")}>
+                {/* <Link to="/agenda" className={isActive("/agenda")}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
                         <path d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2M5 20V8h14V6v14z"></path><path d="M7 11h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"></path>
                     </svg>
                     <p>Agenda</p>
-                </Link>
+                </Link> */}
 
 
                 {/* Planification */}
-                <Link to="/planification" className={isActive("/planification")}>
+                {/* <Link to="/planification" className={isActive("/planification")}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
                         <path d="m4 8.09-1.29-1.3-1.42 1.42L4 10.91l4.71-4.7-1.42-1.42zm0 8-1.29-1.3-1.42 1.42L4 18.91l4.71-4.7-1.42-1.42zM10 15h12v2H10zm0-8h12v2H10z"></path>
                     </svg>
                     <p>Planification</p>
-                </Link>
+                </Link> */}
 
 
                 {/* Finances */}
-                <Link to="/finances" className={isActive("/finances")}>
+                {/* <Link to="/finances" className={isActive("/finances")}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
                         <path d="M3 15h2v6H3zm4-2h2v8H7zm4-1h2v9h-2zm4 1h2v8h-2zm4-5h2v13h-2z"></path><path d="m19.21 2.38-4.87 6.21-5-4-6.13 7.79 1.58 1.24 4.87-6.21 5 4 6.13-7.79z"></path>
                     </svg>
                     <p>Finances</p>
-                </Link>
+                </Link> */}
 
 
                 {/* Documents */}
-                <Link to="/documents" className={isActive("/documents")}>
+                {/* <Link to="/documents" className={isActive("/documents")}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24" >
                         <path d="M19.67 2.61c-.81-.81-2.14-.81-2.95 0L3.38 15.95c-.13.13-.22.29-.26.46l-1.09 4.34c-.08.34.01.7.26.95.19.19.45.29.71.29.08 0 .16 0 .24-.03l4.34-1.09c.18-.04.34-.13.46-.26L21.38 7.27c.81-.81.81-2.14 0-2.95L19.66 2.6ZM6.83 19.01l-2.46.61.61-2.46 9.96-9.94 1.84 1.84zM19.98 5.86 18.2 7.64 16.36 5.8l1.78-1.78s.09-.03.12 0l1.72 1.72s.03.09 0 .12"></path>
                     </svg>
                     <p>Documents</p>
-                </Link>
+                </Link> */}
 
 
                 {/* Facturation avec sous-menu */}

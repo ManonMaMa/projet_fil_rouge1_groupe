@@ -40,9 +40,9 @@ const Parametres: React.FC = () => {
     const Onglets = [
         { id: 'mon-profil', etiquette: 'Mon profil'},
         { id: 'entreprise', etiquette: 'Entreprise'},
-        { id: 'preferences', etiquette: 'Préférences'},
-        { id: 'securite', etiquette: 'Sécurité'},
-        { id: 'plan', etiquette: 'Plan'}
+        // { id: 'preferences', etiquette: 'Préférences'},
+        // { id: 'securite', etiquette: 'Sécurité'},
+        // { id: 'plan', etiquette: 'Plan'}
     ];
 
 
@@ -53,12 +53,12 @@ const Parametres: React.FC = () => {
                 return <ProfilTab user={user} refreshUser={fetchUser}/>;
             case 'entreprise':
                 return <EntrepriseTab user={user} refreshUser={fetchUser}/>;
-            case 'preferences':
-                return <PreferencesTab  />;
-            case 'securite':
-                return <SecuriteTab  />;
-            case 'plan':
-                return <PlanTab />;
+            // case 'preferences':
+            //     return <PreferencesTab  />;
+            // case 'securite':
+            //     return <SecuriteTab  />;
+            // case 'plan':
+            //     return <PlanTab />;
             default:
                 return null;
         }
