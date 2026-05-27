@@ -122,3 +122,21 @@ def delete_devis(db: Session, id_devis: int):
     db.commit()
 
     return {"message": "Devis supprimé avec succès"}
+
+
+
+def update_statut_devis(db: Session, id_devis: int, id_statut: int):
+    devis = db.query(Devis).filter(Devis.id_devis == id_devis).first()
+
+    if not devis:
+        raise HTTPException(404, "Devis introuvable")
+
+    devis.id_statut_fk = id_statut
+
+
+    print("NOUVEAU STATUT =", id_statut)
+    print("OBJET =", devis.id_statut_fk)
+
+    db.commit()
+    db.refresh(devis)
+    return devis

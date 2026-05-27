@@ -16,6 +16,7 @@ type DevisType = {
     date_devis: string;
     montant_total_devis: number;
     id_client_fk: number;
+    id_statut_fk: number;
 
     client?: {
         nom_client: string;
@@ -23,6 +24,10 @@ type DevisType = {
         entreprise_client: string;
         adresse_postale_client: string;
         email_client: string;
+    };
+
+    statut?: {
+        nom_statut: string;
     };
 
     prestations?: {
@@ -160,16 +165,40 @@ const DetailsDevis: React.FC = () => {
                             <div className="titre-section-details-devis">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     fill="currentColor" viewBox="0 0 24 24" />
-                                <h2>Statut</h2>
+                                <h2 style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+                                    Statut : {
+                                        // formData?.statut?.nom_statut ||
+                                        (formData?.id_statut_fk === 1 ? "En attente" :
+                                        formData?.id_statut_fk === 2 ? "Refusé" :
+                                        formData?.id_statut_fk === 3 ? "Accepté" :
+                                        "Inconnu")
+                                    }
+                                </h2>
                             </div>
 
                             <div className="ligne-1">
                                 <BoutonDevisAccepte
-                                    onClick={() => console.log('Devis accepté')}
+                                    onClick={async () => {
+                                        if (!id) return;
+                                        await fetch(`http://localhost:8000/facturation/devis/${id}/accepter`, {
+                                            method: "POST"
+                                        });
+                                        fetchDevis(); // recharge les données
+                                        navigate(`/facturation/devis`);
+                                    }}
                                 />
+
                                 <BoutonDevisRefuse
-                                    onClick={() => console.log('Devis refusé')}
+                                    onClick={async () => {
+                                        if (!id) return;
+                                        await fetch(`http://localhost:8000/facturation/devis/${id}/refuser`, {
+                                            method: "POST"
+                                        });
+                                        fetchDevis(); // recharge les données
+                                        navigate(`/facturation/devis`);
+                                    }}
                                 />
+
                                 <button
                                     className="btn-convertir-facture"
                                     onClick={handleConvertToFacture}
