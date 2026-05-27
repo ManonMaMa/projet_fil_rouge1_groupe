@@ -22,6 +22,10 @@ type FactureType = {
         email_client: string;
     };
 
+    statut?: {
+        nom_statut: string;
+    };
+
     prestations?: {
         id_prestation_fk: number;
         duree_prestation: number;
@@ -32,11 +36,19 @@ type FactureType = {
     }[];
 };
 
+
+type User = {
+    id_user: string
+    entreprise_user: string
+}
+
 const DetailsFacture: React.FC = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
     const [facture, setFacture] = useState<FactureType | null>(null);
+    const [user, setUser] = useState<User | null>(null);
+
 
     const fetchFacture = async () => {
         try {
@@ -54,8 +66,25 @@ const DetailsFacture: React.FC = () => {
         }
     };
 
+    const fetchUser = async () => {
+        try {
+            const userId = localStorage.getItem("id_user");
+            if (!userId) return;
+
+            const res = await fetch(`http://localhost:8000/utilisateur/${userId}`);
+            const data = await res.json();
+
+            console.log("👤 USER API:", data);
+            setUser(data);
+
+        } catch (err) {
+            console.error("❌ Erreur chargement user :", err);
+        }
+    };
+
     useEffect(() => {
         fetchFacture();
+        fetchUser();
     }, [id]);
 
     if (!facture) return <p>Chargement...</p>;
@@ -69,6 +98,7 @@ const DetailsFacture: React.FC = () => {
                 <HeaderDetailsFactures
                     titre="Facture"
                     sousTitre={facture.numero_facture}
+                    statut={facture.statut?.nom_statut}
                     surRetour={() => navigate("/facturation/factures")}
                 />
 
@@ -80,7 +110,7 @@ const DetailsFacture: React.FC = () => {
                             <div className="apercu-entete">
                                 <div className="apercu-logo-zone">
                                     <div className="apercu-logo-cercle" />
-                                    <span className="apercu-logo-label">Votre Entreprise</span>
+                                    <span className="apercu-logo-label">{user?.entreprise_user || "Votre entreprise"}</span>
                                 </div>
                                 <div className="apercu-badge-facture">FACTURE</div>
                             </div>

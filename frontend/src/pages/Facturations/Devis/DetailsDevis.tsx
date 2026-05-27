@@ -41,14 +41,21 @@ type DevisType = {
 };
 
 
+type User = {
+    id_user: string
+    entreprise_user: string
+}
+
+
 
 const DetailsDevis: React.FC = () => {
     const navigate = useNavigate();
     const { id } = useParams(); // 👈 ID du devis
 
-    const [devis, setDevis] = useState<DevisType | null>(null);
     const [formData, setFormData] = useState<DevisType | null>(null);
     const [savedData, setSavedData] = useState<DevisType | null>(null);
+    const [user, setUser] = useState<User | null>(null);
+
 
     const fetchDevis = async () => {
         try {
@@ -59,7 +66,6 @@ const DetailsDevis: React.FC = () => {
 
             console.log("📄 DEVIS API:", data);
 
-            setDevis(data);
             setFormData(data);
             setSavedData(data);
 
@@ -68,8 +74,26 @@ const DetailsDevis: React.FC = () => {
         }
     };
 
+    const fetchUser = async () => {
+        try {
+            const userId = localStorage.getItem("id_user");
+            if (!userId) return;
+
+            const res = await fetch(`http://localhost:8000/utilisateur/${userId}`);
+            const data = await res.json();
+
+            console.log("👤 USER API:", data);
+            setUser(data);
+
+        } catch (err) {
+            console.error("❌ Erreur chargement user :", err);
+        }
+    };
+
+
     useEffect(() => {
         fetchDevis();
+        fetchUser();
     }, [id]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -150,6 +174,7 @@ const DetailsDevis: React.FC = () => {
                 <HeaderDetailsDevis
                     titre="Devis"
                     sousTitre={formData.numero_devis}
+                    statut={formData.statut?.nom_statut}
                     surRetour={() => navigate("/facturation/devis")}
                 />
 
@@ -162,8 +187,7 @@ const DetailsDevis: React.FC = () => {
                                 <div className="apercu-logo-zone">
                                     <div className="apercu-logo-cercle" />
                                     <span className="apercu-logo-label">
-                                        {formData.client?.entreprise_client ||
-                                            `${formData.client?.nom_client || ""} ${formData.client?.prenom_client || ""}`}
+                                        {user?.entreprise_user || "Votre entreprise"}
                                     </span>
                                 </div>
                                 <div className="apercu-badge-devis">DEVIS</div>
@@ -255,13 +279,7 @@ const DetailsDevis: React.FC = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     fill="currentColor" viewBox="0 0 24 24" />
                                 <h2 style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
-                                    Statut : {
-                                        // formData?.statut?.nom_statut ||
-                                        (formData?.id_statut_fk === 1 ? "En attente" :
-                                            formData?.id_statut_fk === 2 ? "Refusé" :
-                                                formData?.id_statut_fk === 3 ? "Accepté" :
-                                                    "Inconnu")
-                                    }
+                                    Statut :
                                 </h2>
                             </div>
 
