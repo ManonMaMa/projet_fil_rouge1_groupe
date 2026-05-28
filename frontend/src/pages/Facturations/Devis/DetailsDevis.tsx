@@ -176,6 +176,7 @@ const DetailsDevis: React.FC = () => {
                     sousTitre={formData.numero_devis}
                     statut={formData.statut?.nom_statut}
                     surRetour={() => navigate("/facturation/devis")}
+                    surEmettreDevis={handleConvertToFacture}
                 />
 
                 <div className="zone-contenu-details-devis">
@@ -305,13 +306,6 @@ const DetailsDevis: React.FC = () => {
                                         navigate(`/facturation/devis`);
                                     }}
                                 />
-
-                                <button
-                                    className="btn-convertir-facture"
-                                    onClick={handleConvertToFacture}
-                                >
-                                    Transformer en facture
-                                </button>
 
                             </div>
                         </div>

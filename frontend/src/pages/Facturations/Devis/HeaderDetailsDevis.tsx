@@ -110,13 +110,13 @@ const HeaderDetailsDevis: React.FC<ProprieteHeaderDetailsDevis> = ({
 
                     {/* Bouton Émettre le devis */}
                     <button className="header-details-devis-btn-emettre" onClick={surEmettreDevis}
-                        aria-label="Émettre la devis">
+                        aria-label="Transformer en facture">
                         {/* Icône émettre */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 24 24" >
                             <path d="M4 18h16v2H4zm7-15v7H7l5 6 5-6h-4V3z"></path>
                         </svg>
-                        Émettre le devis
+                        Transformer en facture
                     </button>
 
                 </div>
