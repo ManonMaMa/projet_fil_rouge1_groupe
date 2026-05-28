@@ -9,7 +9,7 @@ from app.devis.models import Devis
 router = APIRouter(prefix="/facturation")
 
 
-# 🔥 Total devis acceptés
+# Total devis acceptés
 @router.get("/stats/devis-acceptes")
 def total_devis_acceptes(db: Session = Depends(get_db), id_user: str = Query(...)):
     total = (
@@ -20,7 +20,7 @@ def total_devis_acceptes(db: Session = Depends(get_db), id_user: str = Query(...
     return {"total": float(total or 0)}
 
 
-# 🔥 Total factures non payées
+# Total factures non payées
 @router.get("/stats/factures-non-payees")
 def total_factures_non_payees(db: Session = Depends(get_db), id_user: str = Query(...)):
     total = (
@@ -31,7 +31,7 @@ def total_factures_non_payees(db: Session = Depends(get_db), id_user: str = Quer
     return {"total": float(total or 0)}
 
 
-# 🔥 Total factures payées
+# Total factures payées
 @router.get("/stats/factures-payees")
 def total_factures_payees(db: Session = Depends(get_db), id_user: str = Query(...)):
     total = (
