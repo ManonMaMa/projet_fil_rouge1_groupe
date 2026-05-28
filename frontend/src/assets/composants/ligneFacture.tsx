@@ -80,22 +80,6 @@ const configStatuts: Record<Statut, { icone: React.ReactNode; libelle: string; c
 };
 
 
-// Icône favoris
-const IcôneFavoris = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-        fill="currentColor" viewBox="0 0 24 24" >
-        <path d="m4.83 12.49 2.04 1.83-.83 2.9-1 3.5c-.12.4.03.84.37 1.08.34.25.8.26 1.14.02l3-2L12 18.19l2.45 1.63 3 2a.99.99 0 0 0 1.14-.02c.34-.25.49-.68.37-1.08l-1-3.5-.83-2.9 2.04-1.83 2.5-2.25c.3-.27.41-.69.28-1.06-.13-.38-.47-.64-.87-.68l-3.15-.25-2.56-.2-2.47-5.46a.998.998 0 0 0-1.82 0L8.61 8.05l-2.56.2-3.15.25c-.4.03-.74.3-.87.68s-.02.8.28 1.06l2.5 2.25Zm1.39-2.25 2.52-.2.62-.05.59-.05.84-1.86 1.2-2.66 1.2 2.66.84 1.86.59.05.62.05 2.52.2.83.07-.77.69-2.5 2.25-.46.42.17.6 1.25 4.38-3.74-2.49-.55-.37-.55.37-3.74 2.49 1.25-4.38.17-.6-.46-.42L6.16 11l-.77-.69z"></path>
-    </svg>
-);
-
-// Icône trois points
-const IcôneTroisPoints = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-        fill="currentColor" viewBox="0 0 24 24" >
-        <path d="M12 10a2 2 0 1 0 0 4 2 2 0 1 0 0-4m0 6a2 2 0 1 0 0 4 2 2 0 1 0 0-4m0-12a2 2 0 1 0 0 4 2 2 0 1 0 0-4"></path>
-    </svg>
-);
-
 
 const LigneFacture: React.FC<LigneFactureProps> = ({
     id = '',
@@ -105,8 +89,6 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
     echeance,
     montantTTC,
     statut,
-    surFavoris,
-    surOptions,
 }) => {
     const config = configStatuts[statut] ?? {
     icone: null,
@@ -155,28 +137,6 @@ const LigneFacture: React.FC<LigneFactureProps> = ({
                     <span className="ligne-facture__statut-icone">{config.icone}</span>
                     <span className="ligne-facture__statut-libelle">{config.libelle}</span>
                 </span>
-            </div>
-
-
-            {/* Actions */}
-            <div className="ligne-facture__cellule ligne-facture__cellule--actions">
-                <button
-                    className="ligne-facture__action-btn"
-                    onClick={() => surFavoris?.(id)}
-                    title="Voir la facture"
-                    aria-label="Voir la facture"
-                >
-                    <IcôneFavoris />
-                </button>
-
-                <button
-                    className="ligne-facture__action-btn"
-                    onClick={() => surOptions?.(id)}
-                    title="Plus d'options"
-                    aria-label="Plus d'options"
-                >
-                    <IcôneTroisPoints />
-                </button>
             </div>
         </div>
     );

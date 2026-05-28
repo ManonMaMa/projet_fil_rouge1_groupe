@@ -28,9 +28,6 @@ const Header: React.FC<ProprieteHeaderFactures> = ({
   ongletsFactures = [],                                 // Valeur par défaut : tableau vide
   ongletActif = ongletsFactures[0]?.id || '',           // Onglet actif par défaut
   surChangementOnglet,
-  afficherBasculeFiltre = true,                 // Affichage du bouton filtre par défaut
-  CreerNouvelleFacture,
-  texteBoutonCreerNouvelleFacture = ''          // Libellé par défaut du bouton "créer nouvelle facture"
 }) => {
 
 
@@ -52,12 +49,6 @@ const Header: React.FC<ProprieteHeaderFactures> = ({
   };
 
 
-  // Bascule l'affichage des filtres
-  const basculerFiltres = () => {
-    setAfficherFiltres(!afficherFiltres);
-  };
-
-
 
   return (
     // Container principal du header
@@ -69,27 +60,6 @@ const Header: React.FC<ProprieteHeaderFactures> = ({
 
         {/* Bouton d'affichage des filtres */}
         <div className="header-factures-actions">
-          {afficherBasculeFiltre && (
-            <button
-              className={`bouton-filtre ${afficherFiltres ? 'active' : ''}`}
-              onClick={basculerFiltres}
-              aria-label="Basculer filtres"
-            >
-              {/* Icône filtre */}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                fill="currentColor" viewBox="0 0 24 24" >
-                <path d="M3 5h18v2H3zm2.5 6h13v2h-13zM8 17h8v2H8z"></path>
-              </svg>
-            </button>
-          )}
-
-          {/* Bouton création nouvelle facture */}
-          {CreerNouvelleFacture && (
-            <button className="nouvelle-action-btn" onClick={CreerNouvelleFacture}>
-              <span className="plus-icon">+</span>
-              {texteBoutonCreerNouvelleFacture}
-            </button>
-          )}
         </div>
       </div>
       {/* --------------------------------------------------------------------------------- */}
