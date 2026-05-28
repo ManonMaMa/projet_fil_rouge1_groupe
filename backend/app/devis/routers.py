@@ -3,7 +3,15 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.devis.schemas import DevisCreate, DevisOut, DevisUpdate
 from app.prestation.schemas import AddPrestationSchema
-from app.devis.services import get_devis_by_id, get_devis_by_user, create_devis_service, update_devis, delete_devis, add_prestation_to_devis, update_statut_devis
+from app.devis.services import (
+    get_devis_by_id, 
+    get_devis_by_user, 
+    create_devis_service, 
+    update_devis, 
+    delete_devis, 
+    add_prestation_to_devis, 
+    update_statut_devis
+)
 
 
 router = APIRouter(prefix="/facturation/devis", tags=["Devis"])

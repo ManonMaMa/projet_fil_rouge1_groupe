@@ -6,7 +6,8 @@ from app.facture.schemas import FactureCreate, FactureOut
 from app.facture.services import (
     get_factures_by_user,
     get_facture_by_id,
-    convertir_devis_en_facture_service
+    convertir_devis_en_facture_service,
+    update_statut_facture
 )
 
 router = APIRouter(prefix="/facturation", tags=["Factures"])
@@ -33,3 +34,12 @@ def details_facture(id_facture: int, db: Session = Depends(get_db)):
 def convertir_devis_en_facture(id_devis: int, db: Session = Depends(get_db)):
     facture = convertir_devis_en_facture_service(id_devis, db)
     return facture
+
+
+@router.post("/factures/{id_facture}/payee", response_model=FactureOut)
+def facture_payee(id_facture: int, db: Session = Depends(get_db)):
+    return update_statut_facture(db, id_facture, 4)
+
+@router.post("/factures/{id_facture}/nonpayee", response_model=FactureOut)
+def facture_non_payee(id_facture: int, db: Session = Depends(get_db)):
+    return update_statut_facture(db, id_facture, 5)

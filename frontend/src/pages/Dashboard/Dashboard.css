@@ -38,3 +38,58 @@
     padding: 16px 20px;
   }
 }
+
+
+/* ajout manon */
+
+.dashboard-cards {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* Style général des cartes */
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px 30px;
+    width: 280px;
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+
+    /* Plus de hover */
+    transition: none;
+    cursor: default;
+}
+
+/* Titre */
+.dashboard-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Valeur */
+.dashboard-card p {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 10px 0 0 0;
+}
+
+/* Couleurs différentes pour chaque carte */
+.dashboard-card:nth-child(1) {
+    border-left: 6px solid #6C63FF; /* violet */
+}
+
+.dashboard-card:nth-child(2) {
+    border-left: 6px solid #FFB400; /* jaune/orange */
+}
+
+.dashboard-card:nth-child(3) {
+    border-left: 6px solid #4CAF50; /* vert */
+}

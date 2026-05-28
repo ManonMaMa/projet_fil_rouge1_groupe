@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../../../assets/composants/Sidebar";
 import Input from '../../../assets/composants/input';
+import BoutonFacturePayee from '../../../assets/composants/boutonFacturePayee';
+import BoutonFactureRefuse from '../../../assets/composants/boutonFactureRefuse';
 import HeaderDetailsFactures from "../Factures/HeaderDetailsFactures"; // tu peux renommer plus tard
 
 import "./DetailsFactures.css";
@@ -193,6 +195,37 @@ const DetailsFacture: React.FC = () => {
 
                         {/* Client */}
                         <div className="details-factures-droite-client">
+                            <div className="titre-section-details-devis">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" viewBox="0 0 24 24" />
+                                <h2 style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+                                    Statut :
+                                </h2>
+                            </div>
+
+                            <div className="ligne-1">
+                                <BoutonFacturePayee
+                                    onClick={async () => {
+                                        if (!id) return;
+                                        await fetch(`http://localhost:8000/facturation/factures/${id}/payee`, {
+                                            method: "POST"
+                                        });
+                                        fetchFacture(); // recharge les données
+                                        navigate(`/facturation/factures`);
+                                    }}
+                                />
+
+                                <BoutonFactureRefuse
+                                    onClick={async () => {
+                                        if (!id) return;
+                                        await fetch(`http://localhost:8000/facturation/factures/${id}/nonpayee`, {
+                                            method: "POST"
+                                        });
+                                        fetchFacture(); // recharge les données
+                                        navigate(`/facturation/factures`);
+                                    }}
+                                />
+                            </div>
                             <div className="titre-section-client">
                                 <h2>Client</h2>
                             </div>

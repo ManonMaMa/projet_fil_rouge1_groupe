@@ -53,7 +53,7 @@ def convertir_devis_en_facture_service(id_devis: int, db: Session):
         montant_total_facture=devis.montant_total_devis,
         id_client_fk=devis.id_client_fk,
         id_user_fk=devis.id_user_fk,
-        id_statut_fk=5
+        id_statut_fk=1
     )
 
     db.add(facture)
@@ -80,4 +80,22 @@ def convertir_devis_en_facture_service(id_devis: int, db: Session):
     db.commit()
     db.refresh(facture)
 
+    return facture
+
+
+
+def update_statut_facture(db: Session, id_facture: int, id_statut: int):
+    facture = db.query(Facture).filter(Facture.id_facture == id_facture).first()
+
+    if not facture:
+        raise HTTPException(404, "Facture introuvable")
+
+    facture.id_statut_fk = id_statut
+
+
+    print("NOUVEAU STATUT =", id_statut)
+    print("OBJET =", facture.id_statut_fk)
+
+    db.commit()
+    db.refresh(facture)
     return facture
